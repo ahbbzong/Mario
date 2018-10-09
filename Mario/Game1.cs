@@ -1,0 +1,148 @@
+﻿using Game1;
+using Mario.Factory;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using Mario.Enums;
+using Mario.Collision;
+using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
+using Mario.Collision.ItemCollisionHandler;
+using Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler;
+using Mario.Collision.EnemyCollisionHandler;
+using Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler;
+using System.Xml;
+using Mario.XMLRead;
+[assembly: System.CLSCompliant(true)]
+
+namespace Mario
+{
+    /// <summary>
+    /// This is the main type for your game.
+    /// </summary>
+    public class Game1 : Microsoft.Xna.Framework.Game
+    {
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+         public IMario mario { get; set; }
+         IList<IItem> itemList;
+         IList<IEnemy> enemyList;
+         IList<IBlock> blockList;
+         IList<IBlock> pipeList;
+         IList<IBackground> backgroundList;
+         IList<IController> controllerList;
+        public Game1()
+        {
+            graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
+        }
+
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+            controllerList = new List<IController>();
+            controllerList.Add(new Keyboards(this));
+            controllerList.Add(new GamePadController(this));
+
+            itemList = new List<IItem>();
+            enemyList = new List<IEnemy>();
+            blockList = new List<IBlock>();
+            pipeList = new List<IBlock>();
+            backgroundList = new List<IBackground>();
+            graphics.PreferredBackBufferWidth = 1440;
+            graphics.PreferredBackBufferHeight = 900;
+            graphics.ApplyChanges();
+            base.Initialize();
+        }
+
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            SpriteFactory.Instance.LoadAllTextures(Content);
+            LevelLoader.LoadFile("./XMLFile1.xml");
+
+            mario = new Mario(ItemManager.PlayerMario);
+
+            foreach (IBlock obj in ItemManager.BlockList)
+            {
+                blockList.Add(obj);
+            }
+            foreach (IEnemy obj in ItemManager.EnemyList)
+            {
+                enemyList.Add(obj);
+            }
+            foreach (IItem obj in ItemManager.ItemList)
+            {
+                itemList.Add(obj);
+            }
+            foreach (IBlock obj in ItemManager.PipeList)
+            {
+                pipeList.Add(obj);
+            }
+            foreach (IBackground obj in ItemManager.BackgroundList)
+            {
+                backgroundList.Add(obj);
+            }
+            // TODO: use this.Content to load your game content here
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// game-specific content.
+        /// </summary>
+        protected override void UnloadContent()
+        {
+            // TODO: Unload any non ContentManager content here
+        }
+
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // TODO: Add your update logic here
+            
+            foreach (IController controller in controllerList)
+            {
+                controller.Update();
+            }
+            ItemManager.TestingCollision(mario);
+            ItemManager.Update();
+            mario.Update();
+            
+            base.Update(gameTime);
+        }
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            ItemManager.Draw(spriteBatch);
+            mario.Draw(spriteBatch);
+            spriteBatch.End();
+            base.Draw(gameTime);
+        }
+    }
+}

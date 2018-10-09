@@ -1,0 +1,17 @@
+﻿
+Oirma Group
+Burndown Chart
+
+
+In our burndown chart, since there is a person dropped from our group, we have to rebuild our VSTS and 
+make a new project for sprint 3 and our future works. Therefore, our burndown chart looks not so normal: all
+our task seems to be build at one day and being done by one or two day near the due date.
+But our ture schedule is not like that.
+We arrange a meeting right after the sprint 3 assigned date and we work together to make all the task. Then,
+after picking our own task, we uploaded and talked about our work during days everyday and went to office 
+for help. Our time for implementation is well-scheduled and we are even able to get ahead and make the first
+implementaion done one day eariler than due day and start changing codes based on the code quality.
+On the refactory, we spend most of the time fixing warnings and making our class cleaner, we all get our 
+own work and we are able to merge our work before the due date.
+I really think this is a great start. If we keep following the schedule like this, we will be able to meet every 
+due date and have spare time for improving our code.
