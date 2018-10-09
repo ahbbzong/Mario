@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+
+    <ItemXML>
+      <GameObjectType>FireFlower</GameObjectType>
+      <XLocation>60</XLocation>
+      <YLocation>140</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+      <GameObjectType>Coin</GameObjectType>
+      <XLocation>260</XLocation>
+      <YLocation>140</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+      <GameObjectType>MagicMushroom</GameObjectType>
+      <XLocation>460</XLocation>
+      <YLocation>140</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+      <GameObjectType>OneUpMagicMushroom</GameObjectType>
+      <XLocation>660</XLocation>
+      <YLocation>140</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+      <GameObjectType>Starman</GameObjectType>
+      <XLocation>860</XLocation>
+      <YLocation>140</YLocation>
+    </ItemXML>
+  
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>1060</XLocation>
+    <YLocation>140</YLocation>
+  </EnemyXML>
+
+    <EnemyXML>
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>1260</XLocation>
+      <YLocation>140</YLocation>
+    </EnemyXML>
+
+  <BlockXML>
+      <BlockType>Unbreakable</BlockType>
+      <XLocation>60</XLocation>
+      <YLocation>400</YLocation>
+  </BlockXML>
+
+    <BlockXML>
+      <BlockType>Question</BlockType>
+      <XLocation>160</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+      <BlockType>Question</BlockType>
+      <XLocation>260</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+      <BlockType>Question</BlockType>
+      <XLocation>360</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+      <BlockType>Breakable</BlockType>
+      <XLocation>460</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+      <BlockType>Breakable</BlockType>
+      <XLocation>560</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+  
+    <BlockXML>
+      <BlockType>Floor</BlockType>
+      <XLocation>660</XLocation>
+      <YLocation>400</YLocation>
+    </BlockXML>
+
+  <BlockXML>
+    <BlockType>Hidden</BlockType>
+    <XLocation>760</XLocation>
+    <YLocation>400</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Hidden</BlockType>
+    <XLocation>860</XLocation>
+    <YLocation>400</YLocation>
+  </BlockXML>
+
+    <PipeXML>
+      <BlockType>Pipe</BlockType>
+      <XLocation>1000</XLocation>
+      <YLocation>710</YLocation>
+    </PipeXML>
+
+    <PlayerXML>
+      <PlayerName>Mario</PlayerName>
+      <XLocation>800</XLocation>
+      <YLocation>700</YLocation>
+    </PlayerXML>
+  
+    <BackgroundXML>
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>200</XLocation>
+      <YLocation>40</YLocation>
+    </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>CloudSingle</BackgroundType>
+    <XLocation>400</XLocation>
+    <YLocation>40</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>CloudTriple</BackgroundType>
+    <XLocation>600</XLocation>
+    <YLocation>40</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>MountainBig</BackgroundType>
+    <XLocation>270</XLocation>
+    <YLocation>800</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>MountainSmall</BackgroundType>
+    <XLocation>670</XLocation>
+    <YLocation>850</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushSingle</BackgroundType>
+    <XLocation>70</XLocation>
+    <YLocation>850</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushTriple</BackgroundType>
+    <XLocation>1200</XLocation>
+    <YLocation>850</YLocation>
+  </BackgroundXML>
+
+</Map>
