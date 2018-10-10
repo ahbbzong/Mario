@@ -229,7 +229,7 @@
     <Compile Include="XMLRead\BackgroundXML.cs" />
     <Compile Include="XMLRead\BlockXML.cs" />
     <Compile Include="XMLRead\EnemyXML.cs" />
-    <Compile Include="Collision\CollisionManager\ItemManager.cs" />
+    <Compile Include="ItemManager.cs" />
     <Compile Include="XMLRead\ItemXML.cs" />
     <Compile Include="XMLRead\LevelLoader.cs" />
     <Compile Include="XMLRead\PipeXML.cs" />

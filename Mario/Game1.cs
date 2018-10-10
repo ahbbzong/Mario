@@ -25,11 +25,6 @@ namespace Mario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
          public IMario mario { get; set; }
-         IList<IItem> itemList;
-         IList<IEnemy> enemyList;
-         IList<IBlock> blockList;
-         IList<IBlock> pipeList;
-         IList<IBackground> backgroundList;
          IList<IController> controllerList;
         public Game1()
         {
@@ -49,12 +44,7 @@ namespace Mario
             controllerList = new List<IController>();
             controllerList.Add(new Keyboards(this));
             controllerList.Add(new GamePadController(this));
-
-            itemList = new List<IItem>();
-            enemyList = new List<IEnemy>();
-            blockList = new List<IBlock>();
-            pipeList = new List<IBlock>();
-            backgroundList = new List<IBackground>();
+			
             graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
@@ -74,26 +64,6 @@ namespace Mario
 
             mario = new Mario(ItemManager.PlayerMario);
 
-            foreach (IBlock obj in ItemManager.BlockList)
-            {
-                blockList.Add(obj);
-            }
-            foreach (IEnemy obj in ItemManager.EnemyList)
-            {
-                enemyList.Add(obj);
-            }
-            foreach (IItem obj in ItemManager.ItemList)
-            {
-                itemList.Add(obj);
-            }
-            foreach (IBlock obj in ItemManager.PipeList)
-            {
-                pipeList.Add(obj);
-            }
-            foreach (IBackground obj in ItemManager.BackgroundList)
-            {
-                backgroundList.Add(obj);
-            }
             // TODO: use this.Content to load your game content here
         }
 
