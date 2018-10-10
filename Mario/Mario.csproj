@@ -132,6 +132,10 @@
     <Compile Include="Enums\EnemyType.cs" />
     <Compile Include="Enums\GameObjectType.cs" />
     <Compile Include="Enums\PipeType.cs" />
+    <Compile Include="Factory\BackgroundFactory.cs" />
+    <Compile Include="Factory\BlockFactory.cs" />
+    <Compile Include="Factory\ItemFactory.cs" />
+    <Compile Include="Factory\MarioFactory.cs" />
     <Compile Include="Factory\SpriteFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\IBackground.cs" />

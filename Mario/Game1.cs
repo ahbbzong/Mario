@@ -24,6 +24,7 @@ namespace Mario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
          public IMario mario { get; set; }
          IList<IController> controllerList;
         public Game1()
