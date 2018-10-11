@@ -20,7 +20,7 @@ namespace Mario
         }
         public void Update()
         {
-            delay++;
+           /* delay++;
             if (delay == 5)
             {
                 GamePadState currentState = GamePad.GetState(PlayerIndex.One);
@@ -46,11 +46,22 @@ namespace Mario
                 }
                 foreach (ICommand command in commandList)
                 {
-                    command.Update();
+                    command.Execute();
                 }
                 delay = 0;
             }
+			*/
 
         }
-    }
+
+		public void Initialize(IMario mario) { 
+		
+			commandList.Add(new QuitCommand(myMario));
+			commandList.Add(new LeftCommand(mario));
+			commandList.Add(new UpCommand(mario));
+			commandList.Add(new DownCommand(mario));
+			commandList.Add(new RightCommand(mario));
+			
+		}
+	}
 }

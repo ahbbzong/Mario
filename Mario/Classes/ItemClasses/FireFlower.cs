@@ -12,7 +12,7 @@ namespace Mario.ItemClasses
         public FireFlower(Vector2 location) : base(location)
         {
             ItemSprite = SpriteFactory.Instance.CreateFireFlowerSprite();
-            Type = GameObjectType.FireFlower;
+            Type = ItemType.FireFlower;
         }
     }
 }

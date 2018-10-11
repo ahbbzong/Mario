@@ -3,16 +3,14 @@
 namespace Mario.MarioCommand
 {
 
-    public class BeStarMarioCommand : ICommand
-    {
-        private Game1 myMario;
-        public BeStarMarioCommand(Game1 mario)
+    public class BeStarMarioCommand : MarioCommand
+	{ 
+        public BeStarMarioCommand(IMario mario):base(mario)
         {
-            myMario = mario;
         }
-        public void Update()
+        public override void Execute()
         {
-            myMario.mario.BeStarMario();
+            Mario.BeStarMario();
         }
     }
 }

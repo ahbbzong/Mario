@@ -4,16 +4,13 @@ namespace Mario.MarioCommand
 
 {
 
-    public class RightCommand : ICommand
+    public class RightCommand : MarioCommand
     {
-        private Game1 game;
-        public RightCommand(Game1 game)
+        public RightCommand(IMario mario):base(mario)
+        {        }
+        public override void Execute()
         {
-            this.game = game;
-        }
-        public void Update()
-        {
-            game.mario.Right();
+			Mario.Right();
         }
     }
 }

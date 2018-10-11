@@ -1,5 +1,7 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Interfaces.GameObjects;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class EnemyMarioCollisionHandler : IEnemyCollisionHandler
+    public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
     {
         IMario mario;
         public EnemyMarioCollisionHandler(IMario mario)
@@ -22,5 +24,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                 enemy.BeStomped();
             }
         }
-    }
+
+		
+	}
 }

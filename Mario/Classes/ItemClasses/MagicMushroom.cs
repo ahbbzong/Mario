@@ -12,7 +12,7 @@ namespace Mario.ItemClasses
         public MagicMushroom(Vector2 location) : base(location)
         {
             ItemSprite = SpriteFactory.Instance.CreateMagicMushroomSprite();
-            Type = GameObjectType.MagicMushroom;
+            Type = ItemType.MagicMushroom;
         }
     }
 }

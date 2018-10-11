@@ -102,6 +102,7 @@
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioMagicMushroomCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioStarmanCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioPipeCollisionHandler\MarioPipeCollisionHandler.cs" />
+    <Compile Include="Command\MarioCommand\MarioCommand.cs" />
     <Compile Include="Command\QuitCommand.cs" />
     <Compile Include="Command\MarioCommand\BeFireMarioCommand.cs" />
     <Compile Include="Command\MarioCommand\BeNormalMaroCommand.cs" />
@@ -131,14 +132,18 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\EnemyType.cs" />
     <Compile Include="Enums\GameObjectType.cs" />
+    <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Factory\BackgroundFactory.cs" />
     <Compile Include="Factory\BlockFactory.cs" />
+    <Compile Include="Factory\EnemyFactory.cs" />
+    <Compile Include="Factory\GameObjectFactory.cs" />
     <Compile Include="Factory\IGameObjectFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Factory\MarioFactory.cs" />
     <Compile Include="Factory\SpriteFactory.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Interfaces\CollisionHandlers\ICollisionHandler.cs" />
     <Compile Include="Interfaces\GameObjects\IGameObject.cs" />
     <Compile Include="Interfaces\GameObjects\IBackground.cs" />
     <Compile Include="Interfaces\GameObjects\IBlock.cs" />

@@ -1,19 +1,17 @@
 ﻿using Game1;
-
+using Mario.MarioCommand;
 namespace Mario.MarioCommand
 
 {
 
-    public class DeadCommand : ICommand
+    public class DeadCommand : MarioCommand
     {
-        private Game1 game;
-        public DeadCommand(Game1 game)
+        public DeadCommand(IMario mario):base(mario)
         {
-            this.game = game;
         }
-        public void Update()
+        public override void Execute()
         {
-            game.mario.Dead();
+            Mario.Dead();
 
         }
     }

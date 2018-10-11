@@ -1,19 +1,17 @@
 ﻿using Game1;
+using Mario.MarioCommand;
 
 namespace Mario.MarioCommand
-
 {
 
-    public class BeNormalMarioCommand : ICommand
+    public class BeNormalMarioCommand : MarioCommand
     {
-        private Game1 myMario;
-        public BeNormalMarioCommand(Game1 mario)
+        public BeNormalMarioCommand(IMario mario):base(mario)
         {
-            myMario = mario;
         }
-        public void Update()
+        public override void Execute()
         {
-            myMario.mario.BeNormalMario();
+            Mario.BeNormalMario();
 
         }
     }

@@ -1,16 +1,17 @@
 ﻿using Game1;
+using Microsoft.Xna.Framework;
 
 namespace Mario.BlocksCommand
 {
 
     public class QuitCommand : ICommand
     {
-        private Game1 game;
-        public QuitCommand(Game1 game)
+        private Game game;
+        public QuitCommand(Game game)
         {
             this.game = game;
         }
-        public void Update()
+        public void Execute()
         {
             game.Exit();
         }

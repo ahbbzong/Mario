@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -34,5 +35,10 @@ namespace Mario.Collision
             }
 
         }
-    }
+
+		public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
+		{
+			HandleCollision((IBlock)source, direction);
+		}
+	}
 }

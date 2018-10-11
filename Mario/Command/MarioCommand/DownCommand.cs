@@ -4,16 +4,14 @@ namespace Mario.MarioCommand
 
 {
 
-    public class DownCommand : ICommand
+    public class DownCommand : MarioCommand
     {
-        private Game1 myMario;
-        public DownCommand(Game1 mario)
+        public DownCommand(IMario mario):base(mario)
         {
-            myMario = mario;
         }
-        public void Update()
+        public override void Execute()
         {
-            myMario.mario.Down();
+            Mario.Down();
         }
     }
 }

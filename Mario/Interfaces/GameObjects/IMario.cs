@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Mario.Interfaces.GameObjects;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-         public interface IMario : IDrawable, IUpdateable
+         public interface IMario : IGameObject
         {
           void Up();
           void Down();

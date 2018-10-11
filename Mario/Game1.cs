@@ -25,10 +25,12 @@ namespace Mario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-         public IMario mario { get; set; }
-         IList<IController> controllerList;
+		public IList<IController> controllerList = new List<IController>();
+		private static Game1 instance;
+		public static Game1 Instance { get => instance; set => instance = value; }
         public Game1()
         {
+			instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -41,12 +43,10 @@ namespace Mario
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            controllerList = new List<IController>();
-            controllerList.Add(new Keyboards(this));
-            controllerList.Add(new GamePadController(this));
-			
-            graphics.PreferredBackBufferWidth = 1440;
+			controllerList.Add(new Keyboards());
+			//controllerList.Add(new GamePadController(this));
+
+			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             base.Initialize();
@@ -58,15 +58,14 @@ namespace Mario
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            SpriteFactory.Instance.LoadAllTextures(Content);
-            LevelLoader.LoadFile("./XMLFile1.xml");
 
-            mario = new Mario(ItemManager.PlayerMario);
+			spriteBatch = new SpriteBatch(GraphicsDevice);
+			ItemManager.Instance.LoadContent(spriteBatch);
+			
+			// Create a new SpriteBatch, which can be used to draw textures.
 
-            // TODO: use this.Content to load your game content here
-        }
+			// TODO: use this.Content to load your game content here
+		}
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -88,15 +87,7 @@ namespace Mario
                 Exit();
 
             // TODO: Add your update logic here
-            
-            foreach (IController controller in controllerList)
-            {
-                controller.Update();
-            }
-            ItemManager.TestingCollision(mario);
-            ItemManager.Update();
-            mario.Update();
-            
+            ItemManager.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -110,8 +101,7 @@ namespace Mario
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            ItemManager.Draw(spriteBatch);
-            mario.Draw(spriteBatch);
+            ItemManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

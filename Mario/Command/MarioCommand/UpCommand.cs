@@ -4,16 +4,14 @@ namespace Mario.MarioCommand
 
 {
 
-    public class UpCommand : ICommand
+    public class UpCommand : MarioCommand
     {
-        private Game1 game;
-        public UpCommand(Game1 game)
+        public UpCommand(IMario mario):base(mario)
         {
-            this.game = game;
         }
-        public void Update()
+        public override void Execute()
         {
-            game.mario.Up();
+            Mario.Up();
             
         }
     }

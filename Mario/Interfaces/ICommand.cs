@@ -4,7 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface ICommand : IUpdateable
+    public interface ICommand 
     {
+		void Execute();
     }
 }

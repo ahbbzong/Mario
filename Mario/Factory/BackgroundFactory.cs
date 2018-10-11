@@ -3,10 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mario.Interfaces.GameObjects;
+using Microsoft.Xna.Framework;
+using Mario.Enums;
+using Mario.Classes.BackgroundClasses;
 
 namespace Mario.Factory
 {
-	class BackgroundFactory
+	class BackgroundFactory : GameObjectFactory
 	{
+		private static BackgroundFactory instance = new BackgroundFactory();
+		public static BackgroundFactory Instance { get => instance; set => instance = value; }
+
+		public BackgroundFactory()
+		{
+			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>{
+				{ BackgroundType.BushSingle.ToString(), GetBushSingle },
+				{ BackgroundType.BushTriple.ToString(), GetBushTriple},
+				{ BackgroundType.CloudSingle.ToString(), GetCloudSingle},
+				{ BackgroundType.CloudTriple.ToString(), GetCloudTriple},
+				{ BackgroundType.MountainBig.ToString(), GetMounntainBig },
+				{ BackgroundType.MountainSmall.ToString(), GetMountainSmall }
+			};
+		}
+
+		private IGameObject GetMountainSmall(Vector2 arg)
+		{
+			return new MountainSmall(arg);
+		}
+
+		private IGameObject GetMounntainBig(Vector2 arg)
+		{
+			return new MountainBig(arg);
+		}
+
+		private IGameObject GetCloudTriple(Vector2 arg)
+		{
+			return new CloudTriple(arg);
+		}
+
+		private IGameObject GetCloudSingle(Vector2 arg)
+		{
+			return new CloudSingle(arg);
+		}
+
+		private IGameObject GetBushTriple(Vector2 arg)
+		{
+			return new BushTriple(arg);
+		}
+
+		private IGameObject GetBushSingle(Vector2 arg)
+		{
+			return new BushSingle(arg);
+		}
 	}
 }

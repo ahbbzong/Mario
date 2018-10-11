@@ -1,16 +1,17 @@
 ﻿using Mario.BlockStates;
 using Mario.Enums;
+using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Game1
 {
-    public interface IItem : IDrawable, IUpdateable
+    public interface IItem : IGameObject
     {
         
   
-        GameObjectType Type { get; }
+        ItemType Type { get; }
         Rectangle Box { get; }
         ref Vector2 Getposition();
     }

@@ -16,7 +16,7 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
-        public GameObjectType Type { get; set; }
+        public ItemType Type { get; set; }
         public Rectangle Box
         {
             get

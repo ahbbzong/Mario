@@ -12,7 +12,7 @@ namespace Mario.ItemClasses
         public Starman(Vector2 location) : base(location)
         {
             ItemSprite = SpriteFactory.Instance.CreateStarmanSprite();
-            Type = GameObjectType.Starman;
+            Type = ItemType.Starman;
         }
     }
 

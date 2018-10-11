@@ -9,24 +9,29 @@ namespace Mario
     public class Keyboards : IController
     {
         private Dictionary<Keys, ICommand> keyboardMap;
-        public Keyboards(Game1 mario)
+        public Keyboards()
         {
-            keyboardMap = new Dictionary<Keys, ICommand>();
-            keyboardMap.Add(Keys.Up,  new UpCommand(mario));
-            keyboardMap.Add(Keys.Down, new DownCommand(mario));
-            keyboardMap.Add(Keys.Left, new LeftCommand(mario));
-            keyboardMap.Add(Keys.Right, new RightCommand(mario));
-            keyboardMap.Add(Keys.W,  new UpCommand(mario));
-            keyboardMap.Add(Keys.S,   new DownCommand(mario));
-            keyboardMap.Add(Keys.A,   new LeftCommand(mario));
-            keyboardMap.Add(Keys.D,   new RightCommand(mario));
-            keyboardMap.Add(Keys.Y,   new BeNormalMarioCommand(mario));
-            keyboardMap.Add(Keys.U,   new BeSuperMarioCommand(mario));
-            keyboardMap.Add(Keys.I,   new BeFireMarioCommand(mario));
-            keyboardMap.Add(Keys.O,   new DeadCommand(mario));
-            keyboardMap.Add(Keys.P,   new BeStarMarioCommand(mario));
-            keyboardMap.Add(Keys.Q,   new QuitCommand(mario));
+            
         }
+
+		public void Initialize(IMario mario)
+		{
+			keyboardMap = new Dictionary<Keys, ICommand>();
+			keyboardMap.Add(Keys.Up, new UpCommand(mario));
+			keyboardMap.Add(Keys.Down, new DownCommand(mario));
+			keyboardMap.Add(Keys.Left, new LeftCommand(mario));
+			keyboardMap.Add(Keys.Right, new RightCommand(mario));
+			keyboardMap.Add(Keys.W, new UpCommand(mario));
+			keyboardMap.Add(Keys.S, new DownCommand(mario));
+			keyboardMap.Add(Keys.A, new LeftCommand(mario));
+			keyboardMap.Add(Keys.D, new RightCommand(mario));
+			keyboardMap.Add(Keys.Y, new BeNormalMarioCommand(mario));
+			keyboardMap.Add(Keys.U, new BeSuperMarioCommand(mario));
+			keyboardMap.Add(Keys.I, new BeFireMarioCommand(mario));
+			keyboardMap.Add(Keys.O, new DeadCommand(mario));
+			keyboardMap.Add(Keys.P, new BeStarMarioCommand(mario));
+			keyboardMap.Add(Keys.Q, new QuitCommand(Game1.Instance));
+		}
         public void Update()
         {
             
@@ -36,7 +41,7 @@ namespace Mario
                 {
 
                     if (keyboardMap.ContainsKey(key))
-                        keyboardMap[key].Update();
+                        keyboardMap[key].Execute();
 
 
                 }

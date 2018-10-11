@@ -4,16 +4,14 @@ namespace Mario.MarioCommand
 
 {
 
-    public class BeSuperMarioCommand : ICommand
+    public class BeSuperMarioCommand : MarioCommand
     {
-        private Game1 myMario;
-        public BeSuperMarioCommand(Game1 mario)
+        public BeSuperMarioCommand(IMario mario):base(mario)
         {
-            myMario = mario;
         }
-        public void Update()
+        public override void Execute()
         {
-            myMario.mario.BeSuperMario();
+           Mario.BeSuperMario();
 
         }
     }

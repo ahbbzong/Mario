@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mario.Enums
+﻿namespace Mario.Enums
 {
-    public enum GameObjectType
-    {
-        Coin,
-        FireFlower,
-        MagicMushroom,
-        OneUpMagicMushroom,
-        Starman
-    }
+	public enum GameObjectType
+	{
+		Background = 0,
+		Block = 1,
+		Enemy = 2,
+		Item = 3,
+		Pipe = 4
+	};
 }

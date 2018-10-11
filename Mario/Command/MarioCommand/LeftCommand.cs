@@ -4,16 +4,13 @@ namespace Mario.MarioCommand
 
 {
 
-    public class LeftCommand : ICommand
+    public class LeftCommand : MarioCommand
     {
-        private Game1 game;
-        public LeftCommand(Game1 game)
+        public LeftCommand(IMario mario):base(mario)
+        {        }
+        public override void Execute()
         {
-            this.game = game;
-        }
-        public void Update()
-        {
-            game.mario.Left();
+            Mario.Left();
         }
     }
 }
