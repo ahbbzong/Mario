@@ -92,7 +92,7 @@ namespace Mario.XMLRead
                 collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
                 if (collisionFound != Direction.None && !Mario.IsDead())
                 {
-                    enemyHandler = new EnemyMarioCollisionHandler(Mario);
+                    enemyHandler = new GoombaMarioCollisionHandler(Mario);
                     intersection = collisionDetecter.intersection;
                     enemyHandler.HandleCollision(enemy, collisionFound);
                     marioHandler = new MarioEnemyCollisionHandler(enemy);

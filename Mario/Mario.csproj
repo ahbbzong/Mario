@@ -93,7 +93,9 @@
     <Compile Include="Classes\MarioClasses\Mario.cs" />
     <Compile Include="Collision\BlockCollisionHandler\BlockHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetecter.cs" />
-    <Compile Include="Collision\EnemyCollisionHandler\EnemyMarioCollisionHandler.cs" />
+    <Compile Include="Collision\EnemyCollisionHandler\EnemyBlockCollisionHandler.cs" />
+    <Compile Include="Collision\EnemyCollisionHandler\KoopaMarioCollisionHandler.cs" />
+    <Compile Include="Collision\EnemyCollisionHandler\GoombaMarioCollisionHandler.cs" />
     <Compile Include="Collision\ItemCollisionHandler\ItemMarioCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioBlockHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioHiddenBlockHandler.cs" />

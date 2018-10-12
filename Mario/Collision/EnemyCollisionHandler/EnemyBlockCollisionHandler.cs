@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,28 @@ namespace Mario.Collision.EnemyCollisionHandler
 {
     public class EnemyBlockCollisionHandler : IEnemyCollisionHandler
     {
-        IMario mario;
-        public EnemyBlockCollisionHandler(IMario mario)
+        IBlock block;
+        Rectangle intersection;
+        public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
         {
-            this.mario = mario;
+            this.block = block;
+            this.intersection = intersection;
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
             switch (result)
             {
                 case Direction.Up:
-
+                    enemy.Getposition().Y -= intersection.Height;
                     break;
                 case Direction.Down:
-
+                    enemy.Getposition().Y += intersection.Height;
                     break;
                 case Direction.Left:
-
+                    enemy.Getposition().X -= intersection.Width;
                     break;
                 case Direction.Right:
-
+                    enemy.Getposition().X += intersection.Width;
                     break;
             }
         }

@@ -14,7 +14,7 @@ namespace Mario.AbstractClass
 {
     public abstract class Enemy : IEnemy,ICollidiable
     {
-        protected Vector2 EnemyLocation { get; set; }
+        private Vector2 EnemyLocation;
         public EnemyType Type { get; set; }
         public EnemyState enemyState { get; set; }
         public Rectangle Box
@@ -64,5 +64,11 @@ namespace Mario.AbstractClass
         {
             return enemyState.IsStomped();
         }
+
+        public virtual ref Vector2 Getposition()
+        {
+            return ref EnemyLocation;
+        }
+
     }
 }
