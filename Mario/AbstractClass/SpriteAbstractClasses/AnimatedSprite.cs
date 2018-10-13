@@ -9,22 +9,20 @@ using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-     public abstract class AnimatedSprite : ISprite
+     public class AnimatedSprite : ISprite
     {
         protected Texture2D SpriteSheet { get; set; }
-        protected int SpriteWidth { get; set; }
-        protected int SpriteHeight { get; set; }
+        protected int SpriteWidth { get=>SpriteSheet.Width; }
+        protected int SpriteHeight { get => SpriteSheet.Height; }
         protected int Rows { get; set; }
         protected int Columns { get; set; }
         protected int CurrentFrame { get; set; }
         protected int TotalFrame { get; set; }
         protected int Delay { get; set; }
 
-        protected AnimatedSprite(Texture2D spriteSheet, int rows, int columns)
+        public AnimatedSprite(Texture2D spriteSheet, int rows, int columns)
         {
             SpriteSheet = spriteSheet;
-            SpriteWidth = spriteSheet.Width;
-            SpriteHeight = spriteSheet.Height;
             Rows = rows;
             Columns = columns;
             CurrentFrame = 0;

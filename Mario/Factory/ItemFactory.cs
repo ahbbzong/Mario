@@ -10,15 +10,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Mario.Enums;
+using Game1;
 
 namespace Mario.Factory
 {
-	class ItemFactory:GameObjectFactory
+	class ItemFactory:SimpleGameObjectFactory
 	{
 		private static ItemFactory instance = new ItemFactory();
 		public static ItemFactory Instance { get => instance; }
-
-		private Dictionary<string, Texture2D> spriteDictionary;
+		
 		private ItemFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
@@ -58,13 +58,13 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			spriteDictionary = new Dictionary<string, Texture2D>
+			SpriteDictionary = new Dictionary<string, ISprite>
 			{
-				{ItemType.Coin.ToString(), content.Load<Texture2D>("Coin") },
-				{ItemType.FireFlower.ToString(), content.Load<Texture2D>("FireFlower") },
-				{ItemType.MagicMushroom.ToString(), content.Load<Texture2D>("MagicMushroom") },
-				{ItemType.OneUpMushroom.ToString(), content.Load<Texture2D>("OneUpMushroom") },
-				{ItemType.Starman.ToString(), content.Load<Texture2D>("Starman") }
+				{ItemType.Coin.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Coin"),1,3) },
+				{ItemType.FireFlower.ToString(),SpriteFactory.Instance.CreateAnimatedSprite( content.Load<Texture2D>("FireFlower"),1,3) },
+				{ItemType.MagicMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("MagicMushroom")) },
+				{ItemType.OneUpMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("OneUpMushroom")) },
+				{ItemType.Starman.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Starman"),1,3) }
 			};
 		}
 	}

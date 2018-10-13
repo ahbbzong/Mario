@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.Factory
 {
-	class EnemyFactory : GameObjectFactory
+	class EnemyFactory : DynamicGameObjectFactory
 	{
 		private static EnemyFactory instance = new EnemyFactory();
 		public static EnemyFactory Instance { get => instance; }

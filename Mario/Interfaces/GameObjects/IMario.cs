@@ -1,5 +1,7 @@
 ﻿using Mario.Interfaces.GameObjects;
 using Mario.MarioStates;
+using Mario.MarioStates.MarioMovementStates;
+using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -20,8 +22,8 @@ namespace Game1
 
         bool Isfalling();
         Rectangle Box { get; }
-        IMarioState marioState { get; set; }
-
+        MarioMovementState MarioMovementState { get; set; }
+		MarioPowerupState MarioPowerupState { get; set; }
         ref Vector2 Getposition();
 
     }

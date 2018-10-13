@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Mario.Factory
 {
-	abstract class GameObjectFactory : IGameObjectFactory, IContentBehavior
+	public abstract class GameObjectFactory : IGameObjectFactory, IContentBehavior
 	{
 		private Dictionary<string, Func<Vector2, IGameObject>> instantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>();
 		protected Dictionary<string,Func<Vector2,IGameObject>> InstantiationLedger { get => instantiationLedger; set => instantiationLedger = value; }

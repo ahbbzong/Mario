@@ -26,7 +26,6 @@ namespace Mario.XMLRead
 		public static ItemManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
 		public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
-		private IMario mario;
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
 		private ItemManager()
         {

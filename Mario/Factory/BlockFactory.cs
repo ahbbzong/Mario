@@ -9,10 +9,11 @@ using Microsoft.Xna.Framework;
 using Mario.Enums;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Game1;
 
 namespace Mario.Factory
 {
-	class BlockFactory : GameObjectFactory
+	class BlockFactory : SimpleGameObjectFactory
 	{
 		private static BlockFactory instance = new BlockFactory();
 
@@ -64,15 +65,15 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			spriteDictionary = new Dictionary<string, Texture2D>
+			SpriteDictionary = new Dictionary<string, ISprite>
 			{
-				{BlockType.Breakable.ToString(), content.Load<Texture2D>("brickBlock")},
-				{BlockType.Floor.ToString(), content.Load<Texture2D>("floorBlock") },
-				{BlockType.Hidden.ToString(), content.Load<Texture2D>("usedBlock") },
-				{BlockType.Pipe.ToString(), content.Load<Texture2D>("pipe") },
-				{BlockType.Question.ToString(), content.Load<Texture2D>("questionBlock") },
-				{BlockType.Unbreakable.ToString(), content.Load<Texture2D>("UnbreakableBlock") },
-				{BlockType.Used.ToString(), content.Load<Texture2D>("usedBlock") }
+				{BlockType.Breakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("brickBlock"))},
+				{BlockType.Floor.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("floorBlock")) },
+				{BlockType.Hidden.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) },
+				{BlockType.Pipe.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("pipe")) },
+				{BlockType.Question.ToString(), SpriteFactory.Instance.CreateStaticSprite( content.Load<Texture2D>("questionBlock")) },
+				{BlockType.Unbreakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("UnbreakableBlock")) },
+				{BlockType.Used.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) }
 
 			};
 		}

@@ -9,16 +9,14 @@ using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-     public abstract class StaticSprite : ISprite
+     public class StaticSprite : ISprite
     {
         protected Texture2D SpriteSheet { get; set; }
-        protected int SpriteWidth { get; set; }
-        protected int SpriteHeight { get; set; }
-        protected StaticSprite(Texture2D spriteSheet)
+        protected int SpriteWidth { get=>SpriteSheet.Width; }
+        protected int SpriteHeight { get=>SpriteSheet.Height;  }
+        public StaticSprite(Texture2D spriteSheet)
         {
             SpriteSheet = spriteSheet;
-            SpriteWidth = spriteSheet.Width;
-            SpriteHeight = spriteSheet.Height;
         }
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {

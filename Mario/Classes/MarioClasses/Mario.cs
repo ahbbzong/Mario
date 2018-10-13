@@ -3,6 +3,10 @@ using Microsoft.Xna.Framework;
 using System;
 using Game1;
 using Mario.MarioStates;
+using Mario.Enums;
+using Mario.MarioStates.MarioMovementStates;
+using Mario.MarioStates.MarioPowerupStates;
+using Mario.Factory;
 
 namespace Mario
 {
@@ -10,7 +14,9 @@ namespace Mario
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Location { get => location; set => location = value; }
-        public IMarioState marioState { get; set; }
+		public MarioMovementState MarioMovementState { get; set; }
+		public MarioPowerupState MarioPowerupState { get; set; }
+
 		private ISprite marioSprite { get; set; }
 
         private bool fall;
@@ -23,71 +29,78 @@ namespace Mario
             }
             
         }
-        public Mario(Vector2 location)
+
+		public MarioMovementType MarioMovementType => MarioMovementState.MarioMovementType;
+
+		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
+
+		public Mario(Vector2 location)
         {
             this.location = location;
-            marioState = new NormalMarioLeftIdleState(this);
+            MarioMovementState = new RightIdleMarioMovementState(this);
+			MarioPowerupState = new NormalMarioPowerupState(this);
             fall = false;
            
         }
 		public void Up()
         {
-            marioState.Up();
+            MarioMovementState.Up();
             fall = false;
         }
         public void Down()
         {
-            marioState.Down();
+            MarioMovementState.Down();
             fall = true;
         }
         public void Left()
         {
-            marioState.Left();
+            MarioMovementState.Left();
         }
         public void Right()
         {
-            marioState.Right();
+            MarioMovementState.Right();
         }
         public void Dead()
         {
-            marioState.Dead();
+            MarioPowerupState.Dead();
         }
         public void BeSuper()
         {
-            marioState.BeSuperMario();
+            MarioPowerupState.BeSuper();
         }
         public void BeNormal()
         {
-            marioState.BeNormalMario();
+            MarioPowerupState.BeNormal();
         }
         public void BeFire()
         {
-            marioState.BeFireMario();
+            MarioPowerupState.BeFire();
         }
         public void BeStar()
         {
-            marioState.BeStarMario();
+            MarioPowerupState.BeStar();
         }
         public bool IsSuperMario()
         {
-            return marioState.IsSuperMario();
+            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Big;
         }
         public bool IsFireMario()
         {
-            return marioState.IsFireMario();
+			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire;
         }
 
         public bool IsNormalMario()
         {
-            return marioState.IsNormalMario();
+			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal;
         }
         public bool IsStarMario()
         {
-            return marioState.IsStarMario();
+			return false;
         }
 
         public void Update()
         {
+			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
             marioSprite.Update();
         }
 
@@ -103,7 +116,7 @@ namespace Mario
 
         public bool IsDead()
         {
-            return marioState.IsDead();
+            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Dead;
         }
         public bool Isfalling()
         {

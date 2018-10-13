@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 namespace Mario.Factory
 {
-	class BackgroundFactory : GameObjectFactory
+	class BackgroundFactory : SimpleGameObjectFactory
 	{
 		private static BackgroundFactory instance = new BackgroundFactory();
 		public static BackgroundFactory Instance { get => instance; set => instance = value; }

@@ -8,19 +8,17 @@ using Microsoft.Xna.Framework;
 using Mario.Enums;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Game1;
 
 namespace Mario.Factory
 {
-	class MarioFactory:GameObjectFactory
+	class MarioFactory:DynamicGameObjectFactory
 	{
 		private static MarioFactory instance = new MarioFactory();
 		public static MarioFactory Instance { get => instance; set => instance = value; }
-
-		private IDictionary<string, IDictionary<string,Texture2D>> spriteDictionary = new Dictionary<string,IDictionary<string,Texture2D>>();
-
-		public MarioFactory()
+		public MarioFactory():base()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Microsoft.Xna.Framework.Vector2, Interfaces.GameObjects.IGameObject>>
+			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
 			{
 				{"Mario", GetMario }
 			};
@@ -28,45 +26,41 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			Dictionary<string, Texture2D> normalMarioSprites = new Dictionary<string, Texture2D>()
+			SpriteDictionary = new Dictionary<string, Dictionary<string, ISprite>>
 			{
-				{MarioMovementType.LeftIdle.ToString(),content.Load<Texture2D>("normalMarioLeftIdle") },
-				{MarioMovementType.LeftJump.ToString(),content.Load<Texture2D>("normalMarioLeftJump") },
-				{MarioMovementType.LeftRun.ToString(), content.Load<Texture2D>("normalMarioLeftRun") },
-				{MarioMovementType.RightIdle.ToString(), content.Load<Texture2D>("normalMarioRightIdle") },
-				{MarioMovementType.RightJump.ToString(), content.Load<Texture2D>("normalMarioRightJump") },
-				{MarioMovementType.RightRun.ToString(), content.Load<Texture2D>("normalMarioRightRun") }
-			};
-			spriteDictionary.Add(MarioPowerupType.Normal.ToString(), normalMarioSprites);
+				{MarioPowerupType.Normal.ToString(), new Dictionary<string, ISprite>(){
+					{MarioMovementType.LeftIdle.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("normalMarioLeftIdle")) },
+					{MarioMovementType.LeftJump.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("normalMarioLeftJump")) },
+					{MarioMovementType.LeftRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("normalMarioLeftRun"),1,3) },
+					{MarioMovementType.RightIdle.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("normalMarioRightIdle")) },
+					{MarioMovementType.RightJump.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("normalMarioRightJump")) },
+					{MarioMovementType.RightRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("normalMarioRightRun"),1,3) }
+				} },
+				{MarioPowerupType.Big.ToString(), new Dictionary<string, ISprite>(){
+					{MarioMovementType.LeftCrouch.ToString(), SpriteFactory.Instance.CreateStaticSprite( content.Load<Texture2D>("superMarioLeftCrouch")) },
+					{MarioMovementType.LeftIdle.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioLeftIdle")) },
+					{MarioMovementType.LeftJump.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioLeftJump")) },
+					{MarioMovementType.LeftRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("superMarioLeftRun"),1,3) },
+					{MarioMovementType.RightIdle.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightIdle")) },
+					{MarioMovementType.RightJump.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightJump")) },
+					{MarioMovementType.RightRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("superMarioRightRun"),1,3) },
+					{MarioMovementType.RightCrouch.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightCrouch") )}
+				} },
+				{MarioPowerupType.Fire.ToString(),new Dictionary<string, ISprite>(){
+					{MarioMovementType.LeftCrouch.ToString(), SpriteFactory.Instance.CreateStaticSprite( content.Load<Texture2D>("superMarioLeftCrouch")) },
+					{MarioMovementType.LeftIdle.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioLeftIdle")) },
+					{MarioMovementType.LeftJump.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioLeftJump")) },
+					{MarioMovementType.LeftRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("superMarioLeftRun"),1,3) },
+					{MarioMovementType.RightIdle.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightIdle")) },
+					{MarioMovementType.RightJump.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightJump")) },
+					{MarioMovementType.RightRun.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("superMarioRightRun"),1,3) },
+					{MarioMovementType.RightCrouch.ToString(),SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("superMarioRightCrouch") )}
+				}  },
+				{MarioPowerupType.Dead.ToString(),new Dictionary<string, ISprite>()
+				{
+					{MarioMovementType.Dead.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("normalMarioDead")) }
+				} }
 
-			Dictionary<string, Texture2D> superMarioSprites = new Dictionary<string, Texture2D>()
-			{
-				{MarioMovementType.LeftCrouch.ToString(), content.Load<Texture2D>("superMarioLeftCrouch") },
-				{MarioMovementType.LeftIdle.ToString(),content.Load<Texture2D>("superMarioLeftIdle") },
-				{MarioMovementType.LeftJump.ToString(),content.Load<Texture2D>("superMarioLeftJump") },
-				{MarioMovementType.LeftRun.ToString(), content.Load<Texture2D>("superMarioLeftRun") },
-				{MarioMovementType.RightIdle.ToString(), content.Load<Texture2D>("superMarioRightIdle") },
-				{MarioMovementType.RightJump.ToString(), content.Load<Texture2D>("superMarioRightJump") },
-				{MarioMovementType.RightRun.ToString(), content.Load<Texture2D>("superMarioRightRun") },
-				{MarioMovementType.RightCrouch.ToString(),content.Load<Texture2D>("superMarioRightCrouch") }
-			};
-			spriteDictionary.Add(MarioPowerupType.Big.ToString(), superMarioSprites);
-
-			Dictionary<string, Texture2D> fireMarioSprites = new Dictionary<string, Texture2D>()
-			{
-				{MarioMovementType.LeftCrouch.ToString(), content.Load<Texture2D>("fireMarioLeftCrouch") },
-				{MarioMovementType.LeftIdle.ToString(),content.Load<Texture2D>("fireMarioLeftIdle") },
-				{MarioMovementType.LeftJump.ToString(),content.Load<Texture2D>("fireMarioLeftJump") },
-				{MarioMovementType.LeftRun.ToString(), content.Load<Texture2D>("fireMarioLeftRun") },
-				{MarioMovementType.RightIdle.ToString(), content.Load<Texture2D>("fireMarioRightIdle") },
-				{MarioMovementType.RightJump.ToString(), content.Load<Texture2D>("fireMarioRightJump") },
-				{MarioMovementType.RightRun.ToString(), content.Load<Texture2D>("fireMarioRightRun") },
-				{MarioMovementType.RightCrouch.ToString(),content.Load<Texture2D>("fireMarioRightCrouch") }
-			};
-
-			Dictionary<string, Texture2D> deadMarioSprites = new Dictionary<string, Texture2D>()
-			{
-				{MarioMovementType.Dead.ToString(),content.Load<Texture2D>("normalMarioDead") }
 			};
 		}
 		private IGameObject GetMario(Vector2 arg)
@@ -74,6 +68,7 @@ namespace Mario.Factory
 			return new Mario(arg);
 		}
 
+		
 		
 	}
 }
