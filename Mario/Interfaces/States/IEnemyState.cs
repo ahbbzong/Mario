@@ -15,6 +15,7 @@ namespace Game1
         void BeStomped();
         void TurnLeft();
         void TurnRight();
+        void BeKilled();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
         bool IsStomped();
     

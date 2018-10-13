@@ -70,5 +70,9 @@ namespace Mario.AbstractClass
             return ref EnemyLocation;
         }
 
+        public virtual void BeKilled()
+        {
+            enemyState.BeKilled();
+        }
     }
 }

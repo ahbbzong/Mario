@@ -12,16 +12,25 @@ using System.Threading.Tasks;
 
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class FlippedKoopaState : EnemyState
+    public class LeftMovingStompedKoopaState : EnemyState
     {
-        public FlippedKoopaState(Enemy enemy) : base(enemy)
+        public LeftMovingStompedKoopaState(Enemy enemy) : base(enemy)
         {
             this.enemy = enemy;
-            EnemySprite = SpriteFactory.Instance.CreateFlippedKoopaSprite();
+            EnemySprite = SpriteFactory.Instance.CreateStompedKoopaSprite();
+        }
+        public override void TurnRight()
+        {
+            enemy.enemyState = new RightMovingStompedKoopaState(enemy);
+        }
+        public override void Beflipped()
+        {
+            enemy.enemyState = new FlippedKoopaState(enemy);
         }
         public override void BeKilled()
         {
             enemy.enemyState = new DeadKoopaState(enemy);
         }
+
     }
 }

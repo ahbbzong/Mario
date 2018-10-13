@@ -67,7 +67,9 @@ namespace Mario.AbstractClass
             EnemySprite.Update();
         }
 
-      
-
+        public virtual void BeKilled()
+        {
+            
+        }
     }
 }

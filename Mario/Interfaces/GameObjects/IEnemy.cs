@@ -10,6 +10,8 @@ namespace Game1
     {
         void Beflipped();
         void BeStomped();
+        void BeKilled();
+
         void TurnLeft();
         void TurnRight();
 

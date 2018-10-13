@@ -31,7 +31,11 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.enemyState = new StompedKoopaState(enemy);
         }
-    
-      
+        public override void BeKilled()
+        {
+            enemy.enemyState = new DeadKoopaState(enemy);
+        }
+
+
     }
 }

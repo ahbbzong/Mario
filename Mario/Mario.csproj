@@ -125,8 +125,12 @@
     <Compile Include="EnemyStates\GoombaStates\FlippedGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\MovingGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\StomppedGoombaState.cs" />
+    <Compile Include="EnemyStates\KoopaStates\RunningInPlaceKoopaState.cs" />
+    <Compile Include="EnemyStates\KoopaStates\DeadKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\FlippedKoopaState.cs" />
+    <Compile Include="EnemyStates\KoopaStates\LeftMovingStompedKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\LeftMovingKoopaState.cs" />
+    <Compile Include="EnemyStates\KoopaStates\RightMovingStompedKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\StompedKoopaState.cs" />
     <Compile Include="Enums\BackgroundType.cs" />
