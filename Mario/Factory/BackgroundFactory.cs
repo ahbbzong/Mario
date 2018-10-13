@@ -9,7 +9,6 @@ using Mario.Enums;
 using Mario.Classes.BackgroundClasses;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using Mario.Enums;
 namespace Mario.Factory
 {
 	class BackgroundFactory : GameObjectFactory
