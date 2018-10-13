@@ -9,7 +9,7 @@ namespace Mario.MarioStates
     class NormalMarioRightRunningState : MarioState
     {
 
-        public NormalMarioRightRunningState(Mario mario) : base(mario)
+        public NormalMarioRightRunningState(IMario mario) : base(mario)
         {
             this.mario = mario;
 

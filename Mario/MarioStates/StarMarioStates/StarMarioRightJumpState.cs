@@ -9,7 +9,7 @@ namespace Mario.MarioStates
     class StarMarioRightJumpState : MarioState
     {
 
-        public StarMarioRightJumpState(Mario mario) : base(mario)
+        public StarMarioRightJumpState(IMario mario) : base(mario)
         {
             this.mario = mario;
 

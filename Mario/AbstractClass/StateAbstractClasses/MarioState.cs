@@ -12,7 +12,7 @@ namespace Mario.MarioStates
     public abstract class MarioState : IMarioState
     {
         protected ISprite marioSprite { get; set; }
-        protected Mario mario { get; set; }
+        protected IMario mario { get; set; }
         public int getWidth {
             get  
             {
@@ -27,7 +27,7 @@ namespace Mario.MarioStates
             }
         }
 
-        protected MarioState(Mario mario)
+        protected MarioState(IMario mario)
         {
             this.mario = mario;
         }

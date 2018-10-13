@@ -18,6 +18,7 @@ namespace Game1
         Rectangle Box { get; }
 
         EnemyType Type { get; }
+      
         ref Vector2 Getposition();
     }
 }

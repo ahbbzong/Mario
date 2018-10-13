@@ -1,4 +1,5 @@
 ﻿using Mario.Interfaces.GameObjects;
+using Mario.MarioStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -34,7 +35,9 @@ namespace Game1
 
         bool Isfalling();
          Rectangle Box { get; }
-         ref Vector2 Getposition();
+        MarioState marioState { get; set; }
+
+        ref Vector2 Getposition();
 
     }
 }

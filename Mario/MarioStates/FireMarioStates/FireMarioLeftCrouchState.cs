@@ -8,11 +8,12 @@ namespace Mario.MarioStates
 {
     class FireMarioLeftCrouchState : MarioState
     {
-        public FireMarioLeftCrouchState(Mario mario):base(mario)
+        public FireMarioLeftCrouchState(IMario mario):base(mario)
         {
             this.mario = mario;
             marioSprite = SpriteFactory.Instance.CreateFireMarioLeftCrouchSprite();
         }
+
 
         public override void BeNormalMario()
         {

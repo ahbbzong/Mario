@@ -52,15 +52,14 @@ namespace Mario.AbstractClass
         {
             return false;
         }
+      
 
         public virtual void TurnLeft()
         {
-            //Need to be overriden
         }
 
         public virtual void TurnRight()
         {
-            //Need to be overriden
         }
 
         public virtual void Update()

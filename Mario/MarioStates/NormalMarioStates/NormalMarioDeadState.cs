@@ -9,7 +9,7 @@ namespace Mario.MarioStates
     class NormalMarioDeadState : MarioState
     {
 
-        public NormalMarioDeadState(Mario mario) : base(mario)
+        public NormalMarioDeadState(IMario mario) : base(mario)
         {
             this.mario = mario;
             marioSprite = SpriteFactory.Instance.CreateNormalMarioDeadSprite();

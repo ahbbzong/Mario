@@ -21,7 +21,8 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void TurnLeft()
         {
-            enemy.enemyState = new RightMovingKoopaState(enemy);
+            enemy.enemyState = new LeftMovingKoopaState(enemy);
+
         }
         public override void Beflipped()
         {
@@ -31,5 +32,6 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.enemyState = new StompedKoopaState(enemy);
         }
+     
     }
 }

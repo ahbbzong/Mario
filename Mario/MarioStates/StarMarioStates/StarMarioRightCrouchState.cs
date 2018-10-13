@@ -10,7 +10,7 @@ namespace Mario.MarioStates
     class StarMarioRightCrouch : MarioState
     {
 
-        public StarMarioRightCrouch(Mario mario) : base(mario)
+        public StarMarioRightCrouch(IMario mario) : base(mario)
         {
             this.mario = mario;
 

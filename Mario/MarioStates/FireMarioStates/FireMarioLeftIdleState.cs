@@ -8,7 +8,7 @@ namespace Mario.MarioStates
 {
     class FireMarioLeftIdleState : MarioState
     {
-        public FireMarioLeftIdleState(Mario mario) : base(mario)
+        public FireMarioLeftIdleState(IMario mario) : base(mario)
         {
             this.mario = mario;
             marioSprite = SpriteFactory.Instance.CreateFireMarioLeftIdleSprite();
