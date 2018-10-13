@@ -8,7 +8,7 @@ namespace Mario.MarioCommand
         public BeFireMarioCommand(IMario mario):base(mario){  }
         public override void Execute()
         {
-			Mario.BeFireMario();
+			Mario.BeFire();
         }
     }
 }

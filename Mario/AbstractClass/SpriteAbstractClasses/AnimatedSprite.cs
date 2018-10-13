@@ -42,15 +42,9 @@ namespace Mario.AbstractClass
 
             spriteBatch.Draw(SpriteSheet, destinationRectangle, sourceRectangle, Color.White);
         }
-        public virtual int Width()
-        {
-            return SpriteWidth / Columns;
-        }
-        public virtual int Height()
-        {
-            return SpriteHeight / Rows;
-        }
-        public virtual void Update()
+		public virtual int Width => SpriteWidth / Columns;
+		public virtual int Height => SpriteHeight / Rows;
+		public virtual void Update()
         {
             Delay++;
             if (Delay == 5)

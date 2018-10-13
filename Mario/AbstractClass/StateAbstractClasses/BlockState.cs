@@ -19,14 +19,14 @@ namespace Mario.BlockStates
         {
             get
             {
-                return blockSprite.Width();
+                return blockSprite.Width;
             }
         }
         public int getHeight
         {
             get
             {
-                return blockSprite.Height();
+                return blockSprite.Height;
             }
         }
         protected BlockState(Block block)

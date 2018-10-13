@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-   public interface IMarioState : IUpdateable
+   public interface IMarioState
     {
         void Up();
         void Down();
@@ -20,6 +20,5 @@ namespace Game1
         bool IsNormalMario();
         bool IsDead();
         bool IsStarMario();
-        void Draw(SpriteBatch spriteBatch, Vector2 location);
     }
 }

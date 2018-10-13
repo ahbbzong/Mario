@@ -20,14 +20,14 @@ namespace Mario.AbstractClass
         {
             get
             {
-                return EnemySprite.Width();
+                return EnemySprite.Width;
             }
         }
         public int GetHeight
         {
             get
             {
-                return EnemySprite.Height();
+                return EnemySprite.Height;
             }
         }
         protected EnemyState(Enemy enemy)

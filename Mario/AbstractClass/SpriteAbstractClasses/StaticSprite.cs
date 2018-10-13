@@ -24,15 +24,9 @@ namespace Mario.AbstractClass
         {
             spriteBatch.Draw(SpriteSheet, new Rectangle((int)location.X, (int)location.Y, SpriteWidth, SpriteHeight), Color.White);
         }
-        public virtual int Width()
-        {
-            return SpriteWidth;
-        }
-        public virtual int Height()
-        {
-            return SpriteHeight;
-        }
-        public virtual void Update()
+		public virtual int Width => SpriteWidth;
+		public virtual int Height => SpriteHeight;
+		public virtual void Update()
         {
             //Need to be overriden.
         }

@@ -45,7 +45,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 }
                 if (mario.IsSuperMario() || mario.IsFireMario())
                 {
-                    mario.BeNormalMario();
+                    mario.BeNormal();
                 }
             }
         }

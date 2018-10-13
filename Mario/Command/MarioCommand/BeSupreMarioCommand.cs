@@ -11,7 +11,7 @@ namespace Mario.MarioCommand
         }
         public override void Execute()
         {
-           Mario.BeSuperMario();
+           Mario.BeSuper();
 
         }
     }

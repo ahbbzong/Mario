@@ -7,7 +7,8 @@ namespace Game1
     {
         void Update();
         void Draw(SpriteBatch spriteBatch,Vector2 location);
-        int Width();
-        int Height();
-    }
+		int Width { get; }
+
+		int Height { get; }
+	}
 }

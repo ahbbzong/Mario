@@ -8,26 +8,29 @@ namespace Mario
 {
     public class Mario : IMario,ICollidiable
     {
-        private Vector2 marioLocation;
-        public MarioState marioState { get; set; }
+        private Vector2 location = Vector2.Zero;
+		public Vector2 Location { get => location; set => location = value; }
+        public IMarioState marioState { get; set; }
+		private ISprite marioSprite { get; set; }
+
         private bool fall;
         public Rectangle Box
         {
             get
             {
-                return new Rectangle((int)marioLocation.X, (int)marioLocation.Y, marioState.getWidth, marioState.getHeight);
+                return new Rectangle((int)location.X, (int)location.Y, marioSprite.Width, marioSprite.Height);
                 
             }
             
         }
         public Mario(Vector2 location)
         {
-            marioLocation = location;
+            this.location = location;
             marioState = new NormalMarioLeftIdleState(this);
             fall = false;
            
         }
-        public void Up()
+		public void Up()
         {
             marioState.Up();
             fall = false;
@@ -49,19 +52,19 @@ namespace Mario
         {
             marioState.Dead();
         }
-        public void BeSuperMario()
+        public void BeSuper()
         {
             marioState.BeSuperMario();
         }
-        public void BeNormalMario()
+        public void BeNormal()
         {
             marioState.BeNormalMario();
         }
-        public void BeFireMario()
+        public void BeFire()
         {
             marioState.BeFireMario();
         }
-        public void BeStarMario()
+        public void BeStar()
         {
             marioState.BeStarMario();
         }
@@ -85,17 +88,17 @@ namespace Mario
 
         public void Update()
         {
-            marioState.Update();
+            marioSprite.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            marioState.Draw(spriteBatch, marioLocation);
+			marioSprite.Draw(spriteBatch,location);
         }
 
         public ref Vector2 Getposition()
         {
-            return ref marioLocation;
+            return ref location;
         }
 
         public bool IsDead()

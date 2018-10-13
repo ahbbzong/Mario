@@ -18,7 +18,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
         {
             if (mario.IsNormalMario()||mario.IsFireMario())
             {
-                mario.BeSuperMario();
+                mario.BeSuper();
             }
         }
 

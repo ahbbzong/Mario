@@ -11,21 +11,9 @@ namespace Mario.MarioStates
 {
     public abstract class MarioState : IMarioState
     {
-        protected ISprite marioSprite { get; set; }
         protected IMario mario { get; set; }
-        public int getWidth {
-            get  
-            {
-                return marioSprite.Width();
-            }
-        }
-        public int getHeight
-        {
-            get
-            {
-                return marioSprite.Height();
-            }
-        }
+       
+       
 
         protected MarioState(IMario mario)
         {
@@ -55,11 +43,6 @@ namespace Mario.MarioStates
         {
             //May need to override
         }
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 marioLocation)
-        {
-            marioSprite.Draw(spriteBatch, marioLocation);
-        }
-
         public virtual bool IsDead()
         {
             return false;
@@ -96,10 +79,7 @@ namespace Mario.MarioStates
         {
             //May need to override
         }
-        public virtual void Update()
-        {
-            marioSprite.Update();
-        }
+       
       
     }
 }

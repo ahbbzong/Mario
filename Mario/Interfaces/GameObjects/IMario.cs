@@ -10,23 +10,8 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-         public interface IMario : IGameObject
+         public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior
         {
-          void Up();
-          void Down();
-
-         void Left();
-
-         void Right();
-
-         void Dead();
-
-         void BeSuperMario();
-
-         void BeNormalMario();
-
-         void BeFireMario();
-        void BeStarMario();
         bool IsSuperMario();
         bool IsNormalMario();
         bool IsFireMario();
@@ -34,8 +19,8 @@ namespace Game1
         bool IsDead();
 
         bool Isfalling();
-         Rectangle Box { get; }
-        MarioState marioState { get; set; }
+        Rectangle Box { get; }
+        IMarioState marioState { get; set; }
 
         ref Vector2 Getposition();
 

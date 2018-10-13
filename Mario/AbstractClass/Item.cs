@@ -21,7 +21,7 @@ namespace Mario.Classes.BlocksClasses
         {
             get
             {
-                return new Rectangle((int)ItemLocation.X, (int)ItemLocation.Y, ItemSprite.Width(), ItemSprite.Height());
+                return new Rectangle((int)ItemLocation.X, (int)ItemLocation.Y, ItemSprite.Width, ItemSprite.Height);
             }
         }
         protected Item(Vector2 location)

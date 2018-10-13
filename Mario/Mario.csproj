@@ -155,6 +155,8 @@
     <Compile Include="Interfaces\GameObjects\IBackground.cs" />
     <Compile Include="Interfaces\GameObjects\IBlock.cs" />
     <Compile Include="Interfaces\CollisionHandlers\IBlockCollisionHandler.cs" />
+    <Compile Include="Interfaces\GameObjects\IMovementEventBehavior.cs" />
+    <Compile Include="Interfaces\GameObjects\IPowerupEventBehavior.cs" />
     <Compile Include="Interfaces\IContentBehavior.cs" />
     <Compile Include="Interfaces\States\IBlockState.cs" />
     <Compile Include="Interfaces\ICollidiable.cs" />

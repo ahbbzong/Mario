@@ -38,22 +38,24 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			Dictionary<string, Texture2D> koopaDictionary = new Dictionary<string, Texture2D>
+			spriteDictionary = new Dictionary<string, Dictionary<string, Texture2D>>
 			{
-				{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedKoopa") },
-				{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("FlippedKoopa") },
-				{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("LeftMovingKoopa") },
-				{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("RightMovingKoopa") }
+				{EnemyType.Koopa.ToString(), new Dictionary<string, Texture2D>{
+						{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedKoopa") },
+						{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("FlippedKoopa") },
+						{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("LeftMovingKoopa") },
+						{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("RightMovingKoopa") }
+					}
+				},
 
-			};
-			spriteDictionary.Add(EnemyType.Koopa.ToString(), koopaDictionary);
-
-			Dictionary<string, Texture2D> goombaDictionary = new Dictionary<string, Texture2D>
-			{
-				{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedGoomba") },
-				{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("flippedGoomba") },
-				{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("MovingGoomba") },
-				{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("MovingGoomba") }
+				{EnemyType.Goomba.ToString(), new Dictionary<string, Texture2D>
+				{
+						{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedGoomba") },
+						{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("flippedGoomba") },
+						{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("MovingGoomba") },
+						{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("MovingGoomba") }
+					}
+				}
 			};
 		}
 	}
