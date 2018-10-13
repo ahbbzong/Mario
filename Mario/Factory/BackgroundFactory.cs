@@ -7,7 +7,9 @@ using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Mario.Enums;
 using Mario.Classes.BackgroundClasses;
-
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
+using Mario.Enums;
 namespace Mario.Factory
 {
 	class BackgroundFactory : GameObjectFactory
@@ -15,6 +17,7 @@ namespace Mario.Factory
 		private static BackgroundFactory instance = new BackgroundFactory();
 		public static BackgroundFactory Instance { get => instance; set => instance = value; }
 
+		private Dictionary<string, Texture2D> spriteDictionary;
 		public BackgroundFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>{
@@ -55,6 +58,19 @@ namespace Mario.Factory
 		private IGameObject GetBushSingle(Vector2 arg)
 		{
 			return new BushSingle(arg);
+		}
+
+		public override void LoadContent(ContentManager content)
+		{
+			spriteDictionary = new Dictionary<string, Texture2D>
+			{
+				{BackgroundType.BushSingle.ToString(), content.Load<Texture2D>("singleBush") },
+				{BackgroundType.BushTriple.ToString(), content.Load<Texture2D>("tripleBush") },
+				{BackgroundType.CloudSingle.ToString(), content.Load<Texture2D>("singleCloud") },
+				{BackgroundType.CloudTriple.ToString(), content.Load<Texture2D>("tripleCloud") },
+				{BackgroundType.MountainBig.ToString(),content.Load<Texture2D>("bigMountain") },
+				{BackgroundType.MountainSmall.ToString(), content.Load<Texture2D>("smallMountain") }
+			};
 		}
 	}
 }

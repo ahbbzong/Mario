@@ -139,6 +139,7 @@
     <Compile Include="Enums\EnemyType.cs" />
     <Compile Include="Enums\GameObjectType.cs" />
     <Compile Include="Enums\ItemType.cs" />
+    <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Factory\BackgroundFactory.cs" />
     <Compile Include="Factory\BlockFactory.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Interfaces\GameObjects\IBackground.cs" />
     <Compile Include="Interfaces\GameObjects\IBlock.cs" />
     <Compile Include="Interfaces\CollisionHandlers\IBlockCollisionHandler.cs" />
+    <Compile Include="Interfaces\IContentBehavior.cs" />
     <Compile Include="Interfaces\States\IBlockState.cs" />
     <Compile Include="Interfaces\ICollidiable.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

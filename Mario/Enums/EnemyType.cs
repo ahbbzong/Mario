@@ -11,4 +11,12 @@ namespace Mario.Enums
         Koopa,
         Goomba
     }
+
+	public enum EnemyStateType
+	{
+		Stomped,
+		MovingLeft,
+		MovingRight,
+		Flipped
+	}
 }

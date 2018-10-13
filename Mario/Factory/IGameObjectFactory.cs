@@ -12,5 +12,6 @@ namespace Mario.Factory
 	{
 		IGameObject GetGameObject(string typeName, Vector2 position);
 		Func<Vector2, IGameObject> GetInstantiatorByTypeName(string typeName);
+
 	}
 }

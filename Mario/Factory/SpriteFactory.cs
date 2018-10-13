@@ -144,6 +144,7 @@ namespace Mario.Factory
             magicMushroomSheet = content.Load<Texture2D>("MagicMushroom");
             oneUpMushroomSheet = content.Load<Texture2D>("OneUpMushroom");
             starmanSheet = content.Load<Texture2D>("Starman");
+
             MovingGoombaSheet = content.Load<Texture2D>("MovingGoomba");
             flippedGoombaSheet = content.Load<Texture2D>("flippedGoomba");
             stompedGoombaSheet = content.Load<Texture2D>("StompedGoomba");

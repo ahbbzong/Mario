@@ -7,6 +7,9 @@ using Mario.BlocksClasses;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Mario.Enums;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace Mario.Factory
 {
 	class BlockFactory : GameObjectFactory
@@ -14,6 +17,8 @@ namespace Mario.Factory
 		private static BlockFactory instance = new BlockFactory();
 
 		public static BlockFactory Instance { get => instance; set => instance = value; }
+
+		private Dictionary<string, Texture2D> spriteDictionary;
 		public BlockFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
@@ -55,6 +60,21 @@ namespace Mario.Factory
 		private IGameObject GetHiddenBlock(Vector2 arg)
 		{
 			return new HiddenBlock(arg);
-		}		
+		}
+
+		public override void LoadContent(ContentManager content)
+		{
+			spriteDictionary = new Dictionary<string, Texture2D>
+			{
+				{BlockType.Breakable.ToString(), content.Load<Texture2D>("brickBlock")},
+				{BlockType.Floor.ToString(), content.Load<Texture2D>("floorBlock") },
+				{BlockType.Hidden.ToString(), content.Load<Texture2D>("usedBlock") },
+				{BlockType.Pipe.ToString(), content.Load<Texture2D>("pipe") },
+				{BlockType.Question.ToString(), content.Load<Texture2D>("questionBlock") },
+				{BlockType.Unbreakable.ToString(), content.Load<Texture2D>("UnbreakableBlock") },
+				{BlockType.Used.ToString(), content.Load<Texture2D>("usedBlock") }
+
+			};
+		}
 	}
 }
