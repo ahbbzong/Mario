@@ -2,6 +2,7 @@
 using Mario.AbstractClass;
 using Mario.Classes.BlocksClasses;
 using Mario.EnemyClasses;
+using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,8 +18,8 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public FlippedGoombaState(Enemy enemy) :base(enemy)
         {
-            this.enemy = enemy;
-            EnemySprite = SpriteFactory.Instance.CreateFlippedGoombaSprite();
+            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Flipped.ToString()];
+
         }
 
     }

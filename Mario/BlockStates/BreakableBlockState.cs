@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
 using Mario.Classes.BlocksClasses;
+using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,8 +12,7 @@ namespace Mario.BlockStates
     {
         public BreakableBlockState(Block block) : base(block)
         {
-           
-            blockSprite = SpriteFactory.Instance.CreateBreakableBlockSprite();
+            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Breakable.ToString()];
         }
         public override void React()
         {

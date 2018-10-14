@@ -61,11 +61,10 @@ namespace Mario
 
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			ItemManager.Instance.LoadContent(spriteBatch);
-			
-			// Create a new SpriteBatch, which can be used to draw textures.
+            // Create a new SpriteBatch, which can be used to draw textures.
 
-			// TODO: use this.Content to load your game content here
-		}
+            // TODO: use this.Content to load your game content here
+        }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload

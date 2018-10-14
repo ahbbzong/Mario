@@ -11,7 +11,7 @@ namespace Mario.ItemClasses
     {
         public Coin(Vector2 location):base(location)
         {
-            ItemSprite = SpriteFactory.Instance.CreateCoinSprite();
+            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.Coin.ToString()];
             Type = ItemType.Coin;
         }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Game1;
 using Mario.AbstractClass;
 using Mario.Classes.BlocksClasses;
+using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +18,7 @@ namespace Mario.Classes.BackgroundClasses
 
         public CloudTriple(Vector2 location) : base(location)
         {
-            BackgroundSprite = SpriteFactory.Instance.CreatCloudTripleSprite();
+            BackgroundSprite = BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.CloudTriple.ToString()];
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.AbstractClass;
 using Mario.EnemyClasses;
+using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,8 +17,7 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public FlippedKoopaState(Enemy enemy) : base(enemy)
         {
-            this.enemy = enemy;
-            EnemySprite = SpriteFactory.Instance.CreateFlippedKoopaSprite();
+            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Flipped.ToString()];
         }
         public override void BeKilled()
         {

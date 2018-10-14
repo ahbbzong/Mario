@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.AbstractClass;
 using Mario.EnemyClasses;
+using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,8 +17,7 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public MovingGoombaState(Enemy enemy):base(enemy)
         {
-            this.enemy = enemy;
-            EnemySprite = SpriteFactory.Instance.CreateMovingGoombaSprite();
+            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.MovingLeft.ToString()];
         }
         public override void BeStomped()
         {

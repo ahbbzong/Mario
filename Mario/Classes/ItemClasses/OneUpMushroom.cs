@@ -11,7 +11,7 @@ namespace Mario.ItemClasses
     {
         public OneUpMushroom(Vector2 location) : base(location)
         {
-            ItemSprite = SpriteFactory.Instance.CreateOneUpMushroomSprite();
+            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.OneUpMushroom.ToString()];
             Type = ItemType.OneUpMushroom;
         }
     }

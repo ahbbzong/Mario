@@ -61,7 +61,7 @@ namespace Mario.Factory
 			SpriteDictionary = new Dictionary<string, ISprite>
 			{
 				{ItemType.Coin.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Coin"),1,3) },
-				{ItemType.FireFlower.ToString(),SpriteFactory.Instance.CreateAnimatedSprite( content.Load<Texture2D>("FireFlower"),1,3) },
+				{ItemType.FireFlower.ToString(),SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("FireFlower"),1,4) },
 				{ItemType.MagicMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("MagicMushroom")) },
 				{ItemType.OneUpMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("OneUpMushroom")) },
 				{ItemType.Starman.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Starman"),1,3) }

@@ -4,6 +4,7 @@ using Game1;
 using Mario.Factory;
 using Mario.Enums;
 using Mario.Classes.BlocksClasses;
+using System;
 
 namespace Mario.ItemClasses
 {
@@ -11,8 +12,11 @@ namespace Mario.ItemClasses
     {
         public FireFlower(Vector2 location) : base(location)
         {
-            ItemSprite = SpriteFactory.Instance.CreateFireFlowerSprite();
+            Console.WriteLine(ItemType.FireFlower.ToString());
+            
+            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.FireFlower.ToString()];
             Type = ItemType.FireFlower;
+
         }
     }
 }
