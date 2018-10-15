@@ -29,5 +29,6 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario.MarioMovementState = new RightRunningMarioMovementState(Mario);
 		}
+		
 	}
 }

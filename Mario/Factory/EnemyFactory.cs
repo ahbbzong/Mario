@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Mario.Enums;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Game1;
 
 namespace Mario.Factory
 {
@@ -16,8 +17,6 @@ namespace Mario.Factory
 	{
 		private static EnemyFactory instance = new EnemyFactory();
 		public static EnemyFactory Instance { get => instance; }
-
-		private Dictionary<string, Dictionary<string, Texture2D>> spriteDictionary;
 		private EnemyFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
@@ -38,22 +37,22 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			spriteDictionary = new Dictionary<string, Dictionary<string, Texture2D>>
+			SpriteDictionary = new Dictionary<string, Dictionary<string, ISprite>>
 			{
-				{EnemyType.Koopa.ToString(), new Dictionary<string, Texture2D>{
-						{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedKoopa") },
-						{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("FlippedKoopa") },
-						{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("LeftMovingKoopa") },
-						{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("RightMovingKoopa") }
+				{EnemyType.Koopa.ToString(), new Dictionary<string, ISprite>{
+						{EnemyStateType.Stomped.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("StompedKoopa")) },
+						{EnemyStateType.Flipped.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("FlippedKoopa")) },
+						{EnemyStateType.MovingLeft.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
+						{EnemyStateType.MovingRight.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
 					}
 				},
 
-				{EnemyType.Goomba.ToString(), new Dictionary<string, Texture2D>
+				{EnemyType.Goomba.ToString(), new Dictionary<string, ISprite>
 				{
-						{EnemyStateType.Stomped.ToString(), content.Load<Texture2D>("StompedGoomba") },
-						{EnemyStateType.Flipped.ToString(), content.Load<Texture2D>("flippedGoomba") },
-						{EnemyStateType.MovingLeft.ToString(), content.Load<Texture2D>("MovingGoomba") },
-						{EnemyStateType.MovingRight.ToString(), content.Load<Texture2D>("MovingGoomba") }
+						{EnemyStateType.Stomped.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("StompedGoomba") )},
+						{EnemyStateType.Flipped.ToString(), SpriteFactory.Instance.CreateStaticSprite( content.Load<Texture2D>("flippedGoomba") )},
+						{EnemyStateType.MovingLeft.ToString(), SpriteFactory.Instance.CreateAnimatedSprite( content.Load<Texture2D>("MovingGoomba"),1,2) },
+						{EnemyStateType.MovingRight.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("MovingGoomba"),1,2) }
 					}
 				}
 			};

@@ -24,8 +24,7 @@ namespace Mario
         {
             get
             {
-                return new Rectangle((int)location.X, (int)location.Y, marioSprite.Width, marioSprite.Height);
-                
+				return new Rectangle((int)location.X, (int)location.Y, marioSprite.Width, marioSprite.Height);                
             }
             
         }
@@ -38,8 +37,11 @@ namespace Mario
         {
             this.location = location;
             MarioMovementState = new RightIdleMarioMovementState(this);
+
 			MarioPowerupState = new NormalMarioPowerupState(this);
-            fall = false;
+			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
+
+			fall = false;
            
         }
 		public void Up()
@@ -47,9 +49,13 @@ namespace Mario
             MarioMovementState.Up();
             fall = false;
         }
-        public void Down()
-        {
-            MarioMovementState.Down();
+		public void Down()
+		{
+			
+			if(!(MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal && MarioMovementState.MarioMovementType != MarioMovementType.LeftJump && MarioMovementState.MarioMovementType != MarioMovementType.RightJump))
+			{
+				MarioMovementState.Down();
+			}
             fall = true;
         }
         public void Left()
@@ -123,6 +129,9 @@ namespace Mario
             return fall;
         }
 
-     
-    }
+		public void NoInput()
+		{
+			MarioMovementState.NoInput();
+		}
+	}
 }

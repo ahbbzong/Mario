@@ -25,5 +25,11 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario.MarioMovementState = new LeftJumpingMarioMovementState(Mario);
 		}
+
+		public override void NoInput()
+		{
+			base.NoInput();
+			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
+		}
 	}
 }
