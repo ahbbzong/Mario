@@ -216,6 +216,7 @@
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightIdleSprite.cs" />
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightJumpSprite.cs" />
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightRunningSprite.cs" />
+    <Compile Include="MarioStates\MarioMovementStates\DeadMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftCrouchingMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftIdleMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftJumpingMarioMovementState.cs" />

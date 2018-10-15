@@ -37,7 +37,6 @@ namespace Mario
         {
             this.location = location;
             MarioMovementState = new RightIdleMarioMovementState(this);
-
 			MarioPowerupState = new NormalMarioPowerupState(this);
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
 

@@ -28,7 +28,7 @@ namespace Mario.Physics
             YVelocityMax = 3.5f;
             YVelocityMin = 0;
             XAccrelerate = 2.0f;
-            Gravity = 9.8f;
+            Gravity = 3.8f;
         }
         public void MovingLeft()
         {
