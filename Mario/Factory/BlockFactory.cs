@@ -71,7 +71,7 @@ namespace Mario.Factory
 				{BlockType.Floor.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("floorBlock")) },
 				{BlockType.Hidden.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) },
 				{BlockType.Pipe.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("pipe")) },
-				{BlockType.Question.ToString(), SpriteFactory.Instance.CreateStaticSprite( content.Load<Texture2D>("questionBlock")) },
+				{BlockType.Question.ToString(), SpriteFactory.Instance.CreateAnimatedSprite( content.Load<Texture2D>("questionBlock"),1,3) },
 				{BlockType.Unbreakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("UnbreakableBlock")) },
 				{BlockType.Used.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) }
 

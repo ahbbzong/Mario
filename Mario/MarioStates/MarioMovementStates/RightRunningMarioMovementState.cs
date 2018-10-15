@@ -28,5 +28,10 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario.MarioMovementState = new RightCrouchingMarioMovementState(Mario);
 		}
+
+		public override void NoInput()
+		{
+			Mario.MarioMovementState = new RightIdleMarioMovementState(Mario);
+		}
 	}
 }

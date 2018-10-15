@@ -31,12 +31,18 @@ namespace Mario
 			keyboardMap.Add(Keys.O, new DeadCommand(mario));
 			keyboardMap.Add(Keys.P, new BeStarMarioCommand(mario));
 			keyboardMap.Add(Keys.Q, new QuitCommand(Game1.Instance));
+			keyboardMap.Add(Keys.None, new NoInputCommand(mario));
 		}
         public void Update()
         {
             
             {
                 Keys[] getkeys = Keyboard.GetState().GetPressedKeys();
+				// needs to update to check no input of just cardinal direction keys for movement input
+				if(getkeys.Length == 0)
+				{
+					keyboardMap[Keys.None].Execute();
+				}
                 foreach (Keys key in getkeys)
                 {
 

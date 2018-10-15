@@ -184,6 +184,7 @@
     <Compile Include="ItemsSprite\StarmanSprite.cs" />
     <Compile Include="Keyboard\GamePadController.cs" />
     <Compile Include="Keyboard\Keyboard.cs" />
+    <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="MarioSprite\FireMarioSprite\FireMarioLeftCrouchSprite.cs" />
     <Compile Include="MarioSprite\FireMarioSprite\FireMarioLeftIdleSprite.cs" />
     <Compile Include="MarioSprite\FireMarioSprite\FireMarioLeftJumpSprite.cs" />

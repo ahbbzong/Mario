@@ -9,6 +9,8 @@ using Mario.Enums;
 using Mario.Classes.BackgroundClasses;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Game1;
+
 namespace Mario.Factory
 {
 	class BackgroundFactory : SimpleGameObjectFactory
@@ -61,14 +63,14 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			spriteDictionary = new Dictionary<string, Texture2D>
+			SpriteDictionary = new Dictionary<string, ISprite>
 			{
-				{BackgroundType.BushSingle.ToString(), content.Load<Texture2D>("singleBush") },
-				{BackgroundType.BushTriple.ToString(), content.Load<Texture2D>("tripleBush") },
-				{BackgroundType.CloudSingle.ToString(), content.Load<Texture2D>("singleCloud") },
-				{BackgroundType.CloudTriple.ToString(), content.Load<Texture2D>("tripleCloud") },
-				{BackgroundType.MountainBig.ToString(),content.Load<Texture2D>("bigMountain") },
-				{BackgroundType.MountainSmall.ToString(), content.Load<Texture2D>("smallMountain") }
+				{BackgroundType.BushSingle.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("singleBush")) },
+				{BackgroundType.BushTriple.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("tripleBush")) },
+				{BackgroundType.CloudSingle.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("singleCloud")) },
+				{BackgroundType.CloudTriple.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("tripleCloud")) },
+				{BackgroundType.MountainBig.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("bigMountain")) },
+				{BackgroundType.MountainSmall.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("smallMountain")) }
 			};
 		}
 	}

@@ -39,5 +39,9 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 
 		}
+
+		public virtual void NoInput()
+		{
+		}
 	}
 }

@@ -10,13 +10,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 namespace Mario.EnemyStates.GoombaStates
 {
     public class MovingGoombaState : EnemyState
     {
         public MovingGoombaState(Enemy enemy):base(enemy)
         {
+			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
             EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.MovingLeft.ToString()];
         }
         public override void BeStomped()
