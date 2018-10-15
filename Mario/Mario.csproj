@@ -229,6 +229,7 @@
     <Compile Include="MarioStates\MarioPowerupStates\MarioPowerupState.cs" />
     <Compile Include="MarioStates\MarioPowerupStates\NormalMarioPowerupState.cs" />
     <Compile Include="MarioStates\MarioPowerupStates\SuperMarioPowerupState.cs" />
+    <Compile Include="Physics\Physics.cs" />
     <Compile Include="PipeSprites\PipeSprite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
