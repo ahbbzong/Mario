@@ -84,11 +84,11 @@
       <YLocation>400</YLocation>
     </BlockXML>
   
-    <BlockXML>
-      <BlockType>Floor</BlockType>
-      <XLocation>660</XLocation>
-      <YLocation>400</YLocation>
-    </BlockXML>
+  <BlockXML>
+    <BlockType>Floor</BlockType>
+    <XLocation>0</XLocation>
+    <YLocation>532</YLocation>
+  </BlockXML>
 
   <BlockXML>
     <BlockType>Hidden</BlockType>
@@ -111,7 +111,7 @@
     <PlayerXML>
       <PlayerName>Mario</PlayerName>
       <XLocation>800</XLocation>
-      <YLocation>700</YLocation>
+      <YLocation>500</YLocation>
     </PlayerXML>
   
     <BackgroundXML>
