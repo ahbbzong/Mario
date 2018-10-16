@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-         public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior
-        {
+         public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody
+    {
         bool IsSuperMario();
         bool IsNormalMario();
         bool IsFireMario();

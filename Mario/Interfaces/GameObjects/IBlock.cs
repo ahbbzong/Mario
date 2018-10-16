@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface IBlock : IGameObject
+    public interface IBlock : IGameObject, IPhysicsBody
     {
 
         BlockType Type { get; }

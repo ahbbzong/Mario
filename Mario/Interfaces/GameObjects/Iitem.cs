@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface IItem : IGameObject
+    public interface IItem : IGameObject, IPhysicsBody
     {
         
   

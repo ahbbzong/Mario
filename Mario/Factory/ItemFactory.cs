@@ -27,7 +27,8 @@ namespace Mario.Factory
 				{"FireFlower",GetFireFlower },
 				{"MagicMushroom",GetMagicMushroom },
 				{"OneUpMushroom",GetOneUpMushroom },
-				{"Starman", GetStarman }
+				{"Starman", GetStarman },
+                {"Fireball",GetFireball }
 			};
 		}
 
@@ -55,8 +56,12 @@ namespace Mario.Factory
 		{
 			return new Coin(arg);
 		}
+        private IGameObject GetFireball(Vector2 arg)
+        {
+            return new Fireball(arg);
+        }
 
-		public override void LoadContent(ContentManager content)
+        public override void LoadContent(ContentManager content)
 		{
 			SpriteDictionary = new Dictionary<string, ISprite>
 			{
@@ -64,8 +69,9 @@ namespace Mario.Factory
 				{ItemType.FireFlower.ToString(),SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("FireFlower"),1,4) },
 				{ItemType.MagicMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("MagicMushroom")) },
 				{ItemType.OneUpMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("OneUpMushroom")) },
-				{ItemType.Starman.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Starman"),1,4) }
-			};
+				{ItemType.Starman.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Starman"),1,4) },
+                {ItemType.Fireball.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Fireball"),1,4) }
+            };
 		}
 	}
 }

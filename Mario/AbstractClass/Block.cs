@@ -24,6 +24,12 @@ namespace Mario.Classes.BlocksClasses
                 return new Rectangle((int)BlockLocation.X, (int)BlockLocation.Y, BlockState.getWidth, BlockState.getHeight);
             }
         }
+
+        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         protected Block(Vector2 location)
         {
             BlockLocation = location;

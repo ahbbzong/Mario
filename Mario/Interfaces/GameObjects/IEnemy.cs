@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface IEnemy: IGameObject
+    public interface IEnemy: IGameObject, IPhysicsBody
     {
         void Beflipped();
         void BeStomped();

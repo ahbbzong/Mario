@@ -18,7 +18,6 @@ namespace Mario.Collision.ItemCollisionHandler
         public void HandleCollision(IItem item)
         {
             item.Getposition().Y += locationOffset;
-            
         }
     }
 }

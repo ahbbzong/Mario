@@ -1,49 +1,39 @@
 ﻿using Game1;
+using Mario.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mario.Physics
+namespace Mario
 {
-   public class Physics
+    public class Physics : IUpdateable
     {
-        private IMario mario;
-        private float XVelocity { get; set; }
-        private float YVelocity { get; set; }
+        public float XVelocity { get; set; }
+        public float YVelocity { get; set; }
         private float XVelocityMax { get; set; }
-        private float XVelocityMin { get; set; }
         private float YVelocityMax { get; set; }
-        private float YVelocityMin { get; set; }
         private float XAccrelerate { get; set; }
         private float Gravity { get; set; }
-        public Physics(IMario mario)
+        IPhysicsBody physicsBody;
+        public Physics(IPhysicsBody physicsBody)
         {
-            this.mario = mario;
-            XVelocity = 0;
-            YVelocity = 3.5f;
-            XVelocityMax = 3.5f;
-            XVelocityMin = -3.5f;
-            YVelocityMax = 3.5f;
-            YVelocityMin = 0;
+            this.physicsBody = physicsBody;
+            XVelocity = physicsBody.XVelocity;
+            YVelocity = physicsBody.YVelocity;
+            XVelocityMax = physicsBody.XVelocityMax;
+            YVelocityMax = physicsBody.YVelocityMax;
             XAccrelerate = 2.0f;
             Gravity = 3.8f;
         }
-        public void MovingLeft()
+        private void ApplyGtravity()
         {
-            if (XVelocity > XVelocityMin)
-            {
-                XVelocity -= XAccrelerate;
-            }
-            else
-            {
-                XVelocity = XVelocityMin;
-            }
+             YVelocity -= Gravity;
         }
-        public void MovingRight()
+        private void ApplyFriction()
         {
-            if (XVelocity <= XVelocityMin)
+            if (XVelocity <= XVelocityMax)
             {
                 XVelocity += XAccrelerate;
             }
@@ -52,16 +42,10 @@ namespace Mario.Physics
                 XVelocity = XVelocityMax;
             }
         }
-        public void MovingUp()
+        public void Update()
         {
-            if (YVelocity<YVelocityMax)
-            {
-                YVelocity += Gravity;
-            }
-            else
-            {
-                YVelocity = YVelocityMax;
-            }
+            ApplyGtravity();
+            ApplyFriction();
         }
     }
 }
