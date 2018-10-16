@@ -7,14 +7,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface IItem : IGameObject, IPhysicsBody
+    public interface IProjectile : IGameObject, IPhysicsBody
     {
         
   
-        ItemType Type { get; }
+        ProjectileType Type { get; }
         Rectangle Box { get; }
         ref Vector2 Getposition();
     }
-
+   
 }
       

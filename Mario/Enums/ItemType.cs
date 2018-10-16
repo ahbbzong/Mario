@@ -12,7 +12,5 @@ namespace Mario.Enums
         FireFlower,
         MagicMushroom,
         OneUpMushroom,
-        Starman,
-        Fireball
-    }
+        Starman    }
 }

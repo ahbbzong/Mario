@@ -29,9 +29,10 @@ namespace Mario.XMLRead
         static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer playerSerializer = new XmlSerializer(typeof(List<PlayerXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer backSerializer = new XmlSerializer(typeof(List<BackgroundXML>), new XmlRootAttribute("Map"));
+        static readonly XmlSerializer projectileSerializer = new XmlSerializer(typeof(List<ProjectileXML>), new XmlRootAttribute("Map"));
 
 
-		public Dictionary<string, XmlSerializer> xmlSerializersByType;
+        public Dictionary<string, XmlSerializer> xmlSerializersByType;
 
 		private Dictionary<string, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<string, Func<string, IList<IGameObject>>>
 		{
@@ -40,8 +41,9 @@ namespace Mario.XMLRead
 			{"Enemy", LoadEnemy },
 			{"Background", LoadBackground },
 			{"Pipe", LoadPipe },
-			{"Mario", LoadPlayer }
-		};
+			{"Mario", LoadPlayer },
+            {"Projectile", LoadProjectile }
+        };
          private LevelLoader()
         {
 
@@ -147,6 +149,20 @@ namespace Mario.XMLRead
 				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(back.BackgroundType.ToString(), new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
+        }
+        public static IList<IGameObject> LoadProjectile(string file)
+        {
+            IList<ProjectileXML> myProjectileObject = new List<ProjectileXML>();
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                myProjectileObject = (IList<ProjectileXML>)projectileSerializer.Deserialize(reader);
+            }
+            IList<IGameObject> projectileList = new List<IGameObject>();
+            foreach (ProjectileXML projectile in myProjectileObject)
+            {
+                projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.projectileType.ToString(), new Vector2(projectile.XLocation, projectile.YLocation)));
+            }
+            return projectileList;
         }
     }
 }

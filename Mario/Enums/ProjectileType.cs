@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mario.Collision.FireballCollisionHandler
+namespace Mario.Enums
 {
-    class FireballObjectCollisionHandler
+    public enum ProjectileType
     {
-
+      
+        Fireball
     }
 }

@@ -7,12 +7,12 @@ using Mario.Classes.BlocksClasses;
 
 namespace Mario.ItemClasses
 {
-    public class Fireball : Item
+    public class Fireball : Projectile
     {
         public Fireball(Vector2 location):base(location)
         {
-            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.Fireball.ToString()];
-            Type = ItemType.Fireball;
+            ProjectileSprite = ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()];
+            Type = ProjectileType.Fireball;
         }
 
 

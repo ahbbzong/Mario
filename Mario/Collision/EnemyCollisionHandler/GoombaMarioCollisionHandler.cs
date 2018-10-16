@@ -25,9 +25,11 @@ namespace Mario.Collision.EnemyCollisionHandler
             }
             if (enemy.IsStomped() && result.Equals(Direction.Right))
             {
+
             }
             if (enemy.IsStomped() && result.Equals(Direction.Left))
             {
+
             }
         }
      
