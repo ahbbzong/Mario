@@ -37,7 +37,6 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Up()
 		{
-            mario.Getposition().Y -= 3;
         }
 
 		public virtual void NoInput()
