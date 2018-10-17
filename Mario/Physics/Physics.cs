@@ -18,7 +18,7 @@ namespace Mario
         {
             this.physicsBody = physicsBody;
             XAccrelerate = 2.0f;
-            Gravity = 3.8f;
+            Gravity = 1.8f;
         }
         private void ApplyGtravity()
         {
@@ -27,7 +27,7 @@ namespace Mario
         }
         public void ResetGravity()
         {
-            Gravity = 3.8f;
+            Gravity = 1.8f;
         }
        public void Update()
         {
