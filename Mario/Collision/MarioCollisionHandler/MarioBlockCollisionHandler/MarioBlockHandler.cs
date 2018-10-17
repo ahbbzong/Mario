@@ -21,6 +21,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
             {
                 case Direction.Up:
                     mario.Getposition().Y -= intersection.Height;
+                    mario.SetIsLand();
                     break;
                 case Direction.Down:
                     mario.Getposition().Y += intersection.Height;

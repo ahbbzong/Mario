@@ -53,6 +53,7 @@ namespace Mario.XMLRead
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
 
 			LevelLoader.Instance.LoadFile("XMLFile1.xml");
+            
 			foreach (IController controller in ControllerList)
 			{
 				controller.Initialize((IMario)gameObjectListsByType["Mario"][0]);

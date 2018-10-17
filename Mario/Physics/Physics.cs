@@ -8,44 +8,37 @@ using System.Threading.Tasks;
 
 namespace Mario
 {
-    public class Physics : IUpdateable
+    public class Physics 
     {
-        public float XVelocity { get; set; }
-        public float YVelocity { get; set; }
-        private float XVelocityMax { get; set; }
-        private float YVelocityMax { get; set; }
+       
         private float XAccrelerate { get; set; }
         private float Gravity { get; set; }
         IPhysicsBody physicsBody;
         public Physics(IPhysicsBody physicsBody)
         {
             this.physicsBody = physicsBody;
-            XVelocity = physicsBody.XVelocity;
-            YVelocity = physicsBody.YVelocity;
-            XVelocityMax = physicsBody.XVelocityMax;
-            YVelocityMax = physicsBody.YVelocityMax;
             XAccrelerate = 2.0f;
-            Gravity = 3.8f;
+            Gravity = 1.8f;
         }
-        private void ApplyGtravity()
+        public void ApplyGtravity()
         {
-             YVelocity -= Gravity;
+            Gravity += 0.1f;
+            physicsBody.Getposition().Y += Gravity;
         }
-        private void ApplyFriction()
+        public void ResetGravity()
         {
-            if (XVelocity <= XVelocityMax)
-            {
-                XVelocity += XAccrelerate;
-            }
-            else
-            {
-                XVelocity = XVelocityMax;
-            }
+            Gravity = 1.8f;
         }
-        public void Update()
-        {
-            ApplyGtravity();
-            ApplyFriction();
-        }
+        //private void ApplyFriction()
+        //{
+          //  if (physicsBody.XVelocity <= physicsBody.XVelocityMax)
+            //{
+              //  physicsBody.XVelocity += XAccrelerate;
+            //}
+            //else
+            //{
+              //  physicsBody.XVelocity = XVelocityMax;
+            //}
+        //}
     }
 }

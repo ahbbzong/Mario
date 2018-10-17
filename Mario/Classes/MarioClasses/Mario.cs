@@ -20,6 +20,7 @@ namespace Mario
 		private ISprite marioSprite { get; set; }
 
         private bool fall;
+        private bool island;
         public Rectangle Box
         {
             get
@@ -50,13 +51,14 @@ namespace Mario
             XVelocityMax = 3.5f;
             YVelocityMax = 3.5f;
             physics = new Physics(this);
-
         }
 		public void Up()
         {
             MarioMovementState.Up();
             fall = false;
-            location.Y -= 3;
+            location.Y -= 5;
+            island = false;
+            
         }
 		public void Down()
 		{
@@ -122,7 +124,10 @@ namespace Mario
         {
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
             marioSprite.Update();
-            physics.Update();
+            if (!island)
+            {
+                physics.ApplyGtravity();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -143,10 +148,29 @@ namespace Mario
         {
             return fall;
         }
+        public void SetIsLand()
+        {
+            physics.ResetGravity();
+            if (island)
+            {
+                island = false;
+            }
+            else
+            {
+                island = true;
+            }
+        }
 
 		public void NoInput()
 		{
 			MarioMovementState.NoInput();
 		}
+        public void ThrowFireball()
+        {
+            if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)
+            {
+                MarioPowerupState.ThrowFireball();
+            }
+        }
 	}
 }

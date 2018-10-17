@@ -20,7 +20,8 @@ namespace Mario.XMLRead
 {
     public sealed class LevelLoader
     {
-		private static LevelLoader instance = new LevelLoader();
+        public IList<IGameObject> projectileList = new List<IGameObject>();
+        private static LevelLoader instance = new LevelLoader();
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
         static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
@@ -161,12 +162,12 @@ namespace Mario.XMLRead
             {
                 myProjectileObject = (IList<ProjectileXML>)projectileSerializer.Deserialize(reader);
             }
-            IList<IGameObject> projectileList = new List<IGameObject>();
+            
             foreach (ProjectileXML projectile in myProjectileObject)
             {
-                projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.projectileType.ToString(), new Vector2(projectile.XLocation, projectile.YLocation)));
+                LevelLoader.Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.projectileType.ToString(), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
-            return projectileList;
+            return LevelLoader.Instance.projectileList;
         }
     }
 }
