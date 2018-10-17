@@ -20,6 +20,7 @@ namespace Mario
 		private ISprite marioSprite { get; set; }
 
         private bool fall;
+        private bool island;
         public Rectangle Box
         {
             get
@@ -32,22 +33,32 @@ namespace Mario
 		public MarioMovementType MarioMovementType => MarioMovementState.MarioMovementType;
 
 		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
-
-		public Mario(Vector2 location)
+        public float XVelocity { get ; set; }
+        public float YVelocity { get ; set; }
+        public float XVelocityMax { get ; set; }
+        public float YVelocityMax { get ; set; }
+        private Physics physics;
+        public Mario(Vector2 location)
         {
             this.location = location;
             MarioMovementState = new RightIdleMarioMovementState(this);
-
 			MarioPowerupState = new NormalMarioPowerupState(this);
+            
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
-
 			fall = false;
-           
+            XVelocity = 0;
+            YVelocity = 0;
+            XVelocityMax = 3.5f;
+            YVelocityMax = 3.5f;
+            physics = new Physics(this);
         }
 		public void Up()
         {
             MarioMovementState.Up();
             fall = false;
+            location.Y -= 5;
+            island = false;
+            
         }
 		public void Down()
 		{
@@ -61,6 +72,7 @@ namespace Mario
         public void Left()
         {
             MarioMovementState.Left();
+
         }
         public void Right()
         {
@@ -69,6 +81,7 @@ namespace Mario
         public void Dead()
         {
             MarioPowerupState.Dead();
+            MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
         {
@@ -108,6 +121,10 @@ namespace Mario
         {
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
             marioSprite.Update();
+            if (!island)
+            {
+                physics.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -128,10 +145,29 @@ namespace Mario
         {
             return fall;
         }
+        public void SetIsLand()
+        {
+            physics.ResetGravity();
+            if (island)
+            {
+                island = false;
+            }
+            else
+            {
+                island = true;
+            }
+        }
 
 		public void NoInput()
 		{
 			MarioMovementState.NoInput();
 		}
+        public void ThrowFireball()
+        {
+            if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)
+            {
+                MarioPowerupState.ThrowFireball();
+            }
+        }
 	}
 }

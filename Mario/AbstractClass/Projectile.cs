@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Block : IBlock, ICollidiable
+    public abstract class Projectile : IProjectile, ICollidiable
     {
-        private Vector2 BlockLocation;
-        public BlockType Type { get; set; }
-        public BlockState BlockState { get; set; }
+        protected ISprite ProjectileSprite { get; set; }
+        private Vector2 ProjectileLocation;
+        public ProjectileType Type { get; set; }
         public Rectangle Box
         {
             get
             {
-                return new Rectangle((int)BlockLocation.X, (int)BlockLocation.Y, BlockState.getWidth, BlockState.getHeight);
+                return new Rectangle((int)ProjectileLocation.X, (int)ProjectileLocation.Y, ProjectileSprite.Width, ProjectileSprite.Height);
             }
         }
 
@@ -30,37 +30,22 @@ namespace Mario.Classes.BlocksClasses
         public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        protected Block(Vector2 location)
+        protected Projectile(Vector2 location)
         {
-            BlockLocation = location;
+            ProjectileLocation = location;
         }
         public virtual void Update()
         {
-            BlockState.Update();
+            ProjectileSprite.Update();
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            BlockState.Draw(spriteBatch, BlockLocation);
-        }
-        public virtual void React()
-        {
-            //Need to override.
-        }
-        public virtual bool IsHiddenBlock() {
-            return BlockState.IsHiddenBlock();
-        }
-        public virtual bool IsBreakableBlock()
-        {
-            return BlockState.IsBreakableBlock();
-        }
-        public virtual bool IsQuestionBlock()
-        {
-            return BlockState.IsQuestionBlock();
+            ProjectileSprite.Draw(spriteBatch, ProjectileLocation);
         }
 
         public virtual ref Vector2 Getposition()
         {
-            return ref BlockLocation;
+            return ref ProjectileLocation;
         }
     }
 }

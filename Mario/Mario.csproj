@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AbstractClass\Backgroud.cs" />
+    <Compile Include="AbstractClass\Projectile.cs" />
     <Compile Include="AbstractClass\Item.cs" />
     <Compile Include="AbstractClass\Block.cs" />
     <Compile Include="AbstractClass\SpriteAbstractClasses\EmptySprite.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Classes\BlocksClasses\UnbreakableBlock.cs" />
     <Compile Include="Classes\EnemyClasses\Goomba.cs" />
     <Compile Include="Classes\EnemyClasses\Koopa.cs" />
+    <Compile Include="Classes\ProjectileClasses\Fireball.cs" />
     <Compile Include="Classes\ItemClasses\Coin.cs" />
     <Compile Include="Classes\ItemClasses\FireFlower.cs" />
     <Compile Include="Classes\ItemClasses\MagicMushroom.cs" />
@@ -97,6 +99,9 @@
     <Compile Include="Collision\EnemyCollisionHandler\EnemyBlockCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\KoopaMarioCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\GoombaMarioCollisionHandler.cs" />
+    <Compile Include="Collision\ProjectileCollisionHandler\FireballEnemyCollisionHandler.cs" />
+    <Compile Include="Collision\ProjectileCollisionHandler\FireballBlockCollisionHandler.cs" />
+    <Compile Include="Collision\ItemCollisionHandler\ItemBlockCollisionHandler.cs" />
     <Compile Include="Collision\ItemCollisionHandler\ItemMarioCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioBlockHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioHiddenBlockHandler.cs" />
@@ -104,8 +109,8 @@
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioFireFlowerCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioMagicMushroomCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioStarmanCollisionHandler.cs" />
-    <Compile Include="Collision\MarioCollisionHandler\MarioPipeCollisionHandler\MarioPipeCollisionHandler.cs" />
     <Compile Include="Command\MarioCommand\MarioCommand.cs" />
+    <Compile Include="Command\MarioCommand\ThrowFireballCommand.cs" />
     <Compile Include="Command\QuitCommand.cs" />
     <Compile Include="Command\MarioCommand\BeFireMarioCommand.cs" />
     <Compile Include="Command\MarioCommand\BeNormalMaroCommand.cs" />
@@ -139,6 +144,7 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\EnemyType.cs" />
     <Compile Include="Enums\GameObjectType.cs" />
+    <Compile Include="Enums\ProjectileType.cs" />
     <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
@@ -148,17 +154,21 @@
     <Compile Include="Factory\EnemyFactory.cs" />
     <Compile Include="Factory\GameObjectFactory.cs" />
     <Compile Include="Factory\IGameObjectFactory.cs" />
+    <Compile Include="Factory\ProjectileFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Factory\MarioFactory.cs" />
     <Compile Include="Factory\SimpleGameObjectFactory.cs" />
     <Compile Include="Factory\SpriteFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\CollisionHandlers\ICollisionHandler.cs" />
+    <Compile Include="Interfaces\CollisionHandlers\IProjectileCollisionHandler.cs" />
     <Compile Include="Interfaces\GameObjects\IGameObject.cs" />
     <Compile Include="Interfaces\GameObjects\IBackground.cs" />
     <Compile Include="Interfaces\GameObjects\IBlock.cs" />
     <Compile Include="Interfaces\CollisionHandlers\IBlockCollisionHandler.cs" />
+    <Compile Include="Interfaces\GameObjects\IProjectile.cs" />
     <Compile Include="Interfaces\GameObjects\IMovementEventBehavior.cs" />
+    <Compile Include="Interfaces\GameObjects\IPhysicsBody.cs" />
     <Compile Include="Interfaces\GameObjects\IPowerupEventBehavior.cs" />
     <Compile Include="Interfaces\IContentBehavior.cs" />
     <Compile Include="Interfaces\States\IBlockState.cs" />
@@ -178,6 +188,7 @@
     <Compile Include="Interfaces\States\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Interfaces\IUpdateable.cs" />
+    <Compile Include="ProjectileSprite\FireballSprite.cs" />
     <Compile Include="ItemsSprite\CoinSprite.cs" />
     <Compile Include="ItemsSprite\FireFlowerSprite.cs" />
     <Compile Include="ItemsSprite\MagicMushroomSprite.cs" />
@@ -217,6 +228,7 @@
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightIdleSprite.cs" />
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightJumpSprite.cs" />
     <Compile Include="MarioSprite\SuperMarioSprite\SuperMarioRightRunningSprite.cs" />
+    <Compile Include="MarioStates\MarioMovementStates\DeadMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftCrouchingMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftIdleMarioMovementState.cs" />
     <Compile Include="MarioStates\MarioMovementStates\LeftJumpingMarioMovementState.cs" />
@@ -231,6 +243,7 @@
     <Compile Include="MarioStates\MarioPowerupStates\MarioPowerupState.cs" />
     <Compile Include="MarioStates\MarioPowerupStates\NormalMarioPowerupState.cs" />
     <Compile Include="MarioStates\MarioPowerupStates\SuperMarioPowerupState.cs" />
+    <Compile Include="Physics\Physics.cs" />
     <Compile Include="PipeSprites\PipeSprite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,6 +254,7 @@
     <Compile Include="XMLRead\ItemXML.cs" />
     <Compile Include="XMLRead\LevelLoader.cs" />
     <Compile Include="XMLRead\PipeXML.cs" />
+    <Compile Include="XMLRead\ProjectileXML.cs" />
     <Compile Include="XMLRead\PlayerXML.cs" />
   </ItemGroup>
   <ItemGroup>

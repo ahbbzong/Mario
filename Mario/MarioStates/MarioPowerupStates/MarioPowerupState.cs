@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game1;
+using Mario.XMLRead;
+
 namespace Mario.MarioStates.MarioPowerupStates
 {
 	public abstract class MarioPowerupState : IPowerupEventBehavior
@@ -38,5 +40,9 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
 		}
-	}
+        public virtual void ThrowFireball()
+        {
+            //May need to override
+        }
+    }
 }

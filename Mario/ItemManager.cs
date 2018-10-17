@@ -36,9 +36,10 @@ namespace Mario.XMLRead
 				{"Enemy", new List<IGameObject>() },
 				{"Block", new List<IGameObject>() },
 				{"Pipe", new List<IGameObject>() },
-				{"Background", new List<IGameObject>() }
+				{"Background", new List<IGameObject>() },
+                {"Projectile", new List<IGameObject>() }
 
-			};
+            };
         }
 		
 		public void LoadContent(SpriteBatch spriteBatch)
@@ -49,8 +50,10 @@ namespace Mario.XMLRead
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
 			BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
+            ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
 
 			LevelLoader.Instance.LoadFile("XMLFile1.xml");
+            
 			foreach (IController controller in ControllerList)
 			{
 				controller.Initialize((IMario)gameObjectListsByType["Mario"][0]);
@@ -117,6 +120,7 @@ namespace Mario.XMLRead
 
                 }
             }
+           
         }
         public void CallMarioItemHandler(IItem obj, Direction collisionFound, Rectangle intersection)
         {

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game1
 {
-    public interface IItem : IGameObject
+    public interface IItem : IGameObject, IPhysicsBody
     {
         
   
@@ -15,6 +15,6 @@ namespace Game1
         Rectangle Box { get; }
         ref Vector2 Getposition();
     }
-   
+
 }
       

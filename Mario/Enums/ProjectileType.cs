@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mario.Enums
 {
-    public enum ItemType
+    public enum ProjectileType
     {
-        Coin,
-        FireFlower,
-        MagicMushroom,
-        OneUpMushroom,
-        Starman    }
+      
+        Fireball
+    }
 }

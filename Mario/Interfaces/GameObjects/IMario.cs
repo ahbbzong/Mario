@@ -12,19 +12,18 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-         public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior
-        {
+         public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody
+    {
         bool IsSuperMario();
         bool IsNormalMario();
         bool IsFireMario();
         bool IsStarMario();
         bool IsDead();
-
+        void ThrowFireball();
         bool Isfalling();
         Rectangle Box { get; }
         MarioMovementState MarioMovementState { get; set; }
 		MarioPowerupState MarioPowerupState { get; set; }
-        ref Vector2 Getposition();
-
+        void SetIsLand();
     }
 }

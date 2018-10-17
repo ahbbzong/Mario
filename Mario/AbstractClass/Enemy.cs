@@ -24,6 +24,12 @@ namespace Mario.AbstractClass
                 return new Rectangle((int)EnemyLocation.X, (int)EnemyLocation.Y, enemyState.GetWidth, enemyState.GetHeight);
             }
         }
+
+        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
