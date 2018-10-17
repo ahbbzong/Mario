@@ -18,7 +18,13 @@ namespace Mario.AbstractClass
         {
             SpriteSheet = spriteSheet;
         }
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
+
+		public StaticSprite()
+		{
+			SpriteSheet = null;
+		}
+
+		public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             spriteBatch.Draw(SpriteSheet, new Rectangle((int)location.X, (int)location.Y, SpriteWidth, SpriteHeight), Color.White);
         }
