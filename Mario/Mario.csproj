@@ -46,6 +46,7 @@
     <Compile Include="AbstractClass\Projectile.cs" />
     <Compile Include="AbstractClass\Item.cs" />
     <Compile Include="AbstractClass\Block.cs" />
+    <Compile Include="AbstractClass\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="AbstractClass\StateAbstractClasses\BlockState.cs" />
     <Compile Include="AbstractClass\Enemy.cs" />
     <Compile Include="AbstractClass\StateAbstractClasses\EnemyState.cs" />

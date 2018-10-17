@@ -18,8 +18,7 @@ namespace Mario.Factory
 		private static BlockFactory instance = new BlockFactory();
 
 		public static BlockFactory Instance { get => instance; set => instance = value; }
-
-		private Dictionary<string, Texture2D> spriteDictionary;
+		
 		public BlockFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
@@ -69,7 +68,7 @@ namespace Mario.Factory
 			{
 				{BlockType.Breakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("brickBlock"))},
 				{BlockType.Floor.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("floorBlock")) },
-				{BlockType.Hidden.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) },
+				{BlockType.Hidden.ToString(), SpriteFactory.Instance.CreateEmptySprite(32,32) },
 				{BlockType.Pipe.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("pipe")) },
 				{BlockType.Question.ToString(), SpriteFactory.Instance.CreateAnimatedSprite( content.Load<Texture2D>("questionBlock"),1,3) },
 				{BlockType.Unbreakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("UnbreakableBlock")) },

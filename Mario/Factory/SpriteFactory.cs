@@ -2,6 +2,7 @@
 
 using Game1;
 using Mario.AbstractClass;
+using Mario.AbstractClass.SpriteAbstractClasses;
 using Mario.BackgroundSprite;
 using Mario.BlockSprite;
 using Mario.FireMarioSprite;
@@ -49,7 +50,11 @@ namespace Mario.Factory
 		{
 			return new StaticSprite(texture);
 		}
-
+		
+		public ISprite CreateEmptySprite(int width, int height)
+		{
+			return new EmptySprite(width, height);
+		}
     }
 }
 
