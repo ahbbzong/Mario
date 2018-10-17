@@ -29,6 +29,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
             {
                 case Direction.Up:
                     mario.Getposition().Y -= intersection.Height;
+                    mario.IsLand();
                     break;
                 case Direction.Down:
                     mario.Getposition().Y += intersection.Height;
@@ -38,6 +39,9 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     break;
                 case Direction.Right:
                     mario.Getposition().X += intersection.Width;
+                    break;
+                case Direction.None:
+                    mario.IsLand();
                     break;
             }
         }

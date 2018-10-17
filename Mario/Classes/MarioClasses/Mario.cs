@@ -145,16 +145,16 @@ namespace Mario
         {
             return fall;
         }
-        public void SetIsLand()
+        public void IsLand()
         {
             physics.ResetGravity();
             if (island)
             {
-                island = false;
+                island = true;
             }
             else
             {
-                island = true;
+                island = false;
             }
         }
 
