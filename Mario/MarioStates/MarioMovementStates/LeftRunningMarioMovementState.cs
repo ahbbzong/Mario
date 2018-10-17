@@ -31,5 +31,6 @@ namespace Mario.MarioStates.MarioMovementStates
 			base.NoInput();
 			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
 		}
-	}
+       
+    }
 }

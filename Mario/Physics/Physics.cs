@@ -18,27 +18,20 @@ namespace Mario
         {
             this.physicsBody = physicsBody;
             XAccrelerate = 2.0f;
-            Gravity = 1.8f;
+            Gravity = 3.8f;
         }
-        public void ApplyGtravity()
+        private void ApplyGtravity()
         {
             Gravity += 0.1f;
             physicsBody.Getposition().Y += Gravity;
         }
         public void ResetGravity()
         {
-            Gravity = 1.8f;
+            Gravity = 3.8f;
         }
-        //private void ApplyFriction()
-        //{
-          //  if (physicsBody.XVelocity <= physicsBody.XVelocityMax)
-            //{
-              //  physicsBody.XVelocity += XAccrelerate;
-            //}
-            //else
-            //{
-              //  physicsBody.XVelocity = XVelocityMax;
-            //}
-        //}
+       public void Update()
+        {
+            ApplyGtravity();
+        }
     }
 }

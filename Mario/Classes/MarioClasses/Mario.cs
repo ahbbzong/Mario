@@ -68,18 +68,15 @@ namespace Mario
 				MarioMovementState.Down();
 			}
             fall = true;
-            location.Y += 3;
         }
         public void Left()
         {
             MarioMovementState.Left();
-            location.X -=3;
 
         }
         public void Right()
         {
             MarioMovementState.Right();
-            location.X += 3;
         }
         public void Dead()
         {
@@ -126,7 +123,7 @@ namespace Mario
             marioSprite.Update();
             if (!island)
             {
-                physics.ApplyGtravity();
+                physics.Update();
             }
         }
 
