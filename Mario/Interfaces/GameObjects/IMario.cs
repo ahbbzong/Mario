@@ -24,6 +24,9 @@ namespace Game1
         Rectangle Box { get; }
         MarioMovementState MarioMovementState { get; set; }
 		MarioPowerupState MarioPowerupState { get; set; }
-        void IsLand();
+        void IsLandTrue();
+
+        void IsLandFlase();
+      
     }
 }

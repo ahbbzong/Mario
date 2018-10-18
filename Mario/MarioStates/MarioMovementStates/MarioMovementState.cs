@@ -27,16 +27,16 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Left()
 		{
-            mario.Getposition().X -= 3;
 		}
 
 		public virtual void Right()
 		{
-            mario.Getposition().X += 3;
+
         }
 
 		public virtual void Up()
 		{
+            mario.Getposition().Y -= 7;
         }
 
 		public virtual void NoInput()

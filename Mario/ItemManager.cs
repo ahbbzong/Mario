@@ -87,7 +87,7 @@ namespace Mario.XMLRead
 			foreach (IBlock block in gameObjectListsByType["Block"])
             {
                 collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
-                if (collisionFound != Direction.None && !Mario.IsDead())
+                if (!Mario.IsDead())
                 {
                     intersection = collisionDetecter.intersection;
                     blockHandler = new BlockHandler(Mario);

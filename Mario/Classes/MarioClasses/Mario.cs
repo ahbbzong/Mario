@@ -46,6 +46,7 @@ namespace Mario
             
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
 			fall = false;
+            island = false;
             XVelocity = 0;
             YVelocity = 0;
             XVelocityMax = 3.5f;
@@ -55,10 +56,6 @@ namespace Mario
 		public void Up()
         {
             MarioMovementState.Up();
-            fall = false;
-            location.Y -= 5;
-            island = false;
-            
         }
 		public void Down()
 		{
@@ -72,11 +69,13 @@ namespace Mario
         public void Left()
         {
             MarioMovementState.Left();
+            physics.MoveLeft();
 
         }
         public void Right()
         {
             MarioMovementState.Right();
+            physics.MoveRight();
         }
         public void Dead()
         {
@@ -125,6 +124,7 @@ namespace Mario
             {
                 physics.Update();
             }
+           
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -145,23 +145,21 @@ namespace Mario
         {
             return fall;
         }
-        public void IsLand()
+        public void IsLandTrue()
         {
             physics.ResetGravity();
-            if (island)
-            {
-                island = true;
-            }
-            else
-            {
-                island = false;
-            }
+            island = true;
+        }
+        public void IsLandFlase()
+        {
+            island = false;
         }
 
-		public void NoInput()
+        public void NoInput()
 		{
 			MarioMovementState.NoInput();
-		}
+            physics.ApplyForce();
+        }
         public void ThrowFireball()
         {
             if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)

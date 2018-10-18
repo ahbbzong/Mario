@@ -19,8 +19,6 @@ namespace Mario.MarioStates.MarioMovementStates
         {
         }
 
-        public override void Up()
-        {
-        }
+       
     }
 }
