@@ -27,13 +27,13 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Left()
 		{
+            mario.physics.MoveLeft();
 		}
 
 		public virtual void Right()
 		{
-
+            mario.physics.MoveRight();
         }
-
 		public virtual void Up()
 		{
             mario.Getposition().Y -= 7;
@@ -42,6 +42,7 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void NoInput()
 		{
+
 		}
 	}
 }

@@ -16,9 +16,7 @@ namespace Mario
 		public Vector2 Location { get => location; set => location = value; }
 		public MarioMovementState MarioMovementState { get; set; }
 		public MarioPowerupState MarioPowerupState { get; set; }
-
 		private ISprite marioSprite { get; set; }
-
         private bool fall;
         private bool island;
         public Rectangle Box
@@ -37,7 +35,8 @@ namespace Mario
         public float YVelocity { get ; set; }
         public float XVelocityMax { get ; set; }
         public float YVelocityMax { get ; set; }
-        private Physics physics;
+
+        public Physics physics { get; set; }
         public Mario(Vector2 location)
         {
             this.location = location;
@@ -69,14 +68,11 @@ namespace Mario
         public void Left()
         {
             MarioMovementState.Left();
-            physics.MoveLeft();
-
 
         }
         public void Right()
         {
             MarioMovementState.Right();
-            physics.MoveRight();
         }
         public void Dead()
         {
