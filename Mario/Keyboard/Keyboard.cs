@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Mario.MarioCommand;
 using Mario.BlocksCommand;
 using Game1;
+using System.Linq;
 
 namespace Mario
 {
     public class Keyboards : IController
     {
         private Dictionary<Keys, ICommand> keyboardMap;
+        private Keys[] previous;
         public Keyboards()
         {
             
@@ -36,23 +38,18 @@ namespace Mario
 		}
         public void Update()
         {
-            
-            {
-                Keys[] getkeys = Keyboard.GetState().GetPressedKeys();
-				// needs to update to check no input of just cardinal direction keys for movement input
-				if(getkeys.Length == 0)
+            Keys[] getkeys = Keyboard.GetState().GetPressedKeys();
+            // needs to update to check no input of just cardinal direction keys for movement input
+            if (getkeys.Length == 0)
 				{
 					keyboardMap[Keys.None].Execute();
 				}
                 foreach (Keys key in getkeys)
                 {
-
-                    if (keyboardMap.ContainsKey(key))
+                    if (keyboardMap.ContainsKey(key)&&!previous.Contains(key))
                         keyboardMap[key].Execute();
-
-
                 }
-            }
+            previous = getkeys;
         }
     }
 }
