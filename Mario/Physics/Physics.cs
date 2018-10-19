@@ -30,6 +30,7 @@ namespace Mario
         {
             Gravity += 0.05f;
             physicsBody.Getposition().Y += Gravity;
+
         }
         public void ApplyForce()
         {
