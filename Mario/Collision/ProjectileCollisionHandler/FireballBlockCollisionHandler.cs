@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,26 @@ namespace Mario.Collision.FireballCollisionHandler
         }
     public void HandleCollision(IProjectile fireball)
         {
-            if (result.Equals(Direction.Left) || result.Equals(Direction.Right))
+            switch (result)
             {
-                fireball.Getposition().Y += locationOffset;
-            }
-            if (result.Equals(Direction.Up) || result.Equals(Direction.Down))
-            {
+                case Direction.Up:
+                    fireball.Getposition().Y -= intersection.Height;
+                    fireball.IsLandTrue();
+                    break;
+                case Direction.Down:
+                    fireball.Getposition().Y += intersection.Height;
+                    fireball.IsLandTrue();
+                    break;
+                case Direction.Left:
+                    fireball.Getposition().Y += locationOffset;
+                    break;
+                case Direction.Right:
+                    fireball.Getposition().X += locationOffset;
+                    fireball.Getposition().Y += locationOffset;
+                    break;
+                case Direction.None:
+                    fireball.IsLandFalse();
+                    break;
 
             }
         }

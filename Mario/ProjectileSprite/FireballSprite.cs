@@ -9,7 +9,7 @@ namespace Mario.Items
     {
         
       
-        public FireballSprite(Texture2D coinSheet, int rows, int columns) : base(coinSheet,rows,columns)
+        public FireballSprite(Texture2D fireballSheet, int rows, int columns) : base(fireballSheet, rows,columns)
         {
           
 

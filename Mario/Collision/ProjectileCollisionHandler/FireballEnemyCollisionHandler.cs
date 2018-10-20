@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Mario.Collision.FireballCollisionHandler
     public class FireballEnemyCollisionHandler : IProjectileCollisionHandler
     {
         IEnemy enemy;
-        private int locationOffset;
+        int locationOffset;
         public FireballEnemyCollisionHandler(IEnemy enemy)
         {
             this.enemy = enemy;
