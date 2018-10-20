@@ -48,10 +48,9 @@ namespace Mario
 				}
                 foreach (Keys key in getkeys)
                 {
-                    if (keyboardMap.ContainsKey(key)&&!previous.Equals(Keys.Up))
+                    if (keyboardMap.ContainsKey(key))
                         keyboardMap[key].Execute();
                 }
-            previous = current;
         }
     }
 }

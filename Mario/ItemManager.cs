@@ -32,13 +32,14 @@ namespace Mario.XMLRead
         {
 			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
 			{
-				{"Mario",new List<IGameObject>() },
+				
 				{"Item",new List<IGameObject>() },
 				{"Enemy", new List<IGameObject>() },
 				{"Block", new List<IGameObject>() },
 				{"Pipe", new List<IGameObject>() },
 				{"Background", new List<IGameObject>() },
-                {"Projectile", new List<IGameObject>() }
+                {"Projectile", new List<IGameObject>() },
+                {"Mario",new List<IGameObject>() }
 
             };
         }
@@ -46,12 +47,13 @@ namespace Mario.XMLRead
 		public void LoadContent(SpriteBatch spriteBatch)
 		{
 			SpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
-			MarioFactory.Instance.LoadContent(Game1.Instance.Content);
+			
 			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
 			BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
+            MarioFactory.Instance.LoadContent(Game1.Instance.Content);
 
 			LevelLoader.Instance.LoadFile("XMLFile1.xml");
 

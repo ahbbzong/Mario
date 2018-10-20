@@ -10,6 +10,13 @@ namespace Mario.MarioStates.MarioMovementStates
 		}
 
         public override MarioMovementType MarioMovementType => MarioMovementType.Dead;
-       
+        public override void Left()
+        {
+        }
+
+        public override void Right()
+        {
+        }
+
     }
 }

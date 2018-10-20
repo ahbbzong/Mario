@@ -12,7 +12,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public FireMarioPowerupState(IMario mario) : base(mario)
 		{
 		}
-
 		public override MarioPowerupType MarioPowerupType => MarioPowerupType.Fire;
 
 		public override void BeFire()
@@ -22,7 +21,8 @@ namespace Mario.MarioStates.MarioPowerupStates
         public override void ThrowFireball()
         {
             Vector2 launchPosition = Mario.Getposition();
-            LevelLoader.Instance.projectileList.Add(new Fireball(launchPosition));
+            ItemManager.Instance.gameObjectListsByType["Projectile"].Add(new Fireball(launchPosition));
+
             
         }
     }

@@ -61,21 +61,6 @@ namespace Mario.XMLRead
 				ItemManager.Instance.gameObjectListsByType[item.Key] = item.Value(file);
 			}
         }
-        public static IList<IGameObject> LoadPlayer(string file)
-        {
-            IList<PlayerXML> myPlayerObject = new List<PlayerXML>();
-            using (XmlReader reader = XmlReader.Create(file))
-            {
-                myPlayerObject = (IList<PlayerXML>)playerSerializer.Deserialize(reader);
-            }
-			IList<IGameObject> marioList = new List<IGameObject>();
-            foreach (PlayerXML player in myPlayerObject)
-            {
-				marioList.Add(MarioFactory.Instance.GetGameObject(player.PlayerName.ToString(), new Vector2(player.XLocation, player.YLocation)));
-                
-            }
-			return marioList;
-        }
         public static IList<IGameObject> LoadBlock(string file)
         {
             IList<BlockXML> myBlockObject = new List<BlockXML>();
@@ -187,6 +172,21 @@ namespace Mario.XMLRead
                 LevelLoader.Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.projectileType.ToString(), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
             return LevelLoader.Instance.projectileList;
+        }
+        public static IList<IGameObject> LoadPlayer(string file)
+        {
+            IList<PlayerXML> myPlayerObject = new List<PlayerXML>();
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                myPlayerObject = (IList<PlayerXML>)playerSerializer.Deserialize(reader);
+            }
+            IList<IGameObject> marioList = new List<IGameObject>();
+            foreach (PlayerXML player in myPlayerObject)
+            {
+                marioList.Add(MarioFactory.Instance.GetGameObject(player.PlayerName.ToString(), new Vector2(player.XLocation, player.YLocation)));
+
+            }
+            return marioList;
         }
     }
 }
