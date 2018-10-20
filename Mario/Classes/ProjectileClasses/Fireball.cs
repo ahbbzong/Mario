@@ -5,6 +5,7 @@ using Mario.Factory;
 using Mario.Enums;
 using Mario.Classes.BlocksClasses;
 using Mario.Items;
+using Mario.XMLRead;
 
 namespace Mario.ItemClasses
 {
@@ -17,6 +18,7 @@ namespace Mario.ItemClasses
             ProjectileState = new FireballState(this);
             Type = ProjectileType.Fireball;
             physics = new Physics(this);
+            gameObjectListsByType = ItemManager.Instance.gameObjectListsByType;
         }
         public override void React()
         {

@@ -172,6 +172,7 @@ namespace Mario
 
         public void NoInput()
 		{
+            if(!IsUp())
 			MarioMovementState.NoInput();
             physics.ApplyForceHorizontal();
         }
@@ -183,12 +184,12 @@ namespace Mario
             }
         }
 
-        private bool IsLeft()
+        public bool IsLeft()
         {
             return MarioMovementState.MarioMovementType == MarioMovementType.LeftRun;
         }
 
-        private bool IsRight()
+        public bool IsRight()
         {
             return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
         }

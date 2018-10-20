@@ -46,7 +46,7 @@ namespace Mario
 			controllerList.Add(new Keyboards());
 			//controllerList.Add(new GamePadController(this));
 
-			graphics.PreferredBackBufferWidth = 3000;
+			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             base.Initialize();

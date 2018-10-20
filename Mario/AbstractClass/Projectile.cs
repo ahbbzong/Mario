@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -16,6 +17,8 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;
+        public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
+        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ProjectileType Type { get; set; }
         public Physics physics { get; set; }
         public ProjectileState ProjectileState { get; set; }
@@ -39,7 +42,6 @@ namespace Mario.Classes.BlocksClasses
         {
             ProjectileSprite.Update();
             if (!IsLand) { physics.Update(); }
-            physics.MoveRight();
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {

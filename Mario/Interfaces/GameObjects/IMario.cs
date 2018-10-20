@@ -21,7 +21,10 @@ namespace Game1
         bool IsStarMario();
         bool IsDead();
         bool Isfalling();
-      
+        bool IsLeft();
+        bool IsRight();
+
+
         void ThrowFireball();
         
         Rectangle Box { get; }

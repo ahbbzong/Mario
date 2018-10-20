@@ -26,7 +26,7 @@ namespace Mario
             YVelocity = 0.0f;
             MaxXVelocity = 3.0f;
             MinXVelocity = -3.0f;
-            Gravity = 0.15f;
+            Gravity = 0.05f;
         }
         private void ApplyGtravity()
         {

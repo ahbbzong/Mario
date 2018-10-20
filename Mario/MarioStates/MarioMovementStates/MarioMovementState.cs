@@ -37,6 +37,7 @@ namespace Mario.MarioStates.MarioMovementStates
         }
 		public virtual void Up()
 		{
+
         }
 
 
