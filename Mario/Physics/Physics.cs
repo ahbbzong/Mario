@@ -13,6 +13,7 @@ namespace Mario
        
         private float XVelocity { get; set; }
         private float Gravity { get; set; }
+        public float YVelocity { get; set; }
         private float MaxXVelocity { get; set; }
         private float MinXVelocity { get; set; }
 
@@ -22,20 +23,25 @@ namespace Mario
         {
             this.physicsBody = physicsBody;
             XVelocity = 0;
+            YVelocity = 0.0f;
             MaxXVelocity = 3.0f;
             MinXVelocity = -3.0f;
-            Gravity = 0.8f;
+            Gravity = 0.15f;
         }
         private void ApplyGtravity()
         {
-            Gravity += 0.05f;
-            physicsBody.Getposition().Y += Gravity;
+            physicsBody.Getposition().Y += YVelocity;
+            YVelocity += Gravity;
 
         }
-        public void ApplyForce()
+        public void ApplyForceHorizontal()
         {
             physicsBody.Getposition().X += XVelocity;
             XVelocity /= 1.05f;
+        }
+        public void ApplyForceVertical(float YVelocity)
+        {
+            this.YVelocity = YVelocity;
         }
         public void MoveRight()
         {
@@ -64,7 +70,11 @@ namespace Mario
    
         public void ResetGravity()
         {
-            Gravity = 0.8f;
+            YVelocity = 0.0f; 
+        }
+        public void ReverseYVelocity()
+        {
+            YVelocity = -YVelocity;
         }
         
        public void Update()

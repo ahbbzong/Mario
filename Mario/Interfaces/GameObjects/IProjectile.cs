@@ -1,4 +1,5 @@
-﻿using Mario.BlockStates;
+﻿using Mario;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
@@ -13,7 +14,12 @@ namespace Game1
   
         ProjectileType Type { get; }
         Rectangle Box { get; }
-        ref Vector2 Getposition();
+        ProjectileState ProjectileState { get; set; }
+        bool IsLand { get; set; }
+        void IsLandTrue();
+        void IsLandFalse();
+        void React();
+        Physics physics { get; set; }
     }
    
 }

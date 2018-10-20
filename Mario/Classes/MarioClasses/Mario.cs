@@ -18,7 +18,7 @@ namespace Mario
 		public MarioPowerupState MarioPowerupState { get; set; }
 		private ISprite marioSprite { get; set; }
         private bool fall;
-        private bool island;
+        public bool Island { get; set; }
         public Rectangle Box
         {
             get
@@ -45,7 +45,7 @@ namespace Mario
             
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
 			fall = false;
-            island = false;
+            Island = false;
             XVelocity = 0;
             YVelocity = 0;
             XVelocityMax = 3.5f;
@@ -54,7 +54,12 @@ namespace Mario
         }
 		public void Up()
         {
+            if(!IsUp())
             MarioMovementState.Up();
+        }
+        public bool IsUp()
+        {
+            return MarioMovementState.MarioMovementType == MarioMovementType.LeftJump|| MarioMovementState.MarioMovementType == MarioMovementType.RightJump;
         }
 		public void Down()
 		{
@@ -63,16 +68,21 @@ namespace Mario
 			{
 				MarioMovementState.Down();
 			}
-            fall = true;
         }
         public void Left()
         {
-            MarioMovementState.Left();
+            if (!IsRight())
+            {
+                MarioMovementState.Left();
+            }
 
         }
         public void Right()
         {
-            MarioMovementState.Right();
+            if (!IsLeft())
+            {
+                MarioMovementState.Right();
+            }
         }
         public void Dead()
         {
@@ -117,11 +127,18 @@ namespace Mario
         {
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
             marioSprite.Update();
-            if (!island)
+            if (!Island)
             {
                 physics.Update();
             }
-           
+            if(physics.YVelocity>0)
+            {
+                fall = true;
+            }
+            else
+            {
+                fall = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -145,17 +162,18 @@ namespace Mario
         public void IsLandTrue()
         {
             physics.ResetGravity();
-            island = true;
+            Island = true;
+            MarioMovementState.NoInput();
         }
         public void IsLandFlase()
         {
-            island = false;
+            Island = false;
         }
 
         public void NoInput()
 		{
 			MarioMovementState.NoInput();
-            physics.ApplyForce();
+            physics.ApplyForceHorizontal();
         }
         public void ThrowFireball()
         {
@@ -164,5 +182,15 @@ namespace Mario
                 MarioPowerupState.ThrowFireball();
             }
         }
-	}
+
+        private bool IsLeft()
+        {
+            return MarioMovementState.MarioMovementType == MarioMovementType.LeftRun;
+        }
+
+        private bool IsRight()
+        {
+            return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
+        }
+    }
 }

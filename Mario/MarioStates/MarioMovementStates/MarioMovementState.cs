@@ -15,6 +15,7 @@ namespace Mario.MarioStates.MarioMovementStates
 		protected IMario Mario { get => mario; set => mario = value; }
 
 		public abstract MarioMovementType MarioMovementType { get; }
+        public float YVelocity = -3.8f;
 
 		protected MarioMovementState(IMario mario)
 		{
@@ -27,16 +28,15 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Left()
 		{
-            mario.physics.MoveLeft();
+            Mario.physics.MoveLeft();
 		}
 
 		public virtual void Right()
 		{
-            mario.physics.MoveRight();
+            Mario.physics.MoveRight();
         }
 		public virtual void Up()
 		{
-            mario.Getposition().Y -= 7;
         }
 
 

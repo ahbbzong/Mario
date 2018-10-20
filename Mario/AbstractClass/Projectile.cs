@@ -17,6 +17,8 @@ namespace Mario.Classes.BlocksClasses
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;
         public ProjectileType Type { get; set; }
+        public Physics physics { get; set; }
+        public ProjectileState ProjectileState { get; set; }
         public Rectangle Box
         {
             get
@@ -25,18 +27,19 @@ namespace Mario.Classes.BlocksClasses
             }
         }
 
-        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+       
+        public bool IsLand { get; set; }
 
         protected Projectile(Vector2 location)
         {
             ProjectileLocation = location;
+            IsLand = false;
         }
         public virtual void Update()
         {
             ProjectileSprite.Update();
+            if (!IsLand) { physics.Update(); }
+            physics.MoveRight();
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -46,6 +49,20 @@ namespace Mario.Classes.BlocksClasses
         public virtual ref Vector2 Getposition()
         {
             return ref ProjectileLocation;
+        }
+        public virtual void IsLandTrue()
+        {
+            physics.ReverseYVelocity();
+            IsLand = true;
+        }
+        public virtual void IsLandFalse()
+        {
+            IsLand = false;
+        }
+
+        public virtual void React()
+        {
+            //Need to override
         }
     }
 }

@@ -20,8 +20,10 @@ namespace Game1
         bool IsFireMario();
         bool IsStarMario();
         bool IsDead();
-        void ThrowFireball();
         bool Isfalling();
+      
+        void ThrowFireball();
+        
         Rectangle Box { get; }
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }

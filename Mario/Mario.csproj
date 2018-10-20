@@ -47,6 +47,7 @@
     <Compile Include="AbstractClass\Item.cs" />
     <Compile Include="AbstractClass\Block.cs" />
     <Compile Include="AbstractClass\SpriteAbstractClasses\EmptySprite.cs" />
+    <Compile Include="AbstractClass\StateAbstractClasses\ProjectileState.cs" />
     <Compile Include="AbstractClass\StateAbstractClasses\BlockState.cs" />
     <Compile Include="AbstractClass\Enemy.cs" />
     <Compile Include="AbstractClass\StateAbstractClasses\EnemyState.cs" />
@@ -188,6 +189,9 @@
     <Compile Include="Interfaces\States\IMarioState.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Interfaces\IUpdateable.cs" />
+    <Compile Include="Interfaces\States\IProjectileState.cs" />
+    <Compile Include="ProjectileStates\FireballState.cs" />
+    <Compile Include="ProjectileStates\FireballDisappearState.cs" />
     <Compile Include="ProjectileSprite\FireballSprite.cs" />
     <Compile Include="ItemsSprite\CoinSprite.cs" />
     <Compile Include="ItemsSprite\FireFlowerSprite.cs" />
