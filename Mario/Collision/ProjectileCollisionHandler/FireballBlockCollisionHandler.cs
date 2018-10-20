@@ -25,27 +25,29 @@ namespace Mario.Collision.FireballCollisionHandler
         }
     public void HandleCollision(IProjectile fireball)
         {
-            switch (result)
+            if (!block.IsHiddenBlock())
             {
-                case Direction.Up:
-                    fireball.Getposition().Y -= intersection.Height;
-                    fireball.IsLandTrue();
-                    break;
-                case Direction.Down:
-                    fireball.Getposition().Y += intersection.Height;
-                    fireball.IsLandTrue();
-                    break;
-                case Direction.Left:
-                    fireball.Getposition().Y += locationOffset;
-                    break;
-                case Direction.Right:
-                    fireball.Getposition().X += locationOffset;
-                    fireball.Getposition().Y += locationOffset;
-                    break;
-                case Direction.None:
-                    fireball.IsLandFalse();
-                    break;
-
+                switch (result)
+                {
+                    case Direction.Up:
+                        fireball.Getposition().Y -= intersection.Height;
+                        fireball.IsLandTrue();
+                        break;
+                    case Direction.Down:
+                        fireball.Getposition().Y += intersection.Height;
+                        fireball.IsLandTrue();
+                        break;
+                    case Direction.Left:
+                        fireball.Getposition().Y += locationOffset;
+                        break;
+                    case Direction.Right:
+                        fireball.Getposition().X += locationOffset;
+                        fireball.Getposition().Y += locationOffset;
+                        break;
+                    case Direction.None:
+                        fireball.IsLandFalse();
+                        break;
+                }
             }
         }
     }

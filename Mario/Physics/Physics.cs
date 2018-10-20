@@ -39,10 +39,6 @@ namespace Mario
             physicsBody.Getposition().X += XVelocity;
             XVelocity /= 1.25f;
         }
-        public void ApplyForceHorizontal(float XVelocity)
-        {
-            this.XVelocity = XVelocity;
-        }
         public void ApplyForceVertical(float YVelocity)
         {
             this.YVelocity = YVelocity;
@@ -71,6 +67,10 @@ namespace Mario
                 XVelocity = MinXVelocity;
             }
             physicsBody.Getposition().X += XVelocity;
+        }
+        public void FireballMove(float Velocity)
+        {
+            physicsBody.Getposition().X += Velocity;
         }
 
         public void ResetGravity()

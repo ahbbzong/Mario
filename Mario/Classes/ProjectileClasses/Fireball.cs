@@ -19,6 +19,14 @@ namespace Mario.ItemClasses
             Type = ProjectileType.Fireball;
             physics = new Physics(this);
             gameObjectListsByType = ItemManager.Instance.gameObjectListsByType;
+            if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightJump)
+            { XVelocity = 6; }
+            if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftRun ||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftIdle||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftJump)
+            { XVelocity = -6; }
         }
         public override void React()
         {

@@ -20,8 +20,7 @@ namespace Mario.Classes.BlocksClasses
         public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ProjectileType Type { get; set; }
-        public float XVelocityLeft { get; set; }
-        public float XVelocityRight { get; set; }
+        public float XVelocity { get; set; }
         public Physics physics { get; set; }
         public ProjectileState ProjectileState { get; set; }
         public Rectangle Box
@@ -39,14 +38,12 @@ namespace Mario.Classes.BlocksClasses
         {
             ProjectileLocation = location;
             IsLand = false;
-            XVelocityLeft = -13.8f;
-            XVelocityRight = 13.8f;
         }
         public virtual void Update()
         {
             ProjectileSprite.Update();
             if (!IsLand) { physics.Update(); }
-            
+            physics.FireballMove(XVelocity);
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -61,12 +58,6 @@ namespace Mario.Classes.BlocksClasses
         {
             physics.ReverseYVelocity();
             IsLand = true;
-            if (Mario.IsLeft())
-            {
-            }
-            if (Mario.IsRight())
-            {
-            }
         }
         public virtual void IsLandFalse()
         {
@@ -76,6 +67,10 @@ namespace Mario.Classes.BlocksClasses
         public virtual void React()
         {
             //Need to override
+        }
+        public virtual void MovingLeft()
+        {
+
         }
     }
 }
