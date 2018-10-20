@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
+using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,21 @@ namespace Mario.Collision
             this.mario = mario;
             locationOffset = 9999;
     }
-        public void HandleCollision(IBlock block, Direction result)
+        public void HandleCollision(IBlock block, IMario mario, Direction result)
         {
            
             if ((block.IsQuestionBlock()||(block.IsHiddenBlock() && !mario.Isfalling()))
                 &&result.Equals(Direction.Down))
             {
                 block.React();
+                if (mario.IsNormalMario())
+                {
+                    ItemManager.Instance.AddNormalItem(block);
+                }
+                else if (mario.IsSuperMario())
+                {
+                   ItemManager.Instance.AddBigItem(block);
+                }
             }
             else if(block.IsBreakableBlock() && !mario.IsNormalMario() 
                 && result.Equals(Direction.Down))
@@ -38,7 +47,7 @@ namespace Mario.Collision
 
 		public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
 		{
-			HandleCollision((IBlock)source, direction);
+			HandleCollision((IBlock)source,(IMario)target, direction);
 		}
 	}
 }

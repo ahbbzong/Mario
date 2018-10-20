@@ -9,6 +9,6 @@ namespace Game1
 {
    public interface IBlockCollisionHandler:ICollisionHandler
     {
-        void HandleCollision(IBlock block, Direction result);
+        void HandleCollision(IBlock block, IMario mario, Direction result);
     }
 }

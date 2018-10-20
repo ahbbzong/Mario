@@ -11,5 +11,7 @@ namespace Mario.XMLRead
         public BlockType BlockType{ get; set; }
         public int XLocation { get; set; }
         public int YLocation { get; set; }
+        public int Length { get; set; }
+        public int Height { get; set; }
     }
 }

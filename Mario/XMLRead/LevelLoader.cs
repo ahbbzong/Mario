@@ -87,13 +87,31 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                if (block.BlockType != BlockType.Floor)
+                {
+                    blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                }
+                else
+                {
+                    int count = 0;
+                    int count2 = 0;
+
+                    while (count < block.Height)
+                    {
+                        while (count2 < block.Length)
+                        {
+                            blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                            block.XLocation = block.XLocation + 32;
+                            count2++;
+                        }
+                        block.YLocation = block.YLocation + 32;
+                        count++;
+                        count2 = 0;
+                        block.XLocation = 0;
+                    }
+                }
             }
-            int length = 200;
-            for (int i = 0; i < length; i++)
-            {
-                blockList.Add(new FloorBlock(new Vector2(32 * i, 532)));
-            }
+            
 			return blockList;
         }
         public static IList<IGameObject> LoadEnemy(string file)
@@ -126,6 +144,7 @@ namespace Mario.XMLRead
             }
 			return itemList;
         }
+
         public static IList<IGameObject> LoadPipe(string file)
         {
             IList<PipeXML> myPipeObject = new List<PipeXML>();
