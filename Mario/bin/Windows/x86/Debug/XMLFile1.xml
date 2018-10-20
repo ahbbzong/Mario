@@ -91,6 +91,18 @@
     <XLocation>0</XLocation>
     <YLocation>532</YLocation>
   </BlockXML>
+  
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>1060</XLocation>
+    <YLocation>500</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>1260</XLocation>
+    <YLocation>486</YLocation>
+  </EnemyXML>
 
   <BlockXML>
     <BlockType>Hidden</BlockType>
