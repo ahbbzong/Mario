@@ -86,6 +86,8 @@
   
   <BlockXML>
     <BlockType>Floor</BlockType>
+    <Length>100</Length>
+    <Height>5</Height>
     <XLocation>0</XLocation>
     <YLocation>532</YLocation>
   </BlockXML>

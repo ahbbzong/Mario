@@ -116,7 +116,7 @@ namespace Mario.XMLRead
                 {
                     intersection = collisionDetecter.intersection;
                     blockHandler = new BlockHandler(Mario);
-                    blockHandler.HandleCollision(block, collisionFound);
+                    blockHandler.HandleCollision(block, Mario, collisionFound);
                     CallMarioBlockHandler(block, collisionFound, intersection);
                 }
             }
@@ -139,7 +139,7 @@ namespace Mario.XMLRead
                 {
                     pipeHandler = new BlockHandler(Mario);
                     intersection = collisionDetecter.intersection;
-                    pipeHandler.HandleCollision(pipe, collisionFound);
+                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
                     marioHandler = new MarioBlockHandler();
                     marioHandler.HandleCollision(Mario, collisionFound, intersection);
 
@@ -180,6 +180,52 @@ namespace Mario.XMLRead
                 default:
                     marioHandler = new MarioBlockHandler();
                     marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                    break;
+            }
+        }
+        //add a big mushroom, star, 1plus mushroom, or a coin behind the block
+        public void AddNormalItem(IBlock block)
+        {
+            Random rnd = new Random();
+            int itemChoose = rnd.Next(1, 8);
+            switch (itemChoose)
+            {
+                case 1:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y-20)));
+                    break;
+                case 2:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+                case 3:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("MagicMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+            }
+        }
+        //add a fire flower, 1plus mushroom, or a coin behind the block
+        public void AddBigItem(IBlock block)
+        {
+            Random rnd = new Random();
+            int itemChoose = rnd.Next(1, 5);
+            switch (itemChoose)
+            {
+                case 1:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+                case 2:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("FireFlower", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+                case 3:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    break;
+                case 4:
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
                     break;
             }
         }
