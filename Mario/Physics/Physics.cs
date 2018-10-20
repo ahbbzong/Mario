@@ -24,9 +24,9 @@ namespace Mario
             this.physicsBody = physicsBody;
             XVelocity = 0;
             YVelocity = 0.0f;
-            MaxXVelocity = 3.0f;
-            MinXVelocity = -3.0f;
-            Gravity = 0.05f;
+            MaxXVelocity = 8.0f;
+            MinXVelocity = -8.0f;
+            Gravity = 0.8f;
         }
         private void ApplyGtravity()
         {
@@ -37,7 +37,7 @@ namespace Mario
         public void ApplyForceHorizontal()
         {
             physicsBody.Getposition().X += XVelocity;
-            XVelocity /= 1.05f;
+            XVelocity /= 1.25f;
         }
         public void ApplyForceVertical(float YVelocity)
         {
@@ -47,7 +47,7 @@ namespace Mario
         {
             if (XVelocity < MaxXVelocity)
             {
-                XVelocity += 0.05f;
+                XVelocity += 1.0f;
             }
             else
             {
@@ -59,7 +59,7 @@ namespace Mario
         {
             if (XVelocity > MinXVelocity)
             {
-                XVelocity -= 0.05f;
+                XVelocity -= 1.0f;
             }
             else
             {
