@@ -84,6 +84,18 @@ namespace Mario.XMLRead
                         intersection = collisionDetecter.intersection;
                         projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
                         projectileCollisionHandler.HandleCollision(projectile);
+                   }
+                    foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+                    {
+                  
+                        projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
+                        enemyHandler = new EnemyProjectileCollisionHandler(projectile);
+                        collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
+                    if (collisionFound != Direction.None)
+                    {
+                        enemyHandler.HandleCollision(enemy, collisionFound);
+                        projectileCollisionHandler.HandleCollision(projectile);
+                    }
                     }
                 }
             foreach (IItem obj in gameObjectListsByType["Item"])

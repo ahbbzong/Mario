@@ -19,7 +19,6 @@ namespace Mario.Items
         public override void React()
         {
             Projectile.ProjectileState = new FireballDisappearState(Projectile);
-
         }
     }
 }
