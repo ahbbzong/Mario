@@ -23,7 +23,7 @@ namespace Mario.MarioStates.MarioPowerupStates
         {
             Vector2 launchPosition = Mario.Getposition();
             LevelLoader.Instance.projectileList.Add(new Fireball(launchPosition));
-            //Need to add fireball to the list.
+            
         }
     }
 }

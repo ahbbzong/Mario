@@ -31,10 +31,6 @@ namespace Mario
 		public MarioMovementType MarioMovementType => MarioMovementState.MarioMovementType;
 
 		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
-        public float XVelocity { get ; set; }
-        public float YVelocity { get ; set; }
-        public float XVelocityMax { get ; set; }
-        public float YVelocityMax { get ; set; }
 
         public Physics physics { get; set; }
         public Mario(Vector2 location)
@@ -46,10 +42,6 @@ namespace Mario
 			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
 			fall = false;
             Island = false;
-            XVelocity = 0;
-            YVelocity = 0;
-            XVelocityMax = 3.5f;
-            YVelocityMax = 3.5f;
             physics = new Physics(this);
         }
 		public void Up()
@@ -174,7 +166,7 @@ namespace Mario
 		{
             if(!IsUp())
 			MarioMovementState.NoInput();
-            physics.ApplyForceHorizontal();
+            physics.ApplyFriction();
         }
         public void ThrowFireball()
         {
