@@ -74,7 +74,7 @@ namespace Mario
         }
         public void ReverseYVelocity()
         {
-            YVelocity = -YVelocity;
+            YVelocity = -YVelocity/1.2f;
         }
         
        public void Update()
