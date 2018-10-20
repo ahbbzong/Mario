@@ -30,11 +30,6 @@
       <XLocation>860</XLocation>
       <YLocation>140</YLocation>
     </ItemXML>
-   <ProjectileXML>
-      <GameObjectType>Fireball</GameObjectType>
-      <XLocation>900</XLocation>
-      <YLocation>140</YLocation>
-    </ProjectileXML>
   
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
