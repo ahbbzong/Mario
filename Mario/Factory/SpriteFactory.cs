@@ -3,16 +3,7 @@
 using Game1;
 using Mario.AbstractClass;
 using Mario.AbstractClass.SpriteAbstractClasses;
-using Mario.BackgroundSprite;
-using Mario.BlockSprite;
-using Mario.FireMarioSprite;
-using Mario.GoombaSprite;
 using Mario.Items;
-using Mario.KoopaSprite;
-using Mario.NormalMarioSprite;
-using Mario.PipeSprites;
-using Mario.StarMarioSprite;
-using Mario.SuperMarioSprite;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;

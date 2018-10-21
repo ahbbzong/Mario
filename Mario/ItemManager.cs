@@ -31,7 +31,7 @@ namespace Mario.XMLRead
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-		private ItemManager()
+        private ItemManager()
         {
 			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
 			{
@@ -267,6 +267,7 @@ namespace Mario.XMLRead
 				}
 			}
             CameraController.Update();
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
