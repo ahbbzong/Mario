@@ -35,13 +35,14 @@ namespace Mario.XMLRead
         {
 			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
 			{
-				{"Mario",new List<IGameObject>() },
+				
 				{"Item",new List<IGameObject>() },
 				{"Enemy", new List<IGameObject>() },
 				{"Block", new List<IGameObject>() },
 				{"Pipe", new List<IGameObject>() },
 				{"Background", new List<IGameObject>() },
-                {"Projectile", new List<IGameObject>() }
+                {"Projectile", new List<IGameObject>() },
+                {"Mario",new List<IGameObject>() }
 
             };
         }
@@ -53,12 +54,13 @@ namespace Mario.XMLRead
         public void LoadContent(SpriteBatch spriteBatch)
 		{
 			SpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
-			MarioFactory.Instance.LoadContent(Game1.Instance.Content);
+			
 			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
 			BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
+            MarioFactory.Instance.LoadContent(Game1.Instance.Content);
 
 			LevelLoader.Instance.LoadFile("XMLFile1.xml");
 
@@ -82,29 +84,29 @@ namespace Mario.XMLRead
 			CollisionDetecter collisionDetecter = new CollisionDetecter();
 
             //TO DO: make gameobject interface and make lists with objects in the screen
-           
-                foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
+
+            foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
+            {
+                foreach (IBlock block in gameObjectListsByType["Block"])
                 {
-                    foreach (IBlock block in gameObjectListsByType["Block"])
-                    {
-                        collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
-                        intersection = collisionDetecter.intersection;
-                        projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
-                        projectileCollisionHandler.HandleCollision(projectile);
-                   }
-                    foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
-                    {
-                  
-                        projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
-                        enemyHandler = new EnemyProjectileCollisionHandler(projectile);
-                        collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
+                    collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
+                    intersection = collisionDetecter.intersection;
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
+                    projectileCollisionHandler.HandleCollision(projectile);
+                }
+                foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+                {
+
+                    projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
+                    enemyHandler = new EnemyProjectileCollisionHandler(projectile);
+                    collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
                     if (collisionFound != Direction.None)
                     {
                         enemyHandler.HandleCollision(enemy, collisionFound);
                         projectileCollisionHandler.HandleCollision(projectile);
                     }
-                    }
                 }
+            }
             foreach (IItem obj in gameObjectListsByType["Item"])
 			{
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
@@ -129,10 +131,24 @@ namespace Mario.XMLRead
             }
             foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
             {
+                foreach (IBlock block in gameObjectListsByType["Block"])
+                {
+                    collisionFound = collisionDetecter.Collision(block.Box, enemy.Box);
+                    intersection = collisionDetecter.intersection;
+                    if (collisionFound != Direction.None)
+                    {
+                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection);
+                        enemyHandler.HandleCollision(enemy, collisionFound);
+                    }
+                }
+            }
+            foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+            {
+
                 collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
                 if (collisionFound != Direction.None && !Mario.IsDead())
                 {
-                    enemyHandler = new GoombaMarioCollisionHandler(Mario);
+                    enemyHandler = new EnemyMarioCollisionHandler(Mario);
                     intersection = collisionDetecter.intersection;
                     enemyHandler.HandleCollision(enemy, collisionFound);
                     marioHandler = new MarioEnemyCollisionHandler(enemy);

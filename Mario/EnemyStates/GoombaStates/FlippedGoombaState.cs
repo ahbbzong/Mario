@@ -21,6 +21,9 @@ namespace Mario.EnemyStates.GoombaStates
             EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Flipped.ToString()];
 
         }
-
+        public override bool IsFlipped()
+        {
+            return true;
+        }
     }
 }

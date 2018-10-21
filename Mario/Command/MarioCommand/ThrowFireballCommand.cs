@@ -7,14 +7,19 @@ namespace Mario.MarioCommand
 
     public class ThrowFireballCommand : MarioCommand
     {
-        private int counter;
+        int counter;
         public ThrowFireballCommand(IMario mario):base(mario)
         {
             counter = 0;
         }
         public override void Execute()
         {
-            Mario.ThrowFireball();
+            counter++;
+            if (counter == 10)
+            {
+                Mario.ThrowFireball();
+                counter = 0;
+            }
         }
     }
 }

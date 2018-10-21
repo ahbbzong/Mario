@@ -16,11 +16,13 @@ namespace Game1
         void TurnRight();
 
         bool IsStomped();
+        bool IsFlipped();
+        bool IsGoomba();
+        bool IsKoopa();
 
         Rectangle Box { get; }
 
         EnemyType Type { get; }
       
-        ref Vector2 Getposition();
     }
 }

@@ -101,15 +101,14 @@
     <Compile Include="Collision\CollisionManager\CollisionDetecter.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\EnemyBlockCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\EnemyProjectileCollisionHandler.cs" />
-    <Compile Include="Collision\EnemyCollisionHandler\KoopaMarioCollisionHandler.cs" />
-    <Compile Include="Collision\EnemyCollisionHandler\GoombaMarioCollisionHandler.cs" />
+    <Compile Include="Collision\EnemyCollisionHandler\EnemyMarioCollisionHandler.cs" />
+    <Compile Include="Collision\MarioCollisionHandler\MarioEnemyCollisionHandler\MarioEnemyCollisionHandler.cs" />
     <Compile Include="Collision\ProjectileCollisionHandler\FireballEnemyCollisionHandler.cs" />
     <Compile Include="Collision\ProjectileCollisionHandler\FireballBlockCollisionHandler.cs" />
     <Compile Include="Collision\ItemCollisionHandler\ItemBlockCollisionHandler.cs" />
     <Compile Include="Collision\ItemCollisionHandler\ItemMarioCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioBlockHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioBlockCollisionHandler\MarioHiddenBlockHandler.cs" />
-    <Compile Include="Collision\MarioCollisionHandler\MarioEnemyCollisionHandler\MarioEnemyCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioFireFlowerCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioMagicMushroomCollisionHandler.cs" />
     <Compile Include="Collision\MarioCollisionHandler\MarioItemCollisionHandler\MarioStarmanCollisionHandler.cs" />
@@ -132,7 +131,6 @@
     <Compile Include="EnemySprite\KoopaSprite\LeftMovingKoopaSprite.cs" />
     <Compile Include="EnemySprite\KoopaSprite\RightMovingKoopaSprite.cs" />
     <Compile Include="EnemySprite\KoopaSprite\StompedKoopaSprite.cs" />
-    <Compile Include="EnemyStates\GoombaStates\FlippedGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\MovingGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\StomppedGoombaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\RunningInPlaceKoopaState.cs" />

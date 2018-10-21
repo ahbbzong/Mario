@@ -26,6 +26,11 @@ namespace Mario.EnemyStates.GoombaStates
             return true;
 
         }
+        public override bool IsGoomba()
+        {
+            return true;
+        }
+
     }
 }
 

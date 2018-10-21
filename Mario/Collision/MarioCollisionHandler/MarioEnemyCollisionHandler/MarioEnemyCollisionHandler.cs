@@ -19,25 +19,28 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
         {
             MarioState(mario);
-            switch (result)
+            if (enemy.IsKoopa() && !enemy.IsFlipped() || enemy.IsGoomba() && !enemy.IsStomped())
             {
-                case Direction.Up:
-                    mario.Getposition().Y -= intersection.Height; 
-                    break;
-                case Direction.Down:
-                    mario.Getposition().Y += intersection.Height;
-                    break;
-                case Direction.Left:
-                    mario.Getposition().X -= intersection.Width;
-                    break;
-                case Direction.Right:
-                    mario.Getposition().X += intersection.Width;
-                    break;
+                switch (result)
+                {
+                    case Direction.Up:
+                        mario.Getposition().Y -= intersection.Height;
+                        break;
+                    case Direction.Down:
+                        mario.Getposition().Y += intersection.Height;
+                        break;
+                    case Direction.Left:
+                        mario.Getposition().X -= intersection.Width;
+                        break;
+                    case Direction.Right:
+                        mario.Getposition().X += intersection.Width;
+                        break;
+                }
             }
         }
         public void MarioState(IMario mario)
         {
-            if (!enemy.IsStomped())
+            if (!enemy.IsStomped()&&!enemy.IsFlipped())
             {
                 if (mario.IsNormalMario())
                 {

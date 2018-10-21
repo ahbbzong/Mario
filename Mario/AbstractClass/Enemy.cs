@@ -80,5 +80,19 @@ namespace Mario.AbstractClass
         {
             enemyState.BeKilled();
         }
+        public virtual bool IsFlipped()
+        {
+            return enemyState.IsFlipped();
+        }
+
+        public virtual bool IsGoomba()
+        {
+            return enemyState.IsGoomba();
+        }
+
+        public virtual bool IsKoopa()
+        {
+            return enemyState.IsKoopa();
+        }
     }
 }
