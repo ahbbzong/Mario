@@ -18,14 +18,10 @@ namespace Mario
         public void Initialize(IMario mario)
         {
             keyboardMap = new Dictionary<Keys, ICommand>();
-            keyboardMap.Add(Keys.Up, new UpCommand(mario));
+            keyboardMap.Add(Keys.Z, new UpCommand(mario));
             keyboardMap.Add(Keys.Down, new DownCommand(mario));
             keyboardMap.Add(Keys.Left, new LeftCommand(mario));
             keyboardMap.Add(Keys.Right, new RightCommand(mario));
-            keyboardMap.Add(Keys.W, new UpCommand(mario));
-            keyboardMap.Add(Keys.S, new DownCommand(mario));
-            keyboardMap.Add(Keys.A, new LeftCommand(mario));
-            keyboardMap.Add(Keys.D, new RightCommand(mario));
             keyboardMap.Add(Keys.Y, new BeNormalMarioCommand(mario));
             keyboardMap.Add(Keys.U, new BeSuperMarioCommand(mario));
             keyboardMap.Add(Keys.I, new BeFireMarioCommand(mario));
@@ -46,7 +42,7 @@ namespace Mario
             }
             foreach (Keys key in getkeys)
             {
-                if (keyboardMap.ContainsKey(key)&&!(previous.Equals(Keys.Up)&&key.Equals(Keys.Up)))
+                if (keyboardMap.ContainsKey(key)&&!(previous.Equals(Keys.Z)&&key.Equals(Keys.Z)))
                 {
                   keyboardMap[key].Execute();
                 }
