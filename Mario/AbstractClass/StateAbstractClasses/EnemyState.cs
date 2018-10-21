@@ -71,5 +71,20 @@ namespace Mario.AbstractClass
         {
             
         }
+
+        public virtual bool IsFlipped()
+        {
+            return false;
+        }
+
+        public virtual bool IsGoomba()
+        {
+            return false;
+        }
+
+        public virtual bool IsKoopa()
+        {
+            return false;
+        }
     }
 }

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class GoombaMarioCollisionHandler: IEnemyCollisionHandler
+    public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
     {
         IMario mario;
-        public GoombaMarioCollisionHandler(IMario mario)
+        public EnemyMarioCollisionHandler(IMario mario)
         {
             this.mario = mario;
         }

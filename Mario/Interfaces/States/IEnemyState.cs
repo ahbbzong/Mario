@@ -18,6 +18,9 @@ namespace Game1
         void BeKilled();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
         bool IsStomped();
+        bool IsFlipped();
+        bool IsGoomba();
+        bool IsKoopa();
     
     }
 }

@@ -77,29 +77,29 @@ namespace Mario.XMLRead
 			CollisionDetecter collisionDetecter = new CollisionDetecter();
 
             //TO DO: make gameobject interface and make lists with objects in the screen
-           
-                foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
+
+            foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
+            {
+                foreach (IBlock block in gameObjectListsByType["Block"])
                 {
-                    foreach (IBlock block in gameObjectListsByType["Block"])
-                    {
-                        collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
-                        intersection = collisionDetecter.intersection;
-                        projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
-                        projectileCollisionHandler.HandleCollision(projectile);
-                   }
-                    foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
-                    {
-                  
-                        projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
-                        enemyHandler = new EnemyProjectileCollisionHandler(projectile);
-                        collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
+                    collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
+                    intersection = collisionDetecter.intersection;
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
+                    projectileCollisionHandler.HandleCollision(projectile);
+                }
+                foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+                {
+
+                    projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
+                    enemyHandler = new EnemyProjectileCollisionHandler(projectile);
+                    collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
                     if (collisionFound != Direction.None)
                     {
                         enemyHandler.HandleCollision(enemy, collisionFound);
                         projectileCollisionHandler.HandleCollision(projectile);
                     }
-                    }
                 }
+            }
             foreach (IItem obj in gameObjectListsByType["Item"])
 			{
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
@@ -124,10 +124,24 @@ namespace Mario.XMLRead
             }
             foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
             {
+                foreach (IBlock block in gameObjectListsByType["Block"])
+                {
+                    collisionFound = collisionDetecter.Collision(block.Box, enemy.Box);
+                    intersection = collisionDetecter.intersection;
+                    if (collisionFound != Direction.None)
+                    {
+                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection);
+                        enemyHandler.HandleCollision(enemy, collisionFound);
+                    }
+                }
+            }
+            foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+            {
+
                 collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
                 if (collisionFound != Direction.None && !Mario.IsDead())
                 {
-                    enemyHandler = new GoombaMarioCollisionHandler(Mario);
+                    enemyHandler = new EnemyMarioCollisionHandler(Mario);
                     intersection = collisionDetecter.intersection;
                     enemyHandler.HandleCollision(enemy, collisionFound);
                     marioHandler = new MarioEnemyCollisionHandler(enemy);

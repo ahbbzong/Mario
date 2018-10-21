@@ -20,6 +20,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
+            if(enemy.IsKoopa()&&!enemy.IsFlipped())
             switch (result)
             {
                 case Direction.Up:

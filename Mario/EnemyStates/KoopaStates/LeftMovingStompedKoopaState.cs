@@ -32,6 +32,10 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.enemyState = new DeadKoopaState(enemy);
         }
+        public override bool IsKoopa()
+        {
+            return true;
+        }
 
     }
 }
