@@ -50,6 +50,7 @@ namespace Mario
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             base.Initialize();
+            ItemManager.Instance.SetInitialValuesCamera();
         }
 
         /// <summary>
@@ -99,7 +100,8 @@ namespace Mario
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, ItemManager.Instance.CameraMario.Transform);
+
             ItemManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

@@ -18,6 +18,7 @@ using Mario.Interfaces.GameObjects;
 using Mario.Factory;
 using Mario.Interfaces.CollisionHandlers;
 using Mario.Collision.FireballCollisionHandler;
+using Mario.CameraClasses;
 
 namespace Mario.XMLRead
 {
@@ -28,6 +29,8 @@ namespace Mario.XMLRead
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
 		public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
+        public ICamera CameraMario { get; set; }
+        public ICameraController CameraController { get; set; }
 		private ItemManager()
         {
 			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
@@ -42,8 +45,12 @@ namespace Mario.XMLRead
 
             };
         }
-		
-		public void LoadContent(SpriteBatch spriteBatch)
+        public void SetInitialValuesCamera()
+        {
+            CameraMario = new Camera();
+            CameraController = new CameraController(CameraMario);
+        }
+        public void LoadContent(SpriteBatch spriteBatch)
 		{
 			SpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
 			MarioFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -243,6 +250,7 @@ namespace Mario.XMLRead
 					gameObj.Update();
 				}
 			}
+            CameraController.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

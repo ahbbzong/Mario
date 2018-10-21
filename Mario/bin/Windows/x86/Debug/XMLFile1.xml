@@ -119,7 +119,7 @@
 
     <PlayerXML>
       <PlayerName>Mario</PlayerName>
-      <XLocation>800</XLocation>
+      <XLocation>200</XLocation>
       <YLocation>500</YLocation>
     </PlayerXML>
   

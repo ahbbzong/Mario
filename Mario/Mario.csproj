@@ -74,6 +74,8 @@
     <Compile Include="BlockStates\QuestionBlockState.cs" />
     <Compile Include="BlockStates\UnbreakableBlockState.cs" />
     <Compile Include="BlockStates\UsedBlockState.cs" />
+    <Compile Include="CameraClasses\Camera.cs" />
+    <Compile Include="CameraClasses\CameraController.cs" />
     <Compile Include="Classes\BackgroundClasses\BushSingle.cs" />
     <Compile Include="Classes\BackgroundClasses\BushTriple.cs" />
     <Compile Include="Classes\BackgroundClasses\CloudSingle.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\CollisionHandlers\ICollisionHandler.cs" />
     <Compile Include="Interfaces\CollisionHandlers\IProjectileCollisionHandler.cs" />
+    <Compile Include="Interfaces\GameObjects\ICamera.cs" />
     <Compile Include="Interfaces\GameObjects\IGameObject.cs" />
     <Compile Include="Interfaces\GameObjects\IBackground.cs" />
     <Compile Include="Interfaces\GameObjects\IBlock.cs" />
@@ -172,6 +175,7 @@
     <Compile Include="Interfaces\GameObjects\IMovementEventBehavior.cs" />
     <Compile Include="Interfaces\GameObjects\IPhysicsBody.cs" />
     <Compile Include="Interfaces\GameObjects\IPowerupEventBehavior.cs" />
+    <Compile Include="Interfaces\ICameraController.cs" />
     <Compile Include="Interfaces\IContentBehavior.cs" />
     <Compile Include="Interfaces\States\IBlockState.cs" />
     <Compile Include="Interfaces\ICollidiable.cs" />
