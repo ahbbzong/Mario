@@ -25,7 +25,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     break;
                 case Direction.Down:
                     mario.Getposition().Y += intersection.Height;
-                    mario.physics.ReverseYVelocity();
+                    mario.physics.ResetGravity();
                     break;
                 case Direction.Left:
                     mario.Getposition().X -= intersection.Width;
