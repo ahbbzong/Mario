@@ -13,9 +13,11 @@ namespace Mario.Collision.EnemyCollisionHandler
     public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
     {
         IMario mario;
+        Vector2 speed;
         public EnemyMarioCollisionHandler(IMario mario)
         {
             this.mario = mario;
+            speed = new Vector2(20.0f, 20.0f);
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
