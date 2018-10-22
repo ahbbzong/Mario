@@ -87,6 +87,7 @@
     <Compile Include="Classes\MarioClasses\Mario.cs" />
     <Compile Include="Collision\BlockCollisionHandler\BlockHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetecter.cs" />
+    <Compile Include="Collision\EnemyCollisionHandler\EnemyEnemyCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\EnemyBlockCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\EnemyProjectileCollisionHandler.cs" />
     <Compile Include="Collision\EnemyCollisionHandler\EnemyMarioCollisionHandler.cs" />

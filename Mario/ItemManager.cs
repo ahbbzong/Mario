@@ -148,6 +148,8 @@ namespace Mario.XMLRead
                         enemyHandler.HandleCollision(enemy, collisionFound);
                     
                 }
+              
+
             }
             foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
             {
