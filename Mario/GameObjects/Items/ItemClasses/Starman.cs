@@ -14,6 +14,10 @@ namespace Mario.ItemClasses
             ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.Starman.ToString()]);
             Type = ItemType.Starman;
         }
+        public override bool IsStarman()
+        {
+            return true;
+        }
     }
 
 

@@ -53,15 +53,27 @@ namespace Mario.Classes.BlocksClasses
             return ref ItemLocation;
         }
 
-        public void IsLandTrue()
+        public virtual void IsLandTrue()
         {
-            Physics.ResetGravity();
+            if (IsStarman())
+            {
+                Physics.ReverseYVelocity();
+            }
+            else
+            {
+                Physics.ResetGravity();
+            }
             IsLand = true;
         }
 
-        public void IsLandFalse()
+        public virtual void IsLandFalse()
         {
             IsLand = false;
+        }
+
+        public virtual bool IsStarman()
+        {
+            return false;
         }
     }
 }
