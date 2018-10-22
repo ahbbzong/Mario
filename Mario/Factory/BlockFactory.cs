@@ -64,15 +64,16 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, ISprite>
+			SpriteDictionary = new Dictionary<string, Tuple<Texture2D,int,int>>
 			{
-				{BlockType.Breakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("brickBlock"))},
-				{BlockType.Floor.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("floorBlock")) },
-				{BlockType.Hidden.ToString(), SpriteFactory.Instance.CreateEmptySprite(32,32) },
-				{BlockType.Pipe.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("pipe")) },
-				{BlockType.Question.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("questionBlock"),1,3) },
-				{BlockType.Unbreakable.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("UnbreakableBlock")) },
-				{BlockType.Used.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("usedBlock")) }
+				{BlockType.Breakable.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
+				{BlockType.Floor.ToString(), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
+				//this should be changed moving forward to accept parameters for width and height with no sprite
+				{BlockType.Hidden.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
+				{BlockType.Pipe.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
+				{BlockType.Question.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
+				{BlockType.Unbreakable.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
+				{BlockType.Used.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
 
 			};
 		}

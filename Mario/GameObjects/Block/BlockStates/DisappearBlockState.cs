@@ -13,7 +13,7 @@ namespace Mario.BlockStates
 
         public DisappearBlockState(Block block) : base(block)
         {
-            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Hidden.ToString()];
+            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Hidden.ToString()]);
         }
 
 

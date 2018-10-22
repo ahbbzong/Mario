@@ -14,7 +14,7 @@ namespace Mario.ItemClasses
         
         public Fireball(Vector2 location):base(location)
         {
-            ProjectileSprite = ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()];
+            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()]);
             ProjectileState = new FireballState(this);
             Type = ProjectileType.Fireball;
             physics = new Physics(this);

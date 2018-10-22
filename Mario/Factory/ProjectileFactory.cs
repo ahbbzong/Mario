@@ -35,9 +35,9 @@ namespace Mario.Factory
 
         public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, ISprite>
+			SpriteDictionary = new Dictionary<string, Tuple<Texture2D,int,int>>
 			{
-                {ProjectileType.Fireball.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Fireball"),1,4) }
+                {ProjectileType.Fireball.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Fireball"),1,4) }
             };
 		}
 	}

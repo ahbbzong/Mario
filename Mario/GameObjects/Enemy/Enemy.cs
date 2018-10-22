@@ -51,8 +51,6 @@ namespace Mario.AbstractClass
         {
             enemyState.Update();
 			Move();
-           
-           
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

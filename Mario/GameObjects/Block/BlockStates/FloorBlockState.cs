@@ -12,7 +12,7 @@ namespace Mario.BlockStates
     {
         public FloorBlockState(Block block) : base(block)
         {
-            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Floor.ToString()];
+            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Floor.ToString()]);
         }
        
     }

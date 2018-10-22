@@ -40,7 +40,7 @@ namespace Mario
             MarioMovementState = new RightIdleMarioMovementState(this);
 			MarioPowerupState = new NormalMarioPowerupState(this);
             
-			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
+			marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
 			fall = false;
             Island = false;
             physics = new Physics(this);
@@ -118,7 +118,7 @@ namespace Mario
 
         public void Update()
         {
-			marioSprite = MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()];
+			marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
             marioSprite.Update();
             if (!Island)
             {
