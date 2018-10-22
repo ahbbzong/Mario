@@ -10,9 +10,12 @@ namespace Mario.BlocksCommand
         {
             this.game = game;
         }
-        public void Update()
+
+        public void Execute()
         {
             game.Reset();
         }
+
+        
     }
 }
