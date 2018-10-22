@@ -31,13 +31,16 @@ namespace Mario.AbstractClass
 
 		private Vector2 velocity = Vector2.Zero;
 		public Vector2 Velocity { get => velocity; set => velocity = value; }
-		private bool fall;
+		private bool fall { get; set; }
 		public bool Island { get; set; }
-		protected Enemy(Vector2 location)
+        public Physics Physics { get; set; }
+
+        protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
 			Island = true;
 			fall = false;
+            Physics = new Physics(this);
         }
 		
 
@@ -106,7 +109,7 @@ namespace Mario.AbstractClass
 		{
 			Island = true;
 		}
-		public void IsLandFlase()
+		public void IsLandFalse()
 		{
 			Island = false;
 		}
@@ -115,5 +118,7 @@ namespace Mario.AbstractClass
 		{
 			EnemyLocation += velocity;
 		}
-	}
+
+      
+    }
 }

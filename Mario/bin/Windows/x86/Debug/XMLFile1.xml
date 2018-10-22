@@ -78,6 +78,11 @@
       <XLocation>560</XLocation>
       <YLocation>400</YLocation>
     </BlockXML>
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <XLocation>560</XLocation>
+    <YLocation>500</YLocation>
+  </BlockXML>
   
   <BlockXML>
     <BlockType>Floor</BlockType>
@@ -90,7 +95,7 @@
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
     <XLocation>1060</XLocation>
-    <YLocation>500</YLocation>
+    <YLocation>496</YLocation>
   </EnemyXML>
 
   <EnemyXML>
