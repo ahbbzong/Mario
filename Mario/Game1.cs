@@ -106,5 +106,10 @@ namespace Mario
             spriteBatch.End();
             base.Draw(gameTime);
         }
+        public void Reset()
+        {
+            LoadContent();
+        }
+       
     }
 }

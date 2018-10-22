@@ -24,6 +24,11 @@
     <XLocation>660</XLocation>
     <YLocation>140</YLocation>
   </ItemXML>
+  <ItemXML>
+    <GameObjectType>OneUpMushroom</GameObjectType>
+    <XLocation>660</XLocation>
+    <YLocation>500</YLocation>
+  </ItemXML>
 
   <ItemXML>
     <GameObjectType>Starman</GameObjectType>
@@ -48,6 +53,11 @@
   <BlockXML>
     <BlockType>Unbreakable</BlockType>
     <XLocation>960</XLocation>
+    <YLocation>486</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <XLocation>560</XLocation>
     <YLocation>486</YLocation>
   </BlockXML>
   <BlockXML>

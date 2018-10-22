@@ -29,6 +29,7 @@ namespace Mario
             keyboardMap.Add(Keys.P, new BeStarMarioCommand(mario));
             keyboardMap.Add(Keys.Q, new QuitCommand(Game1.Instance));
             keyboardMap.Add(Keys.X, new ThrowFireballCommand(mario));
+            keyboardMap.Add(Keys.R, new ResetCommand(Game1.Instance));
             keyboardMap.Add(Keys.None, new NoInputCommand(mario));
         }
         public void Update()

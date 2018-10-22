@@ -62,8 +62,11 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                     if (enemy.IsMoving())
                     {
                         MarioTakeDamage(mario);
-                        
                     }
+                }
+                else if (!enemy.IsStomped()&&!enemy.IsFlipped())
+                {
+                    MarioTakeDamage(mario);
                 }
             }
             
