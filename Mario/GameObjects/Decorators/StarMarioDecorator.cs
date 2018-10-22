@@ -15,13 +15,14 @@ namespace Mario.GameObjects.Decorators
 
         }
 
-        public void Update()
+        public override void Update()
         {
             time++;
             if (time == 10)
             {
                 ItemManager.Instance.Mario = DecoratedMario;
             }
+			base.Update();
         }
 	}
 }
