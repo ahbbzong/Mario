@@ -27,7 +27,6 @@ namespace Mario.Collision.ItemCollisionHandler
             {
                 case Direction.Up:
                     item.Position -= Vector2.UnitY* intersection.Height;
-                    item.Getposition().Y -= intersection.Height;
                     item.IsLandTrue();
                     break;
                 case Direction.Down:

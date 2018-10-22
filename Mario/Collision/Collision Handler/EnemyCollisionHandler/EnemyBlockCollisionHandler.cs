@@ -25,15 +25,15 @@ namespace Mario.Collision.EnemyCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-                    enemy.Getposition().Y -= intersection.Height;
-                        enemy.IsLandTrue();
+						enemy.Position -= Vector2.UnitY * intersection.Height;
+
+						enemy.IsLandTrue();
 
                         break;
-                    enemy.Position -= Vector2.UnitY*intersection.Height;
 						
                     break;
                 case Direction.Down:
-						enemy.Getposition().Y += intersection.Height;
+						enemy.Position += Vector2.UnitY*intersection.Height;
                     break;
                 case Direction.Left:
                     enemy.Position -= Vector2.UnitX*intersection.Width;
