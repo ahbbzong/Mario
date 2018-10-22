@@ -22,14 +22,16 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
-            if(enemy.IsKoopa()&&!enemy.IsFlipped()||enemy.IsGoomba())
+            if(!enemy.IsFlipped())
             switch (result)
             {
                 case Direction.Up:
 						enemy.Position -= Vector2.UnitY * intersection.Height;
-
+                        if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
+                        {
+                            enemy.Beflipped();
+                        }
 						enemy.IsLandTrue();
-
                         break;
 						
                 case Direction.Down:
