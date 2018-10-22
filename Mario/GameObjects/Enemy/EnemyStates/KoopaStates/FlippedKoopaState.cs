@@ -31,5 +31,13 @@ namespace Mario.EnemyStates.GoombaStates
         {
             return true;
         }
+        public override void Update()
+        {
+            if (!enemy.Island)
+            {
+
+                enemy.Physics.Update();
+            }
+        }
     }
 }

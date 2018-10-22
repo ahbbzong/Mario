@@ -13,11 +13,12 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
         IBlock block;
         Rectangle intersection;
-
+        Vector2 speed;
 		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
         {
             this.block = block;
             this.intersection = intersection;
+            speed = new Vector2(20.0f, 20.0f);
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {

@@ -40,14 +40,14 @@
   </BlockXML>
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
-    <XLocation>1360</XLocation>
-    <YLocation>400</YLocation>
+    <XLocation>1000</XLocation>
+    <YLocation>500</YLocation>
   </EnemyXML>
 
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
     <XLocation>1460</XLocation>
-    <YLocation>400</YLocation>
+    <YLocation>486</YLocation>
   </EnemyXML>
   
 
