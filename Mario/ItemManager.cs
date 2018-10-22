@@ -207,7 +207,7 @@ namespace Mario.XMLRead
             }
             //fix Mario position so that Mario can't go back based on Camera
             //STILL neeed to change
-            float difference = (float)(Mario.Position.X - ItemManager.Instance.CameraMario.Location.X);
+            float difference = (float)(Mario.Position.X - ItemManager.instance.CameraMario.Location.X);
             if ( difference <= 5 && difference>=0)
             {
                 mario.Position += new Vector2(difference,0);
