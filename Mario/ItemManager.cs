@@ -28,7 +28,7 @@ namespace Mario.XMLRead
 		public static ItemManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
 		public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
-        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
+        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } set { gameObjectListsByType["Mario"][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
         private ItemManager()
@@ -207,7 +207,7 @@ namespace Mario.XMLRead
             }
             //fix Mario position so that Mario can't go back based on Camera
             //STILL neeed to change
-            float difference = (float)(Mario.Position.X - ItemManager.instance.CameraMario.Location.X);
+            float difference = (float)(Mario.Position.X - ItemManager.Instance.CameraMario.Location.X);
             if ( difference <= 5 && difference>=0)
             {
                 mario.Position += new Vector2(difference,0);
