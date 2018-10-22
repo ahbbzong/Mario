@@ -20,8 +20,8 @@ namespace Mario.CameraClasses
 
         public void Update() //this should be the xPosition of Mario
         {
-            float xPosition = ItemManager.Instance.Mario.Getposition().X;
-            float yPosition = ItemManager.Instance.Mario.Getposition().Y;
+            float xPosition = ItemManager.Instance.Mario.Position.X;
+            float yPosition = ItemManager.Instance.Mario.Position.Y;
             if (xPosition > camera.Location.X + 450/* add an offset here, maybe half the width of the screen */)
             {
                 camera.MoveRight(5/* choose a number. Maybe 5 */);

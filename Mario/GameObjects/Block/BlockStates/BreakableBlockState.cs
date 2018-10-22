@@ -19,8 +19,8 @@ namespace Mario.BlockStates
         {
             if (ItemManager.Instance.Mario.IsNormalMario())
             {
-                float yPosition = block.Getposition().Y;
-                block.Getposition().Y -= 10.0f;
+                float yPosition = block.Position.Y;
+                block.Position -= Vector2.UnitY*10.0f;
                 block.BlockState = new BumpedBreakBlockState(block);
             }
             else

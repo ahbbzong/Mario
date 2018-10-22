@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game1;
 using Mario.XMLRead;
+using Microsoft.Xna.Framework;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -22,7 +23,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 
 		public virtual void BeFire()
 		{
-            mario.Getposition().Y -= 5;
+            mario.Position -= Vector2.UnitY*5;
             Mario.MarioPowerupState = new FireMarioPowerupState(Mario);
 		}
 		public virtual void BeNormal()
@@ -35,7 +36,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public virtual void BeSuper()
 		{
-            mario.Getposition().Y -= 5;
+            mario.Position -= Vector2.UnitY*5;
             Mario.MarioPowerupState = new SuperMarioPowerupState(Mario);
 		}
 		public virtual void Dead()
