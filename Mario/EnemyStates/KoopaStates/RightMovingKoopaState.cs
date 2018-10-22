@@ -18,7 +18,7 @@ namespace Mario.EnemyStates.GoombaStates
         public RightMovingKoopaState(Enemy enemy):base(enemy)
         {
             EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.MovingRight.ToString()];
-
+			enemy.Velocity = Vector2.UnitX;
         }
         public override void TurnLeft()
         {

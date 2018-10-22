@@ -13,7 +13,6 @@ namespace Game1
   
         ItemType Type { get; }
         Rectangle Box { get; }
-        ref Vector2 Getposition();
     }
 
 }

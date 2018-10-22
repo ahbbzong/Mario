@@ -156,6 +156,7 @@
     <Compile Include="Interfaces\GameObjects\IPowerupEventBehavior.cs" />
     <Compile Include="Interfaces\ICameraController.cs" />
     <Compile Include="Interfaces\IContentBehavior.cs" />
+    <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\States\IBlockState.cs" />
     <Compile Include="Interfaces\ICollidiable.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

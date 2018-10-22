@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-    public abstract class Enemy : IEnemy,ICollidiable
+    public abstract class Enemy : IEnemy,ICollidiable, IMoveable
     {
         private Vector2 EnemyLocation;
         public EnemyType Type { get; set; }
@@ -24,21 +25,26 @@ namespace Mario.AbstractClass
                 return new Rectangle((int)EnemyLocation.X, (int)EnemyLocation.Y, enemyState.GetWidth, enemyState.GetHeight);
             }
         }
+		
+		private Vector2 maxVelocity = new Vector2(8.0f,8.0f);
+		public Vector2 MaxVelocity { get => maxVelocity; }
 
-        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        protected Enemy(Vector2 location)
+		private Vector2 velocity = Vector2.Zero;
+		public Vector2 Velocity { get => velocity; set => velocity = value; }
+		private bool fall;
+		public bool Island { get; set; }
+		protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
+			Island = true;
+			fall = false;
         }
-
+		
 
         public virtual void Update()
         {
             enemyState.Update();
+			Move();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -58,11 +64,13 @@ namespace Mario.AbstractClass
 
         public virtual void TurnLeft()
         {
+			velocity = -Vector2.UnitX;
             enemyState.TurnLeft();
         }
 
         public virtual void TurnRight()
         {
+			velocity = Vector2.UnitX;
             enemyState.TurnRight();
         }
 
@@ -94,5 +102,18 @@ namespace Mario.AbstractClass
         {
             return enemyState.IsKoopa();
         }
-    }
+		public void IsLandTrue()
+		{
+			Island = true;
+		}
+		public void IsLandFlase()
+		{
+			Island = false;
+		}
+
+		public void Move()
+		{
+			EnemyLocation += velocity;
+		}
+	}
 }

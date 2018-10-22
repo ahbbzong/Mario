@@ -19,6 +19,7 @@ namespace Mario.EnemyStates.GoombaStates
         {
 			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
             EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.MovingLeft.ToString()];
+
         }
         public override void BeStomped()
         {

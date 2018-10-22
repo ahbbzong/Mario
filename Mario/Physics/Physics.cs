@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Xna.Framework;
 namespace Mario
 {
     public class Physics 
     {
        
-        private float XVelocity { get; set; }
+        public float XVelocity { get; set; }
         private float Gravity { get; set; }
         public float YVelocity { get; set; }
         private float MaxXVelocity { get; set; }

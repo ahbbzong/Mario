@@ -17,6 +17,7 @@ namespace Mario
 		public MarioMovementState MarioMovementState { get; set; }
 		public MarioPowerupState MarioPowerupState { get; set; }
 		private ISprite marioSprite { get; set; }
+
         private bool fall;
         public bool Island { get; set; }
         public Rectangle Box
