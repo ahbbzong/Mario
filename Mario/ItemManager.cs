@@ -87,7 +87,7 @@ namespace Mario.XMLRead
             //CHECK with camera
             collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
             intersection = collisionDetecter.intersection;
-            if (!intersection.IsEmpty)
+            if (!collisionFound.Equals(Direction.None))
             { 
                  mario.Getposition().X += intersection.Width;
             }
@@ -258,20 +258,20 @@ namespace Mario.XMLRead
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y-20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y-30)));
                     break;
                 case 2:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
 
                 case 4:
                 case 5:
                 case 6:
                 case 7:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("MagicMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("MagicMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
             }
         }
@@ -283,16 +283,16 @@ namespace Mario.XMLRead
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
                 case 2:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("FireFlower", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("FireFlower", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
                 case 4:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 20)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
                     break;
             }
         }

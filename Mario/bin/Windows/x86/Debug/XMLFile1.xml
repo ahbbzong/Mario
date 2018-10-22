@@ -57,19 +57,6 @@
     <YLocation>500</YLocation>
   </PlayerXML>
   
-  <BlockXML>
-    <BlockType>Hidden</BlockType>
-    <XLocation>760</XLocation>
-    <YLocation>400</YLocation>
-  </BlockXML>
-
-  <BlockXML>
-    <BlockType>Hidden</BlockType>
-    <XLocation>860</XLocation>
-    <YLocation>400</YLocation>
-  </BlockXML>
-  
-
   -<BlockXML>
 
     <BlockType>Breakable</BlockType>
@@ -195,7 +182,7 @@
 
     <BlockType>Breakable</BlockType>
 
-    <XLocation>700</XLocation>
+    <XLocation>750</XLocation>
 
     <YLocation>400</YLocation>
 
@@ -205,7 +192,7 @@
 
     <BlockType>Breakable</BlockType>
 
-    <XLocation>716</XLocation>
+    <XLocation>782</XLocation>
 
     <YLocation>400</YLocation>
 
