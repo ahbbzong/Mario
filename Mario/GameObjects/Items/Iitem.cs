@@ -18,7 +18,8 @@ namespace Game1
         bool IsStarman();
         void IsLandTrue();
         void IsLandFalse();
-
+        void TurnLeft();
+        void TurnRight();
     }
 
 }
