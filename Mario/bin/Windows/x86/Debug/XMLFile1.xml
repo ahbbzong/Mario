@@ -49,9 +49,9 @@
   </EnemyXML>
 
   <EnemyXML>
-    <EnemyType>Koopa</EnemyType>
+    <EnemyType>Goomba</EnemyType>
     <XLocation>1064</XLocation>
-    <YLocation>350</YLocation>
+    <YLocation>370</YLocation>
   </EnemyXML>
 
   
