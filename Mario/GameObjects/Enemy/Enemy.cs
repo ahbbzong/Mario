@@ -35,7 +35,6 @@ namespace Mario.AbstractClass
 		public bool Island { get; set; }
         public Physics Physics { get; set; }
         private bool isMoving { get; set; }
-        private int count;
 
         protected Enemy(Vector2 location)
         {
@@ -50,11 +49,7 @@ namespace Mario.AbstractClass
         public virtual void Update()
         {
             enemyState.Update();
-			Move(velocity);
-            if (!Island)
-            {
-                Physics.Update();
-            }
+			Move();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -81,6 +76,13 @@ namespace Mario.AbstractClass
                 isMoving = true;
                
         }
+        public virtual void TurnLeft(Vector2 velocity)
+        {
+            velocity = -Vector2.UnitX;
+            enemyState.TurnLeft();
+            isMoving = true;
+
+        }
 
         public virtual void TurnRight()
         {
@@ -90,11 +92,20 @@ namespace Mario.AbstractClass
                 isMoving = true;
                 
         }
+        public virtual void TurnRight(Vector2 velocity)
+        {
+            velocity = Vector2.UnitX;
+            enemyState.TurnRight();
+
+            isMoving = true;
+
+        }
 
         public virtual bool IsStomped()
         {
             return enemyState.IsStomped();
         }
+        
 		
 		public Vector2 Position { get => EnemyLocation; set=>EnemyLocation = value; }
 
@@ -130,15 +141,11 @@ namespace Mario.AbstractClass
 		{
 			EnemyLocation += velocity;
 		}
-        public void Move(Vector2 velocity)
-        {
-            EnemyLocation += velocity;
-        }
+      
         public bool IsMoving()
         {
             return isMoving;
         }
 
-      
     }
 }

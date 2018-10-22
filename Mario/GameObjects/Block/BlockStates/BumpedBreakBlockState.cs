@@ -31,5 +31,9 @@ using System.Threading.Tasks;
             }
             blockSprite.Update();
         }
+        public override bool IsBumpedBreakBlock()
+        {
+            return true;
+        }
     }
     }

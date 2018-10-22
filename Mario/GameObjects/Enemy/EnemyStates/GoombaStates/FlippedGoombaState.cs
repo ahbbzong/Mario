@@ -18,12 +18,17 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public FlippedGoombaState(Enemy enemy) :base(enemy)
         {
-            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Flipped.ToString()];
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Flipped.ToString()]);
 
         }
         public override bool IsFlipped()
         {
             return true;
+        }
+        public override void Update()
+        {
+            
+                enemy.Physics.Update();
         }
     }
 }

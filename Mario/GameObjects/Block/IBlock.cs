@@ -15,5 +15,8 @@ namespace Game1
         bool IsBreakableBlock();
         bool IsQuestionBlock();
         void React();
+        bool IsBumpedBlockState();
+       bool IsBumpedBreakBlock();
+       
     }
 }

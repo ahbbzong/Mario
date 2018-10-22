@@ -10,6 +10,13 @@ namespace Mario
     public class Keyboards : IController
     {
         private Dictionary<Keys, ICommand> keyboardMap;
+		private IList<Keys> directionalKeys = new List<Keys>
+		{
+			Keys.Up,
+			Keys.Down,
+			Keys.Left,
+			Keys.Right
+		};
         private Keys[] previous;
         public Keyboards()
         {
@@ -42,15 +49,23 @@ namespace Mario
             }
             foreach (Keys key in getkeys)
             {
-                if (keyboardMap.ContainsKey(key)&&!previous.Contains(Keys.Z))
-                {
-                    
-                        keyboardMap[key].Execute();
-                }
+
+				if (keyboardMap.ContainsKey(key))
+				{
+					if (IsDirectionalKey(key) || !previous.Contains(key))
+					{
+						keyboardMap[key].Execute();
+					}
+				}
                
             }
             previous = getkeys;
         }
+		
+		private bool IsDirectionalKey(Keys key)
+		{
+			return directionalKeys.Contains(key);
+		}
     }
 
 }
