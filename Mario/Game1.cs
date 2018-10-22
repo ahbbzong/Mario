@@ -108,6 +108,7 @@ namespace Mario
         }
         public void Reset()
         {
+            ItemManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
        

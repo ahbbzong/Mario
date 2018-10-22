@@ -26,10 +26,10 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 case Direction.Up:
                     enemy.Getposition().Y -= intersection.Height;
-						
-                    break;
+                        enemy.IsLandTrue();
+
+                        break;
                 case Direction.Down:
-						enemy.IsLandTrue();
 						enemy.Getposition().Y += intersection.Height;
                     break;
                 case Direction.Left:
@@ -40,9 +40,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                     break;
                 case Direction.Right:
                     enemy.Getposition().X += intersection.Width;
-                      
-                            enemy.TurnRight();
-                           
+                      enemy.TurnRight();
                         break;
                 case Direction.None:
                         enemy.IsLandFalse();

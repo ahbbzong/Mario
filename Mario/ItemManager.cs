@@ -31,7 +31,6 @@ namespace Mario.XMLRead
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-        private int count;
         private ItemManager()
         {
             gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
@@ -45,7 +44,6 @@ namespace Mario.XMLRead
                 { "Enemy", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
             };
-            count = 0;
         }
         public void SetInitialValuesCamera()
         {
@@ -129,16 +127,16 @@ namespace Mario.XMLRead
 				}
                 foreach (IBlock block in gameObjectListsByType["Block"])
                 {
-                    collisionFound = collisionDetecter.Collision(block.Box, obj.Box);
+                    collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
                     intersection = collisionDetecter.intersection;
-                    itemHandler = new ItemBlockCollisionHandler();
+                    itemHandler = new ItemBlockCollisionHandler(block,intersection,collisionFound);
                     itemHandler.HandleCollision(obj);
                 }
                 foreach (IBlock pipe in gameObjectListsByType["Pipe"])
                 {
-                    collisionFound = collisionDetecter.Collision(pipe.Box, obj.Box);
+                    collisionFound = collisionDetecter.Collision(obj.Box, pipe.Box);
                     intersection = collisionDetecter.intersection;
-                    itemHandler = new ItemBlockCollisionHandler();
+                    itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
                     itemHandler.HandleCollision(obj);
                 }
 
