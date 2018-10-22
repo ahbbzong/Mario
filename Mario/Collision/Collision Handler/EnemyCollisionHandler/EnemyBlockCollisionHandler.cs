@@ -34,9 +34,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                     break;
                 case Direction.Left:
                     enemy.Getposition().X -= intersection.Width;
-                      
-                            enemy.TurnLeft();
-                       
+                          enemy.TurnLeft();
                     break;
                 case Direction.Right:
                     enemy.Getposition().X += intersection.Width;

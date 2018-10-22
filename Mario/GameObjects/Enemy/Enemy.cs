@@ -50,7 +50,7 @@ namespace Mario.AbstractClass
         public virtual void Update()
         {
             enemyState.Update();
-			Move();
+			Move(velocity);
             if (!Island)
             {
                 Physics.Update();
@@ -133,6 +133,10 @@ namespace Mario.AbstractClass
 		{
 			EnemyLocation += velocity;
 		}
+        public void Move(Vector2 velocity)
+        {
+            EnemyLocation += velocity;
+        }
         public bool IsMoving()
         {
             return isMoving;

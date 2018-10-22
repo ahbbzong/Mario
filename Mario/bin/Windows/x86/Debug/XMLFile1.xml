@@ -41,13 +41,13 @@
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
     <XLocation>1360</XLocation>
-    <YLocation>476</YLocation>
+    <YLocation>400</YLocation>
   </EnemyXML>
 
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
     <XLocation>1460</XLocation>
-    <YLocation>466</YLocation>
+    <YLocation>400</YLocation>
   </EnemyXML>
   
 
