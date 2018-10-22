@@ -42,10 +42,12 @@ namespace Mario
             }
             foreach (Keys key in getkeys)
             {
-                if (keyboardMap.ContainsKey(key)&&!(previous.Equals(Keys.Z)&&key.Equals(Keys.Z)))
+                if (keyboardMap.ContainsKey(key)&&!(previous.Equals(Keys.Z) && key.Equals(Keys.Z)))
                 {
-                  keyboardMap[key].Execute();
+                    
+                        keyboardMap[key].Execute();
                 }
+               
                 previous = key;
             }
         }

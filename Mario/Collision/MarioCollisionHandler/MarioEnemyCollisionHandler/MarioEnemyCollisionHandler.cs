@@ -25,7 +25,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 {
                     case Direction.Up:
                         mario.Getposition().Y -= intersection.Height;
-                        mario.IsLandTrue();
+                        mario.physics.ReverseYVelocity();
                         break;
                     case Direction.Down:
                         mario.Getposition().Y += intersection.Height;
