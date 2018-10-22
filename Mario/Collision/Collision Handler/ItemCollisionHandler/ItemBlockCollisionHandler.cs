@@ -26,16 +26,16 @@ namespace Mario.Collision.ItemCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-                    item.Getposition().Y -= intersection.Height;
+                    item.Position -= Vector2.UnitY* intersection.Height;
                     break;
                 case Direction.Down:
-                    item.Getposition().Y += intersection.Height;
+                    item.Position += Vector2.UnitY* intersection.Height;
                     break;
                 case Direction.Left:
-                    item.Getposition().X -= intersection.Width;
+                    item.Position -= Vector2.UnitX*intersection.Width;
                     break;
                 case Direction.Right:
-                    item.Getposition().X += intersection.Width;
+                    item.Position += Vector2.UnitX*intersection.Width;
                     break;
             }
         }

@@ -30,13 +30,13 @@ namespace Mario
         }
         private void ApplyGtravity()
         {
-            physicsBody.Getposition().Y += YVelocity;
+            physicsBody.Position += Vector2.UnitY*YVelocity;
             YVelocity += Gravity;
 
         }
         public void ApplyFriction()
         {
-            physicsBody.Getposition().X += XVelocity;
+            physicsBody.Position += Vector2.UnitX*XVelocity;
             XVelocity /= 1.25f;
         }
         public void ApplyForceVertical(float YVelocity)
@@ -54,7 +54,7 @@ namespace Mario
             {
                 XVelocity = MaxXVelocity;
             }
-            physicsBody.Getposition().X += XVelocity;
+            physicsBody.Position += Vector2.UnitX*XVelocity;
         }
         public void MoveLeft()
         {
@@ -66,11 +66,11 @@ namespace Mario
             {
                 XVelocity = MinXVelocity;
             }
-            physicsBody.Getposition().X += XVelocity;
+            physicsBody.Position += Vector2.UnitX* XVelocity;
         }
         public void FireballMove(float Velocity)
         {
-            physicsBody.Getposition().X += Velocity;
+            physicsBody.Position += Vector2.UnitX*Velocity;
         }
 
         public void ResetGravity()

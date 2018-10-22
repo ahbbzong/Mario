@@ -24,17 +24,17 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 switch (result)
                 {
                     case Direction.Up:
-                        mario.Getposition().Y -= intersection.Height;
+                        mario.Position -= new Vector2(0,intersection.Height);
                         mario.physics.ReverseYVelocity();
                         break;
                     case Direction.Down:
-                        mario.Getposition().Y += intersection.Height;
+                        mario.Position += new Vector2(0,intersection.Height);
                         break;
                     case Direction.Left:
-                        mario.Getposition().X -= intersection.Width;
+                        mario.Position -= new Vector2(intersection.Width,0);
                         break;
                     case Direction.Right:
-                        mario.Getposition().X += intersection.Width;
+                        mario.Position += new Vector2(intersection.Width,0);
                         break;
                 }
             }MarioState(mario,result);

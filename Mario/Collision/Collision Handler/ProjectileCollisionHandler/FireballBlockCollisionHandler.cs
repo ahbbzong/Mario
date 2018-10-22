@@ -30,19 +30,19 @@ namespace Mario.Collision.FireballCollisionHandler
                 switch (result)
                 {
                     case Direction.Up:
-                        fireball.Getposition().Y -= intersection.Height;
+                        fireball.Position -= Vector2.UnitY*intersection.Height;
                         fireball.IsLandTrue();
                         break;
                     case Direction.Down:
-                        fireball.Getposition().Y += intersection.Height;
+                        fireball.Position += Vector2.UnitY*intersection.Height;
                         fireball.IsLandTrue();
                         break;
                     case Direction.Left:
-                        fireball.Getposition().Y += locationOffset;
+                        fireball.Position += Vector2.UnitX*locationOffset;
                         break;
                     case Direction.Right:
-                        fireball.Getposition().X += locationOffset;
-                        fireball.Getposition().Y += locationOffset;
+                        fireball.Position += Vector2.UnitX*locationOffset;
+                        fireball.Position += Vector2.UnitX*locationOffset;
                         break;
                     case Direction.None:
                         fireball.IsLandFalse();

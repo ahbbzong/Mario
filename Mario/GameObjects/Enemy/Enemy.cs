@@ -91,13 +91,10 @@ namespace Mario.AbstractClass
         {
             return enemyState.IsStomped();
         }
+		
+		public Vector2 Position { get => EnemyLocation; set=>EnemyLocation = value; }
 
-        public virtual ref Vector2 Getposition()
-        {
-            return ref EnemyLocation;
-        }
-
-        public virtual void BeKilled()
+		public virtual void BeKilled()
         {
             enemyState.BeKilled();
         }

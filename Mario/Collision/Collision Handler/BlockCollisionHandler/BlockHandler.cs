@@ -43,7 +43,7 @@ namespace Mario.Collision
                 && result.Equals(Direction.Down))
             {
                 block.React();
-                block.Getposition().Y += locationOffset;
+                block.Position += Vector2.UnitY*locationOffset;
             }
             BlockMovement(block, result);
         }

@@ -13,9 +13,32 @@ namespace Mario
     public class Mario : IMario,ICollidiable
     {
         private Vector2 location = Vector2.Zero;
-		public Vector2 Location { get => location; set => location = value; }
-		public MarioMovementState MarioMovementState { get; set; }
-		public MarioPowerupState MarioPowerupState { get; set; }
+		public Vector2 Position { get => location; set => location = value; }
+
+		private MarioMovementState marioMovementState;
+		public MarioMovementState MarioMovementState
+		{
+			get
+			{
+				return marioMovementState;
+			}
+			set
+			{
+				marioMovementState = value;
+				marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+			}
+		}
+		private MarioPowerupState marioPowerupState;
+		public MarioPowerupState MarioPowerupState {
+			get {
+				return marioPowerupState;
+			}
+			set
+			{
+				marioPowerupState = value;
+				marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+			}
+		}
 		private ISprite marioSprite { get; set; }
 
         private bool fall;
@@ -37,10 +60,9 @@ namespace Mario
         public Mario(Vector2 location)
         {
             this.location = location;
-            MarioMovementState = new RightIdleMarioMovementState(this);
-			MarioPowerupState = new NormalMarioPowerupState(this);
+			marioPowerupState = new NormalMarioPowerupState(this);
+			MarioMovementState = new RightIdleMarioMovementState(this);
             
-			marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
 			fall = false;
             Island = false;
             physics = new Physics(this);
@@ -118,8 +140,7 @@ namespace Mario
 
         public void Update()
         {
-			marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
-            marioSprite.Update();
+			marioSprite.Update();
             if (!Island)
             {
                 physics.Update();
@@ -138,13 +159,8 @@ namespace Mario
         {
 			marioSprite.Draw(spriteBatch,location);
         }
-
-        public ref Vector2 Getposition()
-        {
-            return ref location;
-        }
-
-        public bool IsDead()
+		
+		public bool IsDead()
         {
             return MarioPowerupState.MarioPowerupType == MarioPowerupType.Dead;
         }

@@ -28,8 +28,9 @@ namespace Mario.Classes.BlocksClasses
        
         public Physics Physics { get ; set ; }
         public bool IsLand { get ; set ; }
+		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
 
-        protected Item(Vector2 location)
+		protected Item(Vector2 location)
         {
             ItemLocation = location;
             IsLand = false;
@@ -44,13 +45,9 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemSprite.Draw(spriteBatch, ItemLocation);
         }
+		
 
-        public virtual ref Vector2 Getposition()
-        {
-            return ref ItemLocation;
-        }
-
-        public void IsLandTrue()
+		public void IsLandTrue()
         {
             throw new NotImplementedException();
         }
