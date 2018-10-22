@@ -1,28 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Map>
 
+  <BlockXML>
+    <BlockType>Floor</BlockType>
+    <Length>150</Length>
+    <Height>12</Height>
+    <XLocation>0</XLocation>
+    <YLocation>532</YLocation>
+  </BlockXML>
   
-  <ItemXML>
+  
+ <ItemXML>
     <GameObjectType>OneUpMushroom</GameObjectType>
     <XLocation>360</XLocation>
     <YLocation>400</YLocation>
   </ItemXML>
-
 
   <BlockXML>
     <BlockType>Unbreakable</BlockType>
     <XLocation>60</XLocation>
     <YLocation>400</YLocation>
   </BlockXML>
-
-  <BlockXML>
-    <BlockType>Floor</BlockType>
-    <Length>100</Length>
-    <Height>5</Height>
-    <XLocation>0</XLocation>
-    <YLocation>532</YLocation>
-  </BlockXML>
-
   <BlockXML>
     <BlockType>Unbreakable</BlockType>
     <XLocation>960</XLocation>
