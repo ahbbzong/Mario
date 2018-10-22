@@ -48,7 +48,10 @@ namespace Mario
 				try
 				{
 					MarioPowerupState newState = value;
-					ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
+					if (!(newState is DeadMarioPowerupState))
+					{
+						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
+					}
 					marioPowerupState = newState;
 					
 				}
