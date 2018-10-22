@@ -177,9 +177,9 @@ namespace Mario.XMLRead
                 }
             }
           
-            {
+            
                 
-                {
+                
                     foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                     {
                         collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
@@ -191,9 +191,19 @@ namespace Mario.XMLRead
                             marioHandler = new MarioEnemyCollisionHandler(enemy);
                             marioHandler.HandleCollision(Mario, collisionFound, intersection);
                         }
+                        foreach (IEnemy anotherEnemy in gameObjectListsByType["Enemy"])
+                            {
+                    if (!enemy.Equals(anotherEnemy))
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, anotherEnemy.Box);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler = new EnemyEnemyCollisionHandler(anotherEnemy,intersection);
+                        enemyHandler.HandleCollision(enemy, collisionFound);
                     }
                 }
-            }
+                    }
+                
+            
             foreach (IBlock pipe in gameObjectListsByType["Pipe"])
             {
                 collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
