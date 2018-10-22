@@ -25,7 +25,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 {
                     case Direction.Up:
                         mario.Position -= new Vector2(0,intersection.Height);
-                        mario.physics.ReverseYVelocity();
+                        mario.Physics.ReverseYVelocity();
                         break;
                     case Direction.Down:
                         mario.Position += new Vector2(0,intersection.Height);
@@ -73,14 +73,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         }
         public void MarioTakeDamage(IMario mario)
         {
-            if (mario.IsNormalMario())
-            {
-                mario.Dead();
-            }
-            if (mario.IsSuperMario() || mario.IsFireMario())
-            {
-                mario.BeNormal();
-            }
+			mario.TakeDamage();
         }
     }
 }

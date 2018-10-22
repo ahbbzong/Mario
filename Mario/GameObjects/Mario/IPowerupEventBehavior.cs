@@ -19,6 +19,7 @@ namespace Mario.Interfaces.GameObjects
 		void BeFire();
 		void BeStar();
 
+		void TakeDamage();
 		MarioPowerupType MarioPowerupType { get; }
 	}
 }
