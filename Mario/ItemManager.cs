@@ -317,10 +317,11 @@ namespace Mario.XMLRead
 			}
 			foreach(string key in gameObjectListsByType.Keys)
 			{
-				foreach(IGameObject gameObj in gameObjectListsByType[key])
+				for(int i = gameObjectListsByType[key].Count - 1; i >= 0 ; i--)
 				{
-					gameObj.Update();
+					gameObjectListsByType[key][i].Update();
 				}
+				
 			}
             CameraController.Update();
             
