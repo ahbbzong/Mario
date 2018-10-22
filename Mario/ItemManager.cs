@@ -36,11 +36,11 @@ namespace Mario.XMLRead
 			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
 			{
 				
+				{"Background", new List<IGameObject>() },
 				{"Item",new List<IGameObject>() },
 				{"Enemy", new List<IGameObject>() },
 				{"Block", new List<IGameObject>() },
 				{"Pipe", new List<IGameObject>() },
-				{"Background", new List<IGameObject>() },
                 {"Projectile", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
 
