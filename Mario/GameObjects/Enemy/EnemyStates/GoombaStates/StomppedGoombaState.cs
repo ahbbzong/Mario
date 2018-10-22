@@ -19,7 +19,7 @@ namespace Mario.EnemyStates.GoombaStates
         int count = 0;
         public StomppedGoombaState(Enemy enemy) :base(enemy)
         {
-            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Stomped.ToString()];
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Stomped.ToString()]);
             enemy.Velocity = Vector2.Zero;
         }
 
