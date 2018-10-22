@@ -34,7 +34,7 @@
   <BlockXML>
     <BlockType>Unbreakable</BlockType>
     <XLocation>1360</XLocation>
-    <YLocation>486</YLocation>
+    <YLocation>496</YLocation>
   </BlockXML>
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
@@ -44,7 +44,7 @@
 
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>1460</XLocation>
+    <XLocation>1100</XLocation>
     <YLocation>496</YLocation>
   </EnemyXML>
 
