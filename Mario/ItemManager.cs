@@ -31,6 +31,7 @@ namespace Mario.XMLRead
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
+        private int count;
         private ItemManager()
         {
             gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
@@ -44,6 +45,7 @@ namespace Mario.XMLRead
                 { "Enemy", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
             };
+            count = 0;
         }
         public void SetInitialValuesCamera()
         {
@@ -137,6 +139,7 @@ namespace Mario.XMLRead
                 collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
                 if (!Mario.IsDead())
                 {
+                    float storedLocation = block.Getposition().Y;
                     intersection = collisionDetecter.intersection;
                     blockHandler = new BlockHandler(Mario);
                     blockHandler.HandleCollision(block, Mario, collisionFound);
@@ -169,17 +172,19 @@ namespace Mario.XMLRead
             }
           
             {
-                foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+                
                 {
-
-                    collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                    if (collisionFound != Direction.None && !Mario.IsDead())
+                    foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                     {
-                        enemyHandler = new EnemyMarioCollisionHandler(Mario);
-                        intersection = collisionDetecter.intersection;
-                        enemyHandler.HandleCollision(enemy, collisionFound);
-                        marioHandler = new MarioEnemyCollisionHandler(enemy);
-                        marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                        collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
+                        if (collisionFound != Direction.None && !Mario.IsDead())
+                        {
+                            enemyHandler = new EnemyMarioCollisionHandler(Mario);
+                            intersection = collisionDetecter.intersection;
+                            enemyHandler.HandleCollision(enemy, collisionFound);
+                            marioHandler = new MarioEnemyCollisionHandler(enemy);
+                            marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                        }
                     }
                 }
             }
@@ -196,7 +201,14 @@ namespace Mario.XMLRead
 
                 }
             }
-           
+            //fix Mario position so that Mario can't go back based on Camera
+            //STILL neeed to change
+            float difference = (float)(Mario.Getposition().X - ItemManager.instance.CameraMario.Location.X);
+            if ( difference <= 5 && difference>=0)
+            {
+                mario.Getposition().X += difference;
+            }
+
         }
         public void CallMarioItemHandler(IItem obj, Direction collisionFound, Rectangle intersection)
         {

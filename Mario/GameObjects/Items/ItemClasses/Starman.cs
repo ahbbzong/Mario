@@ -11,7 +11,7 @@ namespace Mario.ItemClasses
     {
         public Starman(Vector2 location) : base(location)
         {
-            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.Starman.ToString()];
+            ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.Starman.ToString()]);
             Type = ItemType.Starman;
         }
     }

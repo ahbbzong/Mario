@@ -12,6 +12,7 @@ namespace Game1
     {
         Vector2 Location { get; }
         Matrix Transform { get; }
+        Rectangle InnerBox { get; }
         void MoveRight(float move);
     }
 }

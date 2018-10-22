@@ -14,7 +14,7 @@ namespace Mario.ItemClasses
         {
             Console.WriteLine(ItemType.FireFlower.ToString());
             
-            ItemSprite = ItemFactory.Instance.GetSpriteDictionary[ItemType.FireFlower.ToString()];
+            ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.FireFlower.ToString()]);
             Type = ItemType.FireFlower;
 
         }

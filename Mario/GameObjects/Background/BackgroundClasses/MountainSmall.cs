@@ -17,7 +17,7 @@ namespace Mario.Classes.BackgroundClasses
     {
         public MountainSmall(Vector2 location) : base(location)
         {
-            BackgroundSprite = BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.MountainSmall.ToString()];
+            BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.MountainSmall.ToString()]);
         }
     }
 }
