@@ -1,40 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Map>
 
-  <ItemXML>
-    <GameObjectType>FireFlower</GameObjectType>
-    <XLocation>60</XLocation>
-    <YLocation>140</YLocation>
-  </ItemXML>
-
-  <ItemXML>
-    <GameObjectType>Coin</GameObjectType>
-    <XLocation>260</XLocation>
-    <YLocation>140</YLocation>
-  </ItemXML>
-
-  <ItemXML>
-    <GameObjectType>MagicMushroom</GameObjectType>
-    <XLocation>460</XLocation>
-    <YLocation>140</YLocation>
-  </ItemXML>
-
+  
   <ItemXML>
     <GameObjectType>OneUpMushroom</GameObjectType>
-    <XLocation>660</XLocation>
-    <YLocation>140</YLocation>
-  </ItemXML>
-  <ItemXML>
-    <GameObjectType>OneUpMushroom</GameObjectType>
-    <XLocation>660</XLocation>
-    <YLocation>500</YLocation>
+    <XLocation>360</XLocation>
+    <YLocation>400</YLocation>
   </ItemXML>
 
-  <ItemXML>
-    <GameObjectType>Starman</GameObjectType>
-    <XLocation>860</XLocation>
-    <YLocation>140</YLocation>
-  </ItemXML>
 
   <BlockXML>
     <BlockType>Unbreakable</BlockType>
@@ -68,13 +41,13 @@
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
     <XLocation>1360</XLocation>
-    <YLocation>496</YLocation>
+    <YLocation>476</YLocation>
   </EnemyXML>
 
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>1260</XLocation>
-    <YLocation>486</YLocation>
+    <XLocation>1460</XLocation>
+    <YLocation>466</YLocation>
   </EnemyXML>
   
 

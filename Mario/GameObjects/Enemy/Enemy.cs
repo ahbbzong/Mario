@@ -51,6 +51,10 @@ namespace Mario.AbstractClass
         {
             enemyState.Update();
 			Move();
+            if (!Island)
+            {
+                Physics.Update();
+            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -117,6 +121,7 @@ namespace Mario.AbstractClass
         }
 		public void IsLandTrue()
 		{
+            Physics.ResetGravity();
 			Island = true;
 		}
 		public void IsLandFalse()

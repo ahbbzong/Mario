@@ -39,6 +39,9 @@ namespace Mario.Classes.BlocksClasses
         public virtual void Update()
         {
             ItemSprite.Update();
+            if (!IsLand){
+                Physics.Update();
+            }
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -52,12 +55,13 @@ namespace Mario.Classes.BlocksClasses
 
         public void IsLandTrue()
         {
-            throw new NotImplementedException();
+            Physics.ResetGravity();
+            IsLand = true;
         }
 
         public void IsLandFalse()
         {
-            throw new NotImplementedException();
+            IsLand = false;
         }
     }
 }
