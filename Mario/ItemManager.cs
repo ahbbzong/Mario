@@ -200,7 +200,14 @@ namespace Mario.XMLRead
 
                 }
             }
-           
+            //fix Mario position so that Mario can't go back based on Camera
+            //STILL neeed to change
+            float difference = (float)(Mario.Getposition().X - ItemManager.instance.CameraMario.Location.X);
+            if ( difference <= 5 && difference>=0)
+            {
+                mario.Getposition().X += difference;
+            }
+
         }
         public void CallMarioItemHandler(IItem obj, Direction collisionFound, Rectangle intersection)
         {

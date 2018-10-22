@@ -18,7 +18,7 @@ namespace Mario.Classes.BackgroundClasses
        
         public BushSingle(Vector2 location):base(location)
         {
-            BackgroundSprite = BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.BushSingle.ToString()];
+            BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.BushSingle.ToString()]);
         }
 
 

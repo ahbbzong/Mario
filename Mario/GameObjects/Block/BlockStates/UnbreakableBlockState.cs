@@ -12,7 +12,7 @@ namespace Mario.BlockStates
     {
         public UnbreakableBlockState(Block block) : base(block)
         {
-            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Unbreakable.ToString()];
+            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Unbreakable.ToString()]);
         }
 
     }

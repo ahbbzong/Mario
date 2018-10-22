@@ -58,13 +58,13 @@ namespace Mario.Factory
 
         public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, ISprite>
+			SpriteDictionary = new Dictionary<string, Tuple<Texture2D, int, int>>
 			{
-				{ItemType.Coin.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Coin"),1,4) },
-				{ItemType.FireFlower.ToString(),SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("FireFlower"),1,4) },
-				{ItemType.MagicMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("MagicMushroom")) },
-				{ItemType.OneUpMushroom.ToString(), SpriteFactory.Instance.CreateStaticSprite(content.Load<Texture2D>("OneUpMushroom")) },
-				{ItemType.Starman.ToString(), SpriteFactory.Instance.CreateAnimatedSprite(content.Load<Texture2D>("Starman"),1,4) },
+				{ItemType.Coin.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
+				{ItemType.FireFlower.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
+				{ItemType.MagicMushroom.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
+				{ItemType.OneUpMushroom.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
+				{ItemType.Starman.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
             };
 		}
 	}

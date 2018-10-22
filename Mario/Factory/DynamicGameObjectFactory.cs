@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Mario.Factory
 {
 	public abstract class DynamicGameObjectFactory:GameObjectFactory
 	{
-		private Dictionary<string, Dictionary<string, ISprite>> spriteDictionary = new Dictionary<string, Dictionary<string, ISprite>>();
-		protected Dictionary<string, Dictionary<string, ISprite>> SpriteDictionary { get => spriteDictionary; set => spriteDictionary = value; }
-		public Dictionary<string, Dictionary<string, ISprite>> GetSpriteDictionary { get => SpriteDictionary; }
+		private Dictionary<string, Dictionary<string,Tuple<Texture2D,int,int>>> spriteDictionary = new Dictionary<string, Dictionary<string,Tuple<Texture2D,int,int>>>();
+		protected Dictionary<string, Dictionary<string, Tuple<Texture2D,int,int>>> SpriteDictionary { get => spriteDictionary; set => spriteDictionary = value; }
+		public Dictionary<string, Dictionary<string, Tuple<Texture2D,int,int>>> GetSpriteDictionary { get => SpriteDictionary; }
 
 		public DynamicGameObjectFactory() : base()
 		{
