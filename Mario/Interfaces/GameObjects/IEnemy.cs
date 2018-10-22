@@ -20,6 +20,7 @@ namespace Game1
         bool IsFlipped();
         bool IsGoomba();
         bool IsKoopa();
+        bool IsMoving();
 
         Rectangle Box { get; }
 

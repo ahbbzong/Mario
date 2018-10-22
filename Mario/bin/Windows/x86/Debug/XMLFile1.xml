@@ -45,9 +45,19 @@
     <YLocation>532</YLocation>
   </BlockXML>
 
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <XLocation>960</XLocation>
+    <YLocation>486</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <XLocation>1360</XLocation>
+    <YLocation>486</YLocation>
+  </BlockXML>
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
-    <XLocation>1060</XLocation>
+    <XLocation>1360</XLocation>
     <YLocation>496</YLocation>
   </EnemyXML>
 
@@ -56,6 +66,7 @@
     <XLocation>1260</XLocation>
     <YLocation>486</YLocation>
   </EnemyXML>
+  
 
   <PlayerXML>
     <PlayerName>Mario</PlayerName>

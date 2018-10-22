@@ -14,7 +14,6 @@ namespace Mario.Collision.EnemyCollisionHandler
         IBlock block;
         Rectangle intersection;
 
-
 		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
         {
             this.block = block;
@@ -35,11 +34,15 @@ namespace Mario.Collision.EnemyCollisionHandler
                     break;
                 case Direction.Left:
                     enemy.Getposition().X -= intersection.Width;
-                        enemy.TurnLeft();
+                      
+                            enemy.TurnLeft();
+                       
                     break;
                 case Direction.Right:
                     enemy.Getposition().X += intersection.Width;
-                        enemy.TurnRight();
+                      
+                            enemy.TurnRight();
+                           
                         break;
                 case Direction.None:
                         enemy.IsLandFalse();

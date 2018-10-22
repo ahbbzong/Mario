@@ -115,7 +115,6 @@
     <Compile Include="Command\MarioCommand\UpCommand.cs" />
     <Compile Include="EnemyStates\GoombaStates\MovingGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\StomppedGoombaState.cs" />
-    <Compile Include="EnemyStates\KoopaStates\RunningInPlaceKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\DeadKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\FlippedKoopaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\LeftMovingStompedKoopaState.cs" />

@@ -33,17 +33,16 @@ namespace Mario.XMLRead
         public ICameraController CameraController { get; set; }
         private ItemManager()
         {
-			gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
-			{
-				
-				{"Background", new List<IGameObject>() },
-				{"Item",new List<IGameObject>() },
-				{"Block", new List<IGameObject>() },
-				{"Pipe", new List<IGameObject>() },
+            gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
+            {
+
+                {"Background", new List<IGameObject>() },
+                {"Item",new List<IGameObject>() },
+                {"Block", new List<IGameObject>() },
+                {"Pipe", new List<IGameObject>() },
                 {"Projectile", new List<IGameObject>() },
                 { "Enemy", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
-
             };
         }
         public void SetInitialValuesCamera()
@@ -124,6 +123,13 @@ namespace Mario.XMLRead
                     itemHandler = new ItemBlockCollisionHandler();
                     itemHandler.HandleCollision(obj);
                 }
+                foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                {
+                    collisionFound = collisionDetecter.Collision(pipe.Box, obj.Box);
+                    intersection = collisionDetecter.intersection;
+                    itemHandler = new ItemBlockCollisionHandler();
+                    itemHandler.HandleCollision(obj);
+                }
 
             }
 			foreach (IBlock block in gameObjectListsByType["Block"])
@@ -148,20 +154,33 @@ namespace Mario.XMLRead
                         enemyHandler.HandleCollision(enemy, collisionFound);
                     
                 }
-              
+                foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                {
+                    collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
+                    intersection = collisionDetecter.intersection;
+
+                    enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection);
+                    enemyHandler.HandleCollision(enemy, collisionFound);
+
+                }
+
+
 
             }
-            foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+          
             {
-
-                collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                if (collisionFound != Direction.None && !Mario.IsDead())
+                foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                 {
-                    enemyHandler = new EnemyMarioCollisionHandler(Mario);
-                    intersection = collisionDetecter.intersection;
-                    enemyHandler.HandleCollision(enemy, collisionFound);
-                    marioHandler = new MarioEnemyCollisionHandler(enemy);
-                    marioHandler.HandleCollision(Mario, collisionFound, intersection);
+
+                    collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
+                    if (collisionFound != Direction.None && !Mario.IsDead())
+                    {
+                        enemyHandler = new EnemyMarioCollisionHandler(Mario);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler.HandleCollision(enemy, collisionFound);
+                        marioHandler = new MarioEnemyCollisionHandler(enemy);
+                        marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                    }
                 }
             }
             foreach (IBlock pipe in gameObjectListsByType["Pipe"])
@@ -263,7 +282,7 @@ namespace Mario.XMLRead
         }
         public void Update()
         {
-			TestingCollision();
+                TestingCollision();
 			foreach(IController controller in ControllerList)
 			{
 				controller.Update();

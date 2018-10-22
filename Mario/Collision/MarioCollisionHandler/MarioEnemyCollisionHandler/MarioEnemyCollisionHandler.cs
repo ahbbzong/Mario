@@ -18,7 +18,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         }
         public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
         {
-            MarioState(mario);
+            MarioState(mario,result);
             if (enemy.IsKoopa() && !enemy.IsFlipped() || enemy.IsGoomba() && !enemy.IsStomped())
             {
                 switch (result)
@@ -39,19 +39,23 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 }
             }
         }
-        public void MarioState(IMario mario)
+        public void MarioState(IMario mario,Direction result)
         {
-            if (!enemy.IsStomped()&&!enemy.IsFlipped())
+            if (!enemy.IsFlipped())
             {
-                if (mario.IsNormalMario())
+                if (!enemy.IsStomped() || enemy.IsMoving())
                 {
-                    mario.Dead();
-                }
-                if (mario.IsSuperMario() || mario.IsFireMario())
-                {
-                    mario.BeNormal();
+                    if (mario.IsNormalMario())
+                    {
+                        mario.Dead();
+                    }
+                    if (mario.IsSuperMario() || mario.IsFireMario())
+                    {
+                        mario.BeNormal();
+                    }
                 }
             }
+            
         }
     }
 }
