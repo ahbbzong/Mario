@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Command\ResetCommand.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
+    <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
     <Compile Include="GameObjects\Decorators\GameObjectDecorator.cs" />
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />

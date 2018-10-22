@@ -15,6 +15,7 @@ namespace Game1
         ItemType Type { get; }
         Rectangle Box { get; }
         bool IsLand { get; set; }
+        bool IsStarman();
         void IsLandTrue();
         void IsLandFalse();
 

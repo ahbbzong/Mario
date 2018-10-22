@@ -15,7 +15,7 @@ namespace Mario.Collision.ItemCollisionHandler
         Rectangle intersection;
         IBlock block;
         Direction result;
-        public void HandleCollision(IBlock block, Rectangle intersection, Direction result)
+        public  ItemBlockCollisionHandler(IBlock block, Rectangle intersection, Direction result)
         {
             this.block = block;
             this.intersection = intersection;
@@ -27,6 +27,8 @@ namespace Mario.Collision.ItemCollisionHandler
             {
                 case Direction.Up:
                     item.Position -= Vector2.UnitY* intersection.Height;
+                    item.Getposition().Y -= intersection.Height;
+                    item.IsLandTrue();
                     break;
                 case Direction.Down:
                     item.Position += Vector2.UnitY* intersection.Height;
@@ -36,6 +38,9 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Right:
                     item.Position += Vector2.UnitX*intersection.Width;
+                    break;
+                case Direction.None:
+                    item.IsLandFalse();
                     break;
             }
         }

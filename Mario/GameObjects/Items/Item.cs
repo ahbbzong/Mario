@@ -40,21 +40,41 @@ namespace Mario.Classes.BlocksClasses
         public virtual void Update()
         {
             ItemSprite.Update();
+            if (!IsLand){
+                Physics.Update();
+            }
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             ItemSprite.Draw(spriteBatch, ItemLocation);
         }
-		
 
-		public void IsLandTrue()
+        public virtual ref Vector2 Getposition()
         {
-            throw new NotImplementedException();
+            return ref ItemLocation;
         }
 
-        public void IsLandFalse()
+        public virtual void IsLandTrue()
         {
-            throw new NotImplementedException();
+            if (IsStarman())
+            {
+                Physics.ReverseYVelocity();
+            }
+            else
+            {
+                Physics.ResetGravity();
+            }
+            IsLand = true;
+        }
+
+        public virtual void IsLandFalse()
+        {
+            IsLand = false;
+        }
+
+        public virtual bool IsStarman()
+        {
+            return false;
         }
     }
 }

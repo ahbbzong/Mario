@@ -22,28 +22,27 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario, Direction result)
         {
-           
-            if ((block.IsQuestionBlock()||(block.IsHiddenBlock() && !mario.Isfalling()))
-                &&result.Equals(Direction.Down))
+
+            if ((block.IsQuestionBlock() || (block.IsHiddenBlock() && !mario.Isfalling()))
+                && result.Equals(Direction.Down))
             {
                 //should be put into react if it work
 
                 block.React();
-                
+
                 if (mario.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);
                 }
                 else if (mario.IsSuperMario())
                 {
-                   ItemManager.Instance.AddBigItem(block);
+                    ItemManager.Instance.AddBigItem(block);
                 }
             }
-            else if(block.IsBreakableBlock() && !mario.IsNormalMario() 
-                && result.Equals(Direction.Down))
+            else if (block.IsBreakableBlock() && result.Equals(Direction.Down))
             {
                 block.React();
-                block.Position += Vector2.UnitY*locationOffset;
+                //block.Getposition().Y += locationOffset;
             }
             BlockMovement(block, result);
         }
