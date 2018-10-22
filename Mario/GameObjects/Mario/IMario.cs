@@ -23,14 +23,12 @@ namespace Game1
         bool Isfalling();
         bool IsLeft();
         bool IsRight();
-
-
         void ThrowFireball();
         
         Rectangle Box { get; }
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }
-        Physics physics { get;set; }
+        Physics Physics { get;set; }
         void IsLandTrue();
 
         void IsLandFlase();

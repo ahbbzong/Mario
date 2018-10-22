@@ -66,7 +66,7 @@ namespace Mario
 
 		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
 
-        public Physics physics { get; set; }
+        public Physics Physics { get; set; }
         public Mario(Vector2 location)
         {
             this.location = location;
@@ -77,7 +77,7 @@ namespace Mario
 
 			fall = false;
             Island = false;
-            physics = new Physics(this);
+            Physics = new Physics(this);
         }
 		public void Up()
         {
@@ -155,9 +155,9 @@ namespace Mario
 			MarioSprite.Update();
             if (!Island)
             {
-                physics.Update();
+                Physics.Update();
             }
-            if(physics.YVelocity>0)
+            if(Physics.YVelocity>0)
             {
                 fall = true;
             }
@@ -182,7 +182,7 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            physics.ResetGravity();
+            Physics.ResetGravity();
             Island = true;
             MarioMovementState.NoInput();
         }
@@ -195,7 +195,7 @@ namespace Mario
 		{
             if(!IsUp())
 			MarioMovementState.NoInput();
-            physics.ApplyFriction();
+            Physics.ApplyFriction();
         }
         public void ThrowFireball()
         {
@@ -214,5 +214,10 @@ namespace Mario
         {
             return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
         }
-    }
+
+		public void TakeDamage()
+		{
+			MarioPowerupState.TakeDamage();
+		}
+	}
 }

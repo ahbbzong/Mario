@@ -25,5 +25,10 @@ namespace Mario.MarioStates.MarioPowerupStates
 
             
         }
+
+		public override void TakeDamage()
+		{
+			Mario.BeNormal();
+		}
     }
 }

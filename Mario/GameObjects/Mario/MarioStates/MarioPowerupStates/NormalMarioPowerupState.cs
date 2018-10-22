@@ -15,5 +15,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			//override NO-OP
 		}
+
+		public override void TakeDamage()
+		{
+			base.TakeDamage();
+			Mario.Dead();
+		}
 	}
 }

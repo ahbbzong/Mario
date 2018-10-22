@@ -23,13 +23,13 @@ namespace Mario.GameObjects.Decorators
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
-		public Physics physics { get => DecoratedMario.physics; set => DecoratedMario.physics = value; }
+		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
 
 		public MarioMovementType MarioMovementType => DecoratedMario.MarioMovementType;
 
 		public MarioPowerupType MarioPowerupType => DecoratedMario.MarioPowerupType;
 
-		private IMario DecoratedMario { get => (IMario)DecoratedObject; }
+		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		public void BeFire()
@@ -138,6 +138,10 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Up();
 		}
-		
+
+		public virtual void TakeDamage()
+		{
+			DecoratedMario.TakeDamage();
+		}
 	}
 }
