@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.XMLRead;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Mario.CameraClasses
             {
                 camera.MoveRight(5/* choose a number. Maybe 5 */);
             }
+            camera.InnerBox = new Rectangle((int)camera.Location.X-10, (int)camera.Location.Y, 10, 40);
         }
     }
 

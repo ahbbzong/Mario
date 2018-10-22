@@ -70,22 +70,31 @@ namespace Mario.XMLRead
                 controller.Initialize((IMario)gameObjectListsByType["Mario"][0]);
             }
 		}
-		public void TestingCollision()
+        public void TestingCollision()
 
-		{
-			IMario mario = (IMario)gameObjectListsByType["Mario"][0];
+        {
+            IMario mario = (IMario)gameObjectListsByType["Mario"][0];
             Direction collisionFound;
-			Rectangle intersection;
-			IBlockCollisionHandler blockHandler;
-			IItemCollisionHandler itemHandler;
-			IEnemyCollisionHandler enemyHandler;
-			IMarioCollisionHandler marioHandler;
-			IBlockCollisionHandler pipeHandler;
+            Rectangle intersection;
+            IBlockCollisionHandler blockHandler;
+            IItemCollisionHandler itemHandler;
+            IEnemyCollisionHandler enemyHandler;
+            IMarioCollisionHandler marioHandler;
+            IBlockCollisionHandler pipeHandler;
             IProjectileCollisionHandler projectileCollisionHandler;
-			CollisionDetecter collisionDetecter = new CollisionDetecter();
+            CollisionDetecter collisionDetecter = new CollisionDetecter();
 
             //TO DO: make gameobject interface and make lists with objects in the screen
 
+            //CHECK with camera
+            collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
+            intersection = collisionDetecter.intersection;
+            if (!intersection.IsEmpty)
+            { 
+                 mario.Getposition().X += intersection.Width;
+            }
+
+            //other checking
             foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
             {
                 foreach (IBlock block in gameObjectListsByType["Block"])
@@ -166,9 +175,6 @@ namespace Mario.XMLRead
                     enemyHandler.HandleCollision(enemy, collisionFound);
 
                 }
-
-
-
             }
           
             {
