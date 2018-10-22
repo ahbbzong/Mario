@@ -28,7 +28,7 @@ namespace Mario.XMLRead
 		public static ItemManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
 		public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
-        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
+        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } set { gameObjectListsByType["Mario"][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
         private ItemManager()
@@ -89,7 +89,7 @@ namespace Mario.XMLRead
             intersection = collisionDetecter.intersection;
             if (!collisionFound.Equals(Direction.None))
             { 
-                 mario.Getposition().X += intersection.Width;
+                 mario.Position += new Vector2( intersection.Width,0);
             }
 
             //other checking
@@ -146,7 +146,7 @@ namespace Mario.XMLRead
                 collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
                 if (!Mario.IsDead())
                 {
-                    float storedLocation = block.Getposition().Y;
+                    float storedLocation = block.Position.Y;
                     intersection = collisionDetecter.intersection;
                     blockHandler = new BlockHandler(Mario);
                     blockHandler.HandleCollision(block, Mario, collisionFound);
@@ -207,10 +207,10 @@ namespace Mario.XMLRead
             }
             //fix Mario position so that Mario can't go back based on Camera
             //STILL neeed to change
-            float difference = (float)(Mario.Getposition().X - ItemManager.instance.CameraMario.Location.X);
+            float difference = (float)(Mario.Position.X - ItemManager.instance.CameraMario.Location.X);
             if ( difference <= 5 && difference>=0)
             {
-                mario.Getposition().X += difference;
+                mario.Position += new Vector2(difference,0);
             }
 
         }
@@ -258,20 +258,20 @@ namespace Mario.XMLRead
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y-30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Position.X, block.Position.Y-30)));
                     break;
                 case 2:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
 
                 case 4:
                 case 5:
                 case 6:
                 case 7:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("MagicMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("MagicMushroom", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
         }
@@ -283,16 +283,16 @@ namespace Mario.XMLRead
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Coin", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 2:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("FireFlower", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("FireFlower", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("Starman", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 4:
-                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Getposition().X, block.Getposition().Y - 30)));
+                    gameObjectListsByType["Item"].Add(ItemFactory.Instance.GetGameObject("OneUpMushroom", new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
         }

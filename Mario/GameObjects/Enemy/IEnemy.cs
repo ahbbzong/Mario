@@ -21,7 +21,8 @@ namespace Game1
         bool IsGoomba();
         bool IsKoopa();
         bool IsMoving();
-
+        void TurnLeft(Vector2 velocity);
+        void TurnRight(Vector2 velocity);
         Rectangle Box { get; }
 
         EnemyType Type { get; }

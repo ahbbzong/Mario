@@ -7,6 +7,7 @@ namespace Mario.MarioStates.MarioMovementStates
 	{
 		public LeftCrouchingMarioMovementState(IMario mario) : base(mario)
 		{
+
 		}
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.LeftCrouch;

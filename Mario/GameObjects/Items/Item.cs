@@ -28,8 +28,9 @@ namespace Mario.Classes.BlocksClasses
        
         public Physics Physics { get ; set ; }
         public bool IsLand { get ; set ; }
+		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
 
-        protected Item(Vector2 location)
+		protected Item(Vector2 location)
         {
             ItemLocation = location;
             IsLand = false;
@@ -53,15 +54,27 @@ namespace Mario.Classes.BlocksClasses
             return ref ItemLocation;
         }
 
-        public void IsLandTrue()
+        public virtual void IsLandTrue()
         {
-            Physics.ResetGravity();
+            if (IsStarman())
+            {
+                Physics.ReverseYVelocity();
+            }
+            else
+            {
+                Physics.ResetGravity();
+            }
             IsLand = true;
         }
 
-        public void IsLandFalse()
+        public virtual void IsLandFalse()
         {
             IsLand = false;
+        }
+
+        public virtual bool IsStarman()
+        {
+            return false;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public abstract MarioMovementType MarioMovementType { get; }
         public float YVelocity = -17.8f;
-
+		
 		protected MarioMovementState(IMario mario)
 		{
 			Mario = mario;

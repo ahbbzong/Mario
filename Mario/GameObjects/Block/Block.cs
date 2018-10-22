@@ -59,9 +59,16 @@ namespace Mario.Classes.BlocksClasses
             return BlockState.IsQuestionBlock();
         }
 
-        public virtual ref Vector2 Getposition()
+        public bool IsBumpedBlockState()
         {
-            return ref BlockLocation;
+            return BlockState.IsBumpedBlockState();
         }
-    }
+
+        public bool IsBumpedBreakBlock()
+        {
+            return BlockState.IsBumpedBreakBlock();
+        }
+
+        public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }
+	}
 }

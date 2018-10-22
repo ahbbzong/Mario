@@ -9,7 +9,6 @@ namespace Game1
 {
     public interface IPhysicsBody
     {
-        ref Vector2 Getposition();
-
-    }
+		Vector2 Position { get; set; }
+	}
 }

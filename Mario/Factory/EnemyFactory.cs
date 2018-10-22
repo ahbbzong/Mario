@@ -50,9 +50,10 @@ namespace Mario.Factory
 				{EnemyType.Goomba.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>
 				{
 						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
-						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,1 )},
+						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},
 						{EnemyStateType.MovingLeft.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2) },
 						{EnemyStateType.MovingRight.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MovingGoomba"),1,2) }
+
 					}
 				}
 			};

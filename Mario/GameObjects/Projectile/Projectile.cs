@@ -33,8 +33,9 @@ namespace Mario.Classes.BlocksClasses
 
        
         public bool IsLand { get; set; }
+		public Vector2 Position { get => ProjectileLocation; set => ProjectileLocation = value; }
 
-        protected Projectile(Vector2 location)
+		protected Projectile(Vector2 location)
         {
             ProjectileLocation = location;
             IsLand = false;
@@ -49,12 +50,8 @@ namespace Mario.Classes.BlocksClasses
         {
             ProjectileSprite.Draw(spriteBatch, ProjectileLocation);
         }
-
-        public virtual ref Vector2 Getposition()
-        {
-            return ref ProjectileLocation;
-        }
-        public virtual void IsLandTrue()
+		
+		public virtual void IsLandTrue()
         {
             physics.ReverseYVelocity();
             IsLand = true;

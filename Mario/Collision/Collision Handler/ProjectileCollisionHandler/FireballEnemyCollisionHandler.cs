@@ -20,7 +20,7 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void HandleCollision(IProjectile fireball)
         {
-            fireball.Getposition().Y += locationOffset;
+            fireball.Position += Vector2.UnitY* locationOffset;
         }
     }
 }

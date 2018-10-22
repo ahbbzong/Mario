@@ -2,6 +2,7 @@
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,14 @@ using System.Threading.Tasks;
         {
             if (movedY != 0)
             {
-                block.Getposition().Y++;
+                block.Position+= Vector2.UnitY;
                 movedY--;
             }
             blockSprite.Update();
+        }
+        public override bool IsBumpedBlockState()
+        {
+            return true;
         }
     }
     }

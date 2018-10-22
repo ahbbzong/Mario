@@ -18,8 +18,8 @@ namespace Mario.BlockStates
         }
         public override void React()
         {
-            float yPosition = block.Getposition().Y;
-            block.Getposition().Y -= 10.0f;
+            float yPosition = block.Position.Y;
+			block.Position = new Vector2(block.Position.X, block.Position.Y - 10.0f);
             block.BlockState = new BumpedBlockState(block);
         }
         public override bool IsQuestionBlock()

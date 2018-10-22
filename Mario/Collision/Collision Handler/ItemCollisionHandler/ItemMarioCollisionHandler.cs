@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void HandleCollision(IItem item)
         {
-            item.Getposition().Y += locationOffset;
+            item.Position += Vector2.UnitY*locationOffset;
         }
     }
 }
