@@ -1,4 +1,5 @@
-﻿using Mario.BlockStates;
+﻿using Mario;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
@@ -19,11 +20,14 @@ namespace Game1
         bool IsFlipped();
         bool IsGoomba();
         bool IsKoopa();
+        bool IsMoving();
 
         Rectangle Box { get; }
 
         EnemyType Type { get; }
-
+        Physics Physics { get; set; }
+        
 		void IsLandTrue();
-	}
+        void IsLandFalse();
+    }
 }

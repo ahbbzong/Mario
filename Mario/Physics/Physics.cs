@@ -81,8 +81,8 @@ namespace Mario
         {
             YVelocity = -YVelocity/1.2f;
         }
-        
-       public void Update()
+     
+        public void Update()
         {
             ApplyGtravity();
         }

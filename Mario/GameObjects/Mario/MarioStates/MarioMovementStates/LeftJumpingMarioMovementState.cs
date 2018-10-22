@@ -20,6 +20,10 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
 		}
-       
+        public override void Right()
+        {
+            //No need to right
+        }
+
     }
 }

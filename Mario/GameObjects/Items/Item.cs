@@ -25,14 +25,16 @@ namespace Mario.Classes.BlocksClasses
             }
         }
 
-        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+       
+        public Physics Physics { get ; set ; }
+        public bool IsLand { get ; set ; }
 
         protected Item(Vector2 location)
         {
             ItemLocation = location;
+            IsLand = false;
+            Physics = new Physics(this);
+
         }
         public virtual void Update()
         {
@@ -46,6 +48,16 @@ namespace Mario.Classes.BlocksClasses
         public virtual ref Vector2 Getposition()
         {
             return ref ItemLocation;
+        }
+
+        public void IsLandTrue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IsLandFalse()
+        {
+            throw new NotImplementedException();
         }
     }
 }

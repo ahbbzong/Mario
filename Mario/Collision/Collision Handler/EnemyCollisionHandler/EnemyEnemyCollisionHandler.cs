@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class EnemyBlockCollisionHandler : IEnemyCollisionHandler
+    public class EnemyEnemyCollisionHandler : IEnemyCollisionHandler
     {
-        IBlock block;
         Rectangle intersection;
+        IEnemy enemy;
 
 
-		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
+		public EnemyEnemyCollisionHandler(IEnemy enemy,Rectangle intersection)
         {
-            this.block = block;
             this.intersection = intersection;
+            this.enemy = enemy;
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
-            if(enemy.IsKoopa()&&!enemy.IsFlipped())
+            if(enemy.IsKoopa()&&!enemy.IsFlipped()||
+                enemy.IsGoomba()
+                || this.enemy.IsKoopa() && !this.enemy.IsFlipped()
+                ||this.enemy.IsGoomba())
             switch (result)
             {
                 case Direction.Up:
@@ -32,14 +35,18 @@ namespace Mario.Collision.EnemyCollisionHandler
                 case Direction.Down:
 						enemy.IsLandTrue();
 						enemy.Getposition().Y += intersection.Height;
-						
                     break;
                 case Direction.Left:
                     enemy.Getposition().X -= intersection.Width;
+                        enemy.TurnLeft();
                     break;
                 case Direction.Right:
                     enemy.Getposition().X += intersection.Width;
-                    break;
+                        enemy.TurnRight();
+                        break;
+                case Direction.None:
+                        enemy.IsLandFalse();
+                        break;
             }
         }
 
