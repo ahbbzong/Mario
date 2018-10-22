@@ -26,7 +26,18 @@ namespace Mario.Collision
             if ((block.IsQuestionBlock()||(block.IsHiddenBlock() && !mario.Isfalling()))
                 &&result.Equals(Direction.Down))
             {
+                //should be put into react if it work
+                float yPosition = block.Getposition().Y;
+                block.Getposition().Y -= 10.0f;
+
                 block.React();
+
+                //should be put into react if it work
+                while (block.Getposition().Y != yPosition)
+                {
+                    block.Getposition().Y += 0.5f;
+                }
+                
                 if (mario.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);

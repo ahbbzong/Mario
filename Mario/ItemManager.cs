@@ -137,6 +137,7 @@ namespace Mario.XMLRead
                 collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
                 if (!Mario.IsDead())
                 {
+                    float storedLocation = block.Getposition().Y;
                     intersection = collisionDetecter.intersection;
                     blockHandler = new BlockHandler(Mario);
                     blockHandler.HandleCollision(block, Mario, collisionFound);
