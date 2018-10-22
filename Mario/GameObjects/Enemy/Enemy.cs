@@ -105,6 +105,7 @@ namespace Mario.AbstractClass
         {
             return enemyState.IsStomped();
         }
+        
 		
 		public Vector2 Position { get => EnemyLocation; set=>EnemyLocation = value; }
 

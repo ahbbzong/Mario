@@ -27,5 +27,9 @@ using System.Threading.Tasks;
             }
             blockSprite.Update();
         }
+        public override bool IsBumpedBlockState()
+        {
+            return true;
+        }
     }
     }

@@ -49,6 +49,14 @@
     <XLocation>1460</XLocation>
     <YLocation>486</YLocation>
   </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>1064</XLocation>
+    <YLocation>350</YLocation>
+  </EnemyXML>
+
+  
   
 
   <PlayerXML>
