@@ -15,7 +15,7 @@ namespace Mario.CameraClasses
             Location = new Vector2(0, 0); //you can pass in a starting location if you'd rather     
             Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
             //need to fix the magic number later
-            InnerBox = new Rectangle((int)Location.X, (int)Location.Y, -10,40);
+            InnerBox = new Rectangle();
         }
 
         public void MoveRight(float distance)
