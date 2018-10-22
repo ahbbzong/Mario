@@ -11,8 +11,8 @@ namespace Mario.Collision.FireballCollisionHandler
 {
     public class FireballEnemyCollisionHandler : IProjectileCollisionHandler
     {
-        IEnemy enemy;
-        int locationOffset;
+		readonly IEnemy enemy;
+		readonly int locationOffset;
         public FireballEnemyCollisionHandler(IEnemy enemy)
         {
             this.enemy = enemy;

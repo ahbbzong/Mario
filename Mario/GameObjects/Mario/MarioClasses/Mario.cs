@@ -7,6 +7,7 @@ using Mario.Enums;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
+using System.Diagnostics;
 
 namespace Mario
 {
@@ -25,7 +26,7 @@ namespace Mario
 			set
 			{
 				marioMovementState = value;
-				marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
 			}
 		}
 		private MarioPowerupState marioPowerupState;
@@ -35,11 +36,18 @@ namespace Mario
 			}
 			set
 			{
-				marioPowerupState = value;
-				marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				try
+				{
+					marioPowerupState = value;
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				}
+				catch (System.Collections.Generic.KeyNotFoundException ex)
+				{
+					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+				}
 			}
 		}
-		private ISprite marioSprite { get; set; }
+		private ISprite MarioSprite { get; set; }
 
         private bool fall;
         public bool Island { get; set; }
@@ -47,7 +55,7 @@ namespace Mario
         {
             get
             {
-				return new Rectangle((int)location.X, (int)location.Y, marioSprite.Width, marioSprite.Height);                
+				return new Rectangle((int)location.X, (int)location.Y, MarioSprite.Width, MarioSprite.Height);                
             }
             
         }
@@ -61,8 +69,10 @@ namespace Mario
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
-			MarioMovementState = new RightIdleMarioMovementState(this);
-            
+			marioMovementState = new RightIdleMarioMovementState(this);
+			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+
+
 			fall = false;
             Island = false;
             physics = new Physics(this);
@@ -140,7 +150,7 @@ namespace Mario
 
         public void Update()
         {
-			marioSprite.Update();
+			MarioSprite.Update();
             if (!Island)
             {
                 physics.Update();
@@ -157,7 +167,7 @@ namespace Mario
 
         public void Draw(SpriteBatch spriteBatch)
         {
-			marioSprite.Draw(spriteBatch,location);
+			MarioSprite.Draw(spriteBatch,location);
         }
 		
 		public bool IsDead()

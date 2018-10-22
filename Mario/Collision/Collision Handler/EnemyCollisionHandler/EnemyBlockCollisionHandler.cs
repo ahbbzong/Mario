@@ -11,7 +11,7 @@ namespace Mario.Collision.EnemyCollisionHandler
 {
     public class EnemyBlockCollisionHandler : IEnemyCollisionHandler
     {
-        IBlock block;
+		readonly IBlock block;
         Rectangle intersection;
         Vector2 speed;
 		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
@@ -22,39 +22,34 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
-            if (!enemy.IsFlipped())
+            if(enemy.IsKoopa()&&!enemy.IsFlipped()||enemy.IsGoomba())
+            switch (result)
             {
-                switch (result)
-                {
-                    case Direction.Up:
-                        enemy.Position -= Vector2.UnitY * intersection.Height;
+                case Direction.Up:
+						enemy.Position -= Vector2.UnitY * intersection.Height;
 
-                        enemy.IsLandTrue();
-                        if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
-                        {
-                            enemy.Beflipped();
-                        }
-                        break;
-
-                    case Direction.Down:
-                        enemy.Position += Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Left:
-                        enemy.Position -= Vector2.UnitX * intersection.Width;
-
-                        enemy.TurnLeft();
+						enemy.IsLandTrue();
 
                         break;
-                    case Direction.Right:
-                        enemy.Position += Vector2.UnitX * intersection.Width;
-
-                        enemy.TurnRight();
-
+						
+                case Direction.Down:
+						enemy.Position += Vector2.UnitY*intersection.Height;
+                    break;
+                case Direction.Left:
+                    enemy.Position -= Vector2.UnitX*intersection.Width;
+                      
+                            enemy.TurnLeft();
+                       
+                    break;
+                case Direction.Right:
+                    enemy.Position  += Vector2.UnitX*intersection.Width;
+                      
+                            enemy.TurnRight();
+                           
                         break;
-                    case Direction.None:
+                case Direction.None:
                         enemy.IsLandFalse();
                         break;
-                }
             }
         }
 
