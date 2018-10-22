@@ -10,7 +10,7 @@ namespace Mario
     public class Keyboards : IController
     {
         private Dictionary<Keys, ICommand> keyboardMap;
-        private Keys previous;
+        private Keys[] previous;
         public Keyboards()
         {
         }
@@ -33,21 +33,22 @@ namespace Mario
         }
         public void Update()
         {
-            Keys[] getkeys = Keyboard.GetState().GetPressedKeys();
+            Keys[] getkeys =Keyboard.GetState().GetPressedKeys();
             // needs to update to check no input of just cardinal direction keys for movement input
             if (getkeys.Length == 0)
             {
                 keyboardMap[Keys.None].Execute();
-                previous = Keys.None;
             }
             foreach (Keys key in getkeys)
             {
-                if (keyboardMap.ContainsKey(key)&&!(previous.Equals(Keys.Z)&&key.Equals(Keys.Z)))
+                if (keyboardMap.ContainsKey(key)&&!previous.Contains(Keys.Z))
                 {
-                  keyboardMap[key].Execute();
+                    
+                        keyboardMap[key].Execute();
                 }
-                previous = key;
+               
             }
+            previous = getkeys;
         }
     }
 
