@@ -45,13 +45,13 @@
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
     <XLocation>1460</XLocation>
-    <YLocation>486</YLocation>
+    <YLocation>496</YLocation>
   </EnemyXML>
 
   <EnemyXML>
-    <EnemyType>Koopa</EnemyType>
+    <EnemyType>Goomba</EnemyType>
     <XLocation>1064</XLocation>
-    <YLocation>350</YLocation>
+    <YLocation>370</YLocation>
   </EnemyXML>
 
   
