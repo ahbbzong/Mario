@@ -14,7 +14,7 @@ namespace Mario.Items
 
         public FireballState(IProjectile fireball) : base(fireball)
         {
-            ProjectileSprite = ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()];
+            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()]);
         }
         public override void React()
         {

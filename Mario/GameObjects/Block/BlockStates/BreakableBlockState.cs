@@ -12,7 +12,7 @@ namespace Mario.BlockStates
     {
         public BreakableBlockState(Block block) : base(block)
         {
-            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Breakable.ToString()];
+			blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Breakable.ToString()]);
         }
         public override void React()
         {

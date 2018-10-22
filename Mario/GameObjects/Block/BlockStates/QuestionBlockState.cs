@@ -14,7 +14,7 @@ namespace Mario.BlockStates
 
         public QuestionBlockState(Block block) : base(block)
         {
-            blockSprite = BlockFactory.Instance.GetSpriteDictionary[BlockType.Question.ToString()];
+            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Question.ToString()]);
         }
         public override void React()
         {

@@ -18,7 +18,7 @@ namespace Mario.EnemyStates.GoombaStates
         public StompedKoopaState(Enemy enemy):base(enemy)
         {
             this.enemy = enemy;
-            EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()];
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()]);
 			enemy.Velocity = Vector2.Zero;
         }
         public override bool IsStomped()

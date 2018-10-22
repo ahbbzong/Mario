@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using Game1;
 using Mario.AbstractClass;
 using Mario.AbstractClass.SpriteAbstractClasses;
@@ -27,7 +28,12 @@ namespace Mario.Factory
         {
         }
 
-        public void LoadAllTextures(ContentManager content)
+		internal ISprite CreateSprite(Tuple<Texture2D, int, int> tuple)
+		{
+			return new AnimatedSprite(tuple.Item1, tuple.Item2, tuple.Item3);
+		}
+
+		public void LoadAllTextures(ContentManager content)
         {
             
         }
