@@ -19,6 +19,7 @@ namespace Mario.EnemyStates.GoombaStates
         {
             this.enemy = enemy;
             EnemySprite = EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()];
+			enemy.Velocity = Vector2.Zero;
         }
         public override bool IsStomped()
         {

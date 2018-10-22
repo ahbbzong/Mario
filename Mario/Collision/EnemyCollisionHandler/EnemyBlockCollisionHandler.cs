@@ -13,7 +13,9 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
         IBlock block;
         Rectangle intersection;
-        public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
+
+
+		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
         {
             this.block = block;
             this.intersection = intersection;
@@ -25,9 +27,12 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 case Direction.Up:
                     enemy.Getposition().Y -= intersection.Height;
+						
                     break;
                 case Direction.Down:
-                    enemy.Getposition().Y += intersection.Height;
+						enemy.IsLandTrue();
+						enemy.Getposition().Y += intersection.Height;
+						
                     break;
                 case Direction.Left:
                     enemy.Getposition().X -= intersection.Width;

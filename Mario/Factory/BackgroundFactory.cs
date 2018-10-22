@@ -17,8 +17,7 @@ namespace Mario.Factory
 	{
 		private static BackgroundFactory instance = new BackgroundFactory();
 		public static BackgroundFactory Instance { get => instance; set => instance = value; }
-
-		private Dictionary<string, Texture2D> spriteDictionary;
+		
 		public BackgroundFactory()
 		{
 			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>{

@@ -15,6 +15,5 @@ namespace Game1
         bool IsBreakableBlock();
         bool IsQuestionBlock();
         void React();
-        ref Vector2 Getposition();
     }
 }
