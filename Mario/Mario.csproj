@@ -112,6 +112,8 @@
     <Compile Include="Command\MarioCommand\LeftCommand.cs" />
     <Compile Include="Command\MarioCommand\RightCommand.cs" />
     <Compile Include="Command\MarioCommand\UpCommand.cs" />
+    <Compile Include="Decorator\DecoratedMario.cs" />
+    <Compile Include="Decorator\IDecoratedMario.cs" />
     <Compile Include="EnemyStates\GoombaStates\MovingGoombaState.cs" />
     <Compile Include="EnemyStates\GoombaStates\StomppedGoombaState.cs" />
     <Compile Include="EnemyStates\KoopaStates\RunningInPlaceKoopaState.cs" />
