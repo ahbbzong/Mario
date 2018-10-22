@@ -42,12 +42,20 @@ namespace Mario.Collision
                 block.React();
                 block.Getposition().Y += locationOffset;
             }
-
+            BlockMovement(block, result);
         }
 
 		public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
 		{
 			HandleCollision((IBlock)source,(IMario)target, direction);
-		}
+
+        }
+        public void BlockMovement(IBlock block, Direction result)
+        {
+            if(block.IsBreakableBlock() && result.Equals(Direction.Down))
+            {
+                
+            }
+        }
 	}
 }

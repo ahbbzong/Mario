@@ -25,6 +25,7 @@ namespace Mario.Classes.BlocksClasses
             }
         }
 
+
         public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
