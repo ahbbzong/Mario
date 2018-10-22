@@ -18,7 +18,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         }
         public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
         {
-            MarioState(mario,result);
+            
             if (enemy.IsKoopa() && !enemy.IsFlipped() || enemy.IsGoomba() && !enemy.IsStomped())
             {
                 switch (result)
@@ -37,25 +37,47 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                         mario.Getposition().X += intersection.Width;
                         break;
                 }
-            }
+            }MarioState(mario,result);
         }
         public void MarioState(IMario mario,Direction result)
         {
-            if (!enemy.IsFlipped())
+            if (enemy.IsGoomba())
             {
-                if (!enemy.IsStomped() || enemy.IsMoving())
+                if (!enemy.IsStomped())
                 {
-                    if (mario.IsNormalMario())
+                    MarioTakeDamage(mario);
+                }
+            }
+            else if (enemy.IsKoopa())
+            {
+                if (enemy.IsStomped()&&(result.Equals(Direction.Left)))
+                {
+                    if (enemy.IsMoving())
                     {
-                        mario.Dead();
+                        MarioTakeDamage(mario);
                     }
-                    if (mario.IsSuperMario() || mario.IsFireMario())
+                }
+                else if(enemy.IsStomped() && (result.Equals(Direction.Right)))
+                {
+                    if (enemy.IsMoving())
                     {
-                        mario.BeNormal();
+                        MarioTakeDamage(mario);
+                        
                     }
                 }
             }
             
+        }
+        public void MarioTakeDamage(IMario mario)
+        {
+            if (mario.IsNormalMario())
+            {
+                mario.Dead();
+            }
+            if (mario.IsSuperMario() || mario.IsFireMario())
+            {
+                mario.BeNormal();
+            }
         }
     }
 }

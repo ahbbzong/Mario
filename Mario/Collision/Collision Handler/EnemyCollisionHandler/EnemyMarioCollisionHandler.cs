@@ -23,11 +23,11 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 enemy.BeStomped();
             }
-            if (enemy.IsStomped() && result.Equals(Direction.Right))
+            if (enemy.IsKoopa()&&enemy.IsStomped()&& result.Equals(Direction.Right))
             {
                 enemy.TurnLeft();
             }
-            else if(enemy.IsStomped() && result.Equals(Direction.Left))
+            else if(enemy.IsKoopa()&&enemy.IsStomped() && result.Equals(Direction.Left))
             {
                 enemy.TurnRight();
             }
