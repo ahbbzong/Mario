@@ -10,8 +10,15 @@ namespace Mario.GameObjects.Decorators
 {
 	abstract class GameObjectDecorator : IGameObject
 	{
+
+		
 		private IGameObject decoratedObject;
 		protected IGameObject DecoratedObject { get => decoratedObject; set => decoratedObject = value; }
+
+		protected GameObjectDecorator(IGameObject obj)
+		{
+			decoratedObject = obj;
+		}
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			decoratedObject.Draw(spriteBatch);

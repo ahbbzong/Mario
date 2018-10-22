@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Interfaces.GameObjects;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
@@ -13,6 +14,11 @@ namespace Mario.GameObjects.Decorators
 {
 	abstract class MarioDecorator: GameObjectDecorator, IMario
 	{
+		protected MarioDecorator(IMario mario):base(mario)
+		{
+
+		}
+
 		public Rectangle Box => DecoratedMario.Box;
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }

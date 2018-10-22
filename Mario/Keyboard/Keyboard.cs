@@ -24,21 +24,23 @@ namespace Mario
 
         public void Initialize(IMario mario)
         {
-            keyboardMap = new Dictionary<Keys, ICommand>();
-            keyboardMap.Add(Keys.Z, new UpCommand(mario));
-            keyboardMap.Add(Keys.Down, new DownCommand(mario));
-            keyboardMap.Add(Keys.Left, new LeftCommand(mario));
-            keyboardMap.Add(Keys.Right, new RightCommand(mario));
-            keyboardMap.Add(Keys.Y, new BeNormalMarioCommand(mario));
-            keyboardMap.Add(Keys.U, new BeSuperMarioCommand(mario));
-            keyboardMap.Add(Keys.I, new BeFireMarioCommand(mario));
-            keyboardMap.Add(Keys.O, new DeadCommand(mario));
-            keyboardMap.Add(Keys.P, new BeStarMarioCommand(mario));
-            keyboardMap.Add(Keys.Q, new QuitCommand(Game1.Instance));
-            keyboardMap.Add(Keys.X, new ThrowFireballCommand(mario));
-            keyboardMap.Add(Keys.R, new ResetCommand(Game1.Instance));
-            keyboardMap.Add(Keys.None, new NoInputCommand(mario));
-        }
+			keyboardMap = new Dictionary<Keys, ICommand>
+			{
+				{ Keys.Z, new UpCommand(mario) },
+				{ Keys.Down, new DownCommand(mario) },
+				{ Keys.Left, new LeftCommand(mario) },
+				{ Keys.Right, new RightCommand(mario) },
+				{ Keys.Y, new BeNormalMarioCommand(mario) },
+				{ Keys.U, new BeSuperMarioCommand(mario) },
+				{ Keys.I, new BeFireMarioCommand(mario) },
+				{ Keys.O, new DeadCommand(mario) },
+				{ Keys.P, new BeStarMarioCommand(mario) },
+				{ Keys.Q, new QuitCommand(Game1.Instance) },
+				{ Keys.X, new ThrowFireballCommand(mario) },
+				{ Keys.R, new ResetCommand(Game1.Instance) },
+				{ Keys.None, new NoInputCommand(mario) }
+			};
+		}
         public void Update()
         {
             Keys[] getkeys =Keyboard.GetState().GetPressedKeys();
