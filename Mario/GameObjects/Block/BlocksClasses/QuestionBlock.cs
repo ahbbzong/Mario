@@ -17,7 +17,6 @@ namespace Mario.BlocksClasses
         public override void React()
         {
             BlockState.React();
-
         }
     }
 }
