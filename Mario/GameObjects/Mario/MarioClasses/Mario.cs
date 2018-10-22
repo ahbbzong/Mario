@@ -8,6 +8,7 @@ using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Mario
 {
@@ -39,7 +40,8 @@ namespace Mario
 				try
 				{
 					marioPowerupState = value;
-					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+					ISprite transitionSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				
 				}
 				catch (System.Collections.Generic.KeyNotFoundException ex)
 				{

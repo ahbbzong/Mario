@@ -1,4 +1,5 @@
-﻿using Mario.XMLRead;
+﻿using Game1;
+using Mario.XMLRead;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace Mario.GameObjects.Decorators
 {
 	class StarMarioDecorator: MarioDecorator
 	{
+		
         private int time = 0;
-        public void Damage()
+		public StarMarioDecorator(IMario mario):base(mario){
+
+		}
+		public void Damage()
         {
 
         }
