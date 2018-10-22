@@ -20,7 +20,7 @@ namespace Game1
         bool IsFlipped();
         bool IsGoomba();
         bool IsKoopa();
-        bool IsMoving();
+        bool IsMoving { get; set; }
         void TurnLeft(Vector2 velocity);
         void TurnRight(Vector2 velocity);
         Rectangle Box { get; }

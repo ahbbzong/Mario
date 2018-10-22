@@ -13,8 +13,8 @@ namespace Mario.Collision
 {
     public class BlockHandler : IBlockCollisionHandler
     {
-        private IMario mario;
-        private int locationOffset;
+        private readonly IMario mario;
+        private readonly int locationOffset;
         public BlockHandler(IMario mario)
         {
             this.mario = mario;

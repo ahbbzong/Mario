@@ -27,11 +27,11 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void Beflipped()
         {
-            enemy.enemyState = new FlippedKoopaState(enemy);
+            enemy.EnemyState = new FlippedKoopaState(enemy);
         }
         public override void BeKilled()
         {
-            enemy.enemyState = new DeadKoopaState(enemy);
+            enemy.EnemyState = new DeadKoopaState(enemy);
         }
         public override bool IsKoopa()
         {

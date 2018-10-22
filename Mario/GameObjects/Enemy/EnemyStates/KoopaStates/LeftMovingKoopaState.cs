@@ -22,19 +22,19 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void TurnRight()
         {
-            enemy.enemyState = new RightMovingKoopaState(enemy);
+            enemy.EnemyState = new RightMovingKoopaState(enemy);
         }
         public override void Beflipped()
         {
-            enemy.enemyState = new FlippedKoopaState(enemy);
+            enemy.EnemyState = new FlippedKoopaState(enemy);
         }
         public override void BeStomped()
         {
-            enemy.enemyState = new StompedKoopaState(enemy);
+            enemy.EnemyState = new StompedKoopaState(enemy);
         }
         public override void BeKilled()
         {
-            enemy.enemyState = new DeadKoopaState(enemy);
+            enemy.EnemyState = new DeadKoopaState(enemy);
         }
         public override bool IsKoopa()
         {

@@ -17,12 +17,12 @@ namespace Mario.AbstractClass
     {
         private Vector2 EnemyLocation;
         public EnemyType Type { get; set; }
-        public EnemyState enemyState { get; set; }
+        public EnemyState EnemyState { get; set; }
         public Rectangle Box
         {
             get
             {
-                return new Rectangle((int)EnemyLocation.X, (int)EnemyLocation.Y, enemyState.GetWidth, enemyState.GetHeight);
+                return new Rectangle((int)EnemyLocation.X, (int)EnemyLocation.Y, EnemyState.GetWidth, EnemyState.GetHeight);
             }
         }
 		
@@ -31,101 +31,100 @@ namespace Mario.AbstractClass
 
 		private Vector2 velocity = Vector2.Zero;
 		public Vector2 Velocity { get => velocity; set => velocity = value; }
-		private bool fall { get; set; }
+		private bool Fall { get; set; }
 		public bool Island { get; set; }
         public Physics Physics { get; set; }
-        private bool isMoving { get; set; }
+        public bool IsMoving { get; set; }
 
         protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
 			Island = true;
-			fall = false;
-            isMoving = false;
+			Fall = false;
+            IsMoving = false;
             Physics = new Physics(this);
         }
 		
 
         public virtual void Update()
         {
-            enemyState.Update();
+            EnemyState.Update();
 			Move();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            enemyState.Draw(spriteBatch, EnemyLocation);
+            EnemyState.Draw(spriteBatch, EnemyLocation);
         }
 
         public virtual void Beflipped()
         {
-            enemyState.Beflipped();
+            EnemyState.Beflipped();
         }
 
         public virtual void BeStomped()
         {
-            enemyState.BeStomped();
-            isMoving = false;
+            EnemyState.BeStomped();
+            IsMoving = false;
         }
 
         public virtual void TurnLeft()
         {
 			velocity = -Vector2.UnitX;
-            enemyState.TurnLeft();
+            EnemyState.TurnLeft();
           
-                isMoving = true;
+                IsMoving = true;
                
         }
         public virtual void TurnLeft(Vector2 velocity)
         {
             velocity = -Vector2.UnitX;
-            enemyState.TurnLeft();
-            isMoving = true;
+            EnemyState.TurnLeft();
+            IsMoving = true;
 
         }
 
         public virtual void TurnRight()
         {
 			velocity = Vector2.UnitX;
-            enemyState.TurnRight();
+            EnemyState.TurnRight();
             
-                isMoving = true;
+                IsMoving = true;
                 
         }
         public virtual void TurnRight(Vector2 velocity)
         {
             velocity = Vector2.UnitX;
-            enemyState.TurnRight();
+            EnemyState.TurnRight();
 
-            isMoving = true;
+            IsMoving = true;
 
         }
 
         public virtual bool IsStomped()
         {
-            return enemyState.IsStomped();
+            return EnemyState.IsStomped();
         }
-        
 		
 		public Vector2 Position { get => EnemyLocation; set=>EnemyLocation = value; }
 
 		public virtual void BeKilled()
         {
-            enemyState.BeKilled();
+            EnemyState.BeKilled();
         }
         public virtual bool IsFlipped()
         {
-            return enemyState.IsFlipped();
+            return EnemyState.IsFlipped();
         }
 
         public virtual bool IsGoomba()
         {
-            return enemyState.IsGoomba();
+            return EnemyState.IsGoomba();
         }
 
         public virtual bool IsKoopa()
         {
-            return enemyState.IsKoopa();
+            return EnemyState.IsKoopa();
         }
 		public void IsLandTrue()
 		{
@@ -142,10 +141,7 @@ namespace Mario.AbstractClass
 			EnemyLocation += velocity;
 		}
       
-        public bool IsMoving()
-        {
-            return isMoving;
-        }
+        
 
     }
 }

@@ -52,14 +52,14 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             {
                 if (enemy.IsStomped()&&(result.Equals(Direction.Left)))
                 {
-                    if (enemy.IsMoving())
+                    if (enemy.IsMoving)
                     {
                         MarioTakeDamage(mario);
                     }
                 }
                 else if(enemy.IsStomped() && (result.Equals(Direction.Right)))
                 {
-                    if (enemy.IsMoving())
+                    if (enemy.IsMoving)
                     {
                         MarioTakeDamage(mario);
                     }
