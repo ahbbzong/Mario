@@ -23,6 +23,7 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void HandleCollision(IItem item)
         {
+            if(!item.IsCoin())
             switch (result)
             {
                 case Direction.Up:
@@ -34,9 +35,11 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Left:
                     item.Position -= Vector2.UnitX*intersection.Width;
+                    item.TurnLeft();
                     break;
                 case Direction.Right:
                     item.Position += Vector2.UnitX*intersection.Width;
+                    item.TurnRight();
                     break;
                 case Direction.None:
                     item.IsLandFalse();

@@ -46,6 +46,8 @@ namespace Mario.Classes.BlocksClasses
             if (!IsLand){
                 Physics.Update();
             }
+            Move();
+            
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -59,14 +61,10 @@ namespace Mario.Classes.BlocksClasses
 
         public virtual void IsLandTrue()
         {
-            if (IsStarman())
-            {
-                Physics.ReverseYVelocity();
-            }
-            else
-            {
+           
+          
+           
                 Physics.ResetGravity();
-            }
             IsLand = true;
         }
 
@@ -82,16 +80,21 @@ namespace Mario.Classes.BlocksClasses
 
         public void TurnLeft()
         {
-
+            velocity = -Vector2.UnitX;
         }
 
         public void TurnRight()
         {
-
+            velocity = Vector2.UnitX;
         }
         public void Move()
         {
             ItemLocation += velocity;
+        }
+
+        public virtual bool IsCoin()
+        {
+            return false;
         }
     }
 }

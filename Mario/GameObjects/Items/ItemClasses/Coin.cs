@@ -14,7 +14,13 @@ namespace Mario.ItemClasses
             ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.Coin.ToString()]);
             Type = ItemType.Coin;
         }
-
-
+        public override bool IsCoin()
+        {
+            return true;
+        }
+        public override void Update()
+        {
+            ItemSprite.Update();
+        }
     }
 }

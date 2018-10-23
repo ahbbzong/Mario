@@ -86,7 +86,7 @@ namespace Mario.XMLRead
                         while (count2 < block.Length)
                         {
                             blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
-                            block.XLocation = block.XLocation + 32;
+                            block.XLocation += 32;
                             count2++;
                         }
                         block.YLocation = block.YLocation + 32;

@@ -18,6 +18,12 @@ namespace Mario.ItemClasses
         {
             return true;
         }
+        public override void IsLandTrue()
+        {
+            IsLand = true;
+            Physics.ReverseYVelocity();
+
+        }
     }
 
 

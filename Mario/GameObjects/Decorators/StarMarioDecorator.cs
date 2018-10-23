@@ -25,7 +25,7 @@ namespace Mario.GameObjects.Decorators
             time++;
             if (time == 10)
             {
-                //ItemManager.Instance.Mario = DecoratedMario;
+                ItemManager.Instance.Mario = DecoratedMario;
             }
 			base.Update();
         }

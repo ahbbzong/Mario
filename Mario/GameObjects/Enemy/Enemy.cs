@@ -72,17 +72,10 @@ namespace Mario.AbstractClass
         {
 			velocity = -Vector2.UnitX;
             EnemyState.TurnLeft();
-          
                 IsMoving = true;
                
         }
-        public virtual void TurnLeft(Vector2 velocity)
-        {
-            velocity = -Vector2.UnitX;
-            EnemyState.TurnLeft();
-            IsMoving = true;
-
-        }
+       
 
         public virtual void TurnRight()
         {
@@ -92,14 +85,7 @@ namespace Mario.AbstractClass
                 IsMoving = true;
                 
         }
-        public virtual void TurnRight(Vector2 velocity)
-        {
-            velocity = Vector2.UnitX;
-            EnemyState.TurnRight();
-
-            IsMoving = true;
-
-        }
+       
 
         public virtual bool IsStomped()
         {

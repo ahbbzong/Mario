@@ -16,6 +16,7 @@ namespace Game1
         Rectangle Box { get; }
         bool IsLand { get; set; }
         bool IsStarman();
+        bool IsCoin();
         void IsLandTrue();
         void IsLandFalse();
         void TurnLeft();
