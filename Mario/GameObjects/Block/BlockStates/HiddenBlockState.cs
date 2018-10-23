@@ -13,7 +13,7 @@ namespace Mario.BlockStates
     {
         public HiddenBlockState(Block block) : base(block)
         {
-            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Hidden.ToString()]);
+            blockSprite = SpriteFactory.Instance.CreateEmptySprite(32,32);
         }
         public override void React()
         {
