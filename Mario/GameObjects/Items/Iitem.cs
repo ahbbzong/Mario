@@ -12,7 +12,6 @@ namespace Game1
     {
         
         Physics Physics { get; set; }
-        ItemType Type { get; }
         Rectangle Box { get; }
         bool IsLand { get; set; }
         bool IsStarman();

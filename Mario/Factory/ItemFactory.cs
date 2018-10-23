@@ -21,13 +21,13 @@ namespace Mario.Factory
 		
 		private ItemFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{"Coin",GetCoin },
-				{"FireFlower",GetFireFlower },
-				{"MagicMushroom",GetMagicMushroom },
-				{"OneUpMushroom",GetOneUpMushroom },
-				{"Starman", GetStarman },
+				{Type.GetType("Coin"),GetCoin },
+				{Type.GetType("FireFlower"),GetFireFlower },
+				{Type.GetType("MagicMushroom"),GetMagicMushroom },
+				{Type.GetType("OneUpMushroom"),GetOneUpMushroom },
+				{Type.GetType("Starman"), GetStarman },
 			};
 		}
 
@@ -58,13 +58,13 @@ namespace Mario.Factory
 
         public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Tuple<Texture2D, int, int>>
+			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D, int, int>>
 			{
-				{ItemType.Coin.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
-				{ItemType.FireFlower.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
-				{ItemType.MagicMushroom.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
-				{ItemType.OneUpMushroom.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
-				{ItemType.Starman.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
+				{Type.GetType("Coin"), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
+				{Type.GetType("FireFlower"),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
+				{Type.GetType("MagicMushroom"), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
+				{Type.GetType("OneUpMushroom"),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
+				{Type.GetType("Starman"), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
             };
 		}
 	}

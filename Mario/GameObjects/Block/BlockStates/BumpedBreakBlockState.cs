@@ -16,7 +16,6 @@ using System.Threading.Tasks;
             private int movedY = 10;
             public BumpedBreakBlockState(Block block) : base(block)
             {
-                blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Breakable.ToString()]);
             }
         public override void Update()
         {

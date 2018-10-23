@@ -23,8 +23,7 @@ namespace Game1
         bool IsMoving { get; set; }
         
         Rectangle Box { get; }
-
-        EnemyType Type { get; }
+		
         Physics Physics { get; set; }
         
 		void IsLandTrue();

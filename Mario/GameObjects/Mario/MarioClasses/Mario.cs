@@ -31,7 +31,7 @@ namespace Mario
 				try
 				{
 					marioMovementState = value;
-					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.MarioMovementType.ToString()]);
 				}catch(System.Collections.Generic.KeyNotFoundException ex)
 				{
 					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
@@ -88,7 +88,7 @@ namespace Mario
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
-			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.MarioMovementType.ToString()]);
 			
 
 			fall = false;
@@ -102,12 +102,12 @@ namespace Mario
         }
         public bool IsUp()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.LeftJump|| MarioMovementState.MarioMovementType == MarioMovementType.RightJump;
+            return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
         }
 		public void Down()
 		{
 			
-			if(!(MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal && MarioMovementState.MarioMovementType != MarioMovementType.LeftJump && MarioMovementState.MarioMovementType != MarioMovementType.RightJump))
+			if(!(MarioPowerupState is NormalMarioPowerupState && !(MarioMovementState is LeftJumpingMarioMovementState) && !(MarioMovementState is RightJumpingMarioMovementState)))
 			{
 				MarioMovementState.Down();
 			}
@@ -152,16 +152,16 @@ namespace Mario
         }
         public bool IsSuperMario()
         {
-            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Big;
+			return MarioPowerupState is SuperMarioPowerupState;
         }
         public bool IsFireMario()
         {
-			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire;
+			return MarioPowerupState is FireMarioPowerupState;
         }
 
         public bool IsNormalMario()
         {
-			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal;
+			return MarioPowerupState is NormalMarioPowerupState;
         }
         public bool IsStarMario()
         {
@@ -192,7 +192,7 @@ namespace Mario
 		
 		public bool IsDead()
         {
-            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Dead;
+            return MarioPowerupState is DeadMarioPowerupState;
         }
         public bool Isfalling()
         {
@@ -230,12 +230,12 @@ namespace Mario
 
         public bool IsLeft()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.LeftRun;
+            return MarioMovementState is LeftRunningMarioMovementState;
         }
 
         public bool IsRight()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
+            return MarioMovementState is RightRunningMarioMovementState;
         }
 
 		public void TakeDamage()

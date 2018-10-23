@@ -12,7 +12,6 @@ namespace Mario.BlockStates
     {
         public PipeState(Block pipe) : base(pipe)
         {
-            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Pipe.ToString()]);
         }
 
 

@@ -20,13 +20,13 @@ namespace Mario.Factory
 		
 		public BackgroundFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>{
-				{ BackgroundType.BushSingle.ToString(), GetBushSingle },
-				{ BackgroundType.BushTriple.ToString(), GetBushTriple},
-				{ BackgroundType.CloudSingle.ToString(), GetCloudSingle},
-				{ BackgroundType.CloudTriple.ToString(), GetCloudTriple},
-				{ BackgroundType.MountainBig.ToString(), GetMounntainBig },
-				{ BackgroundType.MountainSmall.ToString(), GetMountainSmall }
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>{
+				{ Type.GetType("BushSingle"), GetBushSingle },
+				{ Type.GetType("BushTriple"), GetBushTriple},
+				{ Type.GetType("CloudSingle"), GetCloudSingle},
+				{ Type.GetType("ClodTriple"), GetCloudTriple},
+				{ Type.GetType("MountainBig"), GetMounntainBig },
+				{ Type.GetType("MountainSmall"), GetMountainSmall }
 			};
 		}
 
@@ -62,14 +62,14 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Tuple<Texture2D,int,int>>
+			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{BackgroundType.BushSingle.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleBush"),1,1) },
-				{BackgroundType.BushTriple.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleBush"),1,1) },
-				{BackgroundType.CloudSingle.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleCloud"),1,1) },
-				{BackgroundType.CloudTriple.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleCloud"),1,1) },
-				{BackgroundType.MountainBig.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("bigMountain"),1,1) },
-				{BackgroundType.MountainSmall.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
+				{Type.GetType("BushSingle"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleBush"),1,1) },
+				{Type.GetType("BushTriple"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleBush"),1,1) },
+				{Type.GetType("CloudSingle"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleCloud"),1,1) },
+				{Type.GetType("CloudTriple"),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleCloud"),1,1) },
+				{Type.GetType("MountainBig"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("bigMountain"),1,1) },
+				{Type.GetType("MountainSmall"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
 			};
 		}
 	}

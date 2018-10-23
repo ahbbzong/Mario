@@ -35,29 +35,29 @@ namespace Mario.XMLRead
 
         public Dictionary<string, XmlSerializer> xmlSerializersByType;
 
-		private Dictionary<string, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<string, Func<string, IList<IGameObject>>>
+		private Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
-			{"Block",LoadBlock },
-			{"Item", LoadItem },
-			{"Enemy", LoadEnemy },
-			{"Background", LoadBackground },
-			{"Pipe", LoadPipe },
-			{"Mario", LoadPlayer },
-            {"Projectile", LoadProjectile }
+			{Type.GetType("IBlock"),LoadBlock },
+			{Type.GetType("IItem"), LoadItem },
+			{Type.GetType("IEnemy"), LoadEnemy },
+			{Type.GetType("IBackground"), LoadBackground },
+			{Type.GetType("IPipe"), LoadPipe },
+			{Type.GetType("IMario"), LoadPlayer },
+            {Type.GetType("IProjectile"), LoadProjectile }
         };
          private LevelLoader()
         {
         }
         public void LoadFile(string file)
         {
-			Queue<KeyValuePair<string, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<string, Func<string, IList<IGameObject>>>>();
-			foreach(string key in ItemManager.Instance.gameObjectListsByType.Keys)
+			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
+			foreach(Type key in ItemManager.Instance.gameObjectListsByType.Keys)
 			{
-				queuedChanges.Enqueue(new KeyValuePair<string, Func<string, IList<IGameObject>>>(key, LoadFunctionByType[key]));
+				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(key, LoadFunctionByType[key]));
 			}
 			while(queuedChanges.Count > 0)
 			{
-				KeyValuePair<string,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
+				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
 				ItemManager.Instance.gameObjectListsByType[item.Key] = item.Value(file);
 			}
         }
@@ -74,7 +74,7 @@ namespace Mario.XMLRead
             {
                 if ((block.BlockType != BlockType.Floor) && (block.BlockType != BlockType.Unbreakable))
                 {
-                    blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                    blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
                 }
                 else if (block.BlockType == BlockType.Floor)
                 {
@@ -85,7 +85,7 @@ namespace Mario.XMLRead
                     {
                         while (count2 < block.Length)
                         {
-                            blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                            blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
                             block.XLocation += 32;
                             count2++;
                         }
@@ -103,7 +103,7 @@ namespace Mario.XMLRead
                         int startX = block.XLocation;
                         for (int i = 0; i < count; i++)
                         {
-                            blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                            blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
                             block.XLocation = block.XLocation + 32;
                         }
                         block.YLocation = block.YLocation - 32;
@@ -125,7 +125,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> enemyList = new List<IGameObject>();
             foreach (EnemyXML enemy in myEnemyObject)
             {
-				enemyList.Add(EnemyFactory.Instance.GetGameObject(enemy.EnemyType.ToString(), new Vector2(enemy.XLocation, enemy.YLocation)));
+				enemyList.Add(EnemyFactory.Instance.GetGameObject(enemy.GetType(), new Vector2(enemy.XLocation, enemy.YLocation)));
                 
             }
 			return enemyList;
@@ -142,7 +142,7 @@ namespace Mario.XMLRead
             foreach (ItemXML item in myItemObject)
             {
 				
-				itemList.Add(ItemFactory.Instance.GetGameObject(item.GameObjectType.ToString(), new Vector2(item.XLocation, item.YLocation)));
+				itemList.Add(ItemFactory.Instance.GetGameObject(item.GetType(), new Vector2(item.XLocation, item.YLocation)));
             }
 			return itemList;
         }
@@ -158,7 +158,7 @@ namespace Mario.XMLRead
             foreach (PipeXML pipe in myPipeObject)
             {
                 if(pipe.BlockType==BlockType.Pipe)
-                    pipeList.Add(BlockFactory.Instance.GetGameObject(BlockType.Pipe.ToString(),new Vector2(pipe.XLocation, pipe.YLocation)));
+                    pipeList.Add(BlockFactory.Instance.GetGameObject(Type.GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
             }
 			return pipeList;
         }
@@ -172,7 +172,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
-				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(back.BackgroundType.ToString(), new Vector2( back.XLocation, back.YLocation)));
+				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(back.GetType(), new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
         }
@@ -186,7 +186,7 @@ namespace Mario.XMLRead
             
             foreach (ProjectileXML projectile in myProjectileObject)
             {
-                LevelLoader.Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.projectileType.ToString(), new Vector2(projectile.XLocation, projectile.YLocation)));
+                LevelLoader.Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.GetType(), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
             return LevelLoader.Instance.projectileList;
         }
@@ -200,7 +200,7 @@ namespace Mario.XMLRead
             IList<IGameObject> marioList = new List<IGameObject>();
             foreach (PlayerXML player in myPlayerObject)
             {
-                marioList.Add(MarioFactory.Instance.GetGameObject(player.PlayerName.ToString(), new Vector2(player.XLocation, player.YLocation)));
+                marioList.Add(MarioFactory.Instance.GetGameObject(player.GetType(), new Vector2(player.XLocation, player.YLocation)));
 
             }
             return marioList;

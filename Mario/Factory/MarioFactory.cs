@@ -18,17 +18,17 @@ namespace Mario.Factory
 		public static MarioFactory Instance { get => instance; set => instance = value; }
 		public MarioFactory():base()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{"Mario", GetMario }
+				{Type.GetType("Mario"), GetMario }
 			};
 		}
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Dictionary<string, Tuple<Texture2D,int,int>>>
+			SpriteDictionary = new Dictionary<Type, Dictionary<string, Tuple<Texture2D, int, int>>>
 			{
-				{MarioPowerupType.Normal.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>(){
+				{Type.GetType("NormalMarioPowerupState"), new Dictionary<string, Tuple<Texture2D,int,int>>(){
 					{MarioMovementType.LeftIdle.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioLeftIdle"),1,1) },
 					{MarioMovementType.LeftJump.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioLeftJump"),1,1) },
 					{MarioMovementType.LeftRun.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioLeftRunning"),1,3) },
@@ -36,7 +36,7 @@ namespace Mario.Factory
 					{MarioMovementType.RightJump.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioRightJump"),1,1) },
 					{MarioMovementType.RightRun.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioRightRunning"),1,3) }
 				} },
-				{MarioPowerupType.Big.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>(){
+				{Type.GetType("SuperMarioPowerupState"), new Dictionary<string, Tuple<Texture2D,int,int>>(){
 					{MarioMovementType.LeftCrouch.ToString(), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("superMarioLeftCrouch"),1,1) },
 					{MarioMovementType.LeftIdle.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("superMarioLeftIdle"),1,1) },
 					{MarioMovementType.LeftJump.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("superMarioLeftJump"),1,1) },
@@ -46,7 +46,7 @@ namespace Mario.Factory
 					{MarioMovementType.RightRun.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("superMarioRightRunning"),1,3) },
 					{MarioMovementType.RightCrouch.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("superMarioRightCrouch"),1,1 )}
 				} },
-				{MarioPowerupType.Fire.ToString(),new Dictionary<string, Tuple<Texture2D,int,int>>(){
+				{Type.GetType("FireMarioPowerupState"),new Dictionary<string, Tuple<Texture2D,int,int>>(){
 					{MarioMovementType.LeftCrouch.ToString(), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("fireMarioLeftCrouch"),1,1) },
 					{MarioMovementType.LeftIdle.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("fireMarioLeftIdle"),1,1) },
 					{MarioMovementType.LeftJump.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("fireMarioLeftJump"),1,1) },
@@ -56,7 +56,7 @@ namespace Mario.Factory
 					{MarioMovementType.RightRun.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("fireMarioRightRunning"),1,3) },
 					{MarioMovementType.RightCrouch.ToString(),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("fireMarioRightCrouch"),1,1 )}
 				}  },
-				{MarioPowerupType.Dead.ToString(),new Dictionary<string, Tuple<Texture2D,int,int>>()
+				{Type.GetType("DeadMarioPowerupState"),new Dictionary<string, Tuple<Texture2D,int,int>>()
 				{
 					{MarioMovementType.Dead.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioDead"),1,1) }
 				} }

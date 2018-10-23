@@ -21,9 +21,9 @@ namespace Mario.Factory
 		
 		private ProjectileFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-                {"Fireball",GetFireball }
+                {Type.GetType("Fireball"),GetFireball }
 			};
 		}
 
@@ -35,9 +35,9 @@ namespace Mario.Factory
 
         public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Tuple<Texture2D,int,int>>
+			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-                {ProjectileType.Fireball.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Fireball"),1,4) }
+                {Type.GetType("Fireball"), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Fireball"),1,4) }
             };
 		}
 	}

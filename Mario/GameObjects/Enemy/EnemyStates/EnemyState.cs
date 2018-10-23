@@ -33,8 +33,11 @@ namespace Mario.AbstractClass
         protected EnemyState(Enemy enemy)
         {
             this.enemy = enemy;
-        }
-        public virtual void Beflipped()
+			//change second accessor param
+			EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][this.GetType().ToString()]);
+
+		}
+		public virtual void Beflipped()
         {
             //Need to be overriden
         }

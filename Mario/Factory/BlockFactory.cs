@@ -21,14 +21,14 @@ namespace Mario.Factory
 		
 		public BlockFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{BlockType.Hidden.ToString(), GetHiddenBlock  },
-				{BlockType.Floor.ToString(), GetFloorBlock },
-				{BlockType.Breakable.ToString(), GetBreakableBlock },
-				{BlockType.Pipe.ToString(), GetPipe },
-				{BlockType.Question.ToString(), GetQuestionBlock },
-				{BlockType.Unbreakable.ToString(),GetUnbreakableBlock }
+				{Type.GetType("HiddenBlock"), GetHiddenBlock  },
+				{Type.GetType("FloorBlock"), GetFloorBlock },
+				{Type.GetType("BreakableBlock"), GetBreakableBlock },
+				{Type.GetType("Pipe"), GetPipe },
+				{Type.GetType("QuestionBlock"), GetQuestionBlock },
+				{Type.GetType("UnbreakableBlock"),GetUnbreakableBlock }
 			};
 		}
 
@@ -64,16 +64,16 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Tuple<Texture2D,int,int>>
+			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{BlockType.Breakable.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
-				{BlockType.Floor.ToString(), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
+				{Type.GetType("BreakableBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
+				{Type.GetType("FloorBlockState"), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
 				//this should be changed moving forward to accept parameters for width and height with no sprite
-				{BlockType.Hidden.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
-				{BlockType.Pipe.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
-				{BlockType.Question.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
-				{BlockType.Unbreakable.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
-				{BlockType.Used.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
+				{Type.GetType("HiddenBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
+				{Type.GetType("PipeState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
+				{Type.GetType("QuestionBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
+				{Type.GetType("UnbreakableBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
+				{Type.GetType("UsedBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
 
 			};
 		}
