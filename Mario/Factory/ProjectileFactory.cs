@@ -23,7 +23,7 @@ namespace Mario.Factory
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-                {Type.GetType("Fireball"),GetFireball }
+                {typeof(Fireball),GetFireball }
 			};
 		}
 
@@ -37,7 +37,7 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-                {Type.GetType("Fireball"), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Fireball"),1,4) }
+                {typeof(Fireball), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Fireball"),1,4) }
             };
 		}
 	}

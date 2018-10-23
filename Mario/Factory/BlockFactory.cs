@@ -10,6 +10,7 @@ using Mario.Enums;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Game1;
+using Mario.BlockStates;
 
 namespace Mario.Factory
 {
@@ -23,12 +24,12 @@ namespace Mario.Factory
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{Type.GetType("HiddenBlock"), GetHiddenBlock  },
-				{Type.GetType("FloorBlock"), GetFloorBlock },
-				{Type.GetType("BreakableBlock"), GetBreakableBlock },
-				{Type.GetType("Pipe"), GetPipe },
-				{Type.GetType("QuestionBlock"), GetQuestionBlock },
-				{Type.GetType("UnbreakableBlock"),GetUnbreakableBlock }
+				{typeof( HiddenBlock ), GetHiddenBlock  },
+				{typeof( FloorBlock ), GetFloorBlock },
+				{typeof( BreakableBlock ), GetBreakableBlock },
+				{typeof( Pipe ), GetPipe },
+				{typeof( QuestionBlock ), GetQuestionBlock },
+				{typeof( UnbreakableBlock ),GetUnbreakableBlock }
 			};
 		}
 
@@ -66,14 +67,14 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{Type.GetType("BreakableBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
-				{Type.GetType("FloorBlockState"), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
+				{typeof(BreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
+				{typeof(FloorBlockState), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
 				//this should be changed moving forward to accept parameters for width and height with no sprite
-				{Type.GetType("HiddenBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
-				{Type.GetType("PipeState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
-				{Type.GetType("QuestionBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
-				{Type.GetType("UnbreakableBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
-				{Type.GetType("UsedBlockState"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
+				{typeof(HiddenBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
+				{typeof(PipeState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
+				{typeof(QuestionBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
+				{typeof(UnbreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
+				{typeof(UsedBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
 
 			};
 		}

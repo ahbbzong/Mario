@@ -222,7 +222,7 @@ namespace Mario
         
         public void ThrowFireball()
         {
-            if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)
+            if(MarioPowerupState is FireMarioPowerupState)
             {
                 MarioPowerupState.ThrowFireball();
             }

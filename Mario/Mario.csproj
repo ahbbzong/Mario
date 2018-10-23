@@ -131,15 +131,6 @@
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
-    <Compile Include="Enums\BackgroundType.cs" />
-    <Compile Include="Enums\BlockType.cs" />
-    <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Enums\EnemyType.cs" />
-    <Compile Include="Enums\GameObjectType.cs" />
-    <Compile Include="Enums\ProjectileType.cs" />
-    <Compile Include="Enums\ItemType.cs" />
-    <Compile Include="Enums\MarioTypes.cs" />
-    <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Factory\BackgroundFactory.cs" />
     <Compile Include="Factory\BlockFactory.cs" />
     <Compile Include="Factory\DynamicGameObjectFactory.cs" />

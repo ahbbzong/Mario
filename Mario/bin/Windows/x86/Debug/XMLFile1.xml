@@ -8,7 +8,7 @@
   </PlayerXML>
   
   <BlockXML>
-    <BlockType>Floor</BlockType>
+    <BlockType>FloorBlock</BlockType>
     <Length>150</Length>
     <Height>2</Height>
     <XLocation>0</XLocation>
@@ -16,49 +16,49 @@
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <ItemHidding>Coin</ItemHidding>
     <XLocation>0</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
    <BlockXML>
-    <BlockType>Hidden</BlockType>
+    <BlockType>HiddenBlock</BlockType>
     <ItemHidding>MagicMushroom</ItemHidding>
     <XLocation>32</XLocation>
     <YLocation>618</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <ItemHidding>Starman</ItemHidding>
     <XLocation>64</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>Coin</ItemHidding>
     <XLocation>160</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>MagicMushroom</ItemHidding>
     <XLocation>192</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>Coin</ItemHidding>
     <XLocation>224</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>Coin</ItemHidding>
     <XLocation>256</XLocation>
     <YLocation>700</YLocation>
@@ -71,63 +71,63 @@
   </PipeXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>MagicMushroom</ItemHidding>
     <XLocation>416</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <ItemHidding>Coin</ItemHidding>
     <XLocation>448</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Hidden</BlockType>
+    <BlockType>HiddenBlock</BlockType>
     <XLocation>480</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>352</XLocation>
     <YLocation>432</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>384</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>416</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>448</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>480</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>512</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>544</XLocation>
     <YLocation>432</YLocation>
   </BlockXML>
@@ -188,43 +188,43 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <XLocation>1500</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>1596</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <XLocation>1628</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>1660</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <XLocation>1692</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>1724</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <XLocation>1660</XLocation>
     <YLocation>532</YLocation>
   </BlockXML>
@@ -266,25 +266,25 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>2324</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>2356</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Question</BlockType>
+    <BlockType>QuestionBlock</BlockType>
     <XLocation>2388</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>Breakable</BlockType>
+    <BlockType>BreakableBlock</BlockType>
     <XLocation>2420</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
@@ -302,7 +302,7 @@
   </PipeXML>
 
   -<BlockXML>
-    <BlockType>Unbreakable</BlockType>
+    <BlockType>UnBreakableBlock</BlockType>
     <Length>9</Length>
     <XLocation>2688</XLocation>
     <YLocation>818</YLocation>

@@ -22,6 +22,7 @@ using Mario.CameraClasses;
 using Mario.BlocksClasses;
 using Mario.ItemClasses;
 using System.Diagnostics;
+using Mario.GameObjects.Block;
 
 namespace Mario.XMLRead
 {
@@ -30,8 +31,8 @@ namespace Mario.XMLRead
 		private static ItemManager instance = new ItemManager();
 		public static ItemManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
-		public Dictionary<Type, IList<IGameObject>> gameObjectListsByType;
-        public IMario Mario { get { return (IMario)gameObjectListsByType[Type.GetType("IMario")][0]; } set { gameObjectListsByType[Type.GetType("IMario")][0] = value; } }
+		public Dictionary<Type, IList<IGameObject>> gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>();
+        public IMario Mario { get { return (IMario)gameObjectListsByType[typeof(IMario)][0]; } set { gameObjectListsByType[typeof(IMario)][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
 
@@ -41,13 +42,13 @@ namespace Mario.XMLRead
             gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
             {
 
-                {Type.GetType("IBackground"), new List<IGameObject>() },
-                {Type.GetType("IItem"),new List<IGameObject>() },
-                {Type.GetType("IPipe"), new List<IGameObject>() },
-                {Type.GetType("IBlock"), new List<IGameObject>() },
-                {Type.GetType("IProjectile"), new List<IGameObject>() },
-                {Type.GetType("IEnemy"), new List<IGameObject>() },
-                {Type.GetType("IMario"),new List<IGameObject>() }
+                {typeof(IBackground), new List<IGameObject>() },
+                {typeof(IItem),new List<IGameObject>() },
+                {typeof(IPipe), new List<IGameObject>() },
+                {typeof(IBlock), new List<IGameObject>() },
+                {typeof(IProjectile), new List<IGameObject>() },
+                {typeof(IEnemy), new List<IGameObject>() },
+                {typeof(IMario),new List<IGameObject>() }
             };
         }
         public void SetInitialValuesCamera()
@@ -70,7 +71,7 @@ namespace Mario.XMLRead
 
             foreach (IController controller in ControllerList)
             {
-                controller.Initialize((IMario)gameObjectListsByType[Type.GetType("IMario")][0]);
+                controller.Initialize((IMario)gameObjectListsByType[typeof(IMario)][0]);
             }
 		}
         public void TestingCollision()

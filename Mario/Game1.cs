@@ -43,15 +43,17 @@ namespace Mario
         /// </summary>
         protected override void Initialize()
         {
+
+			base.Initialize();
 			controllerList.Add(new Keyboards());
 			//controllerList.Add(new GamePadController(this));
 
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
-            base.Initialize();
             ItemManager.Instance.SetInitialValuesCamera();
-        }
+		
+		}
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -59,7 +61,7 @@ namespace Mario
         /// </summary>
         protected override void LoadContent()
         {
-
+			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			ItemManager.Instance.LoadContent(spriteBatch);
             // Create a new SpriteBatch, which can be used to draw textures.

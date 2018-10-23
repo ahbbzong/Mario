@@ -21,12 +21,12 @@ namespace Mario.Factory
 		public BackgroundFactory()
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>{
-				{ Type.GetType("BushSingle"), GetBushSingle },
-				{ Type.GetType("BushTriple"), GetBushTriple},
-				{ Type.GetType("CloudSingle"), GetCloudSingle},
-				{ Type.GetType("ClodTriple"), GetCloudTriple},
-				{ Type.GetType("MountainBig"), GetMounntainBig },
-				{ Type.GetType("MountainSmall"), GetMountainSmall }
+				{ typeof(BushSingle), GetBushSingle },
+				{ typeof(BushTriple), GetBushTriple},
+				{ typeof(CloudSingle), GetCloudSingle},
+				{ typeof(CloudTriple), GetCloudTriple},
+				{ typeof(MountainBig), GetMounntainBig },
+				{ typeof(MountainSmall), GetMountainSmall }
 			};
 		}
 
@@ -64,12 +64,12 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{Type.GetType("BushSingle"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleBush"),1,1) },
-				{Type.GetType("BushTriple"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleBush"),1,1) },
-				{Type.GetType("CloudSingle"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleCloud"),1,1) },
-				{Type.GetType("CloudTriple"),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleCloud"),1,1) },
-				{Type.GetType("MountainBig"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("bigMountain"),1,1) },
-				{Type.GetType("MountainSmall"), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
+				{typeof(BushSingle), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleBush"),1,1) },
+				{typeof(BushTriple), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleBush"),1,1) },
+				{typeof(CloudSingle), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleCloud"),1,1) },
+				{typeof(CloudTriple),new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleCloud"),1,1) },
+				{typeof(MountainBig), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("bigMountain"),1,1) },
+				{typeof(MountainSmall), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
 			};
 		}
 	}
