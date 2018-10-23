@@ -30,15 +30,7 @@ namespace Mario.AbstractClass
         }
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            int width = SpriteSheet.Width / Columns;
-            int height = SpriteSheet.Height / Rows;
-            int row = (int)((float)CurrentFrame / (float)Columns);
-            int column = CurrentFrame % Columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-            spriteBatch.Draw(SpriteSheet, destinationRectangle, sourceRectangle, Color.White);
+			Draw(spriteBatch, location, Color.White);
         }
 		public virtual int Width => SpriteWidth / Columns;
 		public virtual int Height => SpriteHeight / Rows;
@@ -55,5 +47,18 @@ namespace Mario.AbstractClass
                 CurrentFrame = 0;
             }
         }
-    }
+
+		public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+		{
+			int width = SpriteSheet.Width / Columns;
+			int height = SpriteSheet.Height / Rows;
+			int row = (int)((float)CurrentFrame / (float)Columns);
+			int column = CurrentFrame % Columns;
+
+			Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+			Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, width, height);
+
+			spriteBatch.Draw(SpriteSheet, destinationRectangle, sourceRectangle, color);
+		}
+	}
 }

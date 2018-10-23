@@ -146,7 +146,7 @@ namespace Mario
         }
         public void BeStar()
         {
-            MarioPowerupState.BeStar();
+			ItemManager.Instance.Mario = new StarMarioDecorator(this);
         }
         public bool IsSuperMario()
         {
