@@ -30,7 +30,7 @@ namespace Mario.GameObjects.Decorators
 		public MarioPowerupType MarioPowerupType => DecoratedMario.MarioPowerupType;
 
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
-		public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 
 		public void BeFire()
 		{

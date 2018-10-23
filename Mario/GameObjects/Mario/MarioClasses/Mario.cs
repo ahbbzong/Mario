@@ -9,6 +9,8 @@ using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
 using System.Diagnostics;
 using System.Threading;
+using Mario.XMLRead;
+using Mario.GameObjects.Decorators;
 
 namespace Mario
 {
@@ -26,8 +28,14 @@ namespace Mario
 			}
 			set
 			{
-				marioMovementState = value;
-				MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				try
+				{
+					marioMovementState = value;
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				}catch(System.Collections.Generic.KeyNotFoundException ex)
+				{
+					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+				}
 			}
 		}
 		private MarioPowerupState marioPowerupState;
@@ -39,9 +47,17 @@ namespace Mario
 			{
 				try
 				{
-					marioPowerupState = value;
-					ISprite transitionSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
-				
+					MarioPowerupState newState = value;
+					if (!(newState is DeadMarioPowerupState))
+					{
+						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
+					}
+					else
+					{
+						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, newState, newState);
+					}
+					marioPowerupState = newState;
+					
 				}
 				catch (System.Collections.Generic.KeyNotFoundException ex)
 				{
