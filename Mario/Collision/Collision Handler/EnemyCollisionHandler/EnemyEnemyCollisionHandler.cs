@@ -22,6 +22,10 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
+            if (enemy.IsKoopa() && enemy.IsStomped()&&enemy.IsMoving&&!result.Equals(Direction.None))
+            {
+                this.enemy.Beflipped();
+            }
             if (!enemy.IsFlipped())
             {
                 switch (result)

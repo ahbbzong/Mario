@@ -40,8 +40,8 @@ namespace Mario.XMLRead
 
                 {"Background", new List<IGameObject>() },
                 {"Item",new List<IGameObject>() },
-                {"Block", new List<IGameObject>() },
                 {"Pipe", new List<IGameObject>() },
+                {"Block", new List<IGameObject>() },
                 {"Projectile", new List<IGameObject>() },
                 { "Enemy", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
@@ -310,7 +310,6 @@ namespace Mario.XMLRead
         }
         public void Update()
         {
-                TestingCollision();
 			foreach(IController controller in ControllerList)
 			{
 				controller.Update();
@@ -324,7 +323,8 @@ namespace Mario.XMLRead
 				}
 				
 			}
-            CameraController.Update();
+			TestingCollision();
+			CameraController.Update();
             
         }
         public void Draw(SpriteBatch spriteBatch)
