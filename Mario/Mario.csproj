@@ -226,7 +226,10 @@
     <Content Include="CodeReview\Sprint3\CodeQualityReviewSp3_WenChe.txt" />
     <Content Include="CodeReview\Sprint3\CodeQualityReviewSp3_XiaochenZong.txt" />
     <Content Include="CodeReview\Sprint3\ReadMe-Easy for you test!.txt" />
+    <Content Include="CodeReview\Sprint4\Camera_cs Readability Review Oct 22 18.txt" />
+    <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 XZ.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 18.txt" />
+    <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
     <Content Include="Icon.ico" />
     <Content Include="bin\Windows\x86\Debug\XMLFile1.xml" />
   </ItemGroup>
