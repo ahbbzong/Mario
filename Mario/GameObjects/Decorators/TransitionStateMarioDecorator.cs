@@ -5,6 +5,7 @@ using Mario.XMLRead;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Mario.GameObjects.Decorators
 
 		public TransitionStateMarioDecorator(IMario mario, MarioPowerupState marioPowerupState, MarioPowerupState newState) : base(mario)
 		{
+			Debug.WriteLine("Transition State Happend");
 			newSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[marioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
 			oldSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[newState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
 			currentSprite = oldSprite;
@@ -52,6 +54,7 @@ namespace Mario.GameObjects.Decorators
 
 		private void RemoveTransitionState()
 		{
+			
 			ItemManager.Instance.Mario = DecoratedMario;
 			if(DecoratedMario.MarioPowerupState.MarioPowerupType == Enums.MarioPowerupType.Dead)
 			{

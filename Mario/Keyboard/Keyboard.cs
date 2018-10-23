@@ -54,7 +54,7 @@ namespace Mario
 
 				if (keyboardMap.ContainsKey(key))
 				{
-					if (IsDirectionalKey(key) || !previous.Contains(key))
+					if (IsDirectionalKey(key) || (!IsDirectionalKey(key) &&!previous.Contains(key)))
 					{
 						keyboardMap[key].Execute();
 					}
