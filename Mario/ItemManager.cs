@@ -176,11 +176,7 @@ namespace Mario.XMLRead
 
                 }
             }
-          
-            
-                
-                
-                    foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
+                       foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                     {
                         collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
                         if (collisionFound != Direction.None && !Mario.IsDead())

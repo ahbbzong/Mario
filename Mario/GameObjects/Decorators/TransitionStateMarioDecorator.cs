@@ -2,6 +2,7 @@
 using Mario.Factory;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.XMLRead;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,8 @@ namespace Mario.GameObjects.Decorators
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			currentSprite.Draw(spriteBatch, DecoratedMario.Position);
+            
+            currentSprite.Draw(spriteBatch, DecoratedMario.Position);
 		}
 	}
 }

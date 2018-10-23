@@ -23,7 +23,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 
 		public virtual void BeFire()
 		{
-            mario.Position -= Vector2.UnitY*5;
             Mario.MarioPowerupState = new FireMarioPowerupState(Mario);
 		}
 		public virtual void BeNormal()
@@ -36,7 +35,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public virtual void BeSuper()
 		{
-            mario.Position -= Vector2.UnitY*5;
             Mario.MarioPowerupState = new SuperMarioPowerupState(Mario);
 		}
 		public virtual void Dead()

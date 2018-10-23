@@ -16,6 +16,7 @@ namespace Mario
         public float YVelocity { get; set; }
         private float MaxXVelocity { get; set; }
         private float MinXVelocity { get; set; }
+        private float YVelocityMax { get; set; }
 
 
         IPhysicsBody physicsBody;
@@ -24,6 +25,7 @@ namespace Mario
             this.physicsBody = physicsBody;
             XVelocity = 0;
             YVelocity = 0;
+            YVelocityMax = 13f; 
             MaxXVelocity = 8.0f;
             MinXVelocity = -8.0f;
             Gravity = 0.8f;

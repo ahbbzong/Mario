@@ -21,6 +21,12 @@ namespace Mario.ItemClasses
         public override void Update()
         {
             ItemSprite.Update();
+            if (!IsLand)
+            {
+                Physics.Update();
+            }
+
         }
+
     }
 }

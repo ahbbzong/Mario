@@ -23,7 +23,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             }
             if (enemy.IsGoomba() && !enemy.IsStomped())
             {
-                enemy.BeStomped();
+                enemy.Beflipped();
             }
         }
     }
