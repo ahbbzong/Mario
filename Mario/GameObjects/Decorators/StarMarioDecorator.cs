@@ -25,8 +25,8 @@ namespace Mario.GameObjects.Decorators
 
         public override void Update()
         {
-            timer++;
-            if (timer == 10)
+            timer+= ItemManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
+            if (timer == 5000)
             {
                 ItemManager.Instance.Mario = DecoratedMario;
             }
@@ -36,7 +36,7 @@ namespace Mario.GameObjects.Decorators
         public override void Draw(SpriteBatch spriteBatch){
 
             timer++;
-            switch (timer)
+            switch (timer%10)
             {
                 case 1: 
                     starMarioSprite.Draw(spriteBatch , DecoratedMario.Position, Color.White);

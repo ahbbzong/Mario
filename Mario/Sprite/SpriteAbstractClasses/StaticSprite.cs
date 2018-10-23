@@ -34,5 +34,10 @@ namespace Mario.AbstractClass
         {
             //Need to be overriden.
         }
-    }
+
+		public void Draw(SpriteBatch spriteBatch, Vector2 position, Color pink)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

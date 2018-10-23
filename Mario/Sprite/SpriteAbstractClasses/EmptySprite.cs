@@ -27,11 +27,20 @@ namespace Mario.AbstractClass.SpriteAbstractClasses
 			//NO-OP a null spriteoesn't need to update
 		}
 
+		public void Draw(SpriteBatch spriteBatch, Vector2 position, Color pink)
+		{
+			throw new NotImplementedException();
+		}
+
 		public EmptySprite(int width, int height)
 		{
 			
 			this.width = width;
 			this.height = height;
+		}
+
+		public EmptySprite()
+		{
 		}
 	}
 }

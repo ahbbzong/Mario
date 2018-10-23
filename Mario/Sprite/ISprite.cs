@@ -10,5 +10,7 @@ namespace Game1
 		int Width { get; }
 
 		int Height { get; }
+
+		void Draw(SpriteBatch spriteBatch, Vector2 position, Color pink);
 	}
 }
