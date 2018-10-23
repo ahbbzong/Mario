@@ -11,14 +11,9 @@ namespace Mario.BlockStates
     public class DisappearBlockState : BlockState
     {
 
-           
         public DisappearBlockState(Block block) : base(block)
         {
-            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Hidden.ToString()]);
-            
-        }
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
+            blockSprite = SpriteFactory.Instance.CreateEmptySprite(0,0);
         }
 
 
