@@ -47,5 +47,10 @@ namespace Mario.MarioStates.MarioPowerupStates
         {
             //May need to override
         }
-    }
+
+		public virtual void TakeDamage()
+		{
+			//NO-OP by default
+		}
+	}
 }

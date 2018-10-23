@@ -28,9 +28,11 @@ namespace Mario.XMLRead
 		public static ItemManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get => Game1.Instance.controllerList; }
 		public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
-        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
+        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } set { gameObjectListsByType["Mario"][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
+
+		public GameTime CurrentGameTime { get; set; }
         private ItemManager()
         {
             gameObjectListsByType = new Dictionary<string, IList<IGameObject>>
@@ -175,9 +177,9 @@ namespace Mario.XMLRead
                 }
             }
           
-            {
+            
                 
-                {
+                
                     foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                     {
                         collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
@@ -189,9 +191,19 @@ namespace Mario.XMLRead
                             marioHandler = new MarioEnemyCollisionHandler(enemy);
                             marioHandler.HandleCollision(Mario, collisionFound, intersection);
                         }
+                        foreach (IEnemy anotherEnemy in gameObjectListsByType["Enemy"])
+                            {
+                    if (!enemy.Equals(anotherEnemy))
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, anotherEnemy.Box);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler = new EnemyEnemyCollisionHandler(anotherEnemy,intersection);
+                        enemyHandler.HandleCollision(enemy, collisionFound);
                     }
                 }
-            }
+                    }
+                
+            
             foreach (IBlock pipe in gameObjectListsByType["Pipe"])
             {
                 collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
@@ -298,19 +310,21 @@ namespace Mario.XMLRead
         }
         public void Update()
         {
-                TestingCollision();
 			foreach(IController controller in ControllerList)
 			{
 				controller.Update();
 			}
-			foreach(string key in gameObjectListsByType.Keys)
+			for(int j =  gameObjectListsByType.Count -1; j>= 0;j--) 
 			{
-				foreach(IGameObject gameObj in gameObjectListsByType[key])
+				string key = gameObjectListsByType.ElementAt(j).Key;
+				for(int i = gameObjectListsByType[key].Count - 1; i >= 0 ; i--)
 				{
-					gameObj.Update();
+					gameObjectListsByType[key][i].Update();
 				}
+				
 			}
-            CameraController.Update();
+			TestingCollision();
+			CameraController.Update();
             
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -324,5 +338,6 @@ namespace Mario.XMLRead
 			}
         }
 
+		
     }
 }

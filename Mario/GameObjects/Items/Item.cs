@@ -24,8 +24,11 @@ namespace Mario.Classes.BlocksClasses
                 return new Rectangle((int)ItemLocation.X, (int)ItemLocation.Y, ItemSprite.Width, ItemSprite.Height);
             }
         }
+        private Vector2 maxVelocity = new Vector2(8.0f, 8.0f);
+        public Vector2 MaxVelocity { get => maxVelocity; }
+        private Vector2 velocity = Vector2.Zero;
+        public Vector2 Velocity { get => velocity; set => velocity = value; }
 
-       
         public Physics Physics { get ; set ; }
         public bool IsLand { get ; set ; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
@@ -43,6 +46,8 @@ namespace Mario.Classes.BlocksClasses
             if (!IsLand){
                 Physics.Update();
             }
+            Move();
+            
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -56,14 +61,10 @@ namespace Mario.Classes.BlocksClasses
 
         public virtual void IsLandTrue()
         {
-            if (IsStarman())
-            {
-                Physics.ReverseYVelocity();
-            }
-            else
-            {
+           
+          
+           
                 Physics.ResetGravity();
-            }
             IsLand = true;
         }
 
@@ -73,6 +74,25 @@ namespace Mario.Classes.BlocksClasses
         }
 
         public virtual bool IsStarman()
+        {
+            return false;
+        }
+
+        public void TurnLeft()
+        {
+            velocity = -Vector2.UnitX*7;
+        }
+
+        public void TurnRight()
+        {
+            velocity = Vector2.UnitX*7;
+        }
+        public void Move()
+        {
+            ItemLocation += velocity;
+        }
+
+        public virtual bool IsCoin()
         {
             return false;
         }

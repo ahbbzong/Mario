@@ -15,7 +15,7 @@ namespace Mario.MarioCommand
         public override void Execute()
         {
             counter++;
-            if (counter == 10)
+            if (counter == 3)
             {
                 Mario.ThrowFireball();
                 counter = 0;

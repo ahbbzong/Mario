@@ -28,12 +28,12 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Left()
 		{
-            Mario.physics.MoveLeft();
+            Mario.Physics.MoveLeft();
 		}
 
 		public virtual void Right()
 		{
-            Mario.physics.MoveRight();
+            Mario.Physics.MoveRight();
         }
 		public virtual void Up()
 		{

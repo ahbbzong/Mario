@@ -14,7 +14,7 @@ namespace Mario.MarioStates.MarioMovementStates
 		public override void Up()
 		{
 			Mario.MarioMovementState = new RightJumpingMarioMovementState(Mario);
-            Mario.physics.ApplyForceVertical(YVelocity);
+            Mario.Physics.ApplyForceVertical(YVelocity);
         }
 		public override void Down()
 		{

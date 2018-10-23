@@ -65,6 +65,10 @@ namespace Mario.AbstractClass
         public virtual void Update()
         {
             EnemySprite.Update();
+            if (!enemy.Island)
+            {
+                enemy.Physics.Update();
+            }
         }
 
         public virtual void BeKilled()

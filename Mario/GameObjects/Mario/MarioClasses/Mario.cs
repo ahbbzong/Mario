@@ -8,6 +8,9 @@ using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
 using System.Diagnostics;
+using System.Threading;
+using Mario.XMLRead;
+using Mario.GameObjects.Decorators;
 
 namespace Mario
 {
@@ -25,8 +28,14 @@ namespace Mario
 			}
 			set
 			{
-				marioMovementState = value;
-				MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				try
+				{
+					marioMovementState = value;
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+				}catch(System.Collections.Generic.KeyNotFoundException ex)
+				{
+					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+				}
 			}
 		}
 		private MarioPowerupState marioPowerupState;
@@ -38,8 +47,17 @@ namespace Mario
 			{
 				try
 				{
-					marioPowerupState = value;
-					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+					MarioPowerupState newState = value;
+					if (!(newState is DeadMarioPowerupState))
+					{
+						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
+					}
+					else
+					{
+						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, newState, newState);
+					}
+					marioPowerupState = newState;
+					
 				}
 				catch (System.Collections.Generic.KeyNotFoundException ex)
 				{
@@ -64,7 +82,7 @@ namespace Mario
 
 		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
 
-        public Physics physics { get; set; }
+        public Physics Physics { get; set; }
         public Mario(Vector2 location)
         {
             this.location = location;
@@ -75,7 +93,7 @@ namespace Mario
 
 			fall = false;
             Island = false;
-            physics = new Physics(this);
+            Physics = new Physics(this);
         }
 		public void Up()
         {
@@ -153,9 +171,9 @@ namespace Mario
 			MarioSprite.Update();
             if (!Island)
             {
-                physics.Update();
+                Physics.Update();
             }
-            if(physics.YVelocity>0)
+            if(Physics.YVelocity>0)
             {
                 fall = true;
             }
@@ -180,9 +198,9 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            physics.ResetGravity();
+            Physics.ResetGravity();
             Island = true;
-            MarioMovementState.NoInput();
+            //MarioMovementState.NoInput();
         }
         public void IsLandFlase()
         {
@@ -191,9 +209,9 @@ namespace Mario
 
         public void NoInput()
 		{
-            if(!IsUp())
+
 			MarioMovementState.NoInput();
-            physics.ApplyFriction();
+            Physics.ApplyFriction();
         }
         public void ThrowFireball()
         {
@@ -212,5 +230,10 @@ namespace Mario
         {
             return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
         }
-    }
+
+		public void TakeDamage()
+		{
+			MarioPowerupState.TakeDamage();
+		}
+	}
 }

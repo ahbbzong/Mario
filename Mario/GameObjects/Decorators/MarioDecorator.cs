@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Interfaces.GameObjects;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
@@ -13,18 +14,23 @@ namespace Mario.GameObjects.Decorators
 {
 	abstract class MarioDecorator: GameObjectDecorator, IMario
 	{
+		protected MarioDecorator(IMario mario):base(mario)
+		{
+
+		}
+
 		public Rectangle Box => DecoratedMario.Box;
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
-		public Physics physics { get => DecoratedMario.physics; set => DecoratedMario.physics = value; }
+		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
 
 		public MarioMovementType MarioMovementType => DecoratedMario.MarioMovementType;
 
 		public MarioPowerupType MarioPowerupType => DecoratedMario.MarioPowerupType;
 
-		private IMario DecoratedMario { get => (IMario)DecoratedObject; }
-		public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
+		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 
 		public void BeFire()
 		{
@@ -132,6 +138,10 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Up();
 		}
-		
+
+		public virtual void TakeDamage()
+		{
+			DecoratedMario.TakeDamage();
+		}
 	}
 }

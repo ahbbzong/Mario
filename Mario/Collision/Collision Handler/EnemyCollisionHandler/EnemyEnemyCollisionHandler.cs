@@ -22,31 +22,35 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
-            if(enemy.IsKoopa()&&!enemy.IsFlipped()||
-                enemy.IsGoomba()
-                || this.enemy.IsKoopa() && !this.enemy.IsFlipped()
-                ||this.enemy.IsGoomba())
-            switch (result)
+            if (enemy.IsKoopa() && enemy.IsStomped()&&enemy.IsMoving&&!result.Equals(Direction.None))
             {
-                case Direction.Up:
-                    enemy.Position -= Vector2.UnitY*intersection.Height;
-						
-                    break;
-                case Direction.Down:
-						enemy.IsLandTrue();
-						enemy.Position += Vector2.UnitY*intersection.Height;
-                    break;
-                case Direction.Left:
-                    enemy.Position -= Vector2.UnitX*intersection.Width;
-                        enemy.TurnLeft();
-                    break;
-                case Direction.Right:
-                    enemy.Position += Vector2.UnitX*intersection.Width;
-                        enemy.TurnRight();
+                this.enemy.Beflipped();
+            }
+            if (!enemy.IsFlipped())
+            {
+                switch (result)
+                {
+                    case Direction.Up:
+                        enemy.Position -= Vector2.UnitY * intersection.Height;
                         break;
-                case Direction.None:
+                    case Direction.Down:
+                        enemy.IsLandTrue();
+                        enemy.Position += Vector2.UnitY * intersection.Height;
+                        break;
+                    case Direction.Left:
+                        enemy.Position -= Vector2.UnitX * intersection.Width;
+                        enemy.TurnLeft();
+                        this.enemy.TurnRight();
+                        break;
+                    case Direction.Right:
+                        enemy.Position += Vector2.UnitX * intersection.Width;
+                        enemy.TurnRight();
+                        this.enemy.TurnLeft();
+                        break;
+                    case Direction.None:
                         enemy.IsLandFalse();
                         break;
+                }
             }
         }
 

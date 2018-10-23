@@ -13,12 +13,10 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
 		readonly IBlock block;
         Rectangle intersection;
-        Vector2 speed;
 		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
         {
             this.block = block;
             this.intersection = intersection;
-            speed = new Vector2(20.0f, 20.0f);
         }
         public void HandleCollision(IEnemy enemy, Direction result)
         {
@@ -26,7 +24,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-						enemy.Position -= Vector2.UnitY * intersection.Height;
+                        enemy.Position -=  Vector2.UnitY * intersection.Height;
                         if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
                         {
                             enemy.Beflipped();
