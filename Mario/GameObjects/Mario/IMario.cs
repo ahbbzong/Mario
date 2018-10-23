@@ -31,6 +31,7 @@ namespace Game1
         Physics Physics { get;set; }
         void IsLandTrue();
 
+		void Draw(SpriteBatch spriteBatch, Color c);
         void IsLandFlase();
       
     }

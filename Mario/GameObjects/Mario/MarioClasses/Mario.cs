@@ -235,5 +235,11 @@ namespace Mario
 		{
 			MarioPowerupState.TakeDamage();
 		}
+
+		public void Draw(SpriteBatch spriteBatch, Color c)
+		{
+
+			MarioSprite.Draw(spriteBatch, location,c);
+		}
 	}
 }
