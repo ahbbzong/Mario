@@ -25,16 +25,18 @@ namespace Mario
             this.physicsBody = physicsBody;
             XVelocity = 0;
             YVelocity = 0;
-            YVelocityMax = 13f; 
+            YVelocityMax = -20.0f; 
             MaxXVelocity = 8.0f;
             MinXVelocity = -8.0f;
             Gravity = 0.8f;
         }
         private void ApplyGtravity()
         {
-            physicsBody.Position += Vector2.UnitY*YVelocity;
-            YVelocity += Gravity;
-
+           
+                physicsBody.Position += Vector2.UnitY * YVelocity;
+                YVelocity += Gravity;
+            
+            
         }
         public void ApplyFriction()
         {

@@ -13,8 +13,8 @@ namespace Mario.Collision
 {
     public class BlockHandler : IBlockCollisionHandler
     {
-        private readonly IMario mario;
-        private readonly int locationOffset;
+        private IMario mario;
+        private int locationOffset;
         public BlockHandler(IMario mario)
         {
             this.mario = mario;
@@ -55,7 +55,6 @@ namespace Mario.Collision
         {
             if(block.IsBreakableBlock() && result.Equals(Direction.Down))
             {
-                
             }
         }
 	}
