@@ -34,7 +34,7 @@ namespace Mario.Collision
                 {
                     ItemManager.Instance.AddNormalItem(block);
                 }
-                else if (mario.IsSuperMario())
+                else if (mario.IsSuperMario()||mario.IsFireMario()||mario.IsStarMario())
                 {
                     ItemManager.Instance.AddBigItem(block);
                 }
@@ -42,7 +42,6 @@ namespace Mario.Collision
             else if (block.IsBreakableBlock() && result.Equals(Direction.Down))
             {
                 block.React();
-                //block.Getposition().Y += locationOffset;
             }
             BlockMovement(block, result);
         }

@@ -134,6 +134,7 @@ namespace Mario
         }
         public void BeSuper()
         {
+            location.Y -= 5;
             MarioPowerupState.BeSuper();
         }
         public void BeNormal()
@@ -142,6 +143,7 @@ namespace Mario
         }
         public void BeFire()
         {
+            location.Y -= 5;
             MarioPowerupState.BeFire();
         }
         public void BeStar()
@@ -200,7 +202,6 @@ namespace Mario
         {
             Physics.ResetGravity();
             Island = true;
-            //MarioMovementState.NoInput();
         }
         public void IsLandFlase()
         {
@@ -209,9 +210,11 @@ namespace Mario
 
         public void NoInput()
 		{
-
-			MarioMovementState.NoInput();
-            Physics.ApplyFriction();
+           
+                MarioMovementState.NoInput();
+                Physics.ApplyFriction();
+            
+            
         }
         public void ThrowFireball()
         {

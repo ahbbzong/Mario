@@ -38,6 +38,7 @@ namespace Mario.Classes.BlocksClasses
             ItemLocation = location;
             IsLand = false;
             Physics = new Physics(this);
+            velocity = Vector2.UnitX;
 
         }
         public virtual void Update()
@@ -61,9 +62,7 @@ namespace Mario.Classes.BlocksClasses
 
         public virtual void IsLandTrue()
         {
-           
-          
-           
+
                 Physics.ResetGravity();
             IsLand = true;
         }
@@ -80,12 +79,12 @@ namespace Mario.Classes.BlocksClasses
 
         public void TurnLeft()
         {
-            velocity = -Vector2.UnitX*7;
+            velocity = -Vector2.UnitX;
         }
 
         public void TurnRight()
         {
-            velocity = Vector2.UnitX*7;
+            velocity = Vector2.UnitX;
         }
         public void Move()
         {

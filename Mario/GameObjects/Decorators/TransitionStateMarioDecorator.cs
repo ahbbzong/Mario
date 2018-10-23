@@ -78,7 +78,8 @@ namespace Mario.GameObjects.Decorators
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			currentSprite.Draw(spriteBatch, DecoratedMario.Position);
+            
+            currentSprite.Draw(spriteBatch, DecoratedMario.Position);
 		}
 	}
 }
