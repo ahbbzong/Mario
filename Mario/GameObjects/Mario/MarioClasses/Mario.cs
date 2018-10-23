@@ -209,6 +209,7 @@ namespace Mario
 
         public void NoInput()
 		{
+
 			MarioMovementState.NoInput();
             Physics.ApplyFriction();
         }
