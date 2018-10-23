@@ -80,12 +80,12 @@ namespace Mario.Classes.BlocksClasses
 
         public void TurnLeft()
         {
-            velocity = -Vector2.UnitX;
+            velocity = -Vector2.UnitX*7;
         }
 
         public void TurnRight()
         {
-            velocity = Vector2.UnitX;
+            velocity = Vector2.UnitX*7;
         }
         public void Move()
         {
