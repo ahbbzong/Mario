@@ -4,6 +4,7 @@ using Mario.Interfaces.GameObjects;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Mario.GameObjects.Decorators
 
 		}
 
-		public Rectangle Box => DecoratedMario.Box;
+		public virtual Rectangle Box => DecoratedMario.Box;
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
@@ -104,7 +105,7 @@ namespace Mario.GameObjects.Decorators
 			return DecoratedMario.IsRight();
 		}
 
-		public bool IsStarMario()
+		public virtual bool IsStarMario()
 		{
 			return DecoratedMario.IsStarMario();
 		}
@@ -142,6 +143,11 @@ namespace Mario.GameObjects.Decorators
 		public virtual void TakeDamage()
 		{
 			DecoratedMario.TakeDamage();
+		}
+
+		public void Draw(SpriteBatch spriteBatch, Color c)
+		{
+			DecoratedMario.Draw(spriteBatch, c);
 		}
 	}
 }

@@ -89,7 +89,7 @@ namespace Mario
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
-
+			
 
 			fall = false;
             Island = false;
@@ -241,6 +241,12 @@ namespace Mario
 		public void TakeDamage()
 		{
 			MarioPowerupState.TakeDamage();
+		}
+
+		public void Draw(SpriteBatch spriteBatch, Color c)
+		{
+
+			MarioSprite.Draw(spriteBatch, location,c);
 		}
 	}
 }

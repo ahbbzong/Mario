@@ -19,6 +19,14 @@ namespace Mario.GameObjects.Decorators
 		private ISprite newSprite;
 		private ISprite oldSprite;
 		private ISprite currentSprite = null;
+
+		public override Rectangle Box
+		{
+			get
+			{
+				return new Rectangle((int)Position.X, (int) Position.Y, oldSprite.Width, oldSprite.Height);
+			}
+		}
 		public TransitionStateMarioDecorator(IMario mario) : base(mario)
 		{
 
