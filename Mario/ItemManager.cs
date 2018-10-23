@@ -310,7 +310,6 @@ namespace Mario.XMLRead
         }
         public void Update()
         {
-                TestingCollision();
 			foreach(IController controller in ControllerList)
 			{
 				controller.Update();
@@ -324,7 +323,8 @@ namespace Mario.XMLRead
 				}
 				
 			}
-            CameraController.Update();
+			TestingCollision();
+			CameraController.Update();
             
         }
         public void Draw(SpriteBatch spriteBatch)
