@@ -72,11 +72,11 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                if (block.BlockType != BlockType.Floor)
+                if ((block.BlockType != BlockType.Floor) && (block.BlockType != BlockType.Unbreakable))
                 {
                     blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
                 }
-                else
+                else if (block.BlockType == BlockType.Floor)
                 {
                     int count = 0;
                     int count2 = 0;
@@ -93,6 +93,22 @@ namespace Mario.XMLRead
                         count++;
                         count2 = 0;
                         block.XLocation = 0;
+                    }
+                }
+                else
+                {
+                    int count = block.Length;
+                    while (count >= 2)
+                    {
+                        int startX = block.XLocation;
+                        for (int i = 0; i < count; i++)
+                        {
+                            blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                            block.XLocation = block.XLocation + 32;
+                        }
+                        block.YLocation = block.YLocation - 32;
+                        block.XLocation = startX + 32;
+                        count--;
                     }
                 }
             }
