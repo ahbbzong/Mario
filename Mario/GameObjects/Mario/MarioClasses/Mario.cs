@@ -202,6 +202,7 @@ namespace Mario
         {
             Physics.ResetGravity();
             Island = true;
+            MarioMovementState.NoInput();
         }
         public void IsLandFlase()
         {
@@ -209,13 +210,16 @@ namespace Mario
         }
 
         public void NoInput()
-		{
-           
+        {
+            if (!IsUp())
+            {
                 MarioMovementState.NoInput();
                 Physics.ApplyFriction();
-            
-            
+            }
         }
+            
+            
+        
         public void ThrowFireball()
         {
             if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)
