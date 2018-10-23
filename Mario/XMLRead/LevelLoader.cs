@@ -141,6 +141,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> itemList = new List<IGameObject>();
             foreach (ItemXML item in myItemObject)
             {
+				
 				itemList.Add(ItemFactory.Instance.GetGameObject(item.GameObjectType.ToString(), new Vector2(item.XLocation, item.YLocation)));
             }
 			return itemList;
