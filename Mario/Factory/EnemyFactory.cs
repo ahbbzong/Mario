@@ -19,10 +19,10 @@ namespace Mario.Factory
 		public static EnemyFactory Instance { get => instance; }
 		private EnemyFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{EnemyType.Goomba.ToString(), GetGoomba },
-				{EnemyType.Koopa.ToString(),GetKoopa }
+				{Type.GetType("Goomba"), GetGoomba },
+				{Type.GetType("Koopa"),GetKoopa }
 			};
 		}
 		private IGameObject GetGoomba(Vector2 position)
@@ -37,9 +37,9 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Dictionary<string, Tuple<Texture2D,int,int>>>
+			SpriteDictionary = new Dictionary<Type, Dictionary<string, Tuple<Texture2D,int,int>>>
 			{
-				{EnemyType.Koopa.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>{
+				{Type.GetType("Koopa"), new Dictionary<string, Tuple<Texture2D,int,int>>{
 						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
 						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
 						{EnemyStateType.MovingLeft.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
@@ -47,7 +47,7 @@ namespace Mario.Factory
 					}
 				},
 
-				{EnemyType.Goomba.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>
+				{Type.GetType("Goomba"), new Dictionary<string, Tuple<Texture2D,int,int>>
 				{
 						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
 						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},

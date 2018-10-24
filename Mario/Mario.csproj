@@ -46,6 +46,7 @@
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
+    <Compile Include="GameObjects\Block\IPipe.cs" />
     <Compile Include="GameObjects\Decorators\GameObjectDecorator.cs" />
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />
@@ -130,15 +131,6 @@
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
-    <Compile Include="Enums\BackgroundType.cs" />
-    <Compile Include="Enums\BlockType.cs" />
-    <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Enums\EnemyType.cs" />
-    <Compile Include="Enums\GameObjectType.cs" />
-    <Compile Include="Enums\ProjectileType.cs" />
-    <Compile Include="Enums\ItemType.cs" />
-    <Compile Include="Enums\MarioTypes.cs" />
-    <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Factory\BackgroundFactory.cs" />
     <Compile Include="Factory\BlockFactory.cs" />
     <Compile Include="Factory\DynamicGameObjectFactory.cs" />
@@ -234,8 +226,10 @@
     <Content Include="CodeReview\Sprint3\CodeQualityReviewSp3_WenChe.txt" />
     <Content Include="CodeReview\Sprint3\CodeQualityReviewSp3_XiaochenZong.txt" />
     <Content Include="CodeReview\Sprint3\ReadMe-Easy for you test!.txt" />
+    <Content Include="CodeReview\Sprint4\Camera_cs Readability Review Oct 22 18.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 XZ.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 18.txt" />
+    <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
     <Content Include="Icon.ico" />
     <Content Include="bin\Windows\x86\Debug\XMLFile1.xml" />
   </ItemGroup>

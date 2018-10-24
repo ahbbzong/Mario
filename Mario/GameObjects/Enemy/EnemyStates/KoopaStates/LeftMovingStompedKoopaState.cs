@@ -17,8 +17,7 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public LeftMovingStompedKoopaState(Enemy enemy) : base(enemy)
         {
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()]);
-
+            
         }
         public override void TurnRight()
         {

@@ -4,6 +4,7 @@ using Mario.Enums;
 using Mario.ItemClasses;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -12,7 +13,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public FireMarioPowerupState(IMario mario) : base(mario)
 		{
 		}
-		public override MarioPowerupType MarioPowerupType => MarioPowerupType.Fire;
 
 		public override void BeFire()
 		{
@@ -21,7 +21,7 @@ namespace Mario.MarioStates.MarioPowerupStates
         public override void ThrowFireball()
         {
             Vector2 launchPosition = Mario.Position;
-            ItemManager.Instance.gameObjectListsByType["Projectile"].Add(new Fireball(launchPosition));
+            ItemManager.Instance.gameObjectListsByType[Type.GetType("IProjectile")].Add(new Fireball(launchPosition));
 
             
         }

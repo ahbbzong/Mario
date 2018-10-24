@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Classes;
 using Mario.Classes.BlocksClasses;
+using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -32,8 +33,10 @@ namespace Mario.BlockStates
         protected BlockState(Block block)
         {
             this.block = block;
-        }
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
+			this.blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+
+		}
+		public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             blockSprite.Draw(spriteBatch, location);
         }

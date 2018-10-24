@@ -21,13 +21,13 @@ namespace Mario.Factory
 		
 		private ItemFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{"Coin",GetCoin },
-				{"FireFlower",GetFireFlower },
-				{"MagicMushroom",GetMagicMushroom },
-				{"OneUpMushroom",GetOneUpMushroom },
-				{"Starman", GetStarman },
+				{typeof(Coin),GetCoin },
+				{typeof(FireFlower),GetFireFlower },
+				{typeof(MagicMushroom),GetMagicMushroom },
+				{typeof(OneUpMushroom),GetOneUpMushroom },
+				{typeof(Starman), GetStarman },
 			};
 		}
 
@@ -58,13 +58,13 @@ namespace Mario.Factory
 
         public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Tuple<Texture2D, int, int>>
+			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D, int, int>>
 			{
-				{ItemType.Coin.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
-				{ItemType.FireFlower.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
-				{ItemType.MagicMushroom.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
-				{ItemType.OneUpMushroom.ToString(),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
-				{ItemType.Starman.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
+				{typeof(Coin), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
+				{typeof(FireFlower),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
+				{typeof(MagicMushroom), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
+				{typeof(OneUpMushroom),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
+				{typeof(Starman), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
             };
 		}
 	}
