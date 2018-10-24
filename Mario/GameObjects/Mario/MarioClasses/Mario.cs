@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using System;
 using Game1;
 using Mario.MarioStates;
-using Mario.Enums;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;

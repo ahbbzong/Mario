@@ -55,6 +55,7 @@
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
+    <Compile Include="Physics\PhysicsUtils.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />
