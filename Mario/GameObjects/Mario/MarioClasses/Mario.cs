@@ -18,6 +18,7 @@ namespace Mario
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }
+        private int count;
 
 		private MarioMovementState marioMovementState;
 		public MarioMovementState MarioMovementState
@@ -94,6 +95,7 @@ namespace Mario
 			fall = false;
             Island = false;
             Physics = new Physics(this);
+            
         }
 		public void Up()
         {
@@ -200,9 +202,12 @@ namespace Mario
         }
         public void IsLandTrue()
         {
+            count++;
             Physics.ResetGravity();
             Island = true;
             MarioMovementState.NoInput();
+
+
         }
         public void IsLandFlase()
         {
