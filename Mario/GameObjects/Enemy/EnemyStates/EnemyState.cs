@@ -16,6 +16,7 @@ namespace Mario.AbstractClass
     {
         protected ISprite EnemySprite { get; set; }
         public Enemy enemy { get; set; }
+        protected Vector2 XVelocity { get; set; }
         public int GetWidth
         {
             get
@@ -33,6 +34,7 @@ namespace Mario.AbstractClass
         protected EnemyState(Enemy enemy)
         {
             this.enemy = enemy;
+            XVelocity = new Vector2(1, 0);
         }
         public virtual void Beflipped()
         {
@@ -48,7 +50,7 @@ namespace Mario.AbstractClass
             EnemySprite.Draw(spriteBatch, location);
         }
 
-        public virtual bool IsStomped()
+        public virtual bool IsGoombaStomped()
         {
             return false;
         }
@@ -56,10 +58,12 @@ namespace Mario.AbstractClass
 
         public virtual void TurnLeft()
         {
+
         }
 
         public virtual void TurnRight()
         {
+
         }
 
         public virtual void Update()
@@ -69,11 +73,6 @@ namespace Mario.AbstractClass
             {
                 enemy.Physics.Update();
             }
-        }
-
-        public virtual void BeKilled()
-        {
-            
         }
 
         public virtual bool IsFlipped()
@@ -87,6 +86,20 @@ namespace Mario.AbstractClass
         }
 
         public virtual bool IsKoopa()
+        {
+            return false;
+        }
+
+        public virtual bool IsLeftStomped()
+        {
+            return false;
+        }
+
+        public virtual bool IsRightStomped()
+        {
+            return false;
+        }
+        public virtual bool IsKoopaStomped()
         {
             return false;
         }

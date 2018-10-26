@@ -14,6 +14,9 @@ namespace Mario.BlockStates
         {
             blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Floor.ToString()]);
         }
-       
+        public override bool IsFloorBlock()
+        {
+            return true;
+        }
     }
 }

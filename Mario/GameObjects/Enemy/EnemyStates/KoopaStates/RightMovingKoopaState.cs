@@ -33,13 +33,19 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.EnemyState = new StompedKoopaState(enemy);
         }
-        public override void BeKilled()
-        {
-            enemy.EnemyState = new DeadKoopaState(enemy);
-        }
+        
         public override bool IsKoopa()
         {
             return true;
+        }
+        public override void Update()
+        {
+            EnemySprite.Update();
+            if (!enemy.Island)
+            {
+                enemy.Physics.Update();
+            }
+            enemy.Position += Vector2.UnitX;
         }
 
     }

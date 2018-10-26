@@ -39,10 +39,11 @@ namespace Mario.Collision.FireballCollisionHandler
                         break;
                     case Direction.Left:
                         fireball.Position += Vector2.UnitX*locationOffset;
+                        fireball.IsLandTrue();
                         break;
                     case Direction.Right:
                         fireball.Position += Vector2.UnitX*locationOffset;
-                        fireball.Position += Vector2.UnitX*locationOffset;
+                        fireball.IsLandTrue();
                         break;
                     case Direction.None:
                         fireball.IsLandFalse();

@@ -13,21 +13,16 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
         Rectangle intersection;
         IEnemy enemy;
-
-
-		public EnemyEnemyCollisionHandler(IEnemy enemy,Rectangle intersection)
+        Direction result;
+        public EnemyEnemyCollisionHandler(IEnemy enemy, Rectangle intersection, Direction result)
         {
             this.intersection = intersection;
             this.enemy = enemy;
+            this.result = result;
         }
-        public void HandleCollision(IEnemy enemy, Direction result)
+        public void HandleCollision(IEnemy enemy)
         {
-            if (enemy.IsKoopa() && enemy.IsStomped()&&enemy.IsMoving&&!result.Equals(Direction.None))
-            {
-                this.enemy.Beflipped();
-            }
-            if (!enemy.IsFlipped())
-            {
+                GoombaKoopaReact(enemy, result);
                 switch (result)
                 {
                     case Direction.Up:
@@ -38,22 +33,39 @@ namespace Mario.Collision.EnemyCollisionHandler
                         enemy.Position += Vector2.UnitY * intersection.Height;
                         break;
                     case Direction.Left:
-                        enemy.Position -= Vector2.UnitX * intersection.Width;
-                        enemy.TurnLeft();
+                        NonStompedKoopaReact(enemy,result);
                         this.enemy.TurnRight();
                         break;
                     case Direction.Right:
-                        enemy.Position += Vector2.UnitX * intersection.Width;
-                        enemy.TurnRight();
+                        NonStompedKoopaReact(enemy, result);
                         this.enemy.TurnLeft();
                         break;
                     case Direction.None:
                         enemy.IsLandFalse();
                         break;
                 }
+
+        }
+        public void GoombaKoopaReact(IEnemy enemy, Direction result)
+        {
+            if (enemy.IsLeftStomped() && result.Equals(Direction.Right)
+                || enemy.IsRightStomped() && result.Equals(Direction.Left))
+            {
+                this.enemy.Beflipped();
             }
         }
-
+        public void NonStompedKoopaReact(IEnemy enemy, Direction result)
+        {
+            if (!enemy.IsKoopaStomped()&& !enemy.IsRightStomped()&& result.Equals(Direction.Left))
+            {
+                enemy.Position -= Vector2.UnitX * intersection.Width;
+                enemy.TurnLeft();
+            }
+            if (!enemy.IsKoopaStomped() && !enemy.IsLeftStomped() && result.Equals(Direction.Right))
+            {
+                enemy.Position += Vector2.UnitX * intersection.Width;
+                enemy.TurnRight();
+            }
+        }
     }
-
 }

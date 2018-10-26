@@ -21,22 +21,28 @@ namespace Mario.EnemyStates.GoombaStates
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()]);
 			enemy.Velocity = Vector2.Zero;
         }
-        public override bool IsStomped()
-        {
-            return true;
-        }
         public override void Beflipped()
         {
             enemy.EnemyState = new FlippedKoopaState(enemy);
         }
-        public override void BeKilled()
-        {
-            enemy.EnemyState = new DeadKoopaState(enemy);
-        }
+       
         public override bool IsKoopa()
         {
             return true;
         }
+        public override bool IsKoopaStomped()
+        {
+            return true;
+        }
+        public override void TurnLeft()
+        {
+            enemy.EnemyState = new LeftStompedKoopaState(enemy);
+        }
+        public override void TurnRight()
+        {
+            enemy.EnemyState = new RightStompedKoopaState(enemy);
+        }
+
 
     }
 }

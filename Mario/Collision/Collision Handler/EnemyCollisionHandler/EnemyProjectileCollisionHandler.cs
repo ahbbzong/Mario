@@ -12,20 +12,13 @@ namespace Mario.Collision.EnemyCollisionHandler
     public class EnemyProjectileCollisionHandler : IEnemyCollisionHandler
     {
         IProjectile projectile;
-        public EnemyProjectileCollisionHandler(IProjectile projectile)
+        public EnemyProjectileCollisionHandler(IProjectile projectile, Direction result)
         {
             this.projectile = projectile;
         }
-        public void HandleCollision(IEnemy enemy, Direction result)
+        public void HandleCollision(IEnemy enemy)
         {
-            if(enemy.IsKoopa() && !enemy.IsFlipped()){
-                enemy.Beflipped();
-            }
-            if (enemy.IsGoomba() && !enemy.IsStomped())
-            {
-                enemy.Beflipped();
-            }
+            enemy.Beflipped();
         }
     }
-
 }

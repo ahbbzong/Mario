@@ -104,15 +104,24 @@ namespace Mario.XMLRead
                     projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
+                foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                {
+                    collisionFound = collisionDetecter.Collision(projectile.Box, pipe.Box);
+                    intersection = collisionDetecter.intersection;
+
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(pipe, intersection,collisionFound);
+                    projectileCollisionHandler.HandleCollision(projectile);
+
+                }
                 foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                 {
 
                     projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
-                    enemyHandler = new EnemyProjectileCollisionHandler(projectile);
                     collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
+                    enemyHandler = new EnemyProjectileCollisionHandler(projectile,collisionFound);
                     if (collisionFound != Direction.None)
                     {
-                        enemyHandler.HandleCollision(enemy, collisionFound);
+                        enemyHandler.HandleCollision(enemy);
                         projectileCollisionHandler.HandleCollision(projectile);
                     }
                 }
@@ -157,48 +166,46 @@ namespace Mario.XMLRead
             }
             foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
             {
-                foreach (IBlock block in gameObjectListsByType["Block"])
+                if (!enemy.IsFlipped())
                 {
-                    collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
-                    intersection = collisionDetecter.intersection;
-                  
-                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection);
-                        enemyHandler.HandleCollision(enemy, collisionFound);
-                    
-                }
-                foreach (IBlock pipe in gameObjectListsByType["Pipe"])
-                {
-                    collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
-                    intersection = collisionDetecter.intersection;
+                    collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
+                    if (!Mario.IsDead())
+                    {
+                        enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler.HandleCollision(enemy);
+                        marioHandler = new MarioEnemyCollisionHandler(enemy);
+                        marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                    }
+                    foreach (IBlock block in gameObjectListsByType["Block"])
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection,collisionFound);
+                        enemyHandler.HandleCollision(enemy);
 
-                    enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection);
-                    enemyHandler.HandleCollision(enemy, collisionFound);
+                    }
+                    foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
+                        intersection = collisionDetecter.intersection;
 
+                        enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
+                        enemyHandler.HandleCollision(enemy);
+
+                    }
+                    foreach (IEnemy goomba in gameObjectListsByType["Enemy"])
+                    {
+                        if (enemy.IsKoopa() && goomba.IsGoomba())
+                        {
+                            collisionFound = collisionDetecter.Collision(enemy.Box, goomba.Box);
+                            intersection = collisionDetecter.intersection;
+                            enemyHandler = new EnemyEnemyCollisionHandler(goomba, intersection,collisionFound);
+                            enemyHandler.HandleCollision(enemy);
+                        }
+                    }
                 }
             }
-                       foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
-                    {
-                        collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                        if (collisionFound != Direction.None && !Mario.IsDead())
-                        {
-                            enemyHandler = new EnemyMarioCollisionHandler(Mario);
-                            intersection = collisionDetecter.intersection;
-                            enemyHandler.HandleCollision(enemy, collisionFound);
-                            marioHandler = new MarioEnemyCollisionHandler(enemy);
-                            marioHandler.HandleCollision(Mario, collisionFound, intersection);
-                        }
-                        foreach (IEnemy anotherEnemy in gameObjectListsByType["Enemy"])
-                            {
-                    if (!enemy.Equals(anotherEnemy))
-                    {
-                        collisionFound = collisionDetecter.Collision(enemy.Box, anotherEnemy.Box);
-                        intersection = collisionDetecter.intersection;
-                        enemyHandler = new EnemyEnemyCollisionHandler(anotherEnemy,intersection);
-                        enemyHandler.HandleCollision(enemy, collisionFound);
-                    }
-                }
-                    }
-                
             
             foreach (IBlock pipe in gameObjectListsByType["Pipe"])
             {

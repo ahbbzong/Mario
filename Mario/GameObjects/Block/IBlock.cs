@@ -17,6 +17,7 @@ namespace Game1
         void React();
         bool IsBumpedBlockState();
        bool IsBumpedBreakBlock();
+        bool IsFloorBlock();
        
     }
 }

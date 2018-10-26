@@ -26,8 +26,6 @@ namespace Mario.Collision
             if ((block.IsQuestionBlock() || (block.IsHiddenBlock() && !mario.Isfalling()))
                 && result.Equals(Direction.Down))
             {
-                //should be put into react if it work
-
                 block.React();
 
                 if (mario.IsNormalMario())
@@ -43,19 +41,11 @@ namespace Mario.Collision
             {
                 block.React();
             }
-            BlockMovement(block, result);
         }
 
-		public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
-		{
-			HandleCollision((IBlock)source,(IMario)target, direction);
-
-        }
-        public void BlockMovement(IBlock block, Direction result)
+        public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
         {
-            if(block.IsBreakableBlock() && result.Equals(Direction.Down))
-            {
-            }
+            HandleCollision((IBlock)source, (IMario)target, direction);
         }
 	}
 }

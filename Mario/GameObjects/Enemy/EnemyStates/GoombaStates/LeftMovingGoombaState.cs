@@ -3,7 +3,6 @@ using Mario.AbstractClass;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
-using Mario.GameObjects.Enemy.EnemyStates.KoopaStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -11,32 +10,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class LeftMovingKoopaState : EnemyState
+    public class LeftMovingGoombaState : EnemyState
     {
-        public LeftMovingKoopaState(Enemy enemy) : base(enemy)
+        public LeftMovingGoombaState(Enemy enemy):base(enemy)
         {
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.MovingLeft.ToString()]);
-			enemy.Velocity = -Vector2.UnitX;
-        }
-        public override void TurnRight()
-        {
-            enemy.EnemyState = new RightMovingKoopaState(enemy);
-        }
-        public override void Beflipped()
-        {
-            enemy.EnemyState = new FlippedKoopaState(enemy);
+			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.MovingLeft.ToString()]);
+
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StompedKoopaState(enemy);
+            enemy.EnemyState = new StomppedGoombaState(enemy);
         }
-       
-        public override bool IsKoopa()
+        public override void Beflipped()
+        {
+            enemy.EnemyState = new FlippedGoombaState(enemy);
+        }
+        public override bool IsGoomba()
         {
             return true;
+        }
+        public override void TurnRight()
+        {
+            enemy.EnemyState = new RightMovingGoombaState(enemy);
         }
         public override void Update()
         {

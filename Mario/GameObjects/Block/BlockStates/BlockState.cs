@@ -70,5 +70,10 @@ namespace Mario.BlockStates
         {
             return false;
         }
+
+        public virtual bool IsFloorBlock()
+        {
+            return false;
+        }
     }
 }

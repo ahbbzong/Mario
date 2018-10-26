@@ -79,7 +79,7 @@ namespace Mario
 
         public void ResetGravity()
         {
-            YVelocity = 0.0f; 
+            YVelocity = 0.0f;
         }
         public void ReverseYVelocity()
         {

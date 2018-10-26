@@ -54,16 +54,10 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemSprite.Draw(spriteBatch, ItemLocation);
         }
-
-        public virtual ref Vector2 Getposition()
-        {
-            return ref ItemLocation;
-        }
-
         public virtual void IsLandTrue()
         {
 
-                Physics.ResetGravity();
+            Physics.ResetGravity();
             IsLand = true;
         }
 
@@ -77,16 +71,16 @@ namespace Mario.Classes.BlocksClasses
             return false;
         }
 
-        public void TurnLeft()
+        public virtual void TurnLeft()
         {
             velocity = -Vector2.UnitX;
         }
 
-        public void TurnRight()
+        public virtual void TurnRight()
         {
             velocity = Vector2.UnitX;
         }
-        public void Move()
+        public virtual void Move()
         {
             ItemLocation += velocity;
         }

@@ -14,6 +14,7 @@ namespace Game1
         bool IsQuestionBlock();
         bool IsBumpedBlockState();
         bool IsBumpedBreakBlock();
+        bool IsFloorBlock();
        
     }
 }

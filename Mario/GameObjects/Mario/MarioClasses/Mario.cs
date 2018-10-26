@@ -106,11 +106,8 @@ namespace Mario
         }
 		public void Down()
 		{
-			
-			if(!(MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal && MarioMovementState.MarioMovementType != MarioMovementType.LeftJump && MarioMovementState.MarioMovementType != MarioMovementType.RightJump))
-			{
-				MarioMovementState.Down();
-			}
+
+            MarioMovementState.Down();
         }
         public void Left()
         {
@@ -202,7 +199,6 @@ namespace Mario
         {
             Physics.ResetGravity();
             Island = true;
-            MarioMovementState.NoInput();
         }
         public void IsLandFlase()
         {
@@ -211,11 +207,10 @@ namespace Mario
 
         public void NoInput()
         {
-            if (!IsUp())
-            {
-                MarioMovementState.NoInput();
-                Physics.ApplyFriction();
-            }
+            
+            MarioMovementState.NoInput();
+            Physics.ApplyFriction();
+            
         }
             
             

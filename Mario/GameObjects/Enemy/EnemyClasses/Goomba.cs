@@ -13,7 +13,7 @@ namespace Mario.EnemyClasses
 
         public Goomba(Vector2 location) : base(location)
         {
-            EnemyState = new MovingGoombaState(this);
+            EnemyState = new LeftMovingGoombaState(this);
 			Velocity = -Vector2.UnitX;
             Type = EnemyType.Goomba;
         }

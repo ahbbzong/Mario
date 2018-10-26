@@ -24,13 +24,6 @@ namespace Mario.Classes.BlocksClasses
                 return new Rectangle((int)BlockLocation.X, (int)BlockLocation.Y, BlockState.getWidth, BlockState.getHeight);
             }
         }
-
-
-        public float XVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float XVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float YVelocityMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
         protected Block(Vector2 location)
         {
             BlockLocation = location;
@@ -59,14 +52,19 @@ namespace Mario.Classes.BlocksClasses
             return BlockState.IsQuestionBlock();
         }
 
-        public bool IsBumpedBlockState()
+        public virtual bool IsBumpedBlockState()
         {
             return BlockState.IsBumpedBlockState();
         }
 
-        public bool IsBumpedBreakBlock()
+        public virtual bool IsBumpedBreakBlock()
         {
             return BlockState.IsBumpedBreakBlock();
+        }
+
+        public virtual bool IsFloorBlock()
+        {
+            return BlockState.IsFloorBlock();
         }
 
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }

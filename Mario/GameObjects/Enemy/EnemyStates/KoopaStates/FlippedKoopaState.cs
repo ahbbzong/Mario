@@ -19,10 +19,7 @@ namespace Mario.EnemyStates.GoombaStates
         {
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Flipped.ToString()]);
         }
-        public override void BeKilled()
-        {
-            enemy.EnemyState = new DeadKoopaState(enemy);
-        }
+        
         public override bool IsFlipped()
         {
             return true;

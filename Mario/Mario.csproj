@@ -51,6 +51,11 @@
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\TransitionStateMarioDecorator.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\FlippedGoombaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\LeftMovingGoombaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedMovingUtil.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftStompedKoopaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightStompedKoopaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
@@ -121,15 +126,11 @@
     <Compile Include="Command\MarioCommand\LeftCommand.cs" />
     <Compile Include="Command\MarioCommand\RightCommand.cs" />
     <Compile Include="Command\MarioCommand\UpCommand.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\MovingGoombaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\RightMovingGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\StomppedGoombaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\DeadKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\FlippedKoopaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftMovingStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftMovingKoopaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
     <Compile Include="Enums\BackgroundType.cs" />
     <Compile Include="Enums\BlockType.cs" />
     <Compile Include="Enums\Direction.cs" />
@@ -151,7 +152,7 @@
     <Compile Include="Factory\SimpleGameObjectFactory.cs" />
     <Compile Include="Factory\SpriteFactory.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Collision\Collision Handler\ICollisionHandler.cs" />
+    <Compile Include="Collision\Collision Handler\MarioCollisionHandler\ICollisionHandler.cs" />
     <Compile Include="Collision\Collision Handler\ProjectileCollisionHandler\IProjectileCollisionHandler.cs" />
     <Compile Include="CameraClasses\ICamera.cs" />
     <Compile Include="GameObjects\IGameObject.cs" />

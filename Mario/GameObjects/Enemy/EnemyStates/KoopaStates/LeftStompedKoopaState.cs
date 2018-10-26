@@ -3,6 +3,7 @@ using Mario.AbstractClass;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Enemy.EnemyStates.KoopaStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,28 +14,42 @@ using System.Threading.Tasks;
 
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class LeftMovingStompedKoopaState : EnemyState
+    public class LeftStompedKoopaState : EnemyState
     {
-        public LeftMovingStompedKoopaState(Enemy enemy) : base(enemy)
+        public LeftStompedKoopaState(Enemy enemy):base(enemy)
         {
+            this.enemy = enemy;
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Stomped.ToString()]);
-
+			enemy.Velocity = Vector2.Zero;
         }
-        public override void TurnRight()
+        public override bool IsLeftStomped()
         {
-            enemy.EnemyState = new RightMovingStompedKoopaState(enemy);
+            return true;
         }
+       
         public override void Beflipped()
         {
             enemy.EnemyState = new FlippedKoopaState(enemy);
         }
-        public override void BeKilled()
-        {
-            enemy.EnemyState = new DeadKoopaState(enemy);
-        }
+       
         public override bool IsKoopa()
         {
             return true;
+        }
+        public override void TurnRight()
+        {
+            enemy.EnemyState = new RightStompedKoopaState(enemy);
+
+
+        }
+        public override void Update()
+        {
+            EnemySprite.Update();
+            if (!enemy.Island)
+            {
+                enemy.Physics.Update();
+            }
+            enemy.Position -= StompedMovingUtil.Util;
         }
 
     }
