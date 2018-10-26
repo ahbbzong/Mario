@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mario.GameObjects.Enemy.EnemyStates.KoopaStates
+namespace Game1
 {
-    class StompedMovingUtil
+    public class LocationOffset
     {
-        public static Vector2 Util = new Vector2(5, 0);
+        public static Vector2 Until = new Vector2(0,9999);
     }
 }

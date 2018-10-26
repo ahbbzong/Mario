@@ -14,11 +14,9 @@ namespace Mario.Collision
     public class BlockHandler : IBlockCollisionHandler
     {
         private IMario mario;
-        private int locationOffset;
         public BlockHandler(IMario mario)
         {
             this.mario = mario;
-            locationOffset = 9999;
     }
         public void HandleCollision(IBlock block, IMario mario, Direction result)
         {
@@ -27,6 +25,8 @@ namespace Mario.Collision
                 && result.Equals(Direction.Down))
             {
                 block.React();
+                
+
 
                 if (mario.IsNormalMario())
                 {

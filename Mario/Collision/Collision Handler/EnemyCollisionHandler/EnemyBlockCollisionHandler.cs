@@ -26,20 +26,22 @@ namespace Mario.Collision.EnemyCollisionHandler
             switch (result)
                 {
                     case Direction.Up:
-                        enemy.Position -= new Vector2(0,intersection.Height);
-                        EnemyBumpedBlockReact(enemy);
+                    enemy.Position -= Vector2.UnitY * intersection.Height;
+                    EnemyBumpedBlockReact(enemy);
                         break;
                     case Direction.Down:
-                        enemy.Position += new Vector2(0, intersection.Height);
+                        enemy.Position += Vector2.UnitY * intersection.Height;
                         break;
                     case Direction.Left:
-                        enemy.Position -= new Vector2(intersection.Width, 0);
-                        enemy.TurnLeft();
-                        break;
+                    enemy.Position -= Vector2.UnitX * intersection.Width;
+                    enemy.TurnLeft();
+
+                    break;
                     case Direction.Right:
-                        enemy.Position += new Vector2(intersection.Width, 0);
-                        enemy.TurnRight();
-                        break;
+                    enemy.Position += Vector2.UnitX * intersection.Width;
+                    enemy.TurnRight();
+
+                    break;
                    
                 }
             

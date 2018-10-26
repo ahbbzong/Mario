@@ -11,14 +11,12 @@ namespace Mario.Collision.ItemCollisionHandler
 {
     public class ItemMarioCollisionHandler : IItemCollisionHandler
     {
-        private int locationOffset;
         public ItemMarioCollisionHandler()
         {
-            locationOffset = 9999;
         }
         public void HandleCollision(IItem item)
         {
-            item.Position += Vector2.UnitY*locationOffset;
+            item.Position += Vector2.UnitY * LocationOffset.Until;
         }
     }
 }

@@ -132,6 +132,12 @@
     <YLocation>432</YLocation>
   </BlockXML>
 
+  -<PipeXML>
+    <BlockType>Pipe</BlockType>
+    <XLocation>576</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
     <XLocation>448</XLocation>
@@ -156,13 +162,8 @@
     <YLocation>818</YLocation>
   </EnemyXML>
 
-  -<PipeXML>
-    <BlockType>Pipe</BlockType>
-    <XLocation>576</XLocation>
-    <YLocation>800</YLocation>
-  </PipeXML>
-  
- //start of level 1-1
+
+  //start of level 1-1
   -<BackgroundXML>
     <BackgroundType>MountainBig</BackgroundType>
     <XLocation>650</XLocation>

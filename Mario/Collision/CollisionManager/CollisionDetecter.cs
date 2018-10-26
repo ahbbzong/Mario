@@ -25,7 +25,7 @@ namespace Mario.Collision
                     {
                         resultFirst = DetectTopOrBottomCollision(firstRecDetect, secondRecDetect);
                     }
-                    else if (intersection.Height >= intersection.Width)
+                    else if (intersection.Height > intersection.Width)
                     {
                        resultFirst = DetectLeftOrRightCollision(firstRecDetect, secondRecDetect);
                     }
@@ -49,7 +49,7 @@ namespace Mario.Collision
         }
         private static Direction DetectLeftOrRightCollision(Rectangle firstRecDetect, Rectangle secondRecDetect)
         {
-            if (firstRecDetect.Right >= secondRecDetect.Left && firstRecDetect.Right <= secondRecDetect.Right)
+            if (firstRecDetect.Right > secondRecDetect.Left && firstRecDetect.Right < secondRecDetect.Right)
             {
                 return Direction.Left;
             }

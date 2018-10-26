@@ -37,7 +37,7 @@ namespace Mario.AbstractClass
         protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
-			Island = true;
+			Island = false;
             Physics = new Physics(this);
         }
 		

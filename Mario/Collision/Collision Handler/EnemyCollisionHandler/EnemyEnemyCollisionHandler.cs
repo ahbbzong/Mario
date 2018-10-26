@@ -23,27 +23,10 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemy)
         {
                 GoombaKoopaReact(enemy, result);
-                switch (result)
-                {
-                    case Direction.Up:
-                        enemy.Position -= Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Down:
-                        enemy.IsLandTrue();
-                        enemy.Position += Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Left:
-                        NonStompedKoopaReact(enemy,result);
-                        this.enemy.TurnRight();
-                        break;
-                    case Direction.Right:
-                        NonStompedKoopaReact(enemy, result);
-                        this.enemy.TurnLeft();
-                        break;
-                    case Direction.None:
-                        enemy.IsLandFalse();
-                        break;
-                }
+            if (!this.enemy.IsGoombaStomped())
+            {
+                CollisionCondition(enemy);
+            }
 
         }
         public void GoombaKoopaReact(IEnemy enemy, Direction result)
@@ -65,6 +48,30 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 enemy.Position += Vector2.UnitX * intersection.Width;
                 enemy.TurnRight();
+            }
+        }
+        private void CollisionCondition(IEnemy enemy)
+        {
+            switch (result)
+            {
+                case Direction.Up:
+                    enemy.Position -= Vector2.UnitY * intersection.Height;
+                    break;
+                case Direction.Down:
+                    enemy.IsLandTrue();
+                    enemy.Position += Vector2.UnitY * intersection.Height;
+                    break;
+                case Direction.Left:
+                    NonStompedKoopaReact(enemy, result);
+                    this.enemy.TurnRight();
+                    break;
+                case Direction.Right:
+                    NonStompedKoopaReact(enemy, result);
+                    this.enemy.TurnLeft();
+                    break;
+                case Direction.None:
+                    enemy.IsLandFalse();
+                    break;
             }
         }
     }
