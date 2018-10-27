@@ -96,8 +96,15 @@ namespace Mario
         }
 		public void Up()
         {
-            if(!IsUp())
-            MarioMovementState.Up();
+            if (!Isfalling())
+            {
+                if (IsLandResponse())
+                {
+                    Island = false;
+                }
+                MarioMovementState.Up();
+                Physics.Jump();
+            }
         }
         public bool IsUp()
         {
@@ -105,25 +112,38 @@ namespace Mario
         }
 		public void Down()
 		{
-			
-			if(!(MarioPowerupState is NormalMarioPowerupState && !(MarioMovementState is LeftJumpingMarioMovementState) && !(MarioMovementState is RightJumpingMarioMovementState)))
-			{
-				MarioMovementState.Down();
-			}
+
+            MarioMovementState.Down();
         }
         public void Left()
         {
-            if (!IsRight())
+            if (Island)
             {
+                Physics.MoveLeft();
                 MarioMovementState.Left();
             }
-
+            else
+            {
+                Physics.JumpLeft();
+            }
         }
         public void Right()
         {
-            if (!IsLeft())
+            if (Island)
             {
+                Physics.MoveRight();
                 MarioMovementState.Right();
+            }
+            else
+            {
+                Physics.JumpRight();
+            }
+        }
+        public void Sprint()
+        {
+            if (Island)
+            {
+                Physics.Sprint();
             }
         }
         public void Dead()
@@ -174,14 +194,6 @@ namespace Mario
             {
                 Physics.Update();
             }
-            if(Physics.YVelocity>0)
-            {
-                fall = true;
-            }
-            else
-            {
-                fall = false;
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -199,12 +211,8 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            count++;
             Physics.ResetGravity();
             Island = true;
-            MarioMovementState.NoInput();
-
-
         }
         public void IsLandFlase()
         {
@@ -213,11 +221,7 @@ namespace Mario
 
         public void NoInput()
         {
-            if (!IsUp())
-            {
-                MarioMovementState.NoInput();
-                Physics.ApplyFriction();
-            }
+            MarioMovementState.NoInput();
         }
             
             
@@ -239,7 +243,11 @@ namespace Mario
         {
             return MarioMovementState is RightRunningMarioMovementState;
         }
-
+        public bool IsCrouch()
+        {
+            return MarioMovementState.MarioMovementType == MarioMovementType.LeftCrouch
+                  || MarioMovementState.MarioMovementType == MarioMovementType.RightCrouch;
+        }
 		public void TakeDamage()
 		{
 			MarioPowerupState.TakeDamage();
@@ -250,5 +258,17 @@ namespace Mario
 
 			MarioSprite.Draw(spriteBatch, location,c);
 		}
-	}
+
+        public void SetFalling(bool previousFall)
+        {
+
+            fall = previousFall;
+            
+        }
+
+        public bool IsLandResponse()
+        {
+            return Island;
+        }
+    }
 }

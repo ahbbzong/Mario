@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class MovingGoombaState : EnemyState
+    public class LeftMovingGoombaState : EnemyState
     {
-        public MovingGoombaState(Enemy enemy):base(enemy)
+        public LeftMovingGoombaState(Enemy enemy):base(enemy)
         {
 			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
         }
@@ -30,6 +30,19 @@ namespace Mario.EnemyStates.GoombaStates
         public override bool IsGoomba()
         {
             return true;
+        }
+        public override void TurnRight()
+        {
+            enemy.EnemyState = new RightMovingGoombaState(enemy);
+        }
+        public override void Update()
+        {
+            EnemySprite.Update();
+            if (!enemy.Island)
+            {
+                enemy.gravityManagement.Update();
+            }
+            enemy.Position -= Vector2.UnitX;
         }
 
 

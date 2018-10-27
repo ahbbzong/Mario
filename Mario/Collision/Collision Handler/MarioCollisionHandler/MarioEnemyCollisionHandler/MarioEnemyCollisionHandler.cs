@@ -13,61 +13,43 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
     {
         IEnemy enemy;
         public MarioEnemyCollisionHandler(IEnemy enemy)
-        {
+        { 
             this.enemy = enemy;
+        }
+        public void PositionAdjustment(IMario mario, Direction result, Rectangle intersection)
+        {
+            switch (result)
+            {
+                case Direction.Up:
+                    mario.Position -= new Vector2(0, intersection.Height);
+                    mario.Physics.ReverseYVelocity();
+                    break;
+                case Direction.Down:
+                    mario.Position += new Vector2(0, intersection.Height);
+                    break;
+                case Direction.Left:
+                    mario.Position -= new Vector2(intersection.Width, 0);
+                    break;
+                case Direction.Right:
+                    mario.Position += new Vector2(intersection.Width, 0);
+                    break;
+            }
+            MarioReact(mario, result);
         }
         public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
         {
             
-            if (enemy.IsKoopa() && !enemy.IsFlipped() || enemy.IsGoomba() && !enemy.IsStomped())
+            if (!enemy.IsGoombaStomped())
             {
-                switch (result)
-                {
-                    case Direction.Up:
-                        mario.Position -= new Vector2(0,intersection.Height);
-                        mario.Physics.ReverseYVelocity();
-                        break;
-                    case Direction.Down:
-                        mario.Position += new Vector2(0,intersection.Height);
-                        break;
-                    case Direction.Left:
-                        mario.Position -= new Vector2(intersection.Width,0);
-                        break;
-                    case Direction.Right:
-                        mario.Position += new Vector2(intersection.Width,0);
-                        break;
-                }
-            }MarioState(mario,result);
-        }
-        public void MarioState(IMario mario,Direction result)
-        {
-            if (enemy.IsGoomba())
-            {
-                if (!enemy.IsStomped())
-                {
-                    MarioTakeDamage(mario);
-                }
+                PositionAdjustment(mario, result, intersection);
             }
-            else if (enemy.IsKoopa())
+        }
+        public void MarioReact(IMario mario,Direction result)
+        {
+            if ((!enemy.IsLeftStomped()&&result.Equals(Direction.Right)|| !enemy.IsRightStomped() && result.Equals(Direction.Left))
+                && !enemy.IsFlipped()&&!enemy.IsGoombaStomped()&&!enemy.IsKoopaStomped())
             {
-                if (enemy.IsStomped()&&(result.Equals(Direction.Left)))
-                {
-                    if (enemy.IsMoving)
-                    {
-                        MarioTakeDamage(mario);
-                    }
-                }
-                else if(enemy.IsStomped() && (result.Equals(Direction.Right)))
-                {
-                    if (enemy.IsMoving)
-                    {
-                        MarioTakeDamage(mario);
-                    }
-                }
-                else if (!enemy.IsStomped()&&!enemy.IsFlipped())
-                {
-                    MarioTakeDamage(mario);
-                }
+                MarioTakeDamage(mario);
             }
             
         }

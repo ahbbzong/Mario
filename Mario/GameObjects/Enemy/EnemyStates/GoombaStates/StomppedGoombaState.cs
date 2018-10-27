@@ -22,7 +22,7 @@ namespace Mario.EnemyStates.GoombaStates
             enemy.Velocity = Vector2.Zero;
         }
 
-        public override bool IsStomped()
+        public override bool IsGoombaStomped()
         {
             return true;
 
@@ -42,6 +42,7 @@ namespace Mario.EnemyStates.GoombaStates
                 EnemySprite.Draw(spriteBatch, location);
             }
         }
+
 
 
     }

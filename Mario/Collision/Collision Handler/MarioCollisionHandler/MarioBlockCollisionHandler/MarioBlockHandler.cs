@@ -13,7 +13,6 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
     {
         public MarioBlockHandler()
         {
-            //No need to fill.
         }
         public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
         {

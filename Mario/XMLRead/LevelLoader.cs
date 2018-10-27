@@ -225,7 +225,7 @@ namespace Mario.XMLRead
 				{typeof(MountainBig).Name, typeof(MountainBig) },
 				{typeof(MountainSmall).Name, typeof(MountainSmall) },
 
-				{typeof(BreakableBlock).Name, typeof(UnbreakableBlock) },
+				{typeof(BreakableBlock).Name, typeof(BreakableBlock) },
 				{typeof(FloorBlock).Name, typeof(FloorBlock) },
 				{typeof(HiddenBlock).Name, typeof(HiddenBlock) },
 				{typeof(Pipe).Name, typeof(Pipe) },

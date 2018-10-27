@@ -82,55 +82,65 @@ namespace Mario.XMLRead
                 controller.Initialize((IMario)gameObjectListsByType[typeof(IMario)][0]);
             }
 		}
-        public void TestingCollision()
+		public void TestingCollision()
 
-        {
-            IMario mario = (IMario)gameObjectListsByType[typeof(IMario)][0];
-            Direction collisionFound;
-            Rectangle intersection;
-            IBlockCollisionHandler blockHandler;
-            IItemCollisionHandler itemHandler;
-            IEnemyCollisionHandler enemyHandler;
-            IMarioCollisionHandler marioHandler;
-            IBlockCollisionHandler pipeHandler;
-            IProjectileCollisionHandler projectileCollisionHandler;
-            CollisionDetecter collisionDetecter = new CollisionDetecter();
+		{
+			IMario mario = (IMario)gameObjectListsByType[typeof(IMario)][0];
+			Direction collisionFound;
+			Rectangle intersection;
+			IBlockCollisionHandler blockHandler;
+			IItemCollisionHandler itemHandler;
+			IEnemyCollisionHandler enemyHandler;
+			IMarioCollisionHandler marioHandler;
+			IBlockCollisionHandler pipeHandler;
+			IProjectileCollisionHandler projectileCollisionHandler;
+			CollisionDetecter collisionDetecter = new CollisionDetecter();
 
-            //TO DO: make gameobject interface and make lists with objects in the screen
+			//TO DO: make gameobject interface and make lists with objects in the screen
 
-            //CHECK with camera
-            collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
-            intersection = collisionDetecter.intersection;
-            if (!collisionFound.Equals(Direction.None))
-            { 
-                 mario.Position += new Vector2( intersection.Width,0);
-            }
+			//CHECK with camera
+			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
+			intersection = collisionDetecter.intersection;
+			if (!collisionFound.Equals(Direction.None))
+			{
+				mario.Position += new Vector2(intersection.Width, 0);
+			}
 
             //other checking
-            foreach (IProjectile projectile in gameObjectListsByType[typeof(IProjectile)])
+            foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
             {
-                foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
+                foreach (IBlock block in gameObjectListsByType["Block"])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
                     intersection = collisionDetecter.intersection;
                     projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
-                foreach (IEnemy enemy in gameObjectListsByType[typeof(IEnemy)])
+                foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                {
+                    collisionFound = collisionDetecter.Collision(projectile.Box, pipe.Box);
+                    intersection = collisionDetecter.intersection;
+
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(pipe, intersection,collisionFound);
+                    projectileCollisionHandler.HandleCollision(projectile);
+
+                }
+                foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
                 {
 
                     projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
-                    enemyHandler = new EnemyProjectileCollisionHandler(projectile);
                     collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
+                    enemyHandler = new EnemyProjectileCollisionHandler(projectile,collisionFound);
                     if (collisionFound != Direction.None)
                     {
-                        enemyHandler.HandleCollision(enemy, collisionFound);
+                        enemyHandler.HandleCollision(enemy);
                         projectileCollisionHandler.HandleCollision(projectile);
                     }
                 }
             }
-            foreach (IItem obj in gameObjectListsByType[typeof(IItem)])
+            foreach (IItem obj in gameObjectListsByType["Item"])
 			{
+				IItem obj = (IItem)gameObjectListsByType[typeof(IItem)][j];
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
 				if (collisionFound != Direction.None && !Mario.IsDead())
 				{
@@ -139,74 +149,78 @@ namespace Mario.XMLRead
 					itemHandler.HandleCollision(obj);
 					CallMarioItemHandler(obj, collisionFound, intersection);
 				}
-                foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
-                {
-                    collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
-                    intersection = collisionDetecter.intersection;
-                    itemHandler = new ItemBlockCollisionHandler(block,intersection,collisionFound);
-                    itemHandler.HandleCollision(obj);
-                }
-                foreach (IBlock pipe in gameObjectListsByType[typeof(IPipe)])
-                {
-                    collisionFound = collisionDetecter.Collision(obj.Box, pipe.Box);
-                    intersection = collisionDetecter.intersection;
-                    itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
-                    itemHandler.HandleCollision(obj);
-                }
-
-            }
-			foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
-            {
-                collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
-                if (!Mario.IsDead())
-                {
-                    float storedLocation = block.Position.Y;
-                    intersection = collisionDetecter.intersection;
-                    blockHandler = new BlockHandler(Mario);
-                    blockHandler.HandleCollision(block, Mario, collisionFound);
-                    CallMarioBlockHandler(block, collisionFound, intersection);
-                }
-            }
+				for (int i = gameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
+				{
+					IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
+					intersection = collisionDetecter.intersection;
+					itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
+					itemHandler.HandleCollision(obj);
+				}
+				for (int i = gameObjectListsByType[typeof(IPipe)].Count - 1; i >= 0; i--)
+				{
+					IBlock pipe = (IBlock)gameObjectListsByType[typeof(IPipe)][i];
+					collisionFound = collisionDetecter.Collision(obj.Box, pipe.Box);
+					intersection = collisionDetecter.intersection;
+					itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
+					itemHandler.HandleCollision(obj);
+				}
+			}
+			for (int j = gameObjectListsByType[typeof(IBlock)].Count - 1; j >= 0; j--)
+			{
+				IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][j];
+				collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
+				if (!Mario.IsDead())
+				{
+					float storedLocation = block.Position.Y;
+					intersection = collisionDetecter.intersection;
+					blockHandler = new BlockHandler(Mario);
+					blockHandler.HandleCollision(block, Mario, collisionFound);
+					CallMarioBlockHandler(block, collisionFound, intersection);
+				}
+			}
             foreach (IEnemy enemy in gameObjectListsByType[typeof(IEnemy)])
             {
-                foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
+                if (!enemy.IsFlipped())
                 {
-                    collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
-                    intersection = collisionDetecter.intersection;
-                  
-                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection);
-                        enemyHandler.HandleCollision(enemy, collisionFound);
-                    
-                }
-                foreach (IBlock pipe in gameObjectListsByType[typeof(IPipe)])
-                {
-                    collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
-                    intersection = collisionDetecter.intersection;
+                    collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
+                    if (!Mario.IsDead())
+                    {
+                        enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler.HandleCollision(enemy);
+                        marioHandler = new MarioEnemyCollisionHandler(enemy);
+                        marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                    }
+                    foreach (IBlock block in gameObjectListsByType["Block"])
+                    {
+                        if (!block.IsHiddenBlock())
+                        {
+                            collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
+                            intersection = collisionDetecter.intersection;
+                            enemyHandler = new EnemyBlockCollisionHandler(block, intersection, collisionFound);
+                            enemyHandler.HandleCollision(enemy);
+                        }
 
-                    enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection);
-                    enemyHandler.HandleCollision(enemy, collisionFound);
+                    }
+                    foreach (IBlock pipe in gameObjectListsByType["Pipe"])
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
+                        intersection = collisionDetecter.intersection;
+
+                        enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
+                        enemyHandler.HandleCollision(enemy);
 
                 }
             }
                        foreach (IEnemy enemy in gameObjectListsByType[typeof(IEnemy)])
                     {
-                        collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                        if (collisionFound != Direction.None && !Mario.IsDead())
+                        if (enemy.IsKoopa() && goomba.IsGoomba())
                         {
-                            enemyHandler = new EnemyMarioCollisionHandler(Mario);
+                            collisionFound = collisionDetecter.Collision(enemy.Box, goomba.Box);
                             intersection = collisionDetecter.intersection;
-                            enemyHandler.HandleCollision(enemy, collisionFound);
-                            marioHandler = new MarioEnemyCollisionHandler(enemy);
-                            marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                            enemyHandler = new EnemyEnemyCollisionHandler(goomba, intersection,collisionFound);
+                            enemyHandler.HandleCollision(enemy);
                         }
-                        foreach (IEnemy anotherEnemy in gameObjectListsByType[typeof(IEnemy)])
-                            {
-                    if (!enemy.Equals(anotherEnemy))
-                    {
-                        collisionFound = collisionDetecter.Collision(enemy.Box, anotherEnemy.Box);
-                        intersection = collisionDetecter.intersection;
-                        enemyHandler = new EnemyEnemyCollisionHandler(anotherEnemy,intersection);
-                        enemyHandler.HandleCollision(enemy, collisionFound);
                     }
                 }
                     }
@@ -282,48 +296,48 @@ namespace Mario.XMLRead
         //add a big mushroom, star, 1plus mushroom, or a coin behind the block
         public void AddNormalItem(IBlock block)
         {
-			Type IItemType = Type.GetType("IItem");
+			Type IItemType = typeof(IItem);
             Random rnd = new Random();
             int itemChoose = rnd.Next(1, 8);
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("Coin"), new Vector2(block.Position.X, block.Position.Y-30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y-30)));
                     break;
                 case 2:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("Starman"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("OneUpMushroom"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
 
                 case 4:
                 case 5:
                 case 6:
                 case 7:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("MagicMushroom"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
         }
         //add a fire flower, 1plus mushroom, or a coin behind the block
         public void AddBigItem(IBlock block)
         {
-			Type IItemType = Type.GetType("IItem");
+			Type IItemType = typeof(IItem);
             Random rnd = new Random();
             int itemChoose = rnd.Next(1, 5);
             switch (itemChoose)
             {
                 case 1:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("Coin"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 2:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("FireFlower"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 3:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("Starman"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
                 case 4:
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(Type.GetType("OneUpMushroom"), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
         }

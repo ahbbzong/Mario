@@ -29,25 +29,21 @@ namespace Mario.AbstractClass
 
 		private Vector2 velocity = Vector2.Zero;
 		public Vector2 Velocity { get => velocity; set => velocity = value; }
-		private bool Fall { get; set; }
 		public bool Island { get; set; }
-        public Physics Physics { get; set; }
-        public bool IsMoving { get; set; }
+        public GravityManagement gravityManagement { get; set; }
+
 
         protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
-			Island = true;
-			Fall = false;
-            IsMoving = false;
-            Physics = new Physics(this);
+			Island = false;
+            gravityManagement = new GravityManagement(this);
         }
-		
+
 
         public virtual void Update()
         {
             EnemyState.Update();
-			Move();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -63,39 +59,26 @@ namespace Mario.AbstractClass
         public virtual void BeStomped()
         {
             EnemyState.BeStomped();
-            IsMoving = false;
         }
 
         public virtual void TurnLeft()
         {
-			velocity = -Vector2.UnitX;
             EnemyState.TurnLeft();
-                IsMoving = true;
-               
         }
        
 
         public virtual void TurnRight()
         {
-			velocity = Vector2.UnitX;
             EnemyState.TurnRight();
-            
-                IsMoving = true;
-                
         }
        
 
-        public virtual bool IsStomped()
+        public virtual bool IsGoombaStomped()
         {
-            return EnemyState.IsStomped();
+            return EnemyState.IsGoombaStomped();
         }
 		
-		public Vector2 Position { get => EnemyLocation; set=>EnemyLocation = value; }
-
-		public virtual void BeKilled()
-        {
-            EnemyState.BeKilled();
-        }
+		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
         public virtual bool IsFlipped()
         {
             return EnemyState.IsFlipped();
@@ -110,22 +93,33 @@ namespace Mario.AbstractClass
         {
             return EnemyState.IsKoopa();
         }
-		public void IsLandTrue()
+		public virtual void IsLandTrue()
 		{
-            Physics.ResetGravity();
+            gravityManagement.ResetGravity();
 			Island = true;
 		}
-		public void IsLandFalse()
+        public virtual void IsLandFalse()
 		{
 			Island = false;
 		}
 
-		public void Move()
+		public virtual void Move()
 		{
 			EnemyLocation += velocity;
 		}
-      
-        
 
+        public virtual bool IsLeftStomped()
+        {
+            return EnemyState.IsLeftStomped();
+        }
+
+        public virtual bool IsRightStomped()
+        {
+            return EnemyState.IsRightStomped();
+        }
+        public virtual bool IsKoopaStomped()
+        {
+            return EnemyState.IsKoopaStomped();
+        }
     }
 }

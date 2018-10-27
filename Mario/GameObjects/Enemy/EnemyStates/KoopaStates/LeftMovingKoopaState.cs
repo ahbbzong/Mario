@@ -3,6 +3,7 @@ using Mario.AbstractClass;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Enemy.EnemyStates.KoopaStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -31,15 +32,21 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.EnemyState = new StompedKoopaState(enemy);
         }
-        public override void BeKilled()
-        {
-            enemy.EnemyState = new DeadKoopaState(enemy);
-        }
+       
         public override bool IsKoopa()
         {
             return true;
         }
-        
+        public override void Update()
+        {
+            EnemySprite.Update();
+            if (!enemy.Island)
+            {
+                enemy.gravityManagement.Update();
+            }
+            enemy.Position -= Vector2.UnitX;
+        }
+
 
 
     }

@@ -3,6 +3,7 @@ using Mario.BlocksClasses;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Decorators;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,20 +12,24 @@ namespace Mario.BlockStates
 {
     class BreakableBlockState : BlockState
     {
-        public BreakableBlockState(Block block) : base(block)
+        public BreakableBlockState(IBlock block) : base(block)
         {
-        }
+
+			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
         public override void React()
         {
             if (ItemManager.Instance.Mario.IsNormalMario())
             {
-                float yPosition = block.Position.Y;
-                block.Position -= Vector2.UnitY*10.0f;
-                block.BlockState = new BumpedBreakBlockState(block);
-            }
+                float yPosition = Block.Position.Y;
+                Block.Position -= Vector2.UnitY*10.0f;
+
+				int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);
+				ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+			}
             else
             {
-                block.BlockState = new DisappearBlockState(block);
+                Block.BlockState = new DisappearBlockState(Block);
             }
         }
         public override bool IsBreakableBlock()

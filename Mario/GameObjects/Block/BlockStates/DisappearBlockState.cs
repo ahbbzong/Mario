@@ -11,9 +11,9 @@ namespace Mario.BlockStates
     public class DisappearBlockState : BlockState
     {
 
-        public DisappearBlockState(Block block) : base(block)
+        public DisappearBlockState(IBlock block) : base(block)
         {
-            blockSprite = SpriteFactory.Instance.CreateEmptySprite(0,0);
+            BlockSprite = SpriteFactory.Instance.CreateEmptySprite(0,0);
         }
 
 

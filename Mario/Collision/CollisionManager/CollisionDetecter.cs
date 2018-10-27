@@ -21,13 +21,13 @@ namespace Mario.Collision
             intersection = Rectangle.Intersect(firstRecDetect, secondRecDetect);
                 if (!intersection.IsEmpty)
                 {
-                    if (intersection.Height < intersection.Width)
+                    if (intersection.Height <= intersection.Width)
                     {
-                        resultFirst = UpOrDown(firstRecDetect, secondRecDetect);
+                        resultFirst = DetectTopOrBottomCollision(firstRecDetect, secondRecDetect);
                     }
-                    else if (intersection.Height >= intersection.Width)
+                    else if (intersection.Height > intersection.Width)
                     {
-                        resultFirst = LeftOrRight(firstRecDetect, secondRecDetect);
+                       resultFirst = DetectLeftOrRightCollision(firstRecDetect, secondRecDetect);
                     }
                 }
                 else { resultFirst = Direction.None; }
@@ -35,20 +35,21 @@ namespace Mario.Collision
             return resultFirst;
 
         }  
-        public static Direction UpOrDown(Rectangle firstRecDetect, Rectangle secondRecDetect)
+        private static Direction DetectTopOrBottomCollision(Rectangle firstRecDetect, Rectangle secondRecDetect)
         {
             if (firstRecDetect.Bottom >= secondRecDetect.Top && firstRecDetect.Bottom <= secondRecDetect.Bottom)
             {
                 return Direction.Up;
             }
-            else 
+            else
             {
                 return Direction.Down;
             }
+           
         }
-        public static Direction LeftOrRight(Rectangle firstRecDetect, Rectangle secondRecDetect)
+        private static Direction DetectLeftOrRightCollision(Rectangle firstRecDetect, Rectangle secondRecDetect)
         {
-            if (firstRecDetect.Right >= secondRecDetect.Left && firstRecDetect.Left <= secondRecDetect.Left)
+            if (firstRecDetect.Right > secondRecDetect.Left && firstRecDetect.Right < secondRecDetect.Right)
             {
                 return Direction.Left;
             }
@@ -56,6 +57,7 @@ namespace Mario.Collision
             {
                 return Direction.Right;
             }
+          
         }
     }
 }

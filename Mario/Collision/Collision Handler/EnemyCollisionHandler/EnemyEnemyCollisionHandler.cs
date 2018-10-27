@@ -13,47 +13,66 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
         Rectangle intersection;
         IEnemy enemy;
-
-
-		public EnemyEnemyCollisionHandler(IEnemy enemy,Rectangle intersection)
+        Direction result;
+        public EnemyEnemyCollisionHandler(IEnemy enemy, Rectangle intersection, Direction result)
         {
             this.intersection = intersection;
             this.enemy = enemy;
+            this.result = result;
         }
-        public void HandleCollision(IEnemy enemy, Direction result)
+        public void HandleCollision(IEnemy enemy)
         {
-            if (enemy.IsKoopa() && enemy.IsStomped()&&enemy.IsMoving&&!result.Equals(Direction.None))
+                GoombaKoopaReact(enemy, result);
+            if (!this.enemy.IsGoombaStomped())
+            {
+                CollisionCondition(enemy);
+            }
+
+        }
+        public void GoombaKoopaReact(IEnemy enemy, Direction result)
+        {
+            if (enemy.IsLeftStomped() && result.Equals(Direction.Right)
+                || enemy.IsRightStomped() && result.Equals(Direction.Left))
             {
                 this.enemy.Beflipped();
             }
-            if (!enemy.IsFlipped())
+        }
+        public void NonStompedKoopaReact(IEnemy enemy, Direction result)
+        {
+            if (!enemy.IsKoopaStomped()&& !enemy.IsRightStomped()&& result.Equals(Direction.Left))
             {
-                switch (result)
-                {
-                    case Direction.Up:
-                        enemy.Position -= Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Down:
-                        enemy.IsLandTrue();
-                        enemy.Position += Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Left:
-                        enemy.Position -= Vector2.UnitX * intersection.Width;
-                        enemy.TurnLeft();
-                        this.enemy.TurnRight();
-                        break;
-                    case Direction.Right:
-                        enemy.Position += Vector2.UnitX * intersection.Width;
-                        enemy.TurnRight();
-                        this.enemy.TurnLeft();
-                        break;
-                    case Direction.None:
-                        enemy.IsLandFalse();
-                        break;
-                }
+                enemy.Position -= Vector2.UnitX * intersection.Width;
+                enemy.TurnLeft();
+            }
+            if (!enemy.IsKoopaStomped() && !enemy.IsLeftStomped() && result.Equals(Direction.Right))
+            {
+                enemy.Position += Vector2.UnitX * intersection.Width;
+                enemy.TurnRight();
             }
         }
-
+        private void CollisionCondition(IEnemy enemy)
+        {
+            switch (result)
+            {
+                case Direction.Up:
+                    enemy.Position -= Vector2.UnitY * intersection.Height;
+                    break;
+                case Direction.Down:
+                    enemy.IsLandTrue();
+                    enemy.Position += Vector2.UnitY * intersection.Height;
+                    break;
+                case Direction.Left:
+                    NonStompedKoopaReact(enemy, result);
+                    this.enemy.TurnRight();
+                    break;
+                case Direction.Right:
+                    NonStompedKoopaReact(enemy, result);
+                    this.enemy.TurnLeft();
+                    break;
+                case Direction.None:
+                    enemy.IsLandFalse();
+                    break;
+            }
+        }
     }
-
 }

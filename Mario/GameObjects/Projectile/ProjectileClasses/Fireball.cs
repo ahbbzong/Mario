@@ -18,10 +18,11 @@ namespace Mario.ItemClasses
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[this.GetType()]);
             ProjectileState = new FireballState(this);
             Type = ProjectileType.Fireball;
-            physics = new Physics(this);
-            if (Mario.MarioMovementState is RightRunningMarioMovementState||
-                Mario.MarioMovementState is RightIdleMarioMovementState||
-                Mario.MarioMovementState is RightJumpingMarioMovementState)
+            gravityManagement = new GravityManagement(this);
+            gameObjectListsByType = ItemManager.Instance.gameObjectListsByType;
+            if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||
+                Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightJump)
             { XVelocity = 6; }
             if (Mario.MarioMovementState is LeftRunningMarioMovementState ||
                 Mario.MarioMovementState is LeftIdleMarioMovementState||

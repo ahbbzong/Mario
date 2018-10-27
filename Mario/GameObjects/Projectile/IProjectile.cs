@@ -18,7 +18,7 @@ namespace Game1
         void IsLandTrue();
         void IsLandFalse();
         void React();
-        Physics physics { get; set; }
+        GravityManagement gravityManagement { get; set; }
     }
    
 }

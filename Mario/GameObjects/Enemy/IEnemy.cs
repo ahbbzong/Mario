@@ -9,20 +9,22 @@ namespace Game1
     {
         void Beflipped();
         void BeStomped();
-        void BeKilled();
 
         void TurnLeft();
         void TurnRight();
 
-        bool IsStomped();
+        bool IsGoombaStomped();
+        bool IsKoopaStomped();
         bool IsFlipped();
         bool IsGoomba();
         bool IsKoopa();
-        bool IsMoving { get; set; }
-        
+        bool IsLeftStomped();
+        bool IsRightStomped();
+
         Rectangle Box { get; }
-		
-        Physics Physics { get; set; }
+
+        EnemyType Type { get; }
+        GravityManagement gravityManagement { get; set; }
         
 		void IsLandTrue();
         void IsLandFalse();

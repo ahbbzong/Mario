@@ -9,6 +9,6 @@ namespace Game1
 {
    public interface IEnemyCollisionHandler :ICollisionHandler
     {
-        void HandleCollision(IEnemy enemy, Direction result);
+        void HandleCollision(IEnemy enemy);
     }
 }

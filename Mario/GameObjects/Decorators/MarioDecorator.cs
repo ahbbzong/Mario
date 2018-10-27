@@ -29,6 +29,7 @@ namespace Mario.GameObjects.Decorators
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 
+		
 		public void BeFire()
 		{
 			DecoratedMario.BeFire();
@@ -143,5 +144,25 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Draw(spriteBatch, c);
 		}
-	}
+
+        public bool IsUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsCrouch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsLandResponse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFalling(bool fall)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

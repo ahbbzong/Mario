@@ -23,6 +23,8 @@ namespace Game1
         bool Isfalling();
         bool IsLeft();
         bool IsRight();
+        bool IsUp();
+        bool IsCrouch();
         void ThrowFireball();
         
         Rectangle Box { get; }
@@ -30,6 +32,8 @@ namespace Game1
         MarioPowerupState MarioPowerupState { get; set; }
         Physics Physics { get;set; }
         void IsLandTrue();
+        bool IsLandResponse();
+        void SetFalling(bool fall);
 
 		void Draw(SpriteBatch spriteBatch, Color c);
         void IsLandFlase();
