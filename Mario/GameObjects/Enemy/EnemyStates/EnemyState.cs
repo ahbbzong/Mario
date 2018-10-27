@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,13 @@ namespace Mario.AbstractClass
         {
             this.enemy = enemy;
 			//change second accessor param
-			EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][this.GetType().ToString()]);
+			try
+			{
+				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][this.GetType()]);
+			}catch(System.Collections.Generic.KeyNotFoundException e)
+			{
+				Debug.WriteLine(enemy.GetType().Name + " ," + this.GetType().Name);
+			}
 
 		}
 		public virtual void Beflipped()

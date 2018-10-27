@@ -302,7 +302,7 @@
   </PipeXML>
 
   -<BlockXML>
-    <BlockType>UnBreakableBlock</BlockType>
+    <BlockType>UnbreakableBlock</BlockType>
     <Length>9</Length>
     <XLocation>2688</XLocation>
     <YLocation>818</YLocation>

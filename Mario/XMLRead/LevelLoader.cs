@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,11 +74,11 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                if ((Type.GetType(block.BlockType).Equals(typeof(FloorBlock))) && (Type.GetType(block.BlockType).Equals(typeof(UnbreakableBlock))))
+                if ((GetType(block.BlockType).Equals(typeof(FloorBlock))) && (GetType(block.BlockType).Equals(typeof(UnbreakableBlock))))
                 {
-                    blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
+                    blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                 }
-                else if (Type.GetType(block.BlockType).Equals(typeof(FloorBlock)))
+                else if (GetType(block.BlockType).Equals(typeof(FloorBlock)))
                 {
                     int count = 0;
                     int count2 = 0;
@@ -86,7 +87,7 @@ namespace Mario.XMLRead
                     {
                         while (count2 < block.Length)
                         {
-                            blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
+                            blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                             block.XLocation += 32;
                             count2++;
                         }
@@ -104,7 +105,7 @@ namespace Mario.XMLRead
                         int startX = block.XLocation;
                         for (int i = 0; i < count; i++)
                         {
-                            blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
+                            blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                             block.XLocation = block.XLocation + 32;
                         }
                         block.YLocation = block.YLocation - 32;
@@ -126,7 +127,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> enemyList = new List<IGameObject>();
             foreach (EnemyXML enemy in myEnemyObject)
             {
-				enemyList.Add(EnemyFactory.Instance.GetGameObject(enemy.GetType(), new Vector2(enemy.XLocation, enemy.YLocation)));
+				enemyList.Add(EnemyFactory.Instance.GetGameObject(GetType(enemy.EnemyType), new Vector2(enemy.XLocation, enemy.YLocation)));
                 
             }
 			return enemyList;
@@ -143,7 +144,7 @@ namespace Mario.XMLRead
             foreach (ItemXML item in myItemObject)
             {
 				
-				itemList.Add(ItemFactory.Instance.GetGameObject(item.GetType(), new Vector2(item.XLocation, item.YLocation)));
+				itemList.Add(ItemFactory.Instance.GetGameObject(GetType(item.GameObjectType), new Vector2(item.XLocation, item.YLocation)));
             }
 			return itemList;
         }
@@ -158,8 +159,8 @@ namespace Mario.XMLRead
 			IList<IGameObject> pipeList = new List<IGameObject>();
             foreach (PipeXML pipe in myPipeObject)
             {
-                if(Type.GetType(pipe.BlockType).Equals(typeof(Pipe)))
-                    pipeList.Add(BlockFactory.Instance.GetGameObject(Type.GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
+                if(GetType(pipe.BlockType).Equals(typeof(Pipe)))
+                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
             }
 			return pipeList;
         }
@@ -173,7 +174,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
-				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(back.GetType(), new Vector2( back.XLocation, back.YLocation)));
+				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(GetType(back.BackgroundType), new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
         }
@@ -187,9 +188,9 @@ namespace Mario.XMLRead
             
             foreach (ProjectileXML projectile in myProjectileObject)
             {
-                LevelLoader.Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(projectile.GetType(), new Vector2(projectile.XLocation, projectile.YLocation)));
+                Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(GetType(projectile.projectileType), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
-            return LevelLoader.Instance.projectileList;
+            return Instance.projectileList;
         }
         public static IList<IGameObject> LoadPlayer(string file)
         {
@@ -201,10 +202,55 @@ namespace Mario.XMLRead
             IList<IGameObject> marioList = new List<IGameObject>();
             foreach (PlayerXML player in myPlayerObject)
             {
-                marioList.Add(MarioFactory.Instance.GetGameObject(player.GetType(), new Vector2(player.XLocation, player.YLocation)));
+                marioList.Add(MarioFactory.Instance.GetGameObject(typeof(IMario), new Vector2(player.XLocation, player.YLocation)));
 
             }
             return marioList;
         }
-    }
+		private static IDictionary<string, Type> typeDictionary = new Dictionary<string, Type>
+			{
+				{typeof(IMario).Name, typeof(IMario) },
+				{typeof(IBlock).Name, typeof(IBlock) },
+				{typeof(IBackground).Name,typeof(IBackground) },
+				{typeof(IEnemy).Name, typeof(IEnemy) },
+
+				{typeof(BushSingle).Name, typeof(BushSingle) },
+				{typeof(BushTriple).Name, typeof(BushTriple) },
+				{typeof(CloudSingle).Name, typeof(CloudSingle) },
+				{typeof(CloudTriple).Name, typeof(CloudTriple) },
+				{typeof(MountainBig).Name, typeof(MountainBig) },
+				{typeof(MountainSmall).Name, typeof(MountainSmall) },
+
+				{typeof(BreakableBlock).Name, typeof(UnbreakableBlock) },
+				{typeof(FloorBlock).Name, typeof(FloorBlock) },
+				{typeof(HiddenBlock).Name, typeof(HiddenBlock) },
+				{typeof(Pipe).Name, typeof(Pipe) },
+				{typeof(QuestionBlock).Name, typeof(QuestionBlock) },
+				{typeof(UnbreakableBlock).Name,typeof(UnbreakableBlock) },
+
+				{typeof(Koopa).Name, typeof(Koopa) },
+				{typeof(Goomba).Name, typeof(Goomba) },
+
+				{typeof(Coin).Name, typeof(Coin) },
+				{typeof(FireFlower).Name, typeof(FireFlower) },
+				{typeof(MagicMushroom).Name, typeof(MagicMushroom) },
+				{typeof(OneUpMushroom).Name,typeof(OneUpMushroom) },
+				{typeof(Starman).Name, typeof(Starman) },
+
+				{typeof(Mario).Name, typeof(Mario) },
+
+				{typeof(Fireball).Name, typeof(Fireball) }
+			};
+		public static Type GetType(string typeName)
+		{
+			try
+			{
+				return typeDictionary[typeName];
+			}catch(System.Collections.Generic.KeyNotFoundException e)
+			{
+				Debug.WriteLine(typeName + " is not a valid type");
+			}
+			return null;
+		}
+	}
 }

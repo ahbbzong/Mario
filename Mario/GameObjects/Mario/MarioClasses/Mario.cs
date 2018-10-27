@@ -31,7 +31,7 @@ namespace Mario
 				try
 				{
 					marioMovementState = value;
-					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.MarioMovementType.ToString()]);
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
 				}catch(System.Collections.Generic.KeyNotFoundException ex)
 				{
 					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
@@ -86,7 +86,7 @@ namespace Mario
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
-			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.MarioMovementType.ToString()]);
+			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
 			
 
 			fall = false;
