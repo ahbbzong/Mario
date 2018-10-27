@@ -12,7 +12,6 @@ namespace Game1
     {
         
   
-        ProjectileType Type { get; }
         Rectangle Box { get; }
         ProjectileState ProjectileState { get; set; }
         bool IsLand { get; set; }

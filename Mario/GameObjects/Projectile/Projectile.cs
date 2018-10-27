@@ -3,6 +3,7 @@ using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
 using Mario.Interfaces.GameObjects;
+using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,8 +18,7 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;
-        public Dictionary<string, IList<IGameObject>> gameObjectListsByType;
-        public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
+        public IMario Mario { get { return (IMario)ItemManager.Instance.gameObjectListsByType[typeof(IMario)][0]; } }
         public ProjectileType Type { get; set; }
         public float XVelocity { get; set; }
         public GravityManagement gravityManagement { get; set; }

@@ -18,7 +18,6 @@ namespace Mario.Classes.BackgroundClasses
 
         public CloudSingle(Vector2 location) : base(location)
         {
-            BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[BackgroundType.CloudSingle.ToString()]);
         }
 
 

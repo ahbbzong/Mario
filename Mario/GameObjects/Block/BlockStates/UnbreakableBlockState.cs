@@ -10,10 +10,11 @@ namespace Mario.BlockStates
 {
     class UnbreakableBlockState : BlockState
     {
-        public UnbreakableBlockState(Block block) : base(block)
+        public UnbreakableBlockState(IBlock block) : base(block)
         {
-            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Unbreakable.ToString()]);
-        }
+
+			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
 
     }
 }

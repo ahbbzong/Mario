@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using System;
 using Game1;
 using Mario.MarioStates;
-using Mario.Enums;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
@@ -18,6 +17,7 @@ namespace Mario
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }
+        private int count;
 
 		private MarioMovementState marioMovementState;
 		public MarioMovementState MarioMovementState
@@ -31,10 +31,10 @@ namespace Mario
 				try
 				{
 					marioMovementState = value;
-					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
 				}catch(System.Collections.Generic.KeyNotFoundException ex)
 				{
-					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
 				}
 			}
 		}
@@ -61,7 +61,7 @@ namespace Mario
 				}
 				catch (System.Collections.Generic.KeyNotFoundException ex)
 				{
-					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
 				}
 			}
 		}
@@ -77,21 +77,22 @@ namespace Mario
             }
             
         }
-
-		public MarioMovementType MarioMovementType => MarioMovementState.MarioMovementType;
-
-		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
+		
 
         public Physics Physics { get; set; }
-        public Mario(Vector2 location)
+
+		public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
-			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
+			
+
 			fall = false;
             Island = false;
             Physics = new Physics(this);
+            
         }
 		public void Up()
         {
@@ -107,7 +108,7 @@ namespace Mario
         }
         public bool IsUp()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.LeftJump|| MarioMovementState.MarioMovementType == MarioMovementType.RightJump;
+            return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
         }
 		public void Down()
 		{
@@ -170,16 +171,16 @@ namespace Mario
         }
         public bool IsSuperMario()
         {
-            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Big;
+			return MarioPowerupState is SuperMarioPowerupState;
         }
         public bool IsFireMario()
         {
-			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire;
+			return MarioPowerupState is FireMarioPowerupState;
         }
 
         public bool IsNormalMario()
         {
-			return MarioPowerupState.MarioPowerupType == MarioPowerupType.Normal;
+			return MarioPowerupState is NormalMarioPowerupState;
         }
         public bool IsStarMario()
         {
@@ -202,7 +203,7 @@ namespace Mario
 		
 		public bool IsDead()
         {
-            return MarioPowerupState.MarioPowerupType == MarioPowerupType.Dead;
+            return MarioPowerupState is DeadMarioPowerupState;
         }
         public bool Isfalling()
         {
@@ -227,7 +228,7 @@ namespace Mario
         
         public void ThrowFireball()
         {
-            if(MarioPowerupState.MarioPowerupType == MarioPowerupType.Fire)
+            if(MarioPowerupState is FireMarioPowerupState)
             {
                 MarioPowerupState.ThrowFireball();
             }
@@ -235,12 +236,12 @@ namespace Mario
 
         public bool IsLeft()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.LeftRun;
+            return MarioMovementState is LeftRunningMarioMovementState;
         }
 
         public bool IsRight()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
+            return MarioMovementState is RightRunningMarioMovementState;
         }
         public bool IsCrouch()
         {

@@ -16,7 +16,6 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
-        public ItemType Type { get; set; }
         public Rectangle Box
         {
             get
@@ -40,7 +39,9 @@ namespace Mario.Classes.BlocksClasses
             gravityManagement = new GravityManagement(this);
             velocity = Vector2.UnitX;
 
-        }
+			ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[this.GetType()]);
+
+		}
         public virtual void Update()
         {
             ItemSprite.Update();

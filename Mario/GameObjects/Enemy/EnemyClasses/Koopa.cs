@@ -15,7 +15,6 @@ namespace Mario.EnemyClasses
 		public Koopa(Vector2 location) : base(location)
 		{
 			EnemyState = new LeftMovingKoopaState(this);
-			Type = EnemyType.Koopa;
 		}
     }
 }

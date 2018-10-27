@@ -14,12 +14,11 @@ using System.Threading.Tasks;
 
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class StomppedGoombaState : EnemyState
+    public class StompedGoombaState : EnemyState
     {
         int count = 0;
-        public StomppedGoombaState(Enemy enemy) :base(enemy)
+        public StompedGoombaState(Enemy enemy) :base(enemy)
         {
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.Stomped.ToString()]);
             enemy.Velocity = Vector2.Zero;
         }
 

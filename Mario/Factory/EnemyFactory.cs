@@ -10,6 +10,7 @@ using Mario.Enums;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Game1;
+using Mario.EnemyStates.GoombaStates;
 
 namespace Mario.Factory
 {
@@ -19,10 +20,10 @@ namespace Mario.Factory
 		public static EnemyFactory Instance { get => instance; }
 		private EnemyFactory()
 		{
-			InstantiationLedger = new Dictionary<string, Func<Vector2, IGameObject>>
+			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{EnemyType.Goomba.ToString(), GetGoomba },
-				{EnemyType.Koopa.ToString(),GetKoopa }
+				{typeof(Goomba), GetGoomba },
+				{typeof(Koopa),GetKoopa }
 			};
 		}
 		private IGameObject GetGoomba(Vector2 position)
@@ -37,23 +38,20 @@ namespace Mario.Factory
 
 		public override void LoadContent(ContentManager content)
 		{
-			SpriteDictionary = new Dictionary<string, Dictionary<string, Tuple<Texture2D,int,int>>>
+			SpriteDictionary = new Dictionary<Type, Dictionary<Type, Tuple<Texture2D,int,int>>>
 			{
-				{EnemyType.Koopa.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>{
-						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
-						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
-						{EnemyStateType.MovingLeft.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
-						{EnemyStateType.MovingRight.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
+				{typeof(Koopa), new Dictionary<Type, Tuple<Texture2D,int,int>>{
+						{typeof(StompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
+						{typeof(FlippedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
+						{typeof(LeftMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
+						{typeof(RightMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
 					}
 				},
 
-				{EnemyType.Goomba.ToString(), new Dictionary<string, Tuple<Texture2D,int,int>>
-				{
-						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
-						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},
-						{EnemyStateType.MovingLeft.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2) },
-						{EnemyStateType.MovingRight.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MovingGoomba"),1,2) }
-
+				{typeof(Goomba), new Dictionary<Type, Tuple<Texture2D,int,int>>{
+						{typeof(StompedGoombaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
+						{typeof(FlippedGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},
+						{typeof(MovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2) }
 					}
 				}
 			};

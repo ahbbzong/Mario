@@ -1,10 +1,8 @@
-﻿using Mario;
-using Mario.BlockStates;
+﻿using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 namespace Game1
 {
     public interface IEnemy: IGameObject, IPhysicsBody

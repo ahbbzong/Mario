@@ -15,13 +15,12 @@ namespace Mario.Classes.BlocksClasses
     public abstract class Block : IBlock, ICollidiable
     {
         private Vector2 BlockLocation;
-        public BlockType Type { get; set; }
-        public BlockState BlockState { get; set; }
+        public IBlockState BlockState { get; set; }
         public Rectangle Box
         {
             get
             {
-                return new Rectangle((int)BlockLocation.X, (int)BlockLocation.Y, BlockState.getWidth, BlockState.getHeight);
+                return new Rectangle((int)BlockLocation.X, (int)BlockLocation.Y, BlockState.GetWidth, BlockState.GetHeight);
             }
         }
         protected Block(Vector2 location)

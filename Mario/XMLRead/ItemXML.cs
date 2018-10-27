@@ -8,7 +8,7 @@ namespace Mario.XMLRead
 {
     public class ItemXML
     {
-        public ItemType GameObjectType { get; set; }
+        public string GameObjectType { get; set; }
         public int XLocation { get; set; }
         public int YLocation { get; set; }
     }

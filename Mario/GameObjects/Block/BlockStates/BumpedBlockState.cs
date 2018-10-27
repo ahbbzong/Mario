@@ -1,4 +1,5 @@
-﻿using Mario.BlockStates;
+﻿using Game1;
+using Mario.BlockStates;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
@@ -14,18 +15,18 @@ using System.Threading.Tasks;
         public class BumpedBlockState : BlockState
         {
             private int movedY = 10;
-            public BumpedBlockState(Block block) : base(block)
-            {
-                blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Used.ToString()]);
-            }
-        public override void Update()
+		public BumpedBlockState(IBlock block) : base(block)
+		{
+
+		}
+		public override void Update()
         {
             if (movedY != 0)
             {
-                block.Position+= Vector2.UnitY;
+                Block.Position+= Vector2.UnitY;
                 movedY--;
             }
-            blockSprite.Update();
+            BlockSprite.Update();
         }
         public override bool IsBumpedBlockState()
         {

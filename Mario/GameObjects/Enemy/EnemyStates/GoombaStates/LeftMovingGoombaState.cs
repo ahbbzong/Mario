@@ -18,12 +18,10 @@ namespace Mario.EnemyStates.GoombaStates
         public LeftMovingGoombaState(Enemy enemy):base(enemy)
         {
 			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Goomba.ToString()][EnemyStateType.MovingLeft.ToString()]);
-
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StomppedGoombaState(enemy);
+            enemy.EnemyState = new StompedGoombaState(enemy);
         }
         public override void Beflipped()
         {

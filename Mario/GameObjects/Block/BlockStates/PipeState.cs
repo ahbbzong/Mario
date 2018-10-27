@@ -10,10 +10,11 @@ namespace Mario.BlockStates
 {
     class PipeState : BlockState
     {
-        public PipeState(Block pipe) : base(pipe)
+        public PipeState(IBlock pipe) : base(pipe)
         {
-            blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[BlockType.Pipe.ToString()]);
-        }
+
+			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
 
 
     }

@@ -15,7 +15,7 @@ namespace Mario.EnemyClasses
         {
             EnemyState = new LeftMovingGoombaState(this);
 			Velocity = -Vector2.UnitX;
-            Type = EnemyType.Goomba;
+        
         }
        
 

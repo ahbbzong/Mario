@@ -14,7 +14,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 
 		}
-		public override MarioPowerupType MarioPowerupType => MarioPowerupType.Big;
 
 		public override void BeSuper()
 		{
