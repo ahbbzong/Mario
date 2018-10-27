@@ -58,8 +58,6 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Down();
 		}
-		
-
 
 		public bool IsDead()
 		{

@@ -13,7 +13,6 @@ namespace Mario.GameObjects.Decorators
 	class StarMarioDecorator: MarioDecorator
 	{
 
-        private ISprite starMarioSprite = null;
         private int timer = 0;
 		public StarMarioDecorator(IMario mario):base(mario){
 

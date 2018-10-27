@@ -10,8 +10,6 @@ namespace Mario.GameObjects.Decorators
 {
 	abstract class GameObjectDecorator : IGameObject
 	{
-
-		
 		private IGameObject decoratedObject;
 		protected IGameObject DecoratedObject { get => decoratedObject; set => decoratedObject = value; }
 
@@ -28,6 +26,5 @@ namespace Mario.GameObjects.Decorators
 		{
 			decoratedObject.Update();
 		}
-		
 	}
 }
