@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using Mario.XMLRead;
 using Mario.GameObjects.Decorators;
+using Mario.Enums;
 
 namespace Mario
 {
@@ -17,8 +18,6 @@ namespace Mario
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }
-        private int count;
-
 		private MarioMovementState marioMovementState;
 		public MarioMovementState MarioMovementState
 		{

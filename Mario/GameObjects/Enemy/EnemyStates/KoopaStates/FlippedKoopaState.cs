@@ -17,7 +17,7 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public FlippedKoopaState(Enemy enemy) : base(enemy)
         {
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[EnemyType.Koopa.ToString()][EnemyStateType.Flipped.ToString()]);
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Koopa)][typeof(FlippedKoopaState)]);
         }
         
         public override bool IsFlipped()

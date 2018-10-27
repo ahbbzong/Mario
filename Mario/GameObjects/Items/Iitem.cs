@@ -12,7 +12,7 @@ namespace Game1
     {
 
         GravityManagement gravityManagement { get; set; }
-        ItemType Type { get; }
+       
         Rectangle Box { get; }
         bool IsLand { get; set; }
         bool IsStarman();

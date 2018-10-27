@@ -1,7 +1,6 @@
 ﻿using Game1;
 using Mario.AbstractClass;
 using Mario.EnemyClasses;
-using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,7 +14,7 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class StompedKoopaState : EnemyState
     {
-        public StompedKoopaState(Enemy enemy):base(enemy)
+        public StompedKoopaState(Enemy enemy) : base(enemy)
         {
             this.enemy = enemy;
             enemy.Velocity = Vector2.Zero;
@@ -24,7 +23,7 @@ namespace Mario.EnemyStates.GoombaStates
         {
             enemy.EnemyState = new FlippedKoopaState(enemy);
         }
-       
+
         public override bool IsKoopa()
         {
             return true;
