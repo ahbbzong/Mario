@@ -44,7 +44,7 @@ namespace Mario.EnemyStates.GoombaStates
             EnemySprite.Update();
             if (!enemy.Island)
             {
-                enemy.Physics.Update();
+                enemy.gravityManagement.Update();
             }
             enemy.Position += StompedMovingUtil.Util;
         }

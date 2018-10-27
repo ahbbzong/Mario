@@ -89,16 +89,21 @@ namespace Mario
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
-			
-
 			fall = false;
             Island = false;
             Physics = new Physics(this);
         }
 		public void Up()
         {
-            if(!IsUp())
-            MarioMovementState.Up();
+            if (!Isfalling())
+            {
+                if (IsLandResponse())
+                {
+                    Island = false;
+                }
+                MarioMovementState.Up();
+                Physics.Jump();
+            }
         }
         public bool IsUp()
         {
@@ -111,17 +116,33 @@ namespace Mario
         }
         public void Left()
         {
-            if (!IsRight())
+            if (Island)
             {
+                Physics.MoveLeft();
                 MarioMovementState.Left();
             }
-
+            else
+            {
+                Physics.JumpLeft();
+            }
         }
         public void Right()
         {
-            if (!IsLeft())
+            if (Island)
             {
+                Physics.MoveRight();
                 MarioMovementState.Right();
+            }
+            else
+            {
+                Physics.JumpRight();
+            }
+        }
+        public void Sprint()
+        {
+            if (Island)
+            {
+                Physics.Sprint();
             }
         }
         public void Dead()
@@ -172,14 +193,6 @@ namespace Mario
             {
                 Physics.Update();
             }
-            if(Physics.YVelocity>0)
-            {
-                fall = true;
-            }
-            else
-            {
-                fall = false;
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -207,10 +220,7 @@ namespace Mario
 
         public void NoInput()
         {
-            
             MarioMovementState.NoInput();
-            Physics.ApplyFriction();
-            
         }
             
             
@@ -232,7 +242,11 @@ namespace Mario
         {
             return MarioMovementState.MarioMovementType == MarioMovementType.RightRun;
         }
-
+        public bool IsCrouch()
+        {
+            return MarioMovementState.MarioMovementType == MarioMovementType.LeftCrouch
+                  || MarioMovementState.MarioMovementType == MarioMovementType.RightCrouch;
+        }
 		public void TakeDamage()
 		{
 			MarioPowerupState.TakeDamage();
@@ -243,5 +257,17 @@ namespace Mario
 
 			MarioSprite.Draw(spriteBatch, location,c);
 		}
-	}
+
+        public void SetFalling(bool previousFall)
+        {
+
+            fall = previousFall;
+            
+        }
+
+        public bool IsLandResponse()
+        {
+            return Island;
+        }
+    }
 }

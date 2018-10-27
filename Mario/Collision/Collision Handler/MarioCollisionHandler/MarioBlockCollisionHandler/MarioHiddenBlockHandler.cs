@@ -18,10 +18,9 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
         }
         public void HandleCollision(IMario mario, Direction result, Rectangle intersection)
         {
-            if (!block.IsHiddenBlock())
-            {
+            
                 PoisitionAdjustment(mario, result, intersection);
-            }
+            
         }
         public static void PoisitionAdjustment(IMario mario, Direction result, Rectangle intersection)
         {

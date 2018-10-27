@@ -149,5 +149,25 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Draw(spriteBatch, c);
 		}
-	}
+
+        public bool IsUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsCrouch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsLandResponse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFalling(bool fall)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -27,7 +27,7 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void Update()
         {
-            enemy.Physics.Update();
+            enemy.gravityManagement.Update();
         }
     }
 }

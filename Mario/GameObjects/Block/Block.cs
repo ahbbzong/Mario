@@ -62,10 +62,7 @@ namespace Mario.Classes.BlocksClasses
             return BlockState.IsBumpedBreakBlock();
         }
 
-        public virtual bool IsFloorBlock()
-        {
-            return BlockState.IsFloorBlock();
-        }
+       
 
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }
 	}

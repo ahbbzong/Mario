@@ -17,7 +17,7 @@ namespace Mario.ItemClasses
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()]);
             ProjectileState = new FireballState(this);
             Type = ProjectileType.Fireball;
-            physics = new Physics(this);
+            gravityManagement = new GravityManagement(this);
             gameObjectListsByType = ItemManager.Instance.gameObjectListsByType;
             if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||

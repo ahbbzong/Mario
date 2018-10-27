@@ -29,7 +29,7 @@ namespace Mario.Classes.BlocksClasses
         private Vector2 velocity = Vector2.Zero;
         public Vector2 Velocity { get => velocity; set => velocity = value; }
 
-        public Physics Physics { get ; set ; }
+        public GravityManagement gravityManagement { get; set; }
         public bool IsLand { get ; set ; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
 
@@ -37,7 +37,7 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemLocation = location;
             IsLand = false;
-            Physics = new Physics(this);
+            gravityManagement = new GravityManagement(this);
             velocity = Vector2.UnitX;
 
         }
@@ -45,7 +45,7 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemSprite.Update();
             if (!IsLand){
-                Physics.Update();
+                gravityManagement.Update();
             }
             Move();
             
@@ -57,7 +57,7 @@ namespace Mario.Classes.BlocksClasses
         public virtual void IsLandTrue()
         {
 
-            Physics.ResetGravity();
+            gravityManagement.ResetGravity();
             IsLand = true;
         }
 

@@ -32,15 +32,16 @@ namespace Mario.AbstractClass
 		private Vector2 velocity = Vector2.Zero;
 		public Vector2 Velocity { get => velocity; set => velocity = value; }
 		public bool Island { get; set; }
-        public Physics Physics { get; set; }
+        public GravityManagement gravityManagement { get; set; }
+
 
         protected Enemy(Vector2 location)
         {
             EnemyLocation = location;
 			Island = false;
-            Physics = new Physics(this);
+            gravityManagement = new GravityManagement(this);
         }
-		
+
 
         public virtual void Update()
         {
@@ -96,7 +97,7 @@ namespace Mario.AbstractClass
         }
 		public virtual void IsLandTrue()
 		{
-            Physics.ResetGravity();
+            gravityManagement.ResetGravity();
 			Island = true;
 		}
         public virtual void IsLandFalse()

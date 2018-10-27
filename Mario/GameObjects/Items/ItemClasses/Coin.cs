@@ -23,7 +23,7 @@ namespace Mario.ItemClasses
             ItemSprite.Update();
             if (!IsLand)
             {
-                Physics.Update();
+                gravityManagement.Update();
             }
 
         }

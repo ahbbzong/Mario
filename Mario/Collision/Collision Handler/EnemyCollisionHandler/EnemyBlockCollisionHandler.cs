@@ -23,28 +23,11 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemy)
         {
             IsOnLand(enemy, result);
-            switch (result)
-                {
-                    case Direction.Up:
-                    enemy.Position -= Vector2.UnitY * intersection.Height;
-                    EnemyBumpedBlockReact(enemy);
-                        break;
-                    case Direction.Down:
-                        enemy.Position += Vector2.UnitY * intersection.Height;
-                        break;
-                    case Direction.Left:
-                    enemy.Position -= Vector2.UnitX * intersection.Width;
-                    enemy.TurnLeft();
-
-                    break;
-                    case Direction.Right:
-                    enemy.Position += Vector2.UnitX * intersection.Width;
-                    enemy.TurnRight();
-
-                    break;
-                   
-                }
-            
+            if (!block.IsHiddenBlock())
+            {
+                PositionAdjustment(enemy);
+            }
+           
         }
         public void EnemyBumpedBlockReact(IEnemy enemy)
         {
@@ -63,6 +46,30 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 enemy.IsLandFalse();
             }
+        }
+        public void PositionAdjustment(IEnemy enemy)
+        {
+            switch (result)
+            {
+                case Direction.Up:
+                    enemy.Position -= Vector2.UnitY * intersection.Height;
+                    EnemyBumpedBlockReact(enemy);
+                    break;
+                case Direction.Down:
+                    enemy.Position += Vector2.UnitY * intersection.Height;
+                    break;
+                case Direction.Left:
+                    enemy.Position -= Vector2.UnitX * intersection.Width;
+                    enemy.TurnLeft();
+
+                    break;
+                case Direction.Right:
+                    enemy.Position += Vector2.UnitX * intersection.Width;
+                    enemy.TurnRight();
+                    break;
+
+            }
+
         }
 
     }

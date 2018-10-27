@@ -26,7 +26,7 @@ namespace Game1
         Rectangle Box { get; }
 
         EnemyType Type { get; }
-        Physics Physics { get; set; }
+        GravityManagement gravityManagement { get; set; }
         
 		void IsLandTrue();
         void IsLandFalse();

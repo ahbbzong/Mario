@@ -70,7 +70,7 @@ namespace Mario.AbstractClass
             EnemySprite.Update();
             if (!enemy.Island)
             {
-                enemy.Physics.Update();
+                enemy.gravityManagement.Update();
             }
         }
 

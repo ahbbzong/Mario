@@ -179,10 +179,13 @@ namespace Mario.XMLRead
                     }
                     foreach (IBlock block in gameObjectListsByType["Block"])
                     {
-                        collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
-                        intersection = collisionDetecter.intersection;
-                        enemyHandler = new EnemyBlockCollisionHandler(block,intersection,collisionFound);
-                        enemyHandler.HandleCollision(enemy);
+                        if (!block.IsHiddenBlock())
+                        {
+                            collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
+                            intersection = collisionDetecter.intersection;
+                            enemyHandler = new EnemyBlockCollisionHandler(block, intersection, collisionFound);
+                            enemyHandler.HandleCollision(enemy);
+                        }
 
                     }
                     foreach (IBlock pipe in gameObjectListsByType["Pipe"])

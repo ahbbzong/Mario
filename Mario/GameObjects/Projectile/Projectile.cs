@@ -21,7 +21,7 @@ namespace Mario.Classes.BlocksClasses
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } }
         public ProjectileType Type { get; set; }
         public float XVelocity { get; set; }
-        public Physics physics { get; set; }
+        public GravityManagement gravityManagement { get; set; }
         public ProjectileState ProjectileState { get; set; }
         public Rectangle Box
         {
@@ -38,13 +38,14 @@ namespace Mario.Classes.BlocksClasses
 		protected Projectile(Vector2 location)
         {
             ProjectileLocation = location;
+            gravityManagement = new GravityManagement(this);
             IsLand = false;
         }
         public virtual void Update()
         {
             ProjectileSprite.Update();
-            if (!IsLand) { physics.Update(); }
-            physics.FireballMove(XVelocity);
+            if (!IsLand) { gravityManagement.Update(); }
+            Position += Vector2.UnitX*XVelocity;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -53,7 +54,7 @@ namespace Mario.Classes.BlocksClasses
 		
 		public virtual void IsLandTrue()
         {
-            physics.ReverseYVelocity();
+            gravityManagement.ReverseYVelocity();
             IsLand = true;
         }
         public virtual void IsLandFalse()

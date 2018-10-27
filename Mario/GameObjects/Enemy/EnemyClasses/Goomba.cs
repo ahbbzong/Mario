@@ -17,7 +17,8 @@ namespace Mario.EnemyClasses
 			Velocity = -Vector2.UnitX;
             Type = EnemyType.Goomba;
         }
+       
 
-		
-	}
+
+    }
 }
