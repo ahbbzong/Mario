@@ -34,7 +34,6 @@ namespace Mario.AbstractClass
         protected EnemyState(Enemy enemy)
         {
             this.enemy = enemy;
-            XVelocity = new Vector2(1, 0);
         }
         public virtual void Beflipped()
         {
