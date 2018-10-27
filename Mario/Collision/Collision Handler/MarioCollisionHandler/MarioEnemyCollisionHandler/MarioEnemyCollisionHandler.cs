@@ -13,7 +13,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
     {
         IEnemy enemy;
         public MarioEnemyCollisionHandler(IEnemy enemy)
-        {
+        { 
             this.enemy = enemy;
         }
         public void PositionAdjustment(IMario mario, Direction result, Rectangle intersection)
