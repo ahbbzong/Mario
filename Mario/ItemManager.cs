@@ -115,7 +115,7 @@ namespace Mario.XMLRead
                     projectileCollisionHandler = new FireballBlockCollisionHandler(block, intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
-                foreach (IBlock pipe in gameObjectListsByType[typeof(IBlock)])
+                foreach (IBlock pipe in gameObjectListsByType[typeof(IPipe)])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, pipe.Box);
                     intersection = collisionDetecter.intersection;
@@ -201,12 +201,12 @@ namespace Mario.XMLRead
                         }
 
                     }
-                    foreach (IBlock pipe in gameObjectListsByType[typeof(IBlock)])
+                    foreach (IBlock pipe in gameObjectListsByType[typeof(IPipe)])
                     {
-                        collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
-                        intersection = collisionDetecter.intersection;
-                        enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
-                        enemyHandler.HandleCollision(enemy);
+                            collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
+                            intersection = collisionDetecter.intersection;
+                            enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
+                            enemyHandler.HandleCollision(enemy);
 
                     }
             
