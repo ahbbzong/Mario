@@ -22,7 +22,7 @@ namespace Mario.Factory
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{typeof(Mario), GetMario }
+				{typeof(IMario), GetMario }
 			};
 		}
 

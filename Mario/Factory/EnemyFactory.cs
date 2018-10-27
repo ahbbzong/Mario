@@ -41,8 +41,7 @@ namespace Mario.Factory
 			SpriteDictionary = new Dictionary<Type, Dictionary<Type, Tuple<Texture2D,int,int>>>
 			{
 				{typeof(Koopa), new Dictionary<Type, Tuple<Texture2D,int,int>>{
-						{typeof(LeftMovingStompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
-						{typeof(RightMovingStompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
+						{typeof(StompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
 						{typeof(FlippedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
 						{typeof(LeftMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
 						{typeof(RightMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
@@ -50,7 +49,7 @@ namespace Mario.Factory
 				},
 
 				{typeof(Goomba), new Dictionary<Type, Tuple<Texture2D,int,int>>{
-						{typeof(StomppedGoombaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
+						{typeof(StompedGoombaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
 						{typeof(FlippedGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},
 						{typeof(MovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2) }
 					}

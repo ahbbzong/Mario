@@ -21,7 +21,7 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StomppedGoombaState(enemy);
+            enemy.EnemyState = new StompedGoombaState(enemy);
         }
         public override void Beflipped()
         {

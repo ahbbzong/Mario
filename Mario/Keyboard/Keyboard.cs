@@ -4,6 +4,7 @@ using Mario.MarioCommand;
 using Mario.BlocksCommand;
 using Game1;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Mario
 {

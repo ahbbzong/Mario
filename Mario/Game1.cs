@@ -1,17 +1,8 @@
 ﻿using Game1;
-using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using Mario.Enums;
-using Mario.Collision;
-using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
-using Mario.Collision.ItemCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler;
-using Mario.Collision.EnemyCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler;
-using System.Xml;
 using Mario.XMLRead;
 [assembly: System.CLSCompliant(true)]
 
@@ -64,9 +55,7 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			ItemManager.Instance.LoadContent(spriteBatch);
-            // Create a new SpriteBatch, which can be used to draw textures.
-
-            // TODO: use this.Content to load your game content here
+           
         }
 
         /// <summary>
