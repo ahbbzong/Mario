@@ -78,9 +78,14 @@ namespace Mario.XMLRead
                 }
                 else if (block.BlockType == BlockType.Floor)
                 {
+                    //add the box to item manager
+                    
+                    Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length ,block.Height);
+                    ItemManager.Instance.FloorBoxPosition.Add(floorLocationBox);
+                    //add floor(without boxes to the item manager)
                     int count = 0;
                     int count2 = 0;
-
+                    int startLocation = block.XLocation;
                     while (count < block.Height)
                     {
                         while (count2 < block.Length)
@@ -92,23 +97,46 @@ namespace Mario.XMLRead
                         block.YLocation = block.YLocation + 32;
                         count++;
                         count2 = 0;
-                        block.XLocation = 0;
+                        block.XLocation = startLocation;
                     }
                 }
                 else
                 {
-                    int count = block.Length;
-                    while (count >= 2)
+                    if (block.Height > 0)
                     {
-                        int startX = block.XLocation;
-                        for (int i = 0; i < count; i++)
+                        int count = block.Length;
+                        int differentBetween = block.Length - block.Height;
+
+                        while (count > differentBetween)
                         {
-                            blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
-                            block.XLocation = block.XLocation + 32;
+                            int startX = block.XLocation;
+                            for (int i = 0; i < count; i++)
+                            {
+                                blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                                block.XLocation = block.XLocation + 32;
+                            }
+                            block.YLocation = block.YLocation - 32;
+                            block.XLocation = startX + 32;
+                            count--;
                         }
-                        block.YLocation = block.YLocation - 32;
-                        block.XLocation = startX + 32;
-                        count--;
+                    }
+                    else
+                    {
+                        int count = block.Length;
+                        int differentBetween = block.Length + block.Height;
+
+                        while (count > differentBetween)
+                        {
+                            int startX = block.XLocation;
+                            for (int i = 0; i < count; i++)
+                            {
+                                blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                                block.XLocation = block.XLocation + 32;
+                            }
+                            block.YLocation = block.YLocation - 32;
+                            block.XLocation = startX;
+                            count--;
+                        }
                     }
                 }
             }

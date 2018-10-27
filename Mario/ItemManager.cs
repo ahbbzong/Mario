@@ -19,6 +19,7 @@ using Mario.Factory;
 using Mario.Interfaces.CollisionHandlers;
 using Mario.Collision.FireballCollisionHandler;
 using Mario.CameraClasses;
+using Mario.BlocksClasses;
 
 namespace Mario.XMLRead
 {
@@ -31,7 +32,9 @@ namespace Mario.XMLRead
         public IMario Mario { get { return (IMario)gameObjectListsByType["Mario"][0]; } set { gameObjectListsByType["Mario"][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-
+        //for floor
+        public IList<Rectangle> FloorBoxPosition { get; set; }
+        //end of floor box part
 		public GameTime CurrentGameTime { get; set; }
         private ItemManager()
         {
@@ -46,6 +49,8 @@ namespace Mario.XMLRead
                 { "Enemy", new List<IGameObject>() },
                 {"Mario",new List<IGameObject>() }
             };
+            //floor box
+            FloorBoxPosition = new List<Rectangle>();
         }
         public void SetInitialValuesCamera()
         {
@@ -97,6 +102,14 @@ namespace Mario.XMLRead
             //other checking
             foreach (IProjectile projectile in gameObjectListsByType["Projectile"])
             {
+                //test with the invisiable floor box
+                foreach (Rectangle floorBox in FloorBoxPosition)
+                {
+                    collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0,0)) , intersection, collisionFound);
+                    projectileCollisionHandler.HandleCollision(projectile);
+                }
                 foreach (IBlock block in gameObjectListsByType["Block"])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
@@ -127,6 +140,14 @@ namespace Mario.XMLRead
 					itemHandler.HandleCollision(obj);
 					CallMarioItemHandler(obj, collisionFound, intersection);
 				}
+                //check with the floor box
+                foreach (Rectangle floorBox in FloorBoxPosition)
+                {
+                    collisionFound = collisionDetecter.Collision(obj.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    itemHandler = new ItemBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    itemHandler.HandleCollision(obj);
+                }
                 foreach (IBlock block in gameObjectListsByType["Block"])
                 {
                     collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
@@ -155,8 +176,25 @@ namespace Mario.XMLRead
                     CallMarioBlockHandler(block, collisionFound, intersection);
                 }
             }
+            //check Mario with floor
+            foreach (Rectangle floorBox in FloorBoxPosition)
+            {
+                collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
+                intersection = collisionDetecter.intersection;
+                marioHandler = new MarioBlockHandler();
+                marioHandler.HandleCollision(mario, collisionFound, intersection);
+                CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)),collisionFound,intersection);
+            }
+
             foreach (IEnemy enemy in gameObjectListsByType["Enemy"])
             {
+                foreach (Rectangle floorBox in FloorBoxPosition)
+                {
+                    collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection);
+                    enemyHandler.HandleCollision(enemy, collisionFound);
+                }
                 foreach (IBlock block in gameObjectListsByType["Block"])
                 {
                     collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);

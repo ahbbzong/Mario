@@ -6,14 +6,40 @@
     <XLocation>200</XLocation>
     <YLocation>818</YLocation>
   </PlayerXML>
-  
+
   <BlockXML>
     <BlockType>Floor</BlockType>
-    <Length>150</Length>
+    <Length>96</Length>
     <Height>2</Height>
     <XLocation>0</XLocation>
     <YLocation>850</YLocation>
   </BlockXML>
+
+  <BlockXML>
+    <BlockType>Floor</BlockType>
+    <Length>15</Length>
+    <Height>2</Height>
+    <XLocation>3136</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Floor</BlockType>
+    <Length>58</Length>
+    <Height>2</Height>
+    <XLocation>3712</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Floor</BlockType>
+    <Length>60</Length>
+    <Height>2</Height>
+    <XLocation>5632</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+
+  //done with floors
 
   <BlockXML>
     <BlockType>Breakable</BlockType>
@@ -259,56 +285,358 @@
     <YLocation>780</YLocation>
   </BackgroundXML>
   
+  -<PipeXML>
+    <BlockType>Pipe</BlockType>
+    <XLocation>2496</XLocation>
+    <YLocation>732</YLocation>
+  </PipeXML>
+  
   <BackgroundXML>
     <BackgroundType>BushSingle</BackgroundType>
-    <XLocation>2304</XLocation>
+    <XLocation>2570</XLocation>
     <YLocation>818</YLocation>
   </BackgroundXML>
 
+  <BackgroundXML>
+    <BackgroundType>MountainSmall</BackgroundType>
+    <XLocation>2750</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+  
+  
+  
+  
+  
+//first part of level done. Second part
+//floor start at 3136
+<BackgroundXML>
+  <BackgroundType>BushSingle</BackgroundType>
+  <XLocation>3146</XLocation>
+  <YLocation>818</YLocation>
+</BackgroundXML>
+  
   <BlockXML>
     <BlockType>Breakable</BlockType>
-    <XLocation>2324</XLocation>
-    <YLocation>700</YLocation>
-  </BlockXML>
-
-  <BlockXML>
-    <BlockType>Breakable</BlockType>
-    <XLocation>2356</XLocation>
+    <XLocation>3338</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>Question</BlockType>
-    <XLocation>2388</XLocation>
+    <XLocation>3370</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>Breakable</BlockType>
-    <XLocation>2420</XLocation>
+    <XLocation>3402</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3440</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3472</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3504</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3536</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3568</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3600</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3632</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3664</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  
+  //second part done. The third part
+  //start at 3712
+  <BackgroundXML>
+  <BackgroundType>BushTriple</BackgroundType>
+  <XLocation>3722</XLocation>
+  <YLocation>818</YLocation>
+</BackgroundXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3776</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3808</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>3840</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>3872</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>3872</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  -<BackgroundXML>
+    <BackgroundType>MountainBig</BackgroundType>
+    <XLocation>3936</XLocation>
+    <YLocation>780</YLocation>
+  </BackgroundXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4064</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4096</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4256</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4320</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4320</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4384</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
-  <EnemyXML>
-    <EnemyType>Koopa</EnemyType>
-    <XLocation>2420</XLocation>
+  <BackgroundXML>
+    <BackgroundType>BushTriple</BackgroundType>
+    <XLocation>4262</XLocation>
     <YLocation>818</YLocation>
-  </EnemyXML>
+  </BackgroundXML>
 
-  -<PipeXML>
+  <BackgroundXML>
+    <BackgroundType>MountainSmall</BackgroundType>
+    <XLocation>4384</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4544</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushSingle</BackgroundType>
+    <XLocation>4570</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4608</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4640</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4672</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4800</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4832</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>4864</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4896</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4832</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>4864</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <Length>4</Length>
+    <Height>4</Height>
+    <XLocation>4960</XLocation>
+    <YLocation>818</YLocation>
+  </BlockXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushTriple</BackgroundType>
+    <XLocation>5088</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <Length>4</Length>
+    <Height>-4</Height>
+    <XLocation>5152</XLocation>
+    <YLocation>818</YLocation>
+  </BlockXML>
+
+  -<BackgroundXML>
+    <BackgroundType>MountainBig</BackgroundType>
+    <XLocation>5280</XLocation>
+    <YLocation>780</YLocation>
+  </BackgroundXML>
+  
+  <BlockXML>
+    <BlockType>Unbreakable</BlockType>
+    <Length>5</Length>
+    <Height>4</Height>
+    <XLocation>5408</XLocation>
+    <YLocation>818</YLocation>
+  </BlockXML>
+  
+  //end of part 3. Start part 4.
+  //x start at 5632
+  <BlockXML>
+  <BlockType>Unbreakable</BlockType>
+  <Length>4</Length>
+  <Height>-4</Height>
+  <XLocation>5632</XLocation>
+  <YLocation>818</YLocation>
+</BlockXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushSingle</BackgroundType>
+    <XLocation>5732</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+  
+  <BackgroundXML>
+    <BackgroundType>MountainSmall</BackgroundType>
+    <XLocation>5792</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+
+  <PipeXML>
     <BlockType>Pipe</BlockType>
-    <XLocation>2580</XLocation>
+    <XLocation>5888</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+  
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>6048</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>6080</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Question</BlockType>
+    <XLocation>6112</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+  <BlockXML>
+    <BlockType>Breakable</BlockType>
+    <XLocation>6144</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BackgroundXML>
+    <BackgroundType>BushSingle</BackgroundType>
+    <XLocation>6048</XLocation>
+    <YLocation>818</YLocation>
+  </BackgroundXML>
+
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <XLocation>6400</XLocation>
     <YLocation>800</YLocation>
   </PipeXML>
 
   -<BlockXML>
     <BlockType>Unbreakable</BlockType>
     <Length>9</Length>
-    <XLocation>2688</XLocation>
+    <Height>8</Height>
+    <XLocation>6464</XLocation>
     <YLocation>818</YLocation>
   </BlockXML>
+  
+  
 
 
+
+
+
+//random added clouds and enemy
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>2420</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
 
   <BackgroundXML>
     <BackgroundType>CloudSingle</BackgroundType>

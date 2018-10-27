@@ -17,7 +17,7 @@ namespace Mario.Classes.BlocksClasses
         private Vector2 BlockLocation;
         public BlockType Type { get; set; }
         public BlockState BlockState { get; set; }
-        public Rectangle Box
+        public virtual Rectangle Box
         {
             get
             {
