@@ -12,7 +12,6 @@ namespace Mario.BlocksClasses
         public QuestionBlock(Vector2 location) : base(location)
         {
             BlockState = new QuestionBlockState(this);
-            Type = BlockType.Question;
         }
         public override void React()
         {

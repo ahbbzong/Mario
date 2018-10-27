@@ -15,7 +15,6 @@ namespace Mario.Classes.BlocksClasses
     public abstract class Block : IBlock, ICollidiable
     {
         private Vector2 BlockLocation;
-        public BlockType Type { get; set; }
         public BlockState BlockState { get; set; }
         public Rectangle Box
         {

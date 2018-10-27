@@ -16,7 +16,6 @@ namespace Mario.BlocksClasses
         {
 
             BlockState = new PipeState(this);
-            Type = BlockType.Pipe;
 
         }
     }

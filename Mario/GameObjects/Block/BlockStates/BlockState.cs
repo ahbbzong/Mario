@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,6 @@ namespace Mario.BlockStates
         {
             this.block = block;
 			this.blockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
-
 		}
 		public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {

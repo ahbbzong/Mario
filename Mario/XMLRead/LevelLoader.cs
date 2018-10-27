@@ -74,12 +74,15 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                if ((GetType(block.BlockType).Equals(typeof(FloorBlock))) && (GetType(block.BlockType).Equals(typeof(UnbreakableBlock))))
+
+                if (!GetType(block.BlockType).Equals(typeof(FloorBlock)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlock)))
                 {
+					Debug.WriteLine(block.BlockType + " is not a floor block and not an unbreakable block");
                     blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                 }
                 else if (GetType(block.BlockType).Equals(typeof(FloorBlock)))
                 {
+					Debug.WriteLine(block.BlockType + " is a floor block");
                     int count = 0;
                     int count2 = 0;
 
@@ -99,6 +102,7 @@ namespace Mario.XMLRead
                 }
                 else
                 {
+					Debug.WriteLine(block.BlockType + " is neither");
                     int count = block.Length;
                     while (count >= 2)
                     {

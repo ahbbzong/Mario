@@ -14,7 +14,6 @@ namespace Mario.BlocksClasses
         public UnbreakableBlock(Vector2 location) : base(location)
         {
             BlockState = new UnbreakableBlockState(this);
-            Type = BlockType.Unbreakable;
         }
       
     }
