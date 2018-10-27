@@ -56,6 +56,8 @@
     <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
+    <Compile Include="GameObjects\Decorators\BlockDecorator.cs" />
+    <Compile Include="GameObjects\Decorators\BumpedBlockDecorator.cs" />
     <Compile Include="GameObjects\Decorators\GameObjectDecorator.cs" />
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />

@@ -11,9 +11,10 @@ namespace Mario.BlockStates
 {
     public class UsedBlockState : BlockState
     {
-        public UsedBlockState(Block block) : base(block)
+        public UsedBlockState(IBlock block) : base(block)
         {
-        }
+			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
 
     }
 }

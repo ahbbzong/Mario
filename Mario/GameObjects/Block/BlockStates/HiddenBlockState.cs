@@ -11,13 +11,13 @@ namespace Mario.BlockStates
 {
     class HiddenBlockState : BlockState
     {
-        public HiddenBlockState(Block block) : base(block)
+        public HiddenBlockState(IBlock block) : base(block)
         {
-            blockSprite = SpriteFactory.Instance.CreateEmptySprite(32,32);
+            BlockSprite = SpriteFactory.Instance.CreateEmptySprite(32,32);
         }
         public override void React()
         {
-            block.BlockState = new UsedBlockState(block);
+            Block.BlockState = new UsedBlockState(Block);
         }
         public override bool IsHiddenBlock()
         {

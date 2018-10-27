@@ -29,6 +29,7 @@ namespace Mario.GameObjects.Decorators
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 
+		
 		public void BeFire()
 		{
 			DecoratedMario.BeFire();

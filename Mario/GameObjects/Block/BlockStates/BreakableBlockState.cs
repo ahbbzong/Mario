@@ -11,20 +11,22 @@ namespace Mario.BlockStates
 {
     class BreakableBlockState : BlockState
     {
-        public BreakableBlockState(Block block) : base(block)
+        public BreakableBlockState(IBlock block) : base(block)
         {
-        }
+
+			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
         public override void React()
         {
             if (ItemManager.Instance.Mario.IsNormalMario())
             {
-                float yPosition = block.Position.Y;
-                block.Position -= Vector2.UnitY*10.0f;
-                block.BlockState = new BumpedBreakBlockState(block);
+                float yPosition = Block.Position.Y;
+                Block.Position -= Vector2.UnitY*10.0f;
+                Block.BlockState = new BumpedBreakBlockState(Block);
             }
             else
             {
-                block.BlockState = new DisappearBlockState(block);
+                Block.BlockState = new DisappearBlockState(Block);
             }
         }
         public override bool IsBreakableBlock()
