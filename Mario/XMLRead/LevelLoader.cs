@@ -4,6 +4,7 @@ using Mario.Classes.BackgroundClasses;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
@@ -37,13 +38,13 @@ namespace Mario.XMLRead
 
 		private Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
-			{Type.GetType("IBlock"),LoadBlock },
-			{Type.GetType("IItem"), LoadItem },
-			{Type.GetType("IEnemy"), LoadEnemy },
-			{Type.GetType("IBackground"), LoadBackground },
-			{Type.GetType("IPipe"), LoadPipe },
-			{Type.GetType("IMario"), LoadPlayer },
-            {Type.GetType("IProjectile"), LoadProjectile }
+			{typeof(IBlock),LoadBlock },
+			{typeof(IItem), LoadItem },
+			{typeof(IEnemy), LoadEnemy },
+			{typeof(IBackground), LoadBackground },
+			{typeof(IPipe), LoadPipe },
+			{typeof(IMario), LoadPlayer },
+            {typeof(IProjectile), LoadProjectile }
         };
          private LevelLoader()
         {
@@ -72,11 +73,11 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                if ((block.BlockType != BlockType.Floor) && (block.BlockType != BlockType.Unbreakable))
+                if ((Type.GetType(block.BlockType).Equals(typeof(FloorBlock))) && (Type.GetType(block.BlockType).Equals(typeof(UnbreakableBlock))))
                 {
                     blockList.Add(BlockFactory.Instance.GetGameObject(block.GetType(), new Vector2(block.XLocation, block.YLocation)));
                 }
-                else if (block.BlockType == BlockType.Floor)
+                else if (Type.GetType(block.BlockType).Equals(typeof(FloorBlock)))
                 {
                     int count = 0;
                     int count2 = 0;
@@ -157,7 +158,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> pipeList = new List<IGameObject>();
             foreach (PipeXML pipe in myPipeObject)
             {
-                if(pipe.BlockType==BlockType.Pipe)
+                if(Type.GetType(pipe.BlockType).Equals(typeof(Pipe)))
                     pipeList.Add(BlockFactory.Instance.GetGameObject(Type.GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
             }
 			return pipeList;

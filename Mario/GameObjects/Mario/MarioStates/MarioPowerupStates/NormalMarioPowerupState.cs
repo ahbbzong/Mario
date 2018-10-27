@@ -8,8 +8,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public NormalMarioPowerupState(IMario mario) : base(mario)
 		{
 		}
-
-		public override MarioPowerupType MarioPowerupType => MarioPowerupType.Normal;
+		
 
 		public override void BeNormal()
 		{

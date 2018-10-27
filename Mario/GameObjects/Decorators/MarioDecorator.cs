@@ -25,11 +25,7 @@ namespace Mario.GameObjects.Decorators
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
 		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
-
-		public MarioMovementType MarioMovementType => DecoratedMario.MarioMovementType;
-
-		public MarioPowerupType MarioPowerupType => DecoratedMario.MarioPowerupType;
-
+		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 

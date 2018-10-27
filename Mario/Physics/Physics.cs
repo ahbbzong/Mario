@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-namespace Mario
+namespace Game1
 {
     public class Physics 
     {

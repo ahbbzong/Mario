@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Game1;
-using Mario.Enums;
 using Mario.Collision;
 using Mario.Collision.ItemCollisionHandler;
 using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
@@ -16,6 +15,7 @@ using Mario.Collision.EnemyCollisionHandler;
 using Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler;
 using Mario.Interfaces.GameObjects;
 using Mario.Factory;
+using Mario.Enums;
 using Mario.Interfaces.CollisionHandlers;
 using Mario.Collision.FireballCollisionHandler;
 using Mario.CameraClasses;
@@ -24,8 +24,10 @@ using Mario.ItemClasses;
 using System.Diagnostics;
 using Mario.GameObjects.Block;
 
+
 namespace Mario.XMLRead
 {
+	
     public class ItemManager
     {
 		private static ItemManager instance = new ItemManager();

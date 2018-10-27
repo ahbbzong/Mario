@@ -21,8 +21,8 @@ namespace Mario.Factory
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{Type.GetType("Goomba"), GetGoomba },
-				{Type.GetType("Koopa"),GetKoopa }
+				{typeof(Goomba), GetGoomba },
+				{typeof(Koopa),GetKoopa }
 			};
 		}
 		private IGameObject GetGoomba(Vector2 position)
@@ -39,7 +39,7 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Dictionary<string, Tuple<Texture2D,int,int>>>
 			{
-				{Type.GetType("Koopa"), new Dictionary<string, Tuple<Texture2D,int,int>>{
+				{typeof(Koopa), new Dictionary<string, Tuple<Texture2D,int,int>>{
 						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
 						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
 						{EnemyStateType.MovingLeft.ToString(), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
@@ -47,7 +47,7 @@ namespace Mario.Factory
 					}
 				},
 
-				{Type.GetType("Goomba"), new Dictionary<string, Tuple<Texture2D,int,int>>
+				{typeof(Goomba), new Dictionary<string, Tuple<Texture2D,int,int>>
 				{
 						{EnemyStateType.Stomped.ToString(), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
 						{EnemyStateType.Flipped.ToString(), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},

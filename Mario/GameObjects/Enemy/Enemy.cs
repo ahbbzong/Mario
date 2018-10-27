@@ -1,6 +1,5 @@
 ﻿using Game1;
 using Mario.BlockStates;
-using Mario.Enums;
 using Mario.Factory;
 using Mario.Interfaces;
 using Microsoft.Xna.Framework;
@@ -16,7 +15,6 @@ namespace Mario.AbstractClass
     public abstract class Enemy : IEnemy,ICollidiable, IMoveable
     {
         private Vector2 EnemyLocation;
-        public EnemyType Type { get; set; }
         public EnemyState EnemyState { get; set; }
         public Rectangle Box
         {

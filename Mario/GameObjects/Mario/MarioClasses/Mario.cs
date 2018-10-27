@@ -34,7 +34,7 @@ namespace Mario
 					MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.MarioMovementType.ToString()]);
 				}catch(System.Collections.Generic.KeyNotFoundException ex)
 				{
-					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
 				}
 			}
 		}
@@ -61,7 +61,7 @@ namespace Mario
 				}
 				catch (System.Collections.Generic.KeyNotFoundException ex)
 				{
-					Debug.WriteLine("ERROR: " + MarioPowerupState.MarioPowerupType.ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
 				}
 			}
 		}
@@ -77,13 +77,11 @@ namespace Mario
             }
             
         }
-
-		public MarioMovementType MarioMovementType => MarioMovementState.MarioMovementType;
-
-		public MarioPowerupType MarioPowerupType => MarioPowerupState.MarioPowerupType;
+		
 
         public Physics Physics { get; set; }
-        public Mario(Vector2 location)
+
+		public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);

@@ -8,7 +8,7 @@ namespace Mario.XMLRead
 {
     public class ProjectileXML
     {
-        public ProjectileType projectileType { get; set; }
+        public string projectileType { get; set; }
         public int XLocation { get; set; }
         public int YLocation { get; set; }
     }
