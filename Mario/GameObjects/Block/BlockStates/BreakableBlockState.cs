@@ -3,6 +3,7 @@ using Mario.BlocksClasses;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Decorators;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,8 +23,10 @@ namespace Mario.BlockStates
             {
                 float yPosition = Block.Position.Y;
                 Block.Position -= Vector2.UnitY*10.0f;
-                Block.BlockState = new BumpedBreakBlockState(Block);
-            }
+
+				int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);
+				ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+			}
             else
             {
                 Block.BlockState = new DisappearBlockState(Block);
