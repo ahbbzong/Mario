@@ -105,7 +105,6 @@ namespace Mario
         }
 		public void Down()
 		{
-
             MarioMovementState.Down();
         }
         public void Left()
@@ -113,7 +112,6 @@ namespace Mario
            
             if (Island)
             {
-                 Physics.MoveLeft();
                  MarioMovementState.Left();
             }
             else
@@ -126,7 +124,6 @@ namespace Mario
             
             if (Island)
             {
-                Physics.MoveRight();
                 MarioMovementState.Right();
             }
             else

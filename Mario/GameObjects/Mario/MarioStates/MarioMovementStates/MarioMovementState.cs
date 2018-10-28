@@ -27,17 +27,17 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public virtual void Left()
 		{
-		}
+            mario.Physics.MoveLeft();
+        }
 
 		public virtual void Right()
 		{
+            mario.Physics.MoveRight();
         }
 		public virtual void Up()
 		{
 
         }
-
-
 		public virtual void NoInput()
 		{
 
