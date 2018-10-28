@@ -271,8 +271,7 @@ namespace Mario.XMLRead
                     pipeHandler = new BlockHandler(Mario);
                     intersection = collisionDetecter.intersection;
                     pipeHandler.HandleCollision(pipe, Mario, collisionFound);
-                    marioHandler = new MarioBlockHandler();
-                    marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                    CallMarioBlockHandler(pipe, collisionFound, intersection);
 
                 }
             }

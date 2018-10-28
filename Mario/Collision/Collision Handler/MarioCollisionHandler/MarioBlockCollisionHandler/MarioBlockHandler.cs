@@ -22,7 +22,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     mario.SetFalling(false);
                     mario.IsLandTrue();
                     mario.Physics.ResetGravity();
-                    mario.Position -= Vector2.UnitY*intersection.Height;
+                    mario.Position -= Vector2.UnitY*(intersection.Height-1);
                     if (mario.IsUp())
                     {
                         if (mario.Physics.XVelocityResponse() >= 0.1)
@@ -60,7 +60,6 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     
                     break;
                 case Direction.None:
-                    mario.IsLandFlase();
                     break;
 
             }
