@@ -16,7 +16,6 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
-        public ItemType Type { get; set; }
         public Rectangle Box
         {
             get
@@ -29,7 +28,7 @@ namespace Mario.Classes.BlocksClasses
         private Vector2 velocity = Vector2.Zero;
         public Vector2 Velocity { get => velocity; set => velocity = value; }
 
-        public Physics Physics { get ; set ; }
+        public GravityManagement gravityManagement { get; set; }
         public bool IsLand { get ; set ; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
 
@@ -37,15 +36,17 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemLocation = location;
             IsLand = false;
-            Physics = new Physics(this);
+            gravityManagement = new GravityManagement(this);
             velocity = Vector2.UnitX;
 
-        }
+			ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[this.GetType()]);
+
+		}
         public virtual void Update()
         {
             ItemSprite.Update();
             if (!IsLand){
-                Physics.Update();
+                gravityManagement.Update();
             }
             Move();
             
@@ -54,16 +55,10 @@ namespace Mario.Classes.BlocksClasses
         {
             ItemSprite.Draw(spriteBatch, ItemLocation);
         }
-
-        public virtual ref Vector2 Getposition()
-        {
-            return ref ItemLocation;
-        }
-
         public virtual void IsLandTrue()
         {
 
-                Physics.ResetGravity();
+            gravityManagement.ResetGravity();
             IsLand = true;
         }
 
@@ -77,16 +72,16 @@ namespace Mario.Classes.BlocksClasses
             return false;
         }
 
-        public void TurnLeft()
+        public virtual void TurnLeft()
         {
             velocity = -Vector2.UnitX;
         }
 
-        public void TurnRight()
+        public virtual void TurnRight()
         {
             velocity = Vector2.UnitX;
         }
-        public void Move()
+        public virtual void Move()
         {
             ItemLocation += velocity;
         }

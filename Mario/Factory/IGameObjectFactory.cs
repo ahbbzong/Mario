@@ -10,8 +10,8 @@ namespace Mario.Factory
 {
 	public interface IGameObjectFactory
 	{
-		IGameObject GetGameObject(string typeName, Vector2 position);
-		Func<Vector2, IGameObject> GetInstantiatorByTypeName(string typeName);
+		IGameObject GetGameObject(Type typeName, Vector2 position);
+		Func<Vector2, IGameObject> GetInstantiatorByTypeName(Type typeName);
 
 	}
 }

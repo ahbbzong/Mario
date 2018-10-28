@@ -1,12 +1,11 @@
 ﻿using Game1;
-using Mario.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-namespace Mario
+namespace Game1
 {
     public class Physics 
     {
@@ -15,71 +14,163 @@ namespace Mario
         private float Gravity { get; set; }
         public float YVelocity { get; set; }
         private float MaxXVelocity { get; set; }
-        private float MinXVelocity { get; set; }
-        private float YVelocityMax { get; set; }
-
-
-        IPhysicsBody physicsBody;
-        public Physics(IPhysicsBody physicsBody)
+        private float MinYVelocity { get; set; }
+        private float MaxYVelocity { get; set; }
+        IMario mario;
+        public Physics(IMario mario)
         {
-            this.physicsBody = physicsBody;
+            this.mario = mario;
             XVelocity = 0;
             YVelocity = 0;
-            YVelocityMax = -20.0f; 
-            MaxXVelocity = 8.0f;
-            MinXVelocity = -8.0f;
+            MinYVelocity = PhysicsUtil.minYVelocity;
+            MaxYVelocity = PhysicsUtil.maxYVelocity;
             Gravity = 0.8f;
         }
-        private void ApplyGtravity()
+        public void Sprint()
         {
-           
-                physicsBody.Position += Vector2.UnitY * YVelocity;
-                YVelocity += Gravity;
-            
-            
+            XVelocity *= PhysicsUtil.sprintVelocity;
         }
-        public void ApplyFriction()
-        {
-            physicsBody.Position += Vector2.UnitX*XVelocity;
-            XVelocity /= 1.25f;
-        }
-        public void ApplyForceVertical(float YVelocity)
-        {
-            this.YVelocity = YVelocity;
+       // private void ApplyGtravity()
+      //  {
+      //     physicsBody.Position += Vector2.UnitY * YVelocity;
+       //    YVelocity += Gravity;
+      //  }
+      //  public void ApplyFriction()
+      //  {
+      //      physicsBody.Position += Vector2.UnitX*XVelocity;
+      //      XVelocity /= 1.25f;
+    //    }
+    //    public void ApplyForceVertical(float YVelocity)
+     //   {
+    //        this.YVelocity = YVelocity;
             
-        }
+    //    }
         public void MoveRight()
         {
-            if (XVelocity < MaxXVelocity)
+            if (XVelocity < PhysicsUtil.firstPhaseXVelocity)
             {
-                XVelocity += 1.0f;
+                XVelocity += PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier;
             }
             else
             {
-                XVelocity = MaxXVelocity;
+                XVelocity += PhysicsUtil.maxXVelocity * PhysicsUtil.secondPhaseMultiplier;
             }
-            physicsBody.Position += Vector2.UnitX*XVelocity;
+            if (XVelocity > PhysicsUtil.maxXVelocity)
+            {
+                XVelocity = PhysicsUtil.maxYVelocity;
+            }
         }
         public void MoveLeft()
         {
-            if (XVelocity > MinXVelocity) { 
+            if (XVelocity >= -PhysicsUtil.firstPhaseXVelocity) { 
             
-                XVelocity -= 1.0f;
+                XVelocity -= PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier;
             }
             else
             {
-                XVelocity = MinXVelocity;
+                XVelocity -= PhysicsUtil.maxXVelocity * PhysicsUtil.secondPhaseMultiplier;
             }
-            physicsBody.Position += Vector2.UnitX* XVelocity;
         }
-        public void FireballMove(float Velocity)
+        public void JumpLeft()
         {
-            physicsBody.Position += Vector2.UnitX*Velocity;
-        }
+            if (!mario.IsDead())
+            {
+                XVelocity -= (PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier);
 
+                if (XVelocity < -PhysicsUtil.maxXVelocity)
+                {
+                    XVelocity = -PhysicsUtil.maxXVelocity;
+                }
+            }
+        }
+        public void JumpRight()
+        {
+            if (!mario.IsDead())
+            {
+                XVelocity += (PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier);
+
+                if (XVelocity > PhysicsUtil.maxXVelocity)
+                {
+                    XVelocity = PhysicsUtil.maxXVelocity;
+                }
+            }
+        }
+        public void Jump()
+        {
+            if (YVelocity <= MaxYVelocity)
+            {
+                YVelocity = MinYVelocity + YVelocity * PhysicsUtil.JumpPhaseMultiplier;
+            }
+            else
+            {
+                YVelocity = MaxYVelocity;
+            }
+        }
+        //  public void FireballMove(float Velocity)
+        //   {
+        //        physicsBody.Position += Vector2.UnitX*Velocity;
+        //    }
+        public void GoNoInputCondition()
+        {
+            if (!mario.IsUp()&& !mario.IsCrouch()&&(XVelocity >= -0.45) && (XVelocity <= 0.45))
+            {
+                mario.NoInput();
+            }
+        }
+        public void CheckFalling()
+        {
+            if (YVelocity < 0)
+            {
+                mario.SetFalling(true);
+                mario.IsLandTrue();
+            }
+            else
+            {
+                mario.SetFalling(false);
+            }
+        }
+        public void UpdateVertical()
+        {
+            if (YVelocity >= 0.05)
+            {
+                mario.Position -= Vector2.UnitY*YVelocity;
+                YVelocity *= 0.70f;
+            }
+            else if (YVelocity <= 0.05)
+            {
+
+                mario.Position -= Vector2.UnitY * YVelocity;
+                YVelocity -= MaxYVelocity * 0.08f;
+
+            }
+        }
+        public void UpdateHorizontal()
+        {
+            mario.Position -= Vector2.UnitX * XVelocity;
+            if (mario.IsLandResponse())
+            {
+                XVelocity *= 0.93f;
+            }
+            else
+            {
+                XVelocity *= 0.95f;
+            }
+        }
+        public float XVelocityResponse()
+        {
+            return XVelocity;
+        }
+        public float YVelocityResponse()
+        {
+            return YVelocity;
+        }
         public void ResetGravity()
         {
-            YVelocity = 0.0f; 
+            YVelocity = 0.0f;
+        }
+        public void ResetHorizontal()
+        {
+            XVelocity = 0.0f;
         }
         public void ReverseYVelocity()
         {
@@ -88,7 +179,10 @@ namespace Mario
      
         public void Update()
         {
-            ApplyGtravity();
+            UpdateHorizontal();
+            UpdateVertical();
+            CheckFalling();
+            GoNoInputCondition();
         }
     }
 }

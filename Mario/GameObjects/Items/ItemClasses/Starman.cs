@@ -11,8 +11,6 @@ namespace Mario.ItemClasses
     {
         public Starman(Vector2 location) : base(location)
         {
-            ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.Starman.ToString()]);
-            Type = ItemType.Starman;
         }
         public override bool IsStarman()
         {
@@ -21,7 +19,7 @@ namespace Mario.ItemClasses
         public override void IsLandTrue()
         {
             IsLand = true;
-            Physics.ReverseYVelocity();
+            gravityManagement.ReverseYVelocity();
 
         }
     }

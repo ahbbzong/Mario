@@ -10,9 +10,9 @@ namespace Game1
 {
     public interface IItem : IGameObject, IPhysicsBody
     {
-        
-        Physics Physics { get; set; }
-        ItemType Type { get; }
+
+        GravityManagement gravityManagement { get; set; }
+       
         Rectangle Box { get; }
         bool IsLand { get; set; }
         bool IsStarman();

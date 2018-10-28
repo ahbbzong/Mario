@@ -35,8 +35,8 @@ namespace Mario.GameObjects.Decorators
 		public TransitionStateMarioDecorator(IMario mario, MarioPowerupState marioPowerupState, MarioPowerupState newState) : base(mario)
 		{
 			Debug.WriteLine("Transition State Happend");
-			newSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[marioPowerupState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
-			oldSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[newState.MarioPowerupType.ToString()][MarioMovementState.MarioMovementType.ToString()]);
+			newSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[marioPowerupState.GetType()][MarioMovementState.GetType()]);
+			oldSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[newState.GetType()][MarioMovementState.GetType()]);
 			currentSprite = oldSprite;
 		}
 
@@ -65,7 +65,7 @@ namespace Mario.GameObjects.Decorators
 		{
 			
 			ItemManager.Instance.Mario = DecoratedMario;
-			if(DecoratedMario.MarioPowerupState.MarioPowerupType == Enums.MarioPowerupType.Dead)
+			if(DecoratedMario.MarioPowerupState is DeadMarioPowerupState)
 			{
 				Game1.Instance.Reset();
 			}

@@ -13,44 +13,63 @@ namespace Mario.Collision.EnemyCollisionHandler
     {
 		readonly IBlock block;
         Rectangle intersection;
-		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection)
+        Direction result;
+		public EnemyBlockCollisionHandler(IBlock block,Rectangle intersection, Direction result)
         {
             this.block = block;
             this.intersection = intersection;
+            this.result = result;
         }
-        public void HandleCollision(IEnemy enemy, Direction result)
+        public void HandleCollision(IEnemy enemy)
         {
-            if(!enemy.IsFlipped())
+            IsOnLand(enemy, result);
+            if (!block.IsHiddenBlock())
+            {
+                PositionAdjustment(enemy);
+            }
+           
+        }
+        public void EnemyBumpedBlockReact(IEnemy enemy)
+        {
+            if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
+            {
+                enemy.Beflipped();
+            }
+        }
+        public void IsOnLand(IEnemy enemy,Direction result)
+        {
+            if(result.Equals(Direction.Left)|| result.Equals(Direction.Right)|| result.Equals(Direction.Up))
+            {
+                enemy.IsLandTrue();
+            }
+            else if(result.Equals(Direction.None))
+            {
+                enemy.IsLandFalse();
+            }
+        }
+        public void PositionAdjustment(IEnemy enemy)
+        {
             switch (result)
             {
                 case Direction.Up:
-                        enemy.Position -=  Vector2.UnitY * intersection.Height;
-                        if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
-                        {
-                            enemy.Beflipped();
-                        }
-						enemy.IsLandTrue();
-                        break;
-						
+                    enemy.Position -= Vector2.UnitY * intersection.Height;
+                    EnemyBumpedBlockReact(enemy);
+                    break;
                 case Direction.Down:
-						enemy.Position += Vector2.UnitY*intersection.Height;
+                    enemy.Position += Vector2.UnitY * intersection.Height;
                     break;
                 case Direction.Left:
-                    enemy.Position -= Vector2.UnitX*intersection.Width;
-                      
-                            enemy.TurnLeft();
-                       
+                    enemy.Position -= Vector2.UnitX * intersection.Width;
+                    enemy.TurnLeft();
+
                     break;
                 case Direction.Right:
-                    enemy.Position  += Vector2.UnitX*intersection.Width;
-                      
-                            enemy.TurnRight();
-                           
-                        break;
-                case Direction.None:
-                        enemy.IsLandFalse();
-                        break;
+                    enemy.Position += Vector2.UnitX * intersection.Width;
+                    enemy.TurnRight();
+                    break;
+
             }
+
         }
 
     }

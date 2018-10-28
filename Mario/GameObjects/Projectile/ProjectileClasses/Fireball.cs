@@ -6,6 +6,7 @@ using Mario.Enums;
 using Mario.Classes.BlocksClasses;
 using Mario.Items;
 using Mario.XMLRead;
+using Mario.MarioStates.MarioMovementStates;
 
 namespace Mario.ItemClasses
 {
@@ -14,18 +15,17 @@ namespace Mario.ItemClasses
         
         public Fireball(Vector2 location):base(location)
         {
-            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()]);
+            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[this.GetType()]);
             ProjectileState = new FireballState(this);
             Type = ProjectileType.Fireball;
-            physics = new Physics(this);
-            gameObjectListsByType = ItemManager.Instance.gameObjectListsByType;
+            gravityManagement = new GravityManagement(this);
             if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightJump)
             { XVelocity = 6; }
-            if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftRun ||
-                Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftIdle||
-                Mario.MarioMovementState.MarioMovementType == MarioMovementType.LeftJump)
+            if (Mario.MarioMovementState is LeftRunningMarioMovementState ||
+                Mario.MarioMovementState is LeftIdleMarioMovementState||
+                Mario.MarioMovementState is LeftJumpingMarioMovementState)
             { XVelocity = -6; }
         }
         public override void React()

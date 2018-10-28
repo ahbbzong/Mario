@@ -1,17 +1,8 @@
 ﻿using Game1;
-using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using Mario.Enums;
-using Mario.Collision;
-using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
-using Mario.Collision.ItemCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler;
-using Mario.Collision.EnemyCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler;
-using System.Xml;
 using Mario.XMLRead;
 [assembly: System.CLSCompliant(true)]
 
@@ -43,15 +34,17 @@ namespace Mario
         /// </summary>
         protected override void Initialize()
         {
+
+			base.Initialize();
 			controllerList.Add(new Keyboards());
 			//controllerList.Add(new GamePadController(this));
 
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
-            base.Initialize();
             ItemManager.Instance.SetInitialValuesCamera();
-        }
+		
+		}
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -59,12 +52,10 @@ namespace Mario
         /// </summary>
         protected override void LoadContent()
         {
-
+			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			ItemManager.Instance.LoadContent(spriteBatch);
-            // Create a new SpriteBatch, which can be used to draw textures.
-
-            // TODO: use this.Content to load your game content here
+           
         }
 
         /// <summary>

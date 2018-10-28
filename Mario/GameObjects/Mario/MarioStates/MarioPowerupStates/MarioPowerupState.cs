@@ -19,7 +19,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			this.Mario = mario;
 		}
-		public abstract MarioPowerupType MarioPowerupType { get; }
 
 		public virtual void BeFire()
 		{

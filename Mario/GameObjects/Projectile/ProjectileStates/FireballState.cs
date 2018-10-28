@@ -3,6 +3,7 @@ using Mario.AbstractClass;
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,7 +15,7 @@ namespace Mario.Items
 
         public FireballState(IProjectile fireball) : base(fireball)
         {
-            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[ProjectileType.Fireball.ToString()]);
+            ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[fireball.GetType()]);
         }
         public override void React()
         {

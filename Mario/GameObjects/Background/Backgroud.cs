@@ -20,7 +20,8 @@ namespace Mario.Classes.BlocksClasses
         protected Background(Vector2 location)
         {
             BackgroundLocation = location;
-        }
+			BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[this.GetType()]);
+		}
         public virtual void Update()
         {
             BackgroundSprite.Update();

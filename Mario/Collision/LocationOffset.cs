@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public interface IPhysicsBody
+    public class LocationOffset
     {
-		Vector2 Position { get; set; }
-
-	}
+        public static Vector2 Until = new Vector2(0,9999);
+    }
 }

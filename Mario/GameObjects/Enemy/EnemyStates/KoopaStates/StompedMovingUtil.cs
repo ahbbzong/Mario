@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game1
+namespace Mario.GameObjects.Enemy.EnemyStates.KoopaStates
 {
-    public interface IPhysicsBody
+    class StompedMovingUtil
     {
-		Vector2 Position { get; set; }
-
-	}
+        public static Vector2 Util = new Vector2(5, 0);
+    }
 }

@@ -1,10 +1,12 @@
 ﻿using Game1;
 using Mario.Classes;
 using Mario.Classes.BlocksClasses;
+using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,33 +15,33 @@ namespace Mario.BlockStates
 {
     public abstract class BlockState : IBlockState
     {
-        protected ISprite blockSprite { get; set; }
-        protected Block block { get; set; }
-        public int getWidth
+        protected ISprite BlockSprite { get; set; }
+        protected IBlock Block { get; set; }
+        public int GetWidth
         {
             get
             {
-                return blockSprite.Width;
+                return BlockSprite.Width;
             }
         }
-        public int getHeight
+        public int GetHeight
         {
             get
             {
-                return blockSprite.Height;
+                return BlockSprite.Height;
             }
         }
-        protected BlockState(Block block)
+        protected BlockState(IBlock block)
         {
-            this.block = block;
-        }
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
+            this.Block = block;
+		}
+		public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            blockSprite.Draw(spriteBatch, location);
+            BlockSprite.Draw(spriteBatch, location);
         }
         public virtual void Update()
         {
-            blockSprite.Update();
+            BlockSprite.Update();
         }
 
       
@@ -70,5 +72,7 @@ namespace Mario.BlockStates
         {
             return false;
         }
+
+       
     }
 }

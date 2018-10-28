@@ -14,6 +14,5 @@ namespace Mario.Interfaces.GameObjects
 		void Left();
 		void Right();
 		void NoInput();
-		MarioMovementType MarioMovementType { get; }
 	}
 }

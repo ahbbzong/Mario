@@ -5,17 +5,17 @@ using Game1;
 using Mario.Factory;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
+using Mario.GameObjects.Block;
 
 namespace Mario.BlocksClasses
 {
-    public class Pipe : Block
+    public class Pipe : Block, IPipe
     {
         
         public Pipe(Vector2 location) : base(location)
         {
 
             BlockState = new PipeState(this);
-            Type = BlockType.Pipe;
 
         }
     }

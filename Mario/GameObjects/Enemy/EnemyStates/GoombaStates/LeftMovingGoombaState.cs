@@ -10,32 +10,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
 namespace Mario.EnemyStates.GoombaStates
 {
-    public class RightMovingKoopaState : EnemyState
+    public class LeftMovingGoombaState : EnemyState
     {
-        public RightMovingKoopaState(Enemy enemy):base(enemy)
+        public LeftMovingGoombaState(Enemy enemy):base(enemy)
         {
-            enemy.Velocity = Vector2.UnitX;
-        }
-        public override void TurnLeft()
-        {
-            enemy.EnemyState = new LeftMovingKoopaState(enemy);
-
-        }
-        public override void Beflipped()
-        {
-            enemy.EnemyState = new FlippedKoopaState(enemy);
+			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StompedKoopaState(enemy);
+            enemy.EnemyState = new StompedGoombaState(enemy);
         }
-        
-        public override bool IsKoopa()
+        public override void Beflipped()
+        {
+            enemy.EnemyState = new FlippedGoombaState(enemy);
+        }
+        public override bool IsGoomba()
         {
             return true;
+        }
+        public override void TurnRight()
+        {
+            enemy.EnemyState = new RightMovingGoombaState(enemy);
         }
         public override void Update()
         {
@@ -44,8 +42,10 @@ namespace Mario.EnemyStates.GoombaStates
             {
                 enemy.gravityManagement.Update();
             }
-            enemy.Position += Vector2.UnitX;
+            enemy.Position -= Vector2.UnitX;
         }
+
+
 
     }
 }

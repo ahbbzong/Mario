@@ -25,14 +25,11 @@ namespace Mario.GameObjects.Decorators
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
 		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
-
-		public MarioMovementType MarioMovementType => DecoratedMario.MarioMovementType;
-
-		public MarioPowerupType MarioPowerupType => DecoratedMario.MarioPowerupType;
-
+		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 
+		
 		public void BeFire()
 		{
 			DecoratedMario.BeFire();
@@ -62,8 +59,6 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Down();
 		}
-		
-
 
 		public bool IsDead()
 		{
@@ -149,5 +144,25 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedMario.Draw(spriteBatch, c);
 		}
-	}
+
+        public bool IsUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsCrouch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsLandResponse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFalling(bool fall)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

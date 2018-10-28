@@ -21,7 +21,6 @@ namespace Mario.BlocksClasses
         public FloorBlock(Vector2 location) : base(location)
         {
             BlockState = new FloorBlockState(this);
-            Type = BlockType.Floor;
         }
 }
 }

@@ -11,8 +11,6 @@ namespace Mario.ItemClasses
     {
         public Coin(Vector2 location):base(location)
         {
-            ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[ItemType.Coin.ToString()]);
-            Type = ItemType.Coin;
         }
         public override bool IsCoin()
         {
@@ -23,7 +21,7 @@ namespace Mario.ItemClasses
             ItemSprite.Update();
             if (!IsLand)
             {
-                Physics.Update();
+                gravityManagement.Update();
             }
 
         }

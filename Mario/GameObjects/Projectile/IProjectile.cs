@@ -12,14 +12,13 @@ namespace Game1
     {
         
   
-        ProjectileType Type { get; }
         Rectangle Box { get; }
         ProjectileState ProjectileState { get; set; }
         bool IsLand { get; set; }
         void IsLandTrue();
         void IsLandFalse();
         void React();
-        Physics physics { get; set; }
+        GravityManagement gravityManagement { get; set; }
     }
    
 }

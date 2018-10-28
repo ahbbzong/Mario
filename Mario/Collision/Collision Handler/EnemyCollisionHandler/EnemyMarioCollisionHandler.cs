@@ -13,27 +13,31 @@ namespace Mario.Collision.EnemyCollisionHandler
     public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
     {
         IMario mario;
-        Vector2 speed;
-        public EnemyMarioCollisionHandler(IMario mario)
+        Direction result;
+        public EnemyMarioCollisionHandler(IMario mario, Direction result)
         {
             this.mario = mario;
-            speed = new Vector2(20.0f, 20.0f);
+            this.result = result;
         }
-        public void HandleCollision(IEnemy enemy, Direction result)
+        public void HandleCollision(IEnemy enemy)
         {
-            if (mario.IsStarMario() || result.Equals(Direction.Up))
+            if (mario.IsStarMario())
+            {
+                enemy.Beflipped();
+            }
+            if (result.Equals(Direction.Up))
             {
                 enemy.BeStomped();
             }
-            if (enemy.IsKoopa()&&enemy.IsStomped()&& result.Equals(Direction.Right))
+            if (enemy.IsKoopaStomped() && result.Equals(Direction.Right))
             {
                 enemy.TurnLeft();
             }
-            else if(enemy.IsKoopa()&&enemy.IsStomped() && result.Equals(Direction.Left))
+            else if(enemy.IsKoopaStomped() && result.Equals(Direction.Left))
             {
                 enemy.TurnRight();
             }
-            
+
         }
      
 	}

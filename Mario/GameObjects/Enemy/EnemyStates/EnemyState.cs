@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Mario.AbstractClass
     {
         protected ISprite EnemySprite { get; set; }
         public Enemy enemy { get; set; }
+        protected Vector2 XVelocity { get; set; }
         public int GetWidth
         {
             get
@@ -33,8 +35,17 @@ namespace Mario.AbstractClass
         protected EnemyState(Enemy enemy)
         {
             this.enemy = enemy;
-        }
-        public virtual void Beflipped()
+			//change second accessor param
+			try
+			{
+				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][this.GetType()]);
+			}catch(System.Collections.Generic.KeyNotFoundException e)
+			{
+				Debug.WriteLine(enemy.GetType().Name + " ," + this.GetType().Name);
+			}
+
+		}
+		public virtual void Beflipped()
         {
             //Need to be overriden
         }
@@ -48,7 +59,7 @@ namespace Mario.AbstractClass
             EnemySprite.Draw(spriteBatch, location);
         }
 
-        public virtual bool IsStomped()
+        public virtual bool IsGoombaStomped()
         {
             return false;
         }
@@ -56,10 +67,12 @@ namespace Mario.AbstractClass
 
         public virtual void TurnLeft()
         {
+
         }
 
         public virtual void TurnRight()
         {
+
         }
 
         public virtual void Update()
@@ -67,13 +80,8 @@ namespace Mario.AbstractClass
             EnemySprite.Update();
             if (!enemy.Island)
             {
-                enemy.Physics.Update();
+                enemy.gravityManagement.Update();
             }
-        }
-
-        public virtual void BeKilled()
-        {
-            
         }
 
         public virtual bool IsFlipped()
@@ -87,6 +95,20 @@ namespace Mario.AbstractClass
         }
 
         public virtual bool IsKoopa()
+        {
+            return false;
+        }
+
+        public virtual bool IsLeftStomped()
+        {
+            return false;
+        }
+
+        public virtual bool IsRightStomped()
+        {
+            return false;
+        }
+        public virtual bool IsKoopaStomped()
         {
             return false;
         }

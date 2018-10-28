@@ -12,7 +12,6 @@ namespace Mario.BlocksClasses
         public HiddenBlock(Vector2 location) : base(location)
         {
             BlockState = new HiddenBlockState(this);
-            Type = BlockType.Hidden;
         }
         public override void React()
         {
