@@ -16,7 +16,7 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class FlippedGoombaState : EnemyState
     {
-        public FlippedGoombaState(Enemy enemy) :base(enemy)
+        public FlippedGoombaState(IEnemy enemy) :base(enemy)
         {
         }
         public override bool IsFlipped()
@@ -25,7 +25,7 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void Update()
         {
-            enemy.gravityManagement.Update();
+            Enemy.gravityManagement.Update();
         }
     }
 }

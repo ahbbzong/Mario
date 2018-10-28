@@ -15,17 +15,16 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class LeftMovingGoombaState : EnemyState
     {
-        public LeftMovingGoombaState(Enemy enemy):base(enemy)
+        public LeftMovingGoombaState(IEnemy enemy):base(enemy)
         {
-			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StompedGoombaState(enemy);
+            Enemy.EnemyState = new StompedGoombaState(Enemy);
         }
         public override void Beflipped()
         {
-            enemy.EnemyState = new FlippedGoombaState(enemy);
+            Enemy.EnemyState = new FlippedGoombaState(Enemy);
         }
         public override bool IsGoomba()
         {
@@ -33,16 +32,16 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void TurnRight()
         {
-            enemy.EnemyState = new RightMovingGoombaState(enemy);
+            Enemy.EnemyState = new RightMovingGoombaState(Enemy);
         }
         public override void Update()
         {
             EnemySprite.Update();
-            if (!enemy.Island)
+            if (!Enemy.Island)
             {
-                enemy.gravityManagement.Update();
+                Enemy.gravityManagement.Update();
             }
-            enemy.Position -= Vector2.UnitX;
+            Enemy.Position -= Vector2.UnitX;
         }
 
 

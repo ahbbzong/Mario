@@ -15,7 +15,7 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class FlippedKoopaState : EnemyState
     {
-        public FlippedKoopaState(Enemy enemy) : base(enemy)
+        public FlippedKoopaState(IEnemy enemy) : base(enemy)
         {
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Koopa)][typeof(FlippedKoopaState)]);
         }
@@ -30,7 +30,7 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void Update()
         {
-            enemy.gravityManagement.Update();
+            Enemy.gravityManagement.Update();
         }
     }
 }

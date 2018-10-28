@@ -15,22 +15,21 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class RightMovingKoopaState : EnemyState
     {
-        public RightMovingKoopaState(Enemy enemy):base(enemy)
+        public RightMovingKoopaState(IEnemy enemy):base(enemy)
         {
-            enemy.Velocity = Vector2.UnitX;
         }
         public override void TurnLeft()
         {
-            enemy.EnemyState = new LeftMovingKoopaState(enemy);
+            Enemy.EnemyState = new LeftMovingKoopaState(Enemy);
 
         }
         public override void Beflipped()
         {
-            enemy.EnemyState = new FlippedKoopaState(enemy);
+            Enemy.EnemyState = new FlippedKoopaState(Enemy);
         }
         public override void BeStomped()
         {
-            enemy.EnemyState = new StompedKoopaState(enemy);
+            Enemy.EnemyState = new StompedKoopaState(Enemy);
         }
         
         public override bool IsKoopa()
@@ -40,11 +39,11 @@ namespace Mario.EnemyStates.GoombaStates
         public override void Update()
         {
             EnemySprite.Update();
-            if (!enemy.Island)
+            if (!Enemy.Island)
             {
-                enemy.gravityManagement.Update();
+                Enemy.gravityManagement.Update();
             }
-            enemy.Position += Vector2.UnitX;
+            Enemy.Position += Vector2.UnitX;
         }
 
     }

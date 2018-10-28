@@ -17,9 +17,8 @@ namespace Mario.EnemyStates.GoombaStates
     public class StompedGoombaState : EnemyState
     {
         int count = 0;
-        public StompedGoombaState(Enemy enemy) :base(enemy)
+        public StompedGoombaState(IEnemy enemy) :base(enemy)
         {
-            enemy.Velocity = Vector2.Zero;
         }
 
         public override bool IsGoombaStomped()
