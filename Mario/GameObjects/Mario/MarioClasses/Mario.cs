@@ -92,12 +92,9 @@ namespace Mario
         }
 		public void Up()
         {
-            if (!Isfalling())
+            if (Island)
             {
-                if (Island)
-                {
-                    Island = false;
-                }
+                Island = false;
                 MarioMovementState.Up();
                 Physics.Jump();
             }
@@ -235,8 +232,9 @@ namespace Mario
         }
         public bool IsCrouch()
         {
-            return MarioMovementState.MarioMovementType == MarioMovementType.LeftCrouch
-                  || MarioMovementState.MarioMovementType == MarioMovementType.RightCrouch;
+            return (MarioMovementState is LeftCrouchingMarioMovementState
+                  || MarioMovementState is RightCrouchingMarioMovementState)
+                  &&(!(MarioPowerupState is NormalMarioPowerupState));
         }
 		public void TakeDamage()
 		{

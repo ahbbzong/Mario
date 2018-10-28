@@ -59,9 +59,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                         mario.Position += Vector2.UnitX * intersection.Width;
                     
                     break;
-                case Direction.None:
-                    break;
-
+               
             }
         }
 

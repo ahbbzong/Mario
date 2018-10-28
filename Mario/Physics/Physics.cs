@@ -59,7 +59,7 @@ namespace Game1
         {
             if (!mario.IsDead())
             {
-                XVelocity -= PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier;
+                XVelocity -= 10 * 0.5f;
 
                 if (XVelocity < -PhysicsUtil.maxXVelocity)
                 {
@@ -71,12 +71,12 @@ namespace Game1
         {
             if (!mario.IsDead())
             {
-                XVelocity += (PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier);
+                XVelocity += 10 * 0.5f;
 
-                if (XVelocity > PhysicsUtil.maxXVelocity)
-                {
-                    XVelocity = PhysicsUtil.maxXVelocity;
-                }
+                   if (XVelocity > PhysicsUtil.maxXVelocity)
+                   {
+                     XVelocity = PhysicsUtil.maxXVelocity;
+            }
             }
         }
         public void Jump()
@@ -90,17 +90,24 @@ namespace Game1
                 YVelocity = MaxYVelocity;
             }
         }
+        public void NotJump()
+        {
+            if (YVelocity > 60)
+            {
+                YVelocity = 60;
+            }
+        }
        
         public void GoNoInputCondition()
         {
-            if (!mario.IsUp()&& !mario.IsCrouch()&&(XVelocity >= -0.45) && (XVelocity <= 0.45))
+            if (!mario.IsUp()&&(XVelocity >= -0.4) && (XVelocity <= 0.4))
             {
                 mario.NoInput();
             }
         }
         public void CheckFalling()
         {
-            if (YVelocity<0)
+            if (YVelocity<-2)
             {
                 mario.SetFalling(true);
                 mario.IsLandFlase();
@@ -129,11 +136,11 @@ namespace Game1
             mario.Position += Vector2.UnitX * XVelocity;
             if (mario.IsLandResponse())
             {
-                XVelocity *= 0.93f;
+                XVelocity *= 0.9f;
             }
             else
             {
-                XVelocity *= 0.95f;
+                XVelocity = 0;
             }
         }
         public float XVelocityResponse()

@@ -129,10 +129,13 @@ namespace Mario.XMLRead
                 }
                 foreach (IEnemy enemy in gameObjectListsByType[typeof(IEnemy)])
                 {
-                    collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
-                    intersection = collisionDetecter.intersection;
-                    enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
-                    enemyHandler.HandleCollision(enemy);
+                    if (!enemy.IsFlipped())
+                    {
+                        collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
+                        intersection = collisionDetecter.intersection;
+                        enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                        enemyHandler.HandleCollision(enemy);
+                    }
                 }
                 if (!mario.IsDead())
                 {
