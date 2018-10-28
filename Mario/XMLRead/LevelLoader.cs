@@ -277,7 +277,7 @@ namespace Mario.XMLRead
 			try
 			{
 				return typeDictionary[typeName];
-			}catch(System.Collections.Generic.KeyNotFoundException e)
+			}catch(System.Collections.Generic.KeyNotFoundException )
 			{
 				Debug.WriteLine(typeName + " is not a valid type");
 			}
