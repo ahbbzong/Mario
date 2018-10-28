@@ -79,17 +79,15 @@ namespace Mario
 		
 
         public Physics Physics { get; set; }
-
 		public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
-			
 
-			fall = false;
-            Island = false;
+            fall = false;
+            Island = true;
             Physics = new Physics(this);
             
         }
@@ -152,7 +150,6 @@ namespace Mario
         }
         public void BeSuper()
         {
-            location.Y -= 5;
             MarioPowerupState.BeSuper();
         }
         public void BeNormal()
@@ -161,7 +158,6 @@ namespace Mario
         }
         public void BeFire()
         {
-            location.Y -= 5;
             MarioPowerupState.BeFire();
         }
         public void BeStar()
@@ -189,10 +185,9 @@ namespace Mario
         public void Update()
         {
 			MarioSprite.Update();
-            if (!Island)
-            {
-                Physics.Update();
-            }
+            Physics.Update();
+           
+                
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -210,7 +205,7 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            Physics.ResetGravity();
+            Physics.ReverseYVelocity();
             Island = true;
         }
         public void IsLandFlase()
@@ -223,8 +218,6 @@ namespace Mario
             MarioMovementState.NoInput();
         }
             
-            
-        
         public void ThrowFireball()
         {
             if(MarioPowerupState is FireMarioPowerupState)
@@ -260,11 +253,8 @@ namespace Mario
 
         public void SetFalling(bool previousFall)
         {
-
             fall = previousFall;
-            
         }
-
         public bool IsLandResponse()
         {
             return Island;

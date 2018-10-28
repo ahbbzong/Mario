@@ -75,7 +75,7 @@ namespace Game1
         {
             if (!mario.IsDead())
             {
-                XVelocity -= (PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier);
+                XVelocity -= PhysicsUtil.maxXVelocity * PhysicsUtil.firstPhaseMultiplier;
 
                 if (XVelocity < -PhysicsUtil.maxXVelocity)
                 {
@@ -122,7 +122,7 @@ namespace Game1
             if (YVelocity < 0)
             {
                 mario.SetFalling(true);
-                mario.IsLandTrue();
+                mario.IsLandFlase();
             }
             else
             {
@@ -131,22 +131,21 @@ namespace Game1
         }
         public void UpdateVertical()
         {
+            mario.Position -= Vector2.UnitY * YVelocity;
             if (YVelocity >= 0.05)
             {
-                mario.Position -= Vector2.UnitY*YVelocity;
                 YVelocity *= 0.70f;
             }
             else if (YVelocity <= 0.05)
             {
 
-                mario.Position -= Vector2.UnitY * YVelocity;
                 YVelocity -= MaxYVelocity * 0.08f;
 
             }
         }
         public void UpdateHorizontal()
         {
-            mario.Position -= Vector2.UnitX * XVelocity;
+            mario.Position += Vector2.UnitX * XVelocity;
             if (mario.IsLandResponse())
             {
                 XVelocity *= 0.93f;
