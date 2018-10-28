@@ -13,7 +13,6 @@ namespace Game1
         public float XVelocity { get; set; }
         private float Gravity { get; set; }
         public float YVelocity { get; set; }
-        private float MaxXVelocity { get; set; }
         private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }
         IMario mario;
@@ -24,27 +23,12 @@ namespace Game1
             YVelocity = 0;
             MinYVelocity = PhysicsUtil.minYVelocity;
             MaxYVelocity = PhysicsUtil.maxYVelocity;
-            Gravity = 0.8f;
         }
         public void Sprint()
         {
             XVelocity *= PhysicsUtil.sprintVelocity;
         }
-       // private void ApplyGtravity()
-      //  {
-      //     physicsBody.Position += Vector2.UnitY * YVelocity;
-       //    YVelocity += Gravity;
-      //  }
-      //  public void ApplyFriction()
-      //  {
-      //      physicsBody.Position += Vector2.UnitX*XVelocity;
-      //      XVelocity /= 1.25f;
-    //    }
-    //    public void ApplyForceVertical(float YVelocity)
-     //   {
-    //        this.YVelocity = YVelocity;
-            
-    //    }
+     
         public void MoveRight()
         {
             if (XVelocity < PhysicsUtil.firstPhaseXVelocity)
@@ -106,10 +90,7 @@ namespace Game1
                 YVelocity = MaxYVelocity;
             }
         }
-        //  public void FireballMove(float Velocity)
-        //   {
-        //        physicsBody.Position += Vector2.UnitX*Velocity;
-        //    }
+       
         public void GoNoInputCondition()
         {
             if (!mario.IsUp()&& !mario.IsCrouch()&&(XVelocity >= -0.45) && (XVelocity <= 0.45))
@@ -119,7 +100,7 @@ namespace Game1
         }
         public void CheckFalling()
         {
-            if (YVelocity < 0)
+            if (YVelocity > -2&&YVelocity<2)
             {
                 mario.SetFalling(true);
                 mario.IsLandFlase();
@@ -139,7 +120,7 @@ namespace Game1
             else if (YVelocity <= 0.05)
             {
 
-                YVelocity -= MaxYVelocity * 0.08f;
+                YVelocity -= MaxYVelocity * 0.02f;
 
             }
         }

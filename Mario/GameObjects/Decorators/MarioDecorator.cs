@@ -28,7 +28,6 @@ namespace Mario.GameObjects.Decorators
 		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
-        public GravityManagement gravityManagement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void BeFire()
 		{
@@ -147,22 +146,22 @@ namespace Mario.GameObjects.Decorators
 
         public bool IsUp()
         {
-            throw new NotImplementedException();
+            return DecoratedMario.IsUp();
         }
 
         public bool IsCrouch()
         {
-            throw new NotImplementedException();
+            return DecoratedMario.IsCrouch();
         }
 
         public bool IsLandResponse()
         {
-            throw new NotImplementedException();
+            return DecoratedMario.IsLandResponse();
         }
 
         public void SetFalling(bool fall)
         {
-            throw new NotImplementedException();
+            DecoratedMario.SetFalling(fall);
         }
     }
 }

@@ -87,7 +87,7 @@ namespace Mario
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
 
             fall = false;
-            Island = true;
+            Island = false;
             Physics = new Physics(this);
             
         }
@@ -95,10 +95,6 @@ namespace Mario
         {
             if (!Isfalling())
             {
-                if (IsLandResponse())
-                {
-                    Island = false;
-                }
                 MarioMovementState.Up();
                 Physics.Jump();
             }
@@ -186,8 +182,6 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-           
-                
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -205,7 +199,7 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            Physics.ReverseYVelocity();
+            Physics.ResetGravity();
             Island = true;
         }
         public void IsLandFlase()
