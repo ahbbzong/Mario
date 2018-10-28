@@ -110,16 +110,39 @@ namespace Mario.XMLRead
 			}
 
             //other checking
-            foreach (IProjectile projectile in gameObjectListsByType[typeof(IProjectile)])
+            //Floor Box
+            foreach (Rectangle floorBox in FloorBoxPosition)
             {
-                //test with the invisiable floor box
-                foreach (Rectangle floorBox in FloorBoxPosition)
+                foreach (IProjectile projectile in gameObjectListsByType[typeof(IProjectile)])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
                     intersection = collisionDetecter.intersection;
-                    projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0,0)) , intersection, collisionFound);
+                    projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
+                foreach (IItem obj in gameObjectListsByType[typeof(IItem)])
+                {
+                    collisionFound = collisionDetecter.Collision(obj.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    itemHandler = new ItemBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    itemHandler.HandleCollision(obj);
+                }
+                foreach (IEnemy enemy in gameObjectListsByType[typeof(IEnemy)])
+                {
+                    collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    enemyHandler.HandleCollision(enemy);
+                }
+                collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
+                intersection = collisionDetecter.intersection;
+                blockHandler = new BlockHandler(Mario);
+                blockHandler.HandleCollision(new BreakableBlock(new Vector2(0, 0)), Mario, collisionFound);
+                CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
+            }
+            //projectile
+            foreach (IProjectile projectile in gameObjectListsByType[typeof(IProjectile)])
+            {
                 foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
@@ -149,6 +172,7 @@ namespace Mario.XMLRead
                     }
                 }
             }
+            //item
             foreach (IItem obj in gameObjectListsByType[typeof(IItem)])
 			{
 				//IItem obj = (IItem)gameObjectListsByType[typeof(IItem)][j];
