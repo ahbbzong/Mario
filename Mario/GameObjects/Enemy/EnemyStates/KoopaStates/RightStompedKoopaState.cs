@@ -19,7 +19,7 @@ namespace Mario.EnemyStates.GoombaStates
         public RightStompedKoopaState(Enemy enemy):base(enemy)
         {
             this.enemy = enemy;
-            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Koopa)][typeof(RightStompedKoopaState)]);
+            EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Koopa)][typeof(StompedKoopaState)]);
 			enemy.Velocity = Vector2.Zero;
         }
         public override bool IsRightStomped()

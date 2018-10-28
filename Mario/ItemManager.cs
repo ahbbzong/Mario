@@ -173,7 +173,7 @@ namespace Mario.XMLRead
 					float storedLocation = block.Position.Y;
 					intersection = collisionDetecter.intersection;
 					blockHandler = new BlockHandler(Mario);
-					blockHandler.HandleCollision(block, Mario, collisionFound);
+                    blockHandler.HandleCollision(block, Mario, collisionFound);
 					CallMarioBlockHandler(block, collisionFound, intersection);
 				}
 			}

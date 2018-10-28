@@ -19,17 +19,20 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-                    mario.Position -= Vector2.UnitY*intersection.Height;
+                    mario.SetFalling(false);
                     mario.IsLandTrue();
+                    mario.Position -= Vector2.UnitY*intersection.Height;
                     break;
                 case Direction.Down:
 					mario.Position += Vector2.UnitY* intersection.Height;
                     mario.Physics.ResetGravity();
                     break;
                 case Direction.Left:
+                    mario.IsLandTrue();
                     mario.Position -= Vector2.UnitX*intersection.Width;
                     break;
                 case Direction.Right:
+                    mario.IsLandTrue();
                     mario.Position += Vector2.UnitX*intersection.Width;
                     break;
                 case Direction.None:
