@@ -194,7 +194,6 @@
     <Compile Include="GameObjects\Projectile\ProjectileStates\FireballDisappearState.cs" />
     <Compile Include="Keyboard\GamePadController.cs" />
     <Compile Include="Keyboard\Keyboard.cs" />
-    <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="GameObjects\Mario\MarioStates\MarioMovementStates\DeadMarioMovementState.cs" />
     <Compile Include="GameObjects\Mario\MarioStates\MarioMovementStates\LeftCrouchingMarioMovementState.cs" />
     <Compile Include="GameObjects\Mario\MarioStates\MarioMovementStates\LeftIdleMarioMovementState.cs" />

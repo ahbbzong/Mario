@@ -38,18 +38,18 @@ namespace Mario
 				{ Keys.P, new BeStarMarioCommand(mario) },
 				{ Keys.Q, new QuitCommand(Game1.Instance) },
 				{ Keys.X, new ThrowFireballCommand(mario) },
-				{ Keys.R, new ResetCommand(Game1.Instance) },
-				{ Keys.None, new NoInputCommand(mario) }
+				{ Keys.R, new ResetCommand(Game1.Instance) }
+			//	{ Keys.None, new NoInputCommand(mario) }
 			};
 		}
         public void Update()
         {
             Keys[] getkeys =Keyboard.GetState().GetPressedKeys();
             // needs to update to check no input of just cardinal direction keys for movement input
-            if (getkeys.Length == 0)
-            {
-                keyboardMap[Keys.None].Execute();
-            }
+          //  if (getkeys.Length == 0)
+         //   {
+        //        keyboardMap[Keys.None].Execute();
+         //   }
             foreach (Keys key in getkeys)
             {
 

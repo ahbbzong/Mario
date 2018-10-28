@@ -28,9 +28,9 @@ namespace Mario.GameObjects.Decorators
 		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
+        public GravityManagement gravityManagement { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		
-		public void BeFire()
+        public void BeFire()
 		{
 			DecoratedMario.BeFire();
 		}
