@@ -98,13 +98,6 @@ namespace Game1
             }
         }
        
-        public void GoNoInputCondition()
-        {
-            if (!mario.IsUp()&&(XVelocity >= -0.4) && (XVelocity <= 0.4))
-            {
-                mario.NoInput();
-            }
-        }
         public void CheckFalling()
         {
             if (YVelocity<-2)
@@ -169,7 +162,6 @@ namespace Game1
             UpdateHorizontal();
             UpdateVertical();
             CheckFalling();
-            GoNoInputCondition();
         }
     }
 }

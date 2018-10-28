@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Collision\LocationOffset.cs" />
+    <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
     <Compile Include="Enums\BackgroundType.cs" />
     <Compile Include="Enums\BlockType.cs" />
