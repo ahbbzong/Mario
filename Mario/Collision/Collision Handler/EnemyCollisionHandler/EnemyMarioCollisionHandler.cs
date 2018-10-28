@@ -21,7 +21,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy)
         {
-            if (mario.IsStarMario())
+            if (mario.IsStarMario()&&!result.Equals(Direction.None))
             {
                 enemy.Beflipped();
             }
