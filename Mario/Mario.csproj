@@ -132,7 +132,7 @@
     <Compile Include="Collision\Collision Handler\MarioCollisionHandler\MarioItemCollisionHandler\MarioMagicMushroomCollisionHandler.cs" />
     <Compile Include="Collision\Collision Handler\MarioCollisionHandler\MarioItemCollisionHandler\MarioStarmanCollisionHandler.cs" />
     <Compile Include="Command\MarioCommand\MarioCommand.cs" />
-    <Compile Include="Command\MarioCommand\ThrowFireballCommand.cs" />
+    <Compile Include="Command\MarioCommand\ThrowFireballAndSprintCommand.cs" />
     <Compile Include="Command\QuitCommand.cs" />
     <Compile Include="Command\MarioCommand\BeFireMarioCommand.cs" />
     <Compile Include="Command\MarioCommand\BeNormalMaroCommand.cs" />

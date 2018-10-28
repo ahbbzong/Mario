@@ -34,7 +34,7 @@ namespace Game1
         void IsLandTrue();
         bool IsLandResponse();
         void SetFalling(bool fall);
-
+        void Sprint();
 		void Draw(SpriteBatch spriteBatch, Color c);
         void IsLandFlase();
       

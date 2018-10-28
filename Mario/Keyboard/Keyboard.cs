@@ -39,7 +39,7 @@ namespace Mario
 				{ Keys.O, new DeadCommand(mario) },
 				{ Keys.P, new BeStarMarioCommand(mario) },
 				{ Keys.Q, new QuitCommand(Game1.Instance) },
-				{ Keys.X, new ThrowFireballCommand(mario) },
+				{ Keys.X, new ThrowFireballAndSprintCommand(mario) },
 				{ Keys.R, new ResetCommand(Game1.Instance) },
 				{ Keys.None, new NoInputCommand(mario) }
 			};

@@ -49,7 +49,7 @@ namespace Mario
                 }
                 if (currentState.Buttons.B > 0)
                 {
-                    commandList.Add(new ThrowFireballCommand(mario));
+                    commandList.Add(new ThrowFireballAndSprintCommand(mario));
                 }
                
                 foreach (ICommand command in commandList)

@@ -12,7 +12,6 @@ namespace Mario.ItemClasses
     {
         public FireFlower(Vector2 location) : base(location)
         {
-            Console.WriteLine(ItemType.FireFlower.ToString());
 
         }
     }

@@ -163,5 +163,10 @@ namespace Mario.GameObjects.Decorators
         {
             DecoratedMario.SetFalling(fall);
         }
+
+        public void Sprint()
+        {
+            DecoratedMario.Sprint();
+        }
     }
 }
