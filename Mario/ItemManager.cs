@@ -120,7 +120,7 @@ namespace Mario.XMLRead
                     projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0,0)) , intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
-                foreach (IBlock block in gameObjectListsByType["Block"])
+                foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
                     intersection = collisionDetecter.intersection;

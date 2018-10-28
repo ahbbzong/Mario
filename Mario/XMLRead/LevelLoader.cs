@@ -117,7 +117,7 @@ namespace Mario.XMLRead
                             int startX = block.XLocation;
                             for (int i = 0; i < count; i++)
                             {
-                                blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                                 block.XLocation = block.XLocation + 32;
                             }
                             block.YLocation = block.YLocation - 32;
@@ -135,7 +135,7 @@ namespace Mario.XMLRead
                             int startX = block.XLocation;
                             for (int i = 0; i < count; i++)
                             {
-                                blockList.Add(BlockFactory.Instance.GetGameObject(block.BlockType.ToString(), new Vector2(block.XLocation, block.YLocation)));
+                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                                 block.XLocation = block.XLocation + 32;
                             }
                             block.YLocation = block.YLocation - 32;
