@@ -112,7 +112,7 @@ namespace Mario
            
             if (Island)
             {
-                Physics.MoveLeft();
+                 Physics.MoveLeft();
                  MarioMovementState.Left();
             }
             else
@@ -200,7 +200,6 @@ namespace Mario
         }
         public void IsLandTrue()
         {
-            Physics.ResetGravity();
             Island = true;
         }
         public void IsLandFlase()

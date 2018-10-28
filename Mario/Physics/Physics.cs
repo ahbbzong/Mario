@@ -100,7 +100,7 @@ namespace Game1
         }
         public void CheckFalling()
         {
-            if (YVelocity > -2&&YVelocity<2)
+            if (YVelocity<0)
             {
                 mario.SetFalling(true);
                 mario.IsLandFlase();
