@@ -80,7 +80,7 @@ namespace Mario.XMLRead
                 {
                     //add the box to item manager
                     
-                    Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length ,block.Height);
+                    Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
                     ItemManager.Instance.FloorBoxPosition.Add(floorLocationBox);
                     //add floor(without boxes to the item manager)
                     int count = 0;
