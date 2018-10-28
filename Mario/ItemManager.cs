@@ -134,11 +134,14 @@ namespace Mario.XMLRead
                     enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
                     enemyHandler.HandleCollision(enemy);
                 }
-                collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
-                intersection = collisionDetecter.intersection;
-                blockHandler = new BlockHandler(Mario);
-                blockHandler.HandleCollision(new BreakableBlock(new Vector2(0, 0)), Mario, collisionFound);
-                CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
+                if (!mario.IsDead())
+                {
+                    collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
+                    intersection = collisionDetecter.intersection;
+                    blockHandler = new BlockHandler(Mario);
+                    blockHandler.HandleCollision(new BreakableBlock(new Vector2(0, 0)), Mario, collisionFound);
+                    CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
+                }
             }
             //projectile
             foreach (IProjectile projectile in gameObjectListsByType[typeof(IProjectile)])

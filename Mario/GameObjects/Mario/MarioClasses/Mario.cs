@@ -85,7 +85,6 @@ namespace Mario
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
-
             fall = false;
             Island = false;
             Physics = new Physics(this);
@@ -110,10 +109,11 @@ namespace Mario
         }
         public void Left()
         {
+           
             if (Island)
             {
                 Physics.MoveLeft();
-                MarioMovementState.Left();
+                 MarioMovementState.Left();
             }
             else
             {
@@ -122,6 +122,7 @@ namespace Mario
         }
         public void Right()
         {
+            
             if (Island)
             {
                 Physics.MoveRight();
