@@ -22,11 +22,12 @@ namespace Mario.XMLRead
 {
     public sealed class LevelLoader
     {
-        public IList<IGameObject> projectileList = new List<IGameObject>();
-        private static LevelLoader instance = new LevelLoader();
+		private IList<IGameObject> projectileList = new List<IGameObject>();
+		public IList<IGameObject> ProjectileList { get => projectileList; set => projectileList = value; }
+		private static LevelLoader instance = new LevelLoader();
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
-        static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
+		static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer enemySerializer = new XmlSerializer(typeof(List<EnemyXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer itemSerializer = new XmlSerializer(typeof(List<ItemXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
@@ -35,7 +36,8 @@ namespace Mario.XMLRead
         static readonly XmlSerializer projectileSerializer = new XmlSerializer(typeof(List<ProjectileXML>), new XmlRootAttribute("Map"));
 
 
-        public Dictionary<string, XmlSerializer> xmlSerializersByType;
+		private Dictionary<string, XmlSerializer> xmlSerializersByType;
+		public Dictionary<string, XmlSerializer> XmlSerializersByType { get => xmlSerializersByType; set => xmlSerializersByType = value; }
 
 		private Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
@@ -53,14 +55,14 @@ namespace Mario.XMLRead
         public void LoadFile(string file)
         {
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
-			foreach(Type key in ItemManager.Instance.gameObjectListsByType.Keys)
+			foreach(Type key in ItemManager.Instance.GameObjectListsByType.Keys)
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(key, LoadFunctionByType[key]));
 			}
 			while(queuedChanges.Count > 0)
 			{
 				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
-				ItemManager.Instance.gameObjectListsByType[item.Key] = item.Value(file);
+				ItemManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
 			}
         }
         public static IList<IGameObject> LoadBlock(string file)
@@ -76,7 +78,6 @@ namespace Mario.XMLRead
             {
                 if (!GetType(block.BlockType).Equals(typeof(FloorBlock)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlock)))
                 {
-					Debug.WriteLine(block.BlockType + " is not a floor block and not an unbreakable block");
                     blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
                     blockList.Last<IGameObject>().SetContainsItem(block.ItemContains);
                 }
@@ -86,8 +87,6 @@ namespace Mario.XMLRead
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
                     ItemManager.Instance.FloorBoxPosition.Add(floorLocationBox);
-                    //add floor(without boxes to the item manager)
-					Debug.WriteLine(block.BlockType + " is a floor block");
                     int count = 0;
                     int count2 = 0;
                     int startLocation = block.XLocation;
@@ -219,9 +218,9 @@ namespace Mario.XMLRead
             
             foreach (ProjectileXML projectile in myProjectileObject)
             {
-                Instance.projectileList.Add(ProjectileFactory.Instance.GetGameObject(GetType(projectile.projectileType), new Vector2(projectile.XLocation, projectile.YLocation)));
+                Instance.ProjectileList.Add(ProjectileFactory.Instance.GetGameObject(GetType(projectile.projectileType), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
-            return Instance.projectileList;
+            return Instance.ProjectileList;
         }
         public static IList<IGameObject> LoadPlayer(string file)
         {

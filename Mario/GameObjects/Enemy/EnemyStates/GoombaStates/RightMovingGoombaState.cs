@@ -17,7 +17,6 @@ namespace Mario.EnemyStates.GoombaStates
     {
         public RightMovingGoombaState(IEnemy enemy):base(enemy)
         {
-			Debug.WriteLine(EnemyFactory.Instance.GetSpriteDictionary.Count);
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Goomba)][this.GetType()]);
 
         }

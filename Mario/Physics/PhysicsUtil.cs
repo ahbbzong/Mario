@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public class PhysicsUtil
+    public static class PhysicsUtil
     {
 
         public const float maxXVelocity = 5.5f;

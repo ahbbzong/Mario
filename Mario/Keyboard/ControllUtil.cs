@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public class ControllerUtil
+    public static class ControllerUtil
     {
         public const int jumpDelay = 0;
         public const int jumpMaxDelay = 14;

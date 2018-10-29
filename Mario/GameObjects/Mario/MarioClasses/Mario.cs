@@ -60,7 +60,7 @@ namespace Mario
 				}
 				catch (System.Collections.Generic.KeyNotFoundException )
 				{
-					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString());
+					Debug.WriteLine("ERROR: " + MarioPowerupState.GetType().ToString() + " , " + MarioMovementState.MarioMovementType.ToString() + " is not found in the dictionary");
 				}
 			}
 		}

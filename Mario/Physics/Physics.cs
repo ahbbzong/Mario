@@ -11,7 +11,6 @@ namespace Game1
     {
        
         public float XVelocity { get; set; }
-        private float Gravity { get; set; }
         public float YVelocity { get; set; }
         private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }

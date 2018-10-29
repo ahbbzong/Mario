@@ -12,7 +12,7 @@ namespace Mario.Collision.EnemyCollisionHandler
     public class EnemyProjectileCollisionHandler : IEnemyCollisionHandler
     {
         IProjectile projectile;
-        public EnemyProjectileCollisionHandler(IProjectile projectile, Direction result)
+        public EnemyProjectileCollisionHandler(IProjectile projectile)
         {
             this.projectile = projectile;
         }
