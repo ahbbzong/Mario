@@ -17,6 +17,9 @@ namespace Game1
         public const float firstPhaseMultiplier = 0.04f;
         public const float secondPhaseMultiplier = 0.05f;
         public const float JumpPhaseMultiplier = 0.7f;
+        public const float NotJumpPhaseUtil = 0.8f;
+        public const float NotJumpPhaseOffset = 0.1f;
+
 
 
     }

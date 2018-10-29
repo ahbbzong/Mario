@@ -11,7 +11,6 @@ namespace Game1
     {
        
         public float XVelocity { get; set; }
-        private float Gravity { get; set; }
         public float YVelocity { get; set; }
         private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }
@@ -92,9 +91,9 @@ namespace Game1
         }
         public void NotJump()
         {
-            if (YVelocity > 1.2f)
+            if (YVelocity >PhysicsUtil.NotJumpPhaseUtil)
             {
-                YVelocity = 0.3f;
+                YVelocity =PhysicsUtil.NotJumpPhaseOffset;
             }
         }
        

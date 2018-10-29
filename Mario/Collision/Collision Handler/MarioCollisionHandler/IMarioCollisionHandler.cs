@@ -10,6 +10,6 @@ namespace Game1
 {
     public interface IMarioCollisionHandler
     {
-        void HandleCollision(IMario mario, Direction result, Rectangle intersection);
+        void HandleCollision(IMario mario, Direction result);
     }
 }

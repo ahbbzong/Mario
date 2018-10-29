@@ -14,7 +14,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
         public MarioStarmanCollisionHandler()
         {
         }
-        public void HandleCollision(IMario mario, Direction result, Rectangle intersection)
+        public void HandleCollision(IMario mario, Direction result)
         {
             if (mario.IsNormalMario() || mario.IsFireMario()||mario.IsSuperMario())
             {

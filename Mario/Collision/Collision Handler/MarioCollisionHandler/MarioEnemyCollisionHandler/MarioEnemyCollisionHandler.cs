@@ -12,11 +12,13 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
     public class MarioEnemyCollisionHandler : IMarioCollisionHandler
     {
         IEnemy enemy;
-        public MarioEnemyCollisionHandler(IEnemy enemy)
+        Rectangle intersection;
+        public MarioEnemyCollisionHandler(IEnemy enemy, Rectangle intersection)
         { 
             this.enemy = enemy;
+            this.intersection = intersection;
         }
-        public void PositionAdjustment(IMario mario, Direction result, Rectangle intersection)
+        public void PositionAdjustment(IMario mario, Direction result)
         {
             switch (result)
             {
@@ -36,12 +38,12 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             }
             MarioReact(mario, result);
         }
-        public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
+        public void HandleCollision(IMario mario,Direction result)
         {
             
             if (!enemy.IsGoombaStomped())
             {
-                PositionAdjustment(mario, result, intersection);
+                PositionAdjustment(mario, result);
             }
         }
         public void MarioReact(IMario mario,Direction result)

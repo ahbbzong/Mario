@@ -232,8 +232,8 @@ namespace Mario.XMLRead
                         enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
                         intersection = collisionDetecter.intersection;
                         enemyHandler.HandleCollision(enemy);
-                        marioHandler = new MarioEnemyCollisionHandler(enemy);
-                        marioHandler.HandleCollision(Mario, collisionFound, intersection);
+                        marioHandler = new MarioEnemyCollisionHandler(enemy, intersection);
+                        marioHandler.HandleCollision(Mario,collisionFound);
                     }
                     foreach (IBlock block in gameObjectListsByType[typeof(IBlock)])
                     {
@@ -316,7 +316,7 @@ namespace Mario.XMLRead
 
 			if (marioHandler != null)
 			{
-				marioHandler.HandleCollision(Mario, collisionFound, intersection);
+				marioHandler.HandleCollision(Mario, collisionFound);
 			}
 			
         }
@@ -325,14 +325,14 @@ namespace Mario.XMLRead
             IMarioCollisionHandler marioHandler;
 			if(block is HiddenBlock)
 			{
-				marioHandler = new MarioHiddenBlockHandler(block);
+				marioHandler = new MarioHiddenBlockHandler(block,intersection);
 			}
 			else
 			{
-				marioHandler = new MarioBlockHandler();
+				marioHandler = new MarioBlockHandler(intersection);
 			}
 
-			marioHandler.HandleCollision(Mario, collisionFound, intersection);
+			marioHandler.HandleCollision(Mario, collisionFound);
 
 		}
         //add a big mushroom, star, 1plus mushroom, or a coin behind the block

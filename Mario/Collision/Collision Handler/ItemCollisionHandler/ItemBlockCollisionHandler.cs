@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.BlocksClasses;
 using Mario.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,13 +36,29 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Left:
                     item.Position -= Vector2.UnitX*intersection.Width;
+                        ItemTurnLeft(item);
                     break;
                 case Direction.Right:
                     item.Position += Vector2.UnitX*intersection.Width;
+                        ItemTurnRight(item);
                     break;
                 case Direction.None:
                     item.IsLandFalse();
                     break;
+            }
+        }
+        public void ItemTurnLeft(IItem item)
+        {
+            if(block is Pipe||block is UnbreakableBlock)
+            {
+                item.TurnLeft();
+            }
+        }
+        public void ItemTurnRight(IItem item)
+        {
+            if (block is Pipe|| block is UnbreakableBlock)
+            {
+                item.TurnRight();
             }
         }
     }
