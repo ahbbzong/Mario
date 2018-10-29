@@ -17,10 +17,7 @@ namespace Mario.GameObjects.Decorators
 		public StarMarioDecorator(IMario mario):base(mario){
 
 		}
-		public void Damage()
-        {
-
-        }
+		
 
 		public override void TakeDamage()
 		{

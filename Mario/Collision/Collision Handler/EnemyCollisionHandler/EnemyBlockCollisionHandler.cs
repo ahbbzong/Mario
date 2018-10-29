@@ -38,7 +38,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void IsOnLand(IEnemy enemy,Direction result)
         {
-            if(result.Equals(Direction.Left)|| result.Equals(Direction.Right)|| result.Equals(Direction.Up))
+            if(result.Equals(Direction.Up))
             {
                 enemy.IsLandTrue();
             }

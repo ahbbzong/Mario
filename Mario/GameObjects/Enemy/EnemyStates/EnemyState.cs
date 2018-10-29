@@ -16,7 +16,7 @@ namespace Mario.AbstractClass
     public abstract class EnemyState : IEnemyState
     {
         protected ISprite EnemySprite { get; set; }
-        public Enemy enemy { get; set; }
+        protected IEnemy Enemy { get; set; }
         protected Vector2 XVelocity { get; set; }
         public int GetWidth
         {
@@ -32,16 +32,16 @@ namespace Mario.AbstractClass
                 return EnemySprite.Height;
             }
         }
-        protected EnemyState(Enemy enemy)
+        protected EnemyState(IEnemy enemy)
         {
-            this.enemy = enemy;
+            Enemy = enemy;
 			//change second accessor param
 			try
 			{
-				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][this.GetType()]);
+				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][GetType()]);
 			}catch(System.Collections.Generic.KeyNotFoundException)
 			{
-				Debug.WriteLine(enemy.GetType().Name + " ," + this.GetType().Name);
+				Console.WriteLine(enemy.GetType().Name + " ," + this.GetType().Name);
 			}
 
 		}
@@ -78,9 +78,9 @@ namespace Mario.AbstractClass
         public virtual void Update()
         {
             EnemySprite.Update();
-            if (!enemy.Island)
+            if (!Enemy.Island)
             {
-                enemy.gravityManagement.Update();
+                Enemy.gravityManagement.Update();
             }
         }
 

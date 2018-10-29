@@ -16,11 +16,10 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class LeftStompedKoopaState : EnemyState
     {
-        public LeftStompedKoopaState(Enemy enemy):base(enemy)
+        public LeftStompedKoopaState(IEnemy enemy):base(enemy)
         {
-            this.enemy = enemy;
+            Enemy = enemy;
             EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[typeof(Koopa)][typeof(StompedKoopaState)]);
-			enemy.Velocity = Vector2.Zero;
         }
         public override bool IsLeftStomped()
         {
@@ -29,7 +28,7 @@ namespace Mario.EnemyStates.GoombaStates
        
         public override void Beflipped()
         {
-            enemy.EnemyState = new FlippedKoopaState(enemy);
+            Enemy.EnemyState = new FlippedKoopaState(Enemy);
         }
        
         public override bool IsKoopa()
@@ -38,18 +37,18 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void TurnRight()
         {
-            enemy.EnemyState = new RightStompedKoopaState(enemy);
+            Enemy.EnemyState = new RightStompedKoopaState(Enemy);
 
 
         }
         public override void Update()
         {
             EnemySprite.Update();
-            if (!enemy.Island)
+            if (!Enemy.Island)
             {
-                enemy.gravityManagement.Update();
+                Enemy.gravityManagement.Update();
             }
-            enemy.Position -= StompedMovingUtil.Util;
+            Enemy.Position -= StompedMovingUtil.Util;
         }
 
     }

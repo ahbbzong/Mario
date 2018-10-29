@@ -27,8 +27,9 @@ namespace Mario.GameObjects.Decorators
 			}
 			else
 			{
+                if(DecoratedBlock.IsQuestionBlock())
 				DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
-				RemoveSelf();
+                RemoveSelf();
 			}
 			base.Update();
 		}
@@ -39,5 +40,6 @@ namespace Mario.GameObjects.Decorators
 			int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(this);
 			ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
 		}
-	}
+        
+    }
 }

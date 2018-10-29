@@ -24,26 +24,13 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
         }
         public static void PoisitionAdjustment(IMario mario, Direction result, Rectangle intersection)
         {
-            switch (result)
+            if (result.Equals(Direction.Down))
             {
-                case Direction.Up:
-                    mario.Position -= Vector2.UnitY* intersection.Height;
-                    mario.IsLandTrue();
-                    break;
-                case Direction.Down:
-					mario.Position += Vector2.UnitY* intersection.Height;
-                    mario.Physics.ReverseYVelocity();
-                    break;
-                case Direction.Left:
-                    mario.Position -= Vector2.UnitX*intersection.Width;
-                    break;
-                case Direction.Right:
-                    mario.Position += Vector2.UnitX*intersection.Width;
-                    break;
-                case Direction.None:
-                    break;
-
+                mario.Position += Vector2.UnitY * intersection.Height;
+                mario.Physics.ResetGravity();
             }
+               
+            
         }
     }
 }

@@ -69,7 +69,7 @@ namespace Mario.XMLRead
         }
         public void LoadContent(SpriteBatch spriteBatch)
 		{
-			SpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+
 			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -181,7 +181,6 @@ namespace Mario.XMLRead
             //item
             foreach (IItem obj in gameObjectListsByType[typeof(IItem)])
 			{
-				//IItem obj = (IItem)gameObjectListsByType[typeof(IItem)][j];
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
 				if (collisionFound != Direction.None && !Mario.IsDead())
 				{
@@ -192,10 +191,15 @@ namespace Mario.XMLRead
 				}
 				for (int i = gameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
 				{
-					IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
-					intersection = collisionDetecter.intersection;
-					itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
-					itemHandler.HandleCollision(obj);
+                    
+                    IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
+                    if (!block.IsHiddenBlock())
+                    {
+                        collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
+                        intersection = collisionDetecter.intersection;
+                        itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
+                        itemHandler.HandleCollision(obj);
+                    }
 				}
 				for (int i = gameObjectListsByType[typeof(IPipe)].Count - 1; i >= 0; i--)
 				{
@@ -212,7 +216,6 @@ namespace Mario.XMLRead
 				collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
 				if (!Mario.IsDead())
 				{
-					float storedLocation = block.Position.Y;
 					intersection = collisionDetecter.intersection;
 					blockHandler = new BlockHandler(Mario);
                     blockHandler.HandleCollision(block, Mario, collisionFound);
@@ -353,6 +356,8 @@ namespace Mario.XMLRead
                 case 4:
                 case 5:
                 case 6:
+
+
                 case 7:
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;

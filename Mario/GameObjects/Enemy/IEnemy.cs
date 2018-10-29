@@ -1,4 +1,5 @@
-﻿using Mario.BlockStates;
+﻿using Mario.AbstractClass;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
@@ -24,8 +25,9 @@ namespace Game1
         Rectangle Box { get; }
 
         GravityManagement gravityManagement { get; set; }
-        
-		void IsLandTrue();
+        bool Island { get; set; }
+        IEnemyState EnemyState { get; set; }
+        void IsLandTrue();
         void IsLandFalse();
     }
 }

@@ -35,13 +35,9 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Left:
                     item.Position -= Vector2.UnitX*intersection.Width;
-                    item.IsLandTrue();
-                    item.TurnLeft();
                     break;
                 case Direction.Right:
                     item.Position += Vector2.UnitX*intersection.Width;
-                    item.IsLandTrue();
-                    item.TurnRight();
                     break;
                 case Direction.None:
                     item.IsLandFalse();

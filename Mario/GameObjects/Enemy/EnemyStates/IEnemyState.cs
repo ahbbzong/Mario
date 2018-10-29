@@ -11,6 +11,8 @@ namespace Game1
 {
     public interface IEnemyState :  IUpdateable
     {
+        int GetWidth { get; }
+        int GetHeight { get; }
         void Beflipped();
         void BeStomped();
         void TurnLeft();

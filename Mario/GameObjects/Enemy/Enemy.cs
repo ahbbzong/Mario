@@ -15,7 +15,7 @@ namespace Mario.AbstractClass
     public abstract class Enemy : IEnemy,ICollidiable, IMoveable
     {
         private Vector2 EnemyLocation;
-        public EnemyState EnemyState { get; set; }
+        public IEnemyState EnemyState { get; set; }
         public Rectangle Box
         {
             get

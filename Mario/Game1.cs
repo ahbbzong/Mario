@@ -16,7 +16,7 @@ namespace Mario
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-		public IList<IController> controllerList = new List<IController>();
+		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
         public Game1()

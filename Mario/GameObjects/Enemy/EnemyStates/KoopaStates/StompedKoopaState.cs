@@ -14,14 +14,13 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class StompedKoopaState : EnemyState
     {
-        public StompedKoopaState(Enemy enemy) : base(enemy)
+        public StompedKoopaState(IEnemy enemy) : base(enemy)
         {
-            this.enemy = enemy;
-            enemy.Velocity = Vector2.Zero;
+            Enemy = enemy;
         }
         public override void Beflipped()
         {
-            enemy.EnemyState = new FlippedKoopaState(enemy);
+            Enemy.EnemyState = new FlippedKoopaState(Enemy);
         }
 
         public override bool IsKoopa()
@@ -34,11 +33,11 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void TurnLeft()
         {
-            enemy.EnemyState = new LeftStompedKoopaState(enemy);
+            Enemy.EnemyState = new LeftStompedKoopaState(Enemy);
         }
         public override void TurnRight()
         {
-            enemy.EnemyState = new RightStompedKoopaState(enemy);
+            Enemy.EnemyState = new RightStompedKoopaState(Enemy);
         }
 
 

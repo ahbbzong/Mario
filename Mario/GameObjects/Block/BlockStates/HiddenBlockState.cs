@@ -23,9 +23,6 @@ namespace Mario.BlockStates
         {
             return true;
         }
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-           //
-        }
+       
     }
 }

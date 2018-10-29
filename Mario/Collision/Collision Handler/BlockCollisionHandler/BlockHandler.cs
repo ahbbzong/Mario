@@ -20,14 +20,10 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario, Direction result)
         {
-
             if ((block.IsQuestionBlock() || (block.IsHiddenBlock() && !mario.Isfalling()))
                 && result.Equals(Direction.Down))
             {
                 block.React();
-                
-
-
                 if (mario.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);
