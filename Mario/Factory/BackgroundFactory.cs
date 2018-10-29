@@ -16,7 +16,7 @@ namespace Mario.Factory
 	class BackgroundFactory : SimpleGameObjectFactory
 	{
 		private static BackgroundFactory instance = new BackgroundFactory();
-		public static BackgroundFactory Instance { get => instance; set => instance = value; }
+		public static BackgroundFactory Instance { get => instance;  }
 		
 		public BackgroundFactory()
 		{

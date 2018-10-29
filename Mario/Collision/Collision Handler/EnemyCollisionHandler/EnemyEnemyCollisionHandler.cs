@@ -22,14 +22,14 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy)
         {
-                GoombaKoopaReact(enemy, result);
+                GoombaKoopaReact(enemy);
             if (!this.enemy.IsGoombaStomped())
             {
                 CollisionCondition(enemy);
             }
 
         }
-        public void GoombaKoopaReact(IEnemy enemy, Direction result)
+        public void GoombaKoopaReact(IEnemy enemy)
         {
             if (enemy.IsLeftStomped() && result.Equals(Direction.Right)
                 || enemy.IsRightStomped() && result.Equals(Direction.Left))
@@ -37,7 +37,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                 this.enemy.Beflipped();
             }
         }
-        public void NonStompedKoopaReact(IEnemy enemy, Direction result)
+        public void NonStompedKoopaReact(IEnemy enemy)
         {
             if (!enemy.IsKoopaStomped()&& !enemy.IsRightStomped()&& result.Equals(Direction.Left))
             {
@@ -62,11 +62,11 @@ namespace Mario.Collision.EnemyCollisionHandler
                     enemy.Position += Vector2.UnitY * intersection.Height;
                     break;
                 case Direction.Left:
-                    NonStompedKoopaReact(enemy, result);
+                    NonStompedKoopaReact(enemy);
                     this.enemy.TurnRight();
                     break;
                 case Direction.Right:
-                    NonStompedKoopaReact(enemy, result);
+                    NonStompedKoopaReact(enemy);
                     this.enemy.TurnLeft();
                     break;
                 case Direction.None:

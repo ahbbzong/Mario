@@ -21,11 +21,13 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-            float yPosition = Block.Position.Y;
 			Block.Position = new Vector2(Block.Position.X, Block.Position.Y - 10.0f);
 
 			int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);
-			ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+			if (index >= 0)
+			{
+				ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+			}
 		}
         public override bool IsQuestionBlock()
         {

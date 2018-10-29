@@ -25,7 +25,7 @@ namespace Mario.Collision.FireballCollisionHandler
         {
             if (!block.IsHiddenBlock())
             {
-                IsOnLand(fireball, result);
+                IsOnLand(fireball);
                 FireballAdjustment(fireball);
             }
         }
@@ -47,7 +47,7 @@ namespace Mario.Collision.FireballCollisionHandler
                     break;
             }
         }
-        public void IsOnLand(IProjectile fireball, Direction result)
+        public void IsOnLand(IProjectile fireball)
         {
             if (result.Equals(Direction.Left) || result.Equals(Direction.Right) || result.Equals(Direction.Up))
             {

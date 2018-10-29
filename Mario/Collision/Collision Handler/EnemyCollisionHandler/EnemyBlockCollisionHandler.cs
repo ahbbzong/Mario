@@ -22,7 +22,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy)
         {
-            IsOnLand(enemy, result);
+            IsOnLand(enemy);
             if (!block.IsHiddenBlock())
             {
                 PositionAdjustment(enemy);
@@ -36,7 +36,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                 enemy.Beflipped();
             }
         }
-        public void IsOnLand(IEnemy enemy,Direction result)
+        public void IsOnLand(IEnemy enemy)
         {
             if(result.Equals(Direction.Up))
             {

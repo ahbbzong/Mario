@@ -15,7 +15,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		private IMario mario;
 		protected IMario Mario { get => mario; set => mario = value; }
-		public MarioPowerupState(IMario mario)
+		protected MarioPowerupState(IMario mario)
 		{
 			this.Mario = mario;
 		}

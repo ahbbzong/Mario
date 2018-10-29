@@ -18,7 +18,7 @@ namespace Mario.Factory
 	{
 		private static BlockFactory instance = new BlockFactory();
 
-		public static BlockFactory Instance { get => instance; set => instance = value; }
+		public static BlockFactory Instance { get => instance; }
 		
 		public BlockFactory()
 		{
