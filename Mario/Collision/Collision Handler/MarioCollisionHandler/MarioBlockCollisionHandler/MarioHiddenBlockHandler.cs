@@ -20,9 +20,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
         }
         public void HandleCollision(IMario mario, Direction result)
         {
-            
-                PoisitionAdjustment(mario, result, intersection);
-            
+            PoisitionAdjustment(mario, result, intersection);
         }
         public static void PoisitionAdjustment(IMario mario, Direction result, Rectangle intersection)
         {
@@ -31,8 +29,6 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                 mario.Position += Vector2.UnitY * intersection.Height;
                 mario.Physics.ResetGravity();
             }
-               
-            
         }
     }
 }
