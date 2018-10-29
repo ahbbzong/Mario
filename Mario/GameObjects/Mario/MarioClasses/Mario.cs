@@ -141,7 +141,7 @@ namespace Mario
         public void Dead()
         {
             MarioPowerupState.Dead();
-            MarioMovementState = new DeadMarioMovementState(this);
+           MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
         {
@@ -253,7 +253,8 @@ namespace Mario
         {
             return Island;
         }
-        public virtual void SetContainsItem(String item)
-        { }
+        public void SetContainsItem(String item)
+        {
+        }
     }
 }
