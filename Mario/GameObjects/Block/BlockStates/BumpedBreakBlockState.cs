@@ -27,7 +27,7 @@ using System.Threading.Tasks;
             }
             else
             {
-                Block.BlockState = new BreakableBlockState(Block);
+                Block.BlockState = new BrickBlockState(Block);
             }
             BlockSprite.Update();
         }

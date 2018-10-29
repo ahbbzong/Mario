@@ -11,9 +11,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.BlockStates
 {
-    class BreakableBlockState : BlockState
+    class BrickBlockState : BlockState
     {
-        public BreakableBlockState(IBlock block) : base(block)
+        public BrickBlockState(IBlock block) : base(block)
         {
 
 			this.BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);

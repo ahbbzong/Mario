@@ -12,7 +12,7 @@ namespace Mario.BlocksClasses
     {
         public BreakableBlock(Vector2 location):base(location)
         {
-            BlockState = new BreakableBlockState(this);
+            BlockState = new BrickBlockState(this);
         }
 
         public override void React()

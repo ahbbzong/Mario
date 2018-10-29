@@ -82,7 +82,7 @@
     <Compile Include="GameObjects\Mario\MarioStates\MarioState.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\AnimatedSprite.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\StaticSprite.cs" />
-    <Compile Include="GameObjects\Block\BlockStates\BreakableBlockState.cs" />
+    <Compile Include="GameObjects\Block\BlockStates\BrickBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\DisappearBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\FloorBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\HiddenBlockState.cs" />
