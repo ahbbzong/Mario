@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.BlockStates
 {
-    class FloorBlockState : BlockState
+    public class DestoriedBlockState : BlockState
     {
-        public FloorBlockState(IBlock block) : base(block)
+        public DestoriedBlockState(IBlock block) : base(block)
         {
+            BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[GetType()]);
+        }
 
-			BlockSprite = SpriteFactory.Instance.CreateSprite(BlockFactory.Instance.GetSpriteDictionary[this.GetType()]);
-		}
-       
+
     }
 }

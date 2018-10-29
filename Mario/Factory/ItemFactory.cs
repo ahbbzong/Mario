@@ -28,7 +28,10 @@ namespace Mario.Factory
 				{typeof(MagicMushroom),GetMagicMushroom },
 				{typeof(OneUpMushroom),GetOneUpMushroom },
 				{typeof(Starman), GetStarman },
-			};
+                {typeof(BrickParticleLeft), GetBrickParticleLeft },
+                {typeof(BrickParticleRight), GetBrickParticleRight },
+
+            };
 		}
 
 		private IGameObject GetStarman(Vector2 arg)
@@ -55,6 +58,14 @@ namespace Mario.Factory
 		{
 			return new Coin(arg);
 		}
+        private IGameObject GetBrickParticleLeft(Vector2 arg)
+        {
+            return new BrickParticleLeft(arg);
+        }
+        private IGameObject GetBrickParticleRight(Vector2 arg)
+        {
+            return new BrickParticleRight(arg);
+        }
 
         public override void LoadContent(ContentManager content)
 		{
@@ -65,6 +76,10 @@ namespace Mario.Factory
 				{typeof(MagicMushroom), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
 				{typeof(OneUpMushroom),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
 				{typeof(Starman), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
+                {typeof(BrickParticleRight), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("BreakBrickBlock"),1,1) },
+                {typeof(BrickParticleLeft), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("BreakBrickBlock"),1,1) }
+
+
             };
 		}
 	}

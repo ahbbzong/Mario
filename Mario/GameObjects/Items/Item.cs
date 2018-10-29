@@ -39,7 +39,7 @@ namespace Mario.Classes.BlocksClasses
             gravityManagement = new GravityManagement(this);
             velocity = Vector2.UnitX;
 
-			ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[this.GetType()]);
+			ItemSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[GetType()]);
 
 		}
         public virtual void Update()

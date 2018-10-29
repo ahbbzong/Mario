@@ -69,14 +69,13 @@ namespace Mario.Factory
 			{
 				{typeof(BreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
 				{typeof(FloorBlockState), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
-				//this should be changed moving forward to accept parameters for width and height with no sprite
 				{typeof(HiddenBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
 				{typeof(PipeState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
 				{typeof(QuestionBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
 				{typeof(UnbreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
 				{typeof(UsedBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
 
-			};
+            };
 		}
 	}
 }

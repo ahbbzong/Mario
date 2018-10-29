@@ -13,7 +13,6 @@ namespace Game1
 
         GravityManagement gravityManagement { get; set; }
        
-        Rectangle Box { get; }
         bool IsLand { get; set; }
         bool IsStarman();
         bool IsCoin();

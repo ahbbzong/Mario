@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
 using Mario.Enums;
+using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -24,7 +25,7 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void HandleCollision(IItem item)
         {
-            if (!item.IsCoin())
+            if (item is Coin||item is BrickParticleLeft||item is BrickParticleRight)
             switch (result)
             {
                 case Direction.Up:

@@ -4,6 +4,7 @@ using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
 using Mario.GameObjects.Decorators;
+using Mario.ItemClasses;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -29,6 +30,12 @@ namespace Mario.BlockStates
             else
             {
                 Block.BlockState = new DisappearBlockState(Block);
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y)));
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y+16)));
+
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X+16, Block.Position.Y)));
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X+16, Block.Position.Y+16)));
+
             }
         }
         public override bool IsBreakableBlock()
