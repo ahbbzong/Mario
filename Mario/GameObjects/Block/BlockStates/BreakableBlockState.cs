@@ -20,8 +20,7 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-            if (ItemManager.Instance.Mario.IsNormalMario())
-            {
+            
                 Block.Position -= Vector2.UnitY*10.0f;
 
 				int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
