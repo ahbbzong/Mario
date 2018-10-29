@@ -34,7 +34,6 @@ namespace Mario.GameObjects.Decorators
 
 		public TransitionStateMarioDecorator(IMario mario, MarioPowerupState marioPowerupState, MarioPowerupState newState) : base(mario)
 		{
-			Debug.WriteLine("Transition State Happend");
 			newSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[marioPowerupState.GetType()][MarioMovementState.GetType()]);
 			oldSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[newState.GetType()][MarioMovementState.GetType()]);
 			currentSprite = oldSprite;
