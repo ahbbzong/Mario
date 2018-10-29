@@ -29,7 +29,10 @@ namespace Mario.Factory
 				{typeof( BreakableBlock ), GetBreakableBlock },
 				{typeof( Pipe ), GetPipe },
 				{typeof( QuestionBlock ), GetQuestionBlock },
-				{typeof( UnbreakableBlock ),GetUnbreakableBlock }
+				{typeof( UnbreakableBlock ),GetUnbreakableBlock },
+                {typeof( UsedBlock ),GetUsedBlock }
+
+
 			};
 		}
 
@@ -62,6 +65,10 @@ namespace Mario.Factory
 		{
 			return new HiddenBlock(arg);
 		}
+        private IGameObject GetUsedBlock(Vector2 arg)
+        {
+            return new UsedBlock(arg);
+        }
 
 		public override void LoadContent(ContentManager content)
 		{

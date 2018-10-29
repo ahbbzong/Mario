@@ -143,7 +143,7 @@ namespace Mario.XMLRead
                 {
                     collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
                     intersection = collisionDetecter.intersection;
-                    blockHandler = new BlockHandler(Mario);
+                    blockHandler = new BlockHandler();
                     blockHandler.HandleCollision(new BreakableBlock(new Vector2(0, 0)),Mario, collisionFound);
                     CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
                 }
@@ -219,7 +219,7 @@ namespace Mario.XMLRead
 				if (!Mario.IsDead())
 				{
 					intersection = collisionDetecter.intersection;
-					blockHandler = new BlockHandler(Mario);
+					blockHandler = new BlockHandler();
                     blockHandler.HandleCollision(block, Mario,collisionFound);
 					CallMarioBlockHandler(block, collisionFound, intersection);
 				}
@@ -276,7 +276,7 @@ namespace Mario.XMLRead
                 collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
                 if (collisionFound != Direction.None && !Mario.IsDead())
                 {
-                    pipeHandler = new BlockHandler(Mario);
+                    pipeHandler = new BlockHandler();
                     intersection = collisionDetecter.intersection;
                     pipeHandler.HandleCollision(pipe,Mario, collisionFound);
                     CallMarioBlockHandler(pipe, collisionFound, intersection);

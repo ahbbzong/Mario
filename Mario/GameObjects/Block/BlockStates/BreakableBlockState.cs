@@ -20,20 +20,19 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-            
+          
                 Block.Position -= Vector2.UnitY*10.0f;
 
 				int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
 				ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
-			}
-            else
+            if (!ItemManager.Instance.Mario.IsNormalMario())
             {
-                Block.BlockState = new DisappearBlockState(Block);
                 ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y)));
-                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y+16)));
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y + 16)));
 
-                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X+16, Block.Position.Y)));
-                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X+16, Block.Position.Y+16)));
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + 16, Block.Position.Y)));
+                ItemManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + 16, Block.Position.Y + 16)));
+               
 
             }
         }

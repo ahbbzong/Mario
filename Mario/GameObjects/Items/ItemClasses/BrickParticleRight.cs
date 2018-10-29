@@ -17,7 +17,7 @@ namespace Mario.ItemClasses
         {
             ItemSprite.Update();
             gravityManagement.Update();
-            Position -= Vector2.UnitX * 5;
+            Position += Vector2.UnitX * 5;
         }
 
     }

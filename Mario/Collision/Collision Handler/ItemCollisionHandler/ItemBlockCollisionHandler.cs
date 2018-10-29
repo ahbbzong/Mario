@@ -25,7 +25,7 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void HandleCollision(IItem item)
         {
-            if (item is Coin||item is BrickParticleLeft||item is BrickParticleRight)
+            if (!(item is Coin)&&!(item is BrickParticleLeft)&&!(item is BrickParticleRight))
             switch (result)
             {
                 case Direction.Up:

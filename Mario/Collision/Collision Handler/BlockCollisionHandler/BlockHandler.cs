@@ -13,27 +13,24 @@ namespace Mario.Collision
 {
     public class BlockHandler : IBlockCollisionHandler
     {
-        private IMario mario;
-        public BlockHandler(IMario mario)
+        public BlockHandler()
         {
-            this.mario = mario;
     }
-        public void HandleCollision(IBlock block, IMario marioParam, Direction result)
+        public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if ((block.IsQuestionBlock() || (block.IsHiddenBlock()||(block.IsBreakableBlock()) && !mario.Isfalling()))
-                && result.Equals(Direction.Down))
+            if ((block.IsQuestionBlock() ||block.IsBreakableBlock())&& result.Equals(Direction.Down))
             {
                 block.React();
-                if (marioParam.IsNormalMario())
+                if (mario.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);
                 }
-                else if (marioParam.IsSuperMario()||marioParam.IsFireMario()||marioParam.IsStarMario())
+                else if (mario.IsSuperMario()|| mario.IsFireMario()|| mario.IsStarMario())
                 {
                     ItemManager.Instance.AddBigItem(block);
                 }
             }
-            else if (block.IsBreakableBlock() && result.Equals(Direction.Down))
+            else if (block.IsHiddenBlock() && result.Equals(Direction.Down)&&!mario.Isfalling())
             {
                 block.React();
             }
