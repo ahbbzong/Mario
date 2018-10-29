@@ -26,5 +26,8 @@ namespace Mario.GameObjects.Decorators
 		{
 			decoratedObject.Update();
 		}
-	}
+
+        public virtual void SetContainsItem(String item)
+        { }
+    }
 }

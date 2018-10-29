@@ -3,6 +3,7 @@ using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace Game1
 {
@@ -10,13 +11,16 @@ namespace Game1
 	{
 
 		Rectangle Box { get; }
+        string ItemContains { get; set; }
 		bool IsHiddenBlock();
 		bool IsBreakableBlock();
 		bool IsQuestionBlock();
 		void React();
 		bool IsBumpedBlockState();
 		bool IsBumpedBreakBlock();
-		IBlockState BlockState { get; set; }
+        //void SetContainsItem(String item);
+     
+        IBlockState BlockState { get; set; }
        
     }
 }

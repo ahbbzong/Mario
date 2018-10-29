@@ -26,6 +26,8 @@ namespace Mario.Classes.BlocksClasses
         {
             BackgroundSprite.Update();
         }
+        public virtual void SetContainsItem(String item)
+        { }
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             BackgroundSprite.Draw(spriteBatch, BackgroundLocation);

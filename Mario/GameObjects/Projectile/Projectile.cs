@@ -70,5 +70,8 @@ namespace Mario.Classes.BlocksClasses
         {
 
         }
+
+        public virtual void SetContainsItem(String item)
+        { }
     }
 }

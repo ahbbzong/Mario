@@ -74,11 +74,11 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-
                 if (!GetType(block.BlockType).Equals(typeof(FloorBlock)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlock)))
                 {
 					Debug.WriteLine(block.BlockType + " is not a floor block and not an unbreakable block");
                     blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
+                    blockList.Last<IGameObject>().SetContainsItem(block.ItemContains);
                 }
                 else if (GetType(block.BlockType).Equals(typeof(FloorBlock)))
                 {

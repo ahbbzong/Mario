@@ -253,5 +253,7 @@ namespace Mario
         {
             return Island;
         }
+        public virtual void SetContainsItem(String item)
+        { }
     }
 }

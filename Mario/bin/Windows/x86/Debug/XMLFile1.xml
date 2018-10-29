@@ -54,7 +54,7 @@
   
    <BlockXML>
     <BlockType>HiddenBlock</BlockType>
-     <ItemContains>MagicMushroom</ItemContains>
+     <ItemContains>None</ItemContains>
     <XLocation>32</XLocation>
     <YLocation>618</YLocation>
   </BlockXML>
@@ -68,21 +68,21 @@
 
   <BlockXML>
     <BlockType>QuestionBlock</BlockType>
-    <ItemContains>None</ItemContains>
+    <ItemContains>Starman</ItemContains>
     <XLocation>160</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlock</BlockType>
-    <ItemContains>MagicMushroom</ItemContains>
+    <ItemContains>None</ItemContains>
     <XLocation>192</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlock</BlockType>
-    <ItemContains>None</ItemContains>
+    <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>224</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
@@ -103,7 +103,7 @@
 
   <BlockXML>
     <BlockType>QuestionBlock</BlockType>
-    <ItemContains>MagicMushroom</ItemContains>
+    <ItemContains>None</ItemContains>
     <XLocation>416</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>

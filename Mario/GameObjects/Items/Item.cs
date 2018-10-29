@@ -90,5 +90,8 @@ namespace Mario.Classes.BlocksClasses
         {
             return false;
         }
+
+        public virtual void SetContainsItem(String item)
+        { }
     }
 }

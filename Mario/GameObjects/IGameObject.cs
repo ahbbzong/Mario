@@ -9,5 +9,7 @@ namespace Mario.Interfaces.GameObjects
 {
 	public interface IGameObject: IDrawable, IUpdateable
 	{
-	}
+         void SetContainsItem(String item);
+        
+    }
 }

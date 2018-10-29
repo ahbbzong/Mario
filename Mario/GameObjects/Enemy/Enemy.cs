@@ -121,5 +121,8 @@ namespace Mario.AbstractClass
         {
             return EnemyState.IsKoopaStomped();
         }
+
+        public virtual void SetContainsItem(String item)
+        { }
     }
 }

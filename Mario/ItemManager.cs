@@ -339,26 +339,18 @@ namespace Mario.XMLRead
         public void AddNormalItem(IBlock block)
         {
 			Type IItemType = typeof(IItem);
-            Random rnd = new Random();
-            int itemChoose = rnd.Next(1, 8);
-            switch (itemChoose)
+            switch (block.ItemContains)
             {
-                case 1:
+                case "Coin":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y-30)));
                     break;
-                case 2:
+                case "Starman":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
-                case 3:
+                case "OneUpMushroom":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
-
-                case 4:
-                case 5:
-                case 6:
-
-
-                case 7:
+                case "None":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
@@ -367,20 +359,18 @@ namespace Mario.XMLRead
         public void AddBigItem(IBlock block)
         {
 			Type IItemType = typeof(IItem);
-            Random rnd = new Random();
-            int itemChoose = rnd.Next(1, 5);
-            switch (itemChoose)
+            switch (block.ItemContains)
             {
-                case 1:
+                case "Coin":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
-                case 2:
+                case "None":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
-                case 3:
+                case "Starman":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
-                case 4:
+                case "OneUpMushroom":
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
             }
