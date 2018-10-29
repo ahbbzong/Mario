@@ -17,7 +17,7 @@ namespace Mario.Factory
 	class MarioFactory:DynamicGameObjectFactory
 	{
 		private static MarioFactory instance = new MarioFactory();
-		public static MarioFactory Instance { get => instance; set => instance = value; }
+		public static MarioFactory Instance { get => instance;}
 		public MarioFactory():base()
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>

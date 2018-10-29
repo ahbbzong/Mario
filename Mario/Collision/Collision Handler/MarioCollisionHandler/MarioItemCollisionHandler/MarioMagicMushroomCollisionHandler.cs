@@ -12,9 +12,9 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
     public class MarioMagicMushroomCollisionHandler : IMarioCollisionHandler
     {
         public MarioMagicMushroomCollisionHandler()
-        {//No need to fill
+        {
         }
-        public void HandleCollision(IMario mario, Direction result, Rectangle intersection)
+        public void HandleCollision(IMario mario, Direction result)
         {
             if (mario.IsNormalMario()||mario.IsFireMario())
             {

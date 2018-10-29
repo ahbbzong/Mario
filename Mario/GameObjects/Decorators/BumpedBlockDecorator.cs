@@ -37,8 +37,8 @@ namespace Mario.GameObjects.Decorators
 		private void RemoveSelf()
 		{
 			//should append ItemManager to remove and add items generally
-			int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(this);
-			ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
+			int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(this);
+			ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
 		}
         
     }

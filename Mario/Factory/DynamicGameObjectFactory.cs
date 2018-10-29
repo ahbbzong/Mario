@@ -14,7 +14,7 @@ namespace Mario.Factory
 		protected Dictionary<Type, Dictionary<Type, Tuple<Texture2D,int,int>>> SpriteDictionary { get => spriteDictionary; set => spriteDictionary = value; }
 		public Dictionary<Type, Dictionary<Type, Tuple<Texture2D,int,int>>> GetSpriteDictionary { get => SpriteDictionary; }
 
-		public DynamicGameObjectFactory() : base()
+		protected DynamicGameObjectFactory() : base()
 		{
 
 		}

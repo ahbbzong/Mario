@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Mario.GameObjects.Enemy.EnemyStates.KoopaStates
 {
-    class StompedMovingUtil
+    public static class StompedMovingUtil
     {
-        public static Vector2 Util = new Vector2(5, 0);
+        public static Vector2 Util { get => new Vector2(5, 0); }
     }
 }

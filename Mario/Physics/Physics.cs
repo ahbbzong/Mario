@@ -11,7 +11,6 @@ namespace Game1
     {
        
         public float XVelocity { get; set; }
-        private float Gravity { get; set; }
         public float YVelocity { get; set; }
         private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }
@@ -19,8 +18,8 @@ namespace Game1
         public Physics(IMario mario)
         {
             this.mario = mario;
-            XVelocity = 0;
-            YVelocity = 0;
+            XVelocity = PhysicsUtil.zero;
+            YVelocity = PhysicsUtil.zero;
             MinYVelocity = PhysicsUtil.minYVelocity;
             MaxYVelocity = PhysicsUtil.maxYVelocity;
         }
@@ -83,7 +82,7 @@ namespace Game1
         {
             if (YVelocity <= MaxYVelocity)
             {
-                YVelocity = MinYVelocity + YVelocity * PhysicsUtil.JumpPhaseMultiplier;
+                YVelocity = MinYVelocity + YVelocity * PhysicsUtil.jumpPhaseMultiplier;
             }
             else
             {
@@ -92,15 +91,15 @@ namespace Game1
         }
         public void NotJump()
         {
-            if (YVelocity > 1.2f)
+            if (YVelocity >PhysicsUtil.notJumpPhaseUtil)
             {
-                YVelocity = 0.3f;
+                YVelocity =PhysicsUtil.notJumpPhaseOffset;
             }
         }
        
         public void CheckFalling()
         {
-            if (YVelocity<-2)
+            if (YVelocity<PhysicsUtil.fallDownCheckUtil)
             {
                 mario.SetFalling(true);
                 mario.IsLandFlase();
@@ -113,14 +112,14 @@ namespace Game1
         public void UpdateVertical()
         {
             mario.Position -= Vector2.UnitY * YVelocity;
-            if (YVelocity >= 0.05)
+            if (YVelocity >= PhysicsUtil.fallingPhaseCheckUtil)
             {
-                YVelocity *= 0.70f;
+                YVelocity *=PhysicsUtil.upwardMultiplier;
             }
-            else if (YVelocity <= 0.05)
+            else if (YVelocity <= PhysicsUtil.fallingPhaseCheckUtil)
             {
 
-                YVelocity -= MaxYVelocity * 0.02f;
+                YVelocity -= MaxYVelocity * PhysicsUtil.fallDownMultiplier;
 
             }
         }
@@ -133,7 +132,7 @@ namespace Game1
             }
             else
             {
-                XVelocity = 0;
+                XVelocity = PhysicsUtil.zero;
             }
         }
         public float XVelocityResponse()
@@ -146,17 +145,16 @@ namespace Game1
         }
         public void ResetGravity()
         {
-            YVelocity = 0.0f;
+            YVelocity = PhysicsUtil.zero;
         }
         public void ResetHorizontal()
         {
-            XVelocity = 0.0f;
+            XVelocity = PhysicsUtil.zero;
         }
         public void ReverseYVelocity()
         {
-            YVelocity = -YVelocity/1.2f;
+            YVelocity = -YVelocity/PhysicsUtil.reverseYVelocityDivider;
         }
-     
         public void Update()
         {
             UpdateHorizontal();

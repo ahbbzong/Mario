@@ -21,7 +21,7 @@ namespace Mario.MarioStates.MarioPowerupStates
         public override void ThrowFireball()
         {
             Vector2 launchPosition = Mario.Position;
-            ItemManager.Instance.gameObjectListsByType[typeof(IProjectile)].Add(new Fireball(launchPosition));
+            ItemManager.Instance.GameObjectListsByType[typeof(IProjectile)].Add(new Fireball(launchPosition));
         }
 
 		public override void TakeDamage()

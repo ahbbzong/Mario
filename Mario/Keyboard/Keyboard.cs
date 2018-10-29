@@ -11,22 +11,13 @@ namespace Mario
     public class Keyboards : IController
     {
         private Dictionary<Keys, ICommand> keyboardMap;
-		private IList<Keys> directionalKeys = new List<Keys>
-		{
-			Keys.Up,
-			Keys.Down,
-			Keys.Left,
-			Keys.Right
-		};
         private Keys[] previous;
-        private IMario mario;
         public Keyboards()
         {
         }
 
         public void Initialize(IMario mario)
         {
-            this.mario = mario;
 			keyboardMap = new Dictionary<Keys, ICommand>
 			{
 				{ Keys.Z, new UpCommand(mario) },

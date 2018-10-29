@@ -27,10 +27,6 @@ namespace Mario.GameObjects.Decorators
 				return new Rectangle((int)Position.X, (int) Position.Y, oldSprite.Width, oldSprite.Height);
 			}
 		}
-		public TransitionStateMarioDecorator(IMario mario) : base(mario)
-		{
-
-		}
 
 		public TransitionStateMarioDecorator(IMario mario, MarioPowerupState marioPowerupState, MarioPowerupState newState) : base(mario)
 		{

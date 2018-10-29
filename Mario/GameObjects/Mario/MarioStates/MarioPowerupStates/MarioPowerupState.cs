@@ -15,7 +15,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		private IMario mario;
 		protected IMario Mario { get => mario; set => mario = value; }
-		public MarioPowerupState(IMario mario)
+		protected MarioPowerupState(IMario mario)
 		{
 			this.Mario = mario;
 		}
@@ -38,7 +38,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public virtual void Dead()
 		{
-			Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
+            Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
 		}
         public virtual void ThrowFireball()
         {

@@ -12,11 +12,13 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
     public class MarioHiddenBlockHandler : IMarioCollisionHandler
     {
         IBlock block;
-        public MarioHiddenBlockHandler(IBlock block)
+        Rectangle intersection;
+        public MarioHiddenBlockHandler(IBlock block, Rectangle intersection)
         {
             this.block = block;
+            this.intersection = intersection;
         }
-        public void HandleCollision(IMario mario, Direction result, Rectangle intersection)
+        public void HandleCollision(IMario mario, Direction result)
         {
             
                 PoisitionAdjustment(mario, result, intersection);

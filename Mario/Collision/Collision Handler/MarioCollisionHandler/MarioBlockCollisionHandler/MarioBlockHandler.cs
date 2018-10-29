@@ -11,10 +11,12 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
 {
     public class MarioBlockHandler : IMarioCollisionHandler
     {
-        public MarioBlockHandler()
+        Rectangle intersection;
+        public MarioBlockHandler(Rectangle intersection)
         {
+            this.intersection = intersection;
         }
-        public void HandleCollision(IMario mario,Direction result, Rectangle intersection)
+        public void HandleCollision(IMario mario,Direction result)
         {
             switch (result)
             {
