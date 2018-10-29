@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public class LocationOffset
+    public static class LocationOffset
     {
-        public static Vector2 Until = new Vector2(0,9999);
+        public static Vector2 Until { get => new Vector2(0, 9999); }
     }
 }

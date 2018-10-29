@@ -172,7 +172,7 @@ namespace Mario.XMLRead
 
                     projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
                     collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
-                    enemyHandler = new EnemyProjectileCollisionHandler(projectile);
+                    enemyHandler = new EnemyProjectileCollisionHandler();
                     if (collisionFound != Direction.None)
                     {
                         enemyHandler.HandleCollision(enemy);
