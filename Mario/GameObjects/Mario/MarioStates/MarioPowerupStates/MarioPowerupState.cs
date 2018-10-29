@@ -38,7 +38,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public virtual void Dead()
 		{
-			Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
+            Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
 		}
         public virtual void ThrowFireball()
         {
