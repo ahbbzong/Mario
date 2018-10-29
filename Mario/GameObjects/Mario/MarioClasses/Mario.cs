@@ -244,9 +244,9 @@ namespace Mario
 			MarioSprite.Draw(spriteBatch, location,c);
 		}
 
-        public void SetFalling(bool previousFall)
+        public void SetFalling(bool fallState)
         {
-            fall = previousFall;
+            fall = fallState;
         }
         public bool IsLandResponse()
         {

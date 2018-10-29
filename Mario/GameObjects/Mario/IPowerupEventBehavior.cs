@@ -11,7 +11,6 @@ namespace Mario.Interfaces.GameObjects
 	{
 		void Dead();
 
-
 		void BeSuper();
 
 		void BeNormal();

@@ -25,9 +25,6 @@ namespace Mario.Collision
                 && result.Equals(Direction.Down))
             {
                 block.React();
-                
-
-
                 if (mario.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);

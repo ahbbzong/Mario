@@ -20,7 +20,6 @@ namespace Mario.ItemClasses
         {
             IsLand = true;
             gravityManagement.ReverseYVelocity();
-
         }
     }
 

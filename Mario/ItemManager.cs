@@ -193,7 +193,8 @@ namespace Mario.XMLRead
 				for (int i = gameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
 				{
 					IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
-					intersection = collisionDetecter.intersection;
+                    collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
+                    intersection = collisionDetecter.intersection;
 					itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
 					itemHandler.HandleCollision(obj);
 				}
@@ -352,6 +353,8 @@ namespace Mario.XMLRead
                 case 4:
                 case 5:
                 case 6:
+
+
                 case 7:
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
                     break;
