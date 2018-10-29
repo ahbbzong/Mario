@@ -55,14 +55,14 @@ namespace Mario.XMLRead
         public void LoadFile(string file)
         {
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
-			foreach(Type key in ItemManager.Instance.GameObjectListsByType.Keys)
+			foreach(Type key in GameObjectManager.Instance.GameObjectListsByType.Keys)
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(key, LoadFunctionByType[key]));
 			}
 			while(queuedChanges.Count > 0)
 			{
 				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
-				ItemManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
+				GameObjectManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
 			}
         }
         public static IList<IGameObject> LoadBlock(string file)
@@ -86,7 +86,7 @@ namespace Mario.XMLRead
                     //add the box to item manager
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
-                    ItemManager.Instance.FloorBoxPosition.Add(floorLocationBox);
+                    GameObjectManager.Instance.FloorBoxPosition.Add(floorLocationBox);
                     int count = 0;
                     int count2 = 0;
                     int startLocation = block.XLocation;

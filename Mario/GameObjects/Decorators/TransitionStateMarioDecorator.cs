@@ -37,7 +37,7 @@ namespace Mario.GameObjects.Decorators
 
 		public override void Update()
 		{
-			timer -= ItemManager.Instance.CurrentGameTime.ElapsedGameTime.TotalSeconds;
+			timer -= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.TotalSeconds;
 			if(timer >= 0.0)
 			{
 				if (currentSprite.Equals(oldSprite))
@@ -59,7 +59,7 @@ namespace Mario.GameObjects.Decorators
 		private void RemoveTransitionState()
 		{
 			
-			ItemManager.Instance.Mario = DecoratedMario;
+			GameObjectManager.Instance.Mario = DecoratedMario;
 			if(DecoratedMario.MarioPowerupState is DeadMarioPowerupState)
 			{
 				Game1.Instance.Reset();

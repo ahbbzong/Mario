@@ -49,11 +49,11 @@ namespace Mario
 					MarioPowerupState newState = value;
 					if (!(newState is DeadMarioPowerupState))
 					{
-						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
+						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
 					}
 					else
 					{
-						ItemManager.Instance.Mario = new TransitionStateMarioDecorator(this, newState, newState);
+						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, newState, newState);
 					}
 					marioPowerupState = newState;
 					
@@ -157,7 +157,7 @@ namespace Mario
         }
         public void BeStar()
         {
-			ItemManager.Instance.Mario = new StarMarioDecorator(this);
+			GameObjectManager.Instance.Mario = new StarMarioDecorator(this);
         }
         public bool IsSuperMario()
         {

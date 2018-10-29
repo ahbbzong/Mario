@@ -42,7 +42,7 @@ namespace Mario
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
-            ItemManager.Instance.SetInitialValuesCamera();
+            GameObjectManager.Instance.SetInitialValuesCamera();
 		
 		}
 
@@ -54,7 +54,7 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			ItemManager.Instance.LoadContent();
+			GameObjectManager.Instance.LoadContent();
            
         }
 
@@ -74,12 +74,12 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-			ItemManager.Instance.CurrentGameTime = gameTime;
+			GameObjectManager.Instance.CurrentGameTime = gameTime;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
-            ItemManager.Instance.Update();
+            GameObjectManager.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -89,19 +89,19 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-			ItemManager.Instance.CurrentGameTime = gameTime;
+			GameObjectManager.Instance.CurrentGameTime = gameTime;
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, ItemManager.Instance.CameraMario.Transform);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
 
-            ItemManager.Instance.Draw(spriteBatch);
+            GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
         public void Reset()
         {
-            ItemManager.Instance.SetInitialValuesCamera();
+            GameObjectManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
        

@@ -32,7 +32,7 @@ namespace Mario.GameObjects.Decorators
                     DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
                 }
 
-                if (!ItemManager.Instance.Mario.IsNormalMario()&&DecoratedBlock.IsBreakableBlock())
+                if (!GameObjectManager.Instance.Mario.IsNormalMario()&&DecoratedBlock.IsBreakableBlock())
                 {
                     DecoratedBlock.BlockState = new DisappearBlockState(DecoratedBlock);
                 }
@@ -44,8 +44,8 @@ namespace Mario.GameObjects.Decorators
 		private void RemoveSelf()
 		{
 			//should append ItemManager to remove and add items generally
-			int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(this);
-			ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
+			int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(this);
+			GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
 		}
         
     }

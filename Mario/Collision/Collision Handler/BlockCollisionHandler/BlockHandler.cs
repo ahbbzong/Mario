@@ -23,11 +23,11 @@ namespace Mario.Collision
                 block.React();
                 if (mario.IsNormalMario())
                 {
-                    ItemManager.Instance.AddNormalItem(block);
+                    GameObjectManager.Instance.AddNormalItem(block);
                 }
                 else if (mario.IsSuperMario()|| mario.IsFireMario()|| mario.IsStarMario())
                 {
-                    ItemManager.Instance.AddBigItem(block);
+                    GameObjectManager.Instance.AddBigItem(block);
                 }
             }
             else if (block.IsHiddenBlock() && result.Equals(Direction.Down)&&!mario.Isfalling())
