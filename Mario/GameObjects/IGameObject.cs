@@ -10,6 +10,6 @@ namespace Mario.Interfaces.GameObjects
 	public interface IGameObject: IDrawable, IUpdateable
 	{
          void SetContainsItem(String item);
-        
+        Microsoft.Xna.Framework.Rectangle Box { get; } 
     }
 }

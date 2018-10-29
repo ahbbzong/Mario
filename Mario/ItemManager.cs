@@ -375,6 +375,22 @@ namespace Mario.XMLRead
                     break;
             }
         }
+        public bool offLeftRightScreen(Rectangle box)
+        {
+            if ((box.Right<=CameraMario.InnerBox.Left)||(box.Left>=CameraMario.InnerBox.Left+1440))
+            {
+                return true;
+            }
+            else return false;
+        }
+        public bool offUpDownScreen(Rectangle box)
+        {
+            if ((box.Top <= 0) || (box.Bottom>=900))
+            {
+                return true;
+            }
+            else return false;
+        }
         public void Update()
         {
 			foreach(IController controller in ControllerList)
@@ -386,9 +402,16 @@ namespace Mario.XMLRead
 				Type key = gameObjectListsByType.ElementAt(j).Key;
 				for(int i = gameObjectListsByType[key].Count - 1; i >= 0 ; i--)
 				{
-					gameObjectListsByType[key][i].Update();
+                    //only update when inside the screen
+                    if (!offLeftRightScreen(gameObjectListsByType[key][i].Box))
+                    {
+                        gameObjectListsByType[key][i].Update();
+                    }
 				}
-				
+                if (offUpDownScreen(Mario.Box))
+                {
+                    Mario.Dead();
+                }
 			}
 			TestingCollision();
 			CameraController.Update();

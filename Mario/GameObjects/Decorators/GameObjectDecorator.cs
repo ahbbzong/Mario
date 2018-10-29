@@ -11,6 +11,7 @@ namespace Mario.GameObjects.Decorators
 	abstract class GameObjectDecorator : IGameObject
 	{
 		private IGameObject decoratedObject;
+        public Microsoft.Xna.Framework.Rectangle Box { get; }
 		protected IGameObject DecoratedObject { get => decoratedObject; set => decoratedObject = value; }
 
 		protected GameObjectDecorator(IGameObject obj)
