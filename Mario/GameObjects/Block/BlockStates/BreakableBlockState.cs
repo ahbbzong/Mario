@@ -19,17 +19,12 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-            if (ItemManager.Instance.Mario.IsNormalMario())
-            {
+            
                 Block.Position -= Vector2.UnitY*10.0f;
 
 				int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
 				ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
-			}
-            else
-            {
-                Block.BlockState = new DisappearBlockState(Block);
-            }
+			
         }
         public override bool IsBreakableBlock()
         {

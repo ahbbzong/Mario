@@ -31,6 +31,11 @@ namespace Mario.GameObjects.Decorators
                 {
                     DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
                 }
+
+                if (!ItemManager.Instance.Mario.IsNormalMario()&&DecoratedBlock.IsBreakableBlock())
+                {
+                    DecoratedBlock.BlockState = new DisappearBlockState(DecoratedBlock);
+                }
                 RemoveSelf();
 			}
 			base.Update();

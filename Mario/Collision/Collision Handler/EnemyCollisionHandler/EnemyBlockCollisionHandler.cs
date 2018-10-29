@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.GameObjects.Decorators;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void EnemyBumpedBlockReact(IEnemy enemy)
         {
-            if (block.IsBumpedBlockState() || block.IsBumpedBreakBlock())
+            if (block is BumpedBlockDecorator)
             {
                 enemy.Beflipped();
             }
