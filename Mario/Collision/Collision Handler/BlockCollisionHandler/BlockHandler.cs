@@ -20,7 +20,6 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario, Direction result)
         {
-
             if ((block.IsQuestionBlock() || (block.IsHiddenBlock() && !mario.Isfalling()))
                 && result.Equals(Direction.Down))
             {

@@ -208,6 +208,7 @@ namespace Mario
         public void NoInput()
         {
             MarioMovementState.NoInput();
+            Physics.NotJump();
         }
             
         public void ThrowFireball()

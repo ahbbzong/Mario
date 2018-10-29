@@ -41,7 +41,7 @@ namespace Mario.AbstractClass
 				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][GetType()]);
 			}catch(System.Collections.Generic.KeyNotFoundException)
 			{
-				Console.WriteLine(enemy.GetType().Name + " ," + GetType().Name);
+				Console.WriteLine(enemy.GetType().Name + " ," + this.GetType().Name);
 			}
 
 		}

@@ -92,9 +92,9 @@ namespace Game1
         }
         public void NotJump()
         {
-            if (YVelocity > 60)
+            if (YVelocity > 1.2f)
             {
-                YVelocity = 60;
+                YVelocity = 0.3f;
             }
         }
        

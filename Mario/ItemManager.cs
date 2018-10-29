@@ -181,7 +181,6 @@ namespace Mario.XMLRead
             //item
             foreach (IItem obj in gameObjectListsByType[typeof(IItem)])
 			{
-				//IItem obj = (IItem)gameObjectListsByType[typeof(IItem)][j];
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
 				if (collisionFound != Direction.None && !Mario.IsDead())
 				{
@@ -192,11 +191,15 @@ namespace Mario.XMLRead
 				}
 				for (int i = gameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
 				{
-					IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
-                    collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
-                    intersection = collisionDetecter.intersection;
-					itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
-					itemHandler.HandleCollision(obj);
+                    
+                    IBlock block = (IBlock)gameObjectListsByType[typeof(IBlock)][i];
+                    if (!block.IsHiddenBlock())
+                    {
+                        collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
+                        intersection = collisionDetecter.intersection;
+                        itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
+                        itemHandler.HandleCollision(obj);
+                    }
 				}
 				for (int i = gameObjectListsByType[typeof(IPipe)].Count - 1; i >= 0; i--)
 				{

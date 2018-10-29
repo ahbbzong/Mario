@@ -22,7 +22,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     mario.SetFalling(false);
                     mario.IsLandTrue();
                     mario.Physics.ResetGravity();
-                    mario.Position -= Vector2.UnitY*(intersection.Height-1);
+                    mario.Position -= Vector2.UnitY*intersection.Height;
                     if (mario.IsUp())
                     {
                         if (mario.Physics.XVelocityResponse() >= 0.1)

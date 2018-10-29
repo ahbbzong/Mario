@@ -51,7 +51,7 @@ namespace Mario
               if (getkeys.Length == 0)
                {
                    keyboardMap[Keys.None].Execute();
-              }
+            }
             foreach (Keys key in getkeys)
             {
                 if (key.Equals(Keys.Z))
