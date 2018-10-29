@@ -13,5 +13,6 @@ namespace Mario.XMLRead
         public int YLocation { get; set; }
         public int Length { get; set; }
         public int Height { get; set; }
+        public String ItemContains { get; set; }
     }
 }

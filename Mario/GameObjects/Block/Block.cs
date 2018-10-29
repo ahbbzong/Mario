@@ -15,7 +15,9 @@ namespace Mario.Classes.BlocksClasses
     public abstract class Block : IBlock, ICollidiable
     {
         private Vector2 BlockLocation;
+        private String itemContains = "";
         public IBlockState BlockState { get; set; }
+        public String ItemContains { get => itemContains; set => itemContains = value; }
         public virtual Rectangle Box
         {
             get
@@ -26,6 +28,7 @@ namespace Mario.Classes.BlocksClasses
         protected Block(Vector2 location)
         {
             BlockLocation = location;
+            
         }
         public virtual void Update()
         {
@@ -61,7 +64,10 @@ namespace Mario.Classes.BlocksClasses
             return BlockState.IsBumpedBreakBlock();
         }
 
-       
+        public virtual void SetContainsItem(String item)
+        {
+            this.ItemContains = String.Copy(item);
+        }
 
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }
 	}
