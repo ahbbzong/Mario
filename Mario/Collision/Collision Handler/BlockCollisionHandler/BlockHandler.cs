@@ -18,17 +18,17 @@ namespace Mario.Collision
         {
             this.mario = mario;
     }
-        public void HandleCollision(IBlock block, IMario mario, Direction result)
+        public void HandleCollision(IBlock block, IMario marioParam, Direction result)
         {
             if ((block.IsQuestionBlock() || (block.IsHiddenBlock() && !mario.Isfalling()))
-                && result.Equals(Direction.Down))
+                 && result.Equals(Direction.Down))
             {
                 block.React();
-                if (mario.IsNormalMario())
+                if (marioParam.IsNormalMario())
                 {
                     ItemManager.Instance.AddNormalItem(block);
                 }
-                else if (mario.IsSuperMario()||mario.IsFireMario()||mario.IsStarMario())
+                else if (marioParam.IsSuperMario()||marioParam.IsFireMario()||marioParam.IsStarMario())
                 {
                     ItemManager.Instance.AddBigItem(block);
                 }
