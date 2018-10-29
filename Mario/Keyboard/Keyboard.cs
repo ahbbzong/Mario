@@ -38,7 +38,6 @@ namespace Mario
         public void Update()
         {
             Keys[] getkeys =Keyboard.GetState().GetPressedKeys();
-            // needs to update to check no input of just cardinal direction keys for movement input
               if (getkeys.Length == 0)
                {
                    keyboardMap[Keys.None].Execute();

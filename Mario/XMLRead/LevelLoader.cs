@@ -23,7 +23,7 @@ namespace Mario.XMLRead
     public sealed class LevelLoader
     {
 		private IList<IGameObject> projectileList = new List<IGameObject>();
-		public IList<IGameObject> ProjectileList { get => projectileList; set => projectileList = value; }
+		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
@@ -83,7 +83,6 @@ namespace Mario.XMLRead
                 }
                 else if (GetType(block.BlockType).Equals(typeof(FloorBlock)))
                 {
-                    //add the box to item manager
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
                     GameObjectManager.Instance.FloorBoxPosition.Add(floorLocationBox);

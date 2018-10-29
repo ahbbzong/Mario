@@ -14,7 +14,7 @@ namespace Mario.Collision
         private Direction DirectionOfCollision { get; set; }
         public Rectangle Intersection { get; set; }
         public CollisionDetecter()
-        {//Constructor
+        {
         }
         public Direction Collision(Rectangle firstRecDetect, Rectangle secondRecDetect)
         {

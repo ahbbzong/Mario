@@ -38,9 +38,8 @@ namespace Mario.XMLRead
 		public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-        //for floor
+      
         public IList<Rectangle> FloorBoxPosition { get; }
-        //end of floor box part
 		public GameTime CurrentGameTime { get; set; }
 
 		private GameObjectManager()
@@ -61,7 +60,6 @@ namespace Mario.XMLRead
 			{
 				new Keyboards()
 			};
-            //floor box
             FloorBoxPosition = new List<Rectangle>();
         }
         public void SetInitialValuesCamera()
@@ -100,19 +98,15 @@ namespace Mario.XMLRead
 			IMarioCollisionHandler marioHandler;
 			IProjectileCollisionHandler projectileCollisionHandler;
 			CollisionDetecter collisionDetecter = new CollisionDetecter();
-
-			//TO DO: make gameobject interface and make lists with objects in the screen
-
-			//CHECK with camera
+			
+			
 			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
 			intersection = collisionDetecter.Intersection;
 			if (!collisionFound.Equals(Direction.None))
 			{
 				mario.Position += new Vector2(intersection.Width, 0);
 			}
-
-            //other checking
-            //Floor Box
+			
             foreach (Rectangle floorBox in FloorBoxPosition)
             {
                 foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])
@@ -148,7 +142,6 @@ namespace Mario.XMLRead
                     CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
                 }
             }
-            //projectile
             foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])
             {
                 foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
@@ -180,7 +173,6 @@ namespace Mario.XMLRead
                     }
                 }
             }
-            //item
             foreach (IItem obj in GameObjectListsByType[typeof(IItem)])
 			{
 				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
@@ -283,8 +275,6 @@ namespace Mario.XMLRead
 
                 }
             }
-            //fix Mario position so that Mario can't go back based on Camera
-            //STILL neeed to change
             float difference = (float)(Mario.Position.X - GameObjectManager.instance.CameraMario.Location.X);
             if ( difference <= 5 && difference>=0)
             {
@@ -337,7 +327,6 @@ namespace Mario.XMLRead
 			marioHandler.HandleCollision(Mario, collisionFound);
 
 		}
-        //add a big mushroom, star, 1plus mushroom, or a coin behind the block
         public void AddNormalItem(IBlock block)
         {
 			Type IItemType = typeof(IItem);
@@ -360,7 +349,6 @@ namespace Mario.XMLRead
                     break;
             }
         }
-        //add a fire flower, 1plus mushroom, or a coin behind the block
         public void AddBigItem(IBlock block)
         {
 			Type IItemType = typeof(IItem);

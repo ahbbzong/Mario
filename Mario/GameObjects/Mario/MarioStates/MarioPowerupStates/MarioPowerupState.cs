@@ -30,7 +30,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public virtual void BeStar()
 		{
-			//TO -DO abstract starman to decorator
+			
 		}
 		public virtual void BeSuper()
 		{

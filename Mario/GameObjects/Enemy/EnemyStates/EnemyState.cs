@@ -35,7 +35,6 @@ namespace Mario.AbstractClass
         protected EnemyState(IEnemy enemy)
         {
             Enemy = enemy;
-			//change second accessor param
 			try
 			{
 				EnemySprite = SpriteFactory.Instance.CreateSprite(EnemyFactory.Instance.GetSpriteDictionary[enemy.GetType()][GetType()]);
