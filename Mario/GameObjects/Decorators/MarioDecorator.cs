@@ -19,8 +19,7 @@ namespace Mario.GameObjects.Decorators
 		{
 
 		}
-
-		public virtual Rectangle Box => DecoratedMario.Box;
+		
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
@@ -28,8 +27,9 @@ namespace Mario.GameObjects.Decorators
 		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
+		public ISprite MarioSprite { get => DecoratedMario.MarioSprite; set => DecoratedMario.MarioSprite = value; }
 
-        public void BeFire()
+		public void BeFire()
 		{
 			DecoratedMario.BeFire();
 		}

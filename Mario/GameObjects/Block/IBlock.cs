@@ -9,8 +9,7 @@ namespace Game1
 {
 	public interface IBlock : IGameObject, IPhysicsBody
 	{
-
-		Rectangle Box { get; }
+		
         string ItemContains { get; set; }
 		bool IsHiddenBlock();
 		bool IsBreakableBlock();

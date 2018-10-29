@@ -64,7 +64,7 @@ namespace Mario
 				}
 			}
 		}
-		private ISprite MarioSprite { get; set; }
+		public ISprite MarioSprite { get; set; }
 
         private bool fall;
         public bool Island { get; set; }
@@ -140,7 +140,7 @@ namespace Mario
         }
         public void Dead()
         {
-            MarioPowerupState.Dead();
+			MarioPowerupState = new DeadMarioPowerupState(this);
            MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()

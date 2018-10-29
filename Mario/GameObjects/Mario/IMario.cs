@@ -27,7 +27,6 @@ namespace Game1
         bool IsCrouch();
         void ThrowFireball();
         
-        Rectangle Box { get; }
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }
         Physics Physics { get;set; }
@@ -37,6 +36,7 @@ namespace Game1
         void Sprint();
 		void Draw(SpriteBatch spriteBatch, Color c);
         void IsLandFlase();
-      
+
+		ISprite MarioSprite { get; set; }
     }
 }

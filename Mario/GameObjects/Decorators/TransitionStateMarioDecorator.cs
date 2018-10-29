@@ -60,6 +60,7 @@ namespace Mario.GameObjects.Decorators
 		{
 			
 			GameObjectManager.Instance.Mario = DecoratedMario;
+			DecoratedMario.MarioSprite = newSprite;
 			if(DecoratedMario.MarioPowerupState is DeadMarioPowerupState)
 			{
 				Game1.Instance.Reset();
