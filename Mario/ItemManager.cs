@@ -344,16 +344,19 @@ namespace Mario.XMLRead
             switch (block.ItemContains)
             {
                 case "Coin":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y-30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "Starman":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "OneUpMushroom":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    {
+                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
+                    }
                     break;
             }
         }
@@ -364,18 +367,37 @@ namespace Mario.XMLRead
             switch (block.ItemContains)
             {
                 case "Coin":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    {
+                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
+                    }
                     break;
                 case "Starman":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "OneUpMushroom":
-                    GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y - 30)));
+                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
             }
+        }
+        public bool offLeftRightScreen(Rectangle box)
+        {
+            if ((box.Right<=CameraMario.InnerBox.Left)||(box.Left>=CameraMario.InnerBox.Left+1440))
+            {
+                return true;
+            }
+            else return false;
+        }
+        public bool offUpDownScreen(Rectangle box)
+        {
+            if ((box.Top <= 0) || (box.Bottom>=900))
+            {
+                return true;
+            }
+            else return false;
         }
         public void Update()
         {
@@ -388,9 +410,16 @@ namespace Mario.XMLRead
 				Type key = GameObjectListsByType.ElementAt(j).Key;
 				for(int i = GameObjectListsByType[key].Count - 1; i >= 0 ; i--)
 				{
-					GameObjectListsByType[key][i].Update();
+                    //only update when inside the screen
+                    if (!offLeftRightScreen(gameObjectListsByType[key][i].Box))
+                    {
+                        gameObjectListsByType[key][i].Update();
+                    }
 				}
-				
+                if (offUpDownScreen(Mario.Box))
+                {
+                    Mario.Dead();
+                }
 			}
 			TestingCollision();
 			CameraController.Update();

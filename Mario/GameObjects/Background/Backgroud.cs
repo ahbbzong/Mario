@@ -16,11 +16,14 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite BackgroundSprite { get; set; }
         private Vector2 BackgroundLocation;
+        public Rectangle Box { get; }
+
     
         protected Background(Vector2 location)
         {
             BackgroundLocation = location;
 			BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[this.GetType()]);
+            Box = Rectangle.Empty;
 		}
         public virtual void Update()
         {

@@ -27,8 +27,10 @@ namespace Mario.GameObjects.Decorators
 			}
 			else
 			{
-                if(DecoratedBlock.IsQuestionBlock())
-				DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
+                if (!DecoratedBlock.ItemContains.Equals("None")||DecoratedBlock.IsQuestionBlock())
+                {
+                    DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
+                }
                 RemoveSelf();
 			}
 			base.Update();
