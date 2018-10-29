@@ -33,10 +33,7 @@ namespace Mario.Factory
 			return new AnimatedSprite(tuple.Item1, tuple.Item2, tuple.Item3);
 		}
 
-		public void LoadAllTextures(ContentManager content)
-        {
-            
-        }
+		
 
 		public ISprite CreateAnimatedSprite(Texture2D texture, int rows, int columns)
 		{

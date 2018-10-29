@@ -21,7 +21,6 @@ namespace Mario.BlockStates
         {
             if (ItemManager.Instance.Mario.IsNormalMario())
             {
-                float yPosition = Block.Position.Y;
                 Block.Position -= Vector2.UnitY*10.0f;
 
 				int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);

@@ -69,7 +69,7 @@ namespace Mario.XMLRead
         }
         public void LoadContent(SpriteBatch spriteBatch)
 		{
-			SpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+
 			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -212,7 +212,6 @@ namespace Mario.XMLRead
 				collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
 				if (!Mario.IsDead())
 				{
-					float storedLocation = block.Position.Y;
 					intersection = collisionDetecter.intersection;
 					blockHandler = new BlockHandler(Mario);
                     blockHandler.HandleCollision(block, Mario, collisionFound);
