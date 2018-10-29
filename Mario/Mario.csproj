@@ -45,12 +45,7 @@
     <Compile Include="Collision\LocationOffset.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
-    <Compile Include="Enums\BackgroundType.cs" />
-    <Compile Include="Enums\BlockType.cs" />
     <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Enums\EnemyType.cs" />
-    <Compile Include="Enums\GameObjectType.cs" />
-    <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />

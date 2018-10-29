@@ -11,14 +11,12 @@ namespace Mario
     public class GamePadController : IController
     {
         private Game1 game { get; set; }
-        private IMario mario;
-        private IList<ICommand> commandList;
+        private IDictionary<Buttons,ICommand> commandList;
         private int delay;
         public GamePadController(Game1 game)
         {
             this.game = game;
-            mario = ItemManager.Instance.Mario;
-            commandList = new List<ICommand>();
+			commandList = new Dictionary<Buttons, ICommand>();
             delay = 0;
         }
         public void Update()
@@ -27,34 +25,12 @@ namespace Mario
             if (delay == 5)
             {
                 GamePadState currentState = GamePad.GetState(PlayerIndex.One);
-                if (currentState.Buttons.Start.Equals(ButtonState.Pressed))
-                {
-                    commandList.Add(new QuitCommand(game));
-                }
-                if (currentState.ThumbSticks.Left.X > 0)
-                {
-                    commandList.Add(new LeftCommand(mario));
-                }
-                if (currentState.Buttons.A > 0)
-                {
-                    commandList.Add(new UpCommand(mario));
-                }
-                if (currentState.ThumbSticks.Left.Y < 0)
-                {
-                    commandList.Add(new DownCommand(mario));
-                }
-                if (currentState.ThumbSticks.Left.X > 0)
-                {
-                    commandList.Add(new RightCommand(mario));
-                }
-                if (currentState.Buttons.B > 0)
-                {
-                    commandList.Add(new ThrowFireballAndSprintCommand(mario));
-                }
-               
-                foreach (ICommand command in commandList)
-                {
-                    command.Execute();
+
+				foreach (KeyValuePair<Buttons, ICommand> commandPair in commandList)
+				{
+					if (currentState.IsButtonDown(commandPair.Key))
+						commandPair.Value.Execute();
+				
                 }
 
                 delay = 0;
@@ -65,11 +41,12 @@ namespace Mario
 
 		public void Initialize(IMario mario) { 
 		
-			commandList.Add(new QuitCommand(game));
-			commandList.Add(new LeftCommand(mario));
-			commandList.Add(new UpCommand(mario));
-			commandList.Add(new DownCommand(mario));
-			commandList.Add(new RightCommand(mario));
+			commandList.Add(Buttons.Start, new QuitCommand(game));
+			commandList.Add(Buttons.DPadLeft, new LeftCommand(mario));
+			commandList.Add(Buttons.A,new UpCommand(mario));
+			commandList.Add(Buttons.DPadDown, new DownCommand(mario));
+			commandList.Add(Buttons.DPadRight, new RightCommand(mario));
+			commandList.Add(Buttons.B, new ThrowFireballAndSprintCommand(mario));
 			
 		}
 	}

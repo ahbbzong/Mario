@@ -23,10 +23,10 @@ namespace Mario.BlockStates
         {
 			Block.Position = new Vector2(Block.Position.X, Block.Position.Y - 10.0f);
 
-			int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);
+			int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
 			if (index >= 0)
 			{
-				ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+				ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 			}
 		}
         public override bool IsQuestionBlock()

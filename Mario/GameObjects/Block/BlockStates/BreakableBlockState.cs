@@ -23,8 +23,8 @@ namespace Mario.BlockStates
             {
                 Block.Position -= Vector2.UnitY*10.0f;
 
-				int index = ItemManager.Instance.gameObjectListsByType[typeof(IBlock)].IndexOf(Block);
-				ItemManager.Instance.gameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
+				int index = ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
+				ItemManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 			}
             else
             {

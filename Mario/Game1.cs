@@ -54,7 +54,7 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			ItemManager.Instance.LoadContent(spriteBatch);
+			ItemManager.Instance.LoadContent();
            
         }
 

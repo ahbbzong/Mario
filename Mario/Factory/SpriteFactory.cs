@@ -32,18 +32,6 @@ namespace Mario.Factory
 		{
 			return new AnimatedSprite(tuple.Item1, tuple.Item2, tuple.Item3);
 		}
-
-		
-
-		public ISprite CreateAnimatedSprite(Texture2D texture, int rows, int columns)
-		{
-			return new AnimatedSprite(texture,rows,columns);
-		}
-
-		public ISprite CreateStaticSprite(Texture2D texture)
-		{
-			return new StaticSprite(texture);
-		}
 		
 		public ISprite CreateEmptySprite(int width, int height)
 		{
