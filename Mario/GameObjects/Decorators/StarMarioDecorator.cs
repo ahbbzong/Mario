@@ -27,7 +27,8 @@ namespace Mario.GameObjects.Decorators
 		public override void Update()
         {
             timer+= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
-            if (timer == 5000)
+			
+            if (timer > 5000)
             {
                 GameObjectManager.Instance.Mario = DecoratedMario;
             }
