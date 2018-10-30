@@ -159,19 +159,6 @@ namespace Mario
         {
 			GameObjectManager.Instance.Mario = new StarMarioDecorator(this);
         }
-        public bool IsSuperMario()
-        {
-			return MarioPowerupState is SuperMarioPowerupState;
-        }
-        public bool IsFireMario()
-        {
-			return MarioPowerupState is FireMarioPowerupState;
-        }
-
-        public bool IsNormalMario()
-        {
-			return MarioPowerupState is NormalMarioPowerupState;
-        }
         public bool IsStarMario()
         {
 			return false;
