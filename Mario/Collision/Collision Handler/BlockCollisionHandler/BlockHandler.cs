@@ -1,6 +1,8 @@
 ﻿using Game1;
+using Mario.BlocksClasses;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
+using Mario.MarioStates.MarioPowerupStates;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using System;
@@ -18,19 +20,19 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if ((block.IsQuestionBlock() ||block.IsBreakableBlock())&& result.Equals(Direction.Down))
+            if ((block is QuestionBlock ||block is BreakableBlock)&& result == Direction.Down)
             {
                 block.React();
-                if (mario.IsNormalMario())
+                if (mario.MarioPowerupState is NormalMarioPowerupState)
                 {
                     ItemManager.Instance.AddNormalItem(block);
                 }
-                else if (mario.IsSuperMario()|| mario.IsFireMario()|| mario.IsStarMario())
+                else if (mario.MarioPowerupState is SuperMarioPowerupState || mario.MarioPowerupState is FireMarioPowerupState || mario.IsStarMario() )
                 {
                     ItemManager.Instance.AddBigItem(block);
                 }
             }
-            else if (block.IsHiddenBlock() && result.Equals(Direction.Down)&&!mario.Isfalling())
+            else if (block is HiddenBlock && result==Direction.Down&&!mario.Isfalling())
             {
                 block.React();
             }

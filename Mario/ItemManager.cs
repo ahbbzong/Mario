@@ -38,9 +38,8 @@ namespace Mario.XMLRead
 		public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-        //for floor
+        
         public IList<Rectangle> FloorBoxPosition { get; }
-        //end of floor box part
 		public GameTime CurrentGameTime { get; set; }
 
 		private ItemManager()
@@ -71,7 +70,7 @@ namespace Mario.XMLRead
         }
         public void LoadContent()
 		{
-
+            //move to game 1.
 			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
 			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
 			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -90,6 +89,7 @@ namespace Mario.XMLRead
 		public void TestingCollision()
 
 		{
+            //rename into manage collision
 			IMario mario = (IMario)GameObjectListsByType[typeof(IMario)][0];
 			Direction collisionFound;
 			Rectangle intersection;
@@ -101,9 +101,7 @@ namespace Mario.XMLRead
 			IProjectileCollisionHandler projectileCollisionHandler;
 			CollisionDetecter collisionDetecter = new CollisionDetecter();
 
-			//TO DO: make gameobject interface and make lists with objects in the screen
 
-			//CHECK with camera
 			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
 			intersection = collisionDetecter.intersection;
 			if (!collisionFound.Equals(Direction.None))
@@ -111,8 +109,7 @@ namespace Mario.XMLRead
 				mario.Position += new Vector2(intersection.Width, 0);
 			}
 
-            //other checking
-            //Floor Box
+           
             foreach (Rectangle floorBox in FloorBoxPosition)
             {
                 foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])

@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.BlocksClasses;
 using Mario.Enums;
 using Mario.GameObjects.Decorators;
 using Microsoft.Xna.Framework;
@@ -24,7 +25,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemy)
         {
             IsOnLand(enemy);
-            if (!block.IsHiddenBlock())
+            if (!(block is HiddenBlock))
             {
                 PositionAdjustment(enemy);
             }
@@ -39,11 +40,11 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void IsOnLand(IEnemy enemy)
         {
-            if(result.Equals(Direction.Up))
+            if(result==Direction.Up)
             {
                 enemy.IsLandTrue();
             }
-            else if(result.Equals(Direction.None))
+            else if(result==Direction.None)
             {
                 enemy.IsLandFalse();
             }

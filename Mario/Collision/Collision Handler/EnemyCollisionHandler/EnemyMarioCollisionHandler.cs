@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
@@ -21,19 +22,19 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         public void HandleCollision(IEnemy enemy)
         {
-            if (mario.IsStarMario()&&!result.Equals(Direction.None))
+            if (mario.IsStarMario()&&result!=Direction.None)
             {
                 enemy.Beflipped();
             }
-            if (result.Equals(Direction.Up))
+            if (result==Direction.Up)
             {
                 enemy.BeStomped();
             }
-            if (enemy.IsKoopaStomped() && result.Equals(Direction.Right))
+            if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)
             {
                 enemy.TurnLeft();
             }
-            else if(enemy.IsKoopaStomped() && result.Equals(Direction.Left))
+            else if(enemy.EnemyState is StompedKoopaState && result==Direction.Left)
             {
                 enemy.TurnRight();
             }

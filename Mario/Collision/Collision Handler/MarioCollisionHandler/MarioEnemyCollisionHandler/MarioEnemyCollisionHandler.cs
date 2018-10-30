@@ -41,7 +41,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         public void HandleCollision(IMario mario,Direction result)
         {
             
-            if (!enemy.IsGoombaStomped())
+            if (!(enemy.IsGoombaStomped()))
             {
                 PositionAdjustment(mario, result);
             }
