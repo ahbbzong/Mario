@@ -320,7 +320,7 @@ namespace Mario.XMLRead
             IMarioCollisionHandler marioHandler;
 			if(block is HiddenBlock)
 			{
-				marioHandler = new MarioHiddenBlockHandler(block,intersection);
+				marioHandler = new MarioHiddenBlockHandler(intersection);
 			}
 			else
 			{
@@ -339,13 +339,13 @@ namespace Mario.XMLRead
 			}
 			for(int j =  GameObjectListsByType.Count -1; j>= 0;j--) 
 			{
-				Type key = GameObjectListsByType.ElementAt(j).Key;
-				for(int i = GameObjectListsByType[key].Count - 1; i >= 0 ; i--)
+				Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
+				for(int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0 ; i--)
 				{
                     //only update when inside the screen
-                    if (!CameraMario.offLeftRightScreen(gameObjectListsByType[key][i].Box))
+                    if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
                     {
-                        gameObjectListsByType[key][i].Update();
+                        gameObjectListsByType[gameObjectType][i].Update();
                     }
 				}
                 if (CameraMario.offUpDownScreen(Mario.Box))
@@ -359,9 +359,9 @@ namespace Mario.XMLRead
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-			foreach (Type key in GameObjectListsByType.Keys)
+			foreach (Type gameObjectType in GameObjectListsByType.Keys)
 			{
-				foreach(IGameObject gameObj in GameObjectListsByType[key])
+				foreach(IGameObject gameObj in GameObjectListsByType[gameObjectType])
 				{
 					gameObj.Draw(spriteBatch);
 				}
