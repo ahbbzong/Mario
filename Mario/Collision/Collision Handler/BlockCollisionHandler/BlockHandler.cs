@@ -38,7 +38,7 @@ namespace Mario.Collision
             }
         }
 
-        public void HandleCollision(IGameObject source, IGameObject target, Direction direction, Rectangle intersection)
+        public void HandleCollision(IGameObject source, IGameObject target, Direction direction)
         {
             HandleCollision((IBlock)source, (IMario)target, direction);
         }

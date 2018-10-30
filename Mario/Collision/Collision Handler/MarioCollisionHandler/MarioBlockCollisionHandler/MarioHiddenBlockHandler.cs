@@ -13,21 +13,21 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
     {
         IBlock block;
         Rectangle intersection;
-        public MarioHiddenBlockHandler(IBlock block, Rectangle intersection)
+        public MarioHiddenBlockHandler(IBlock blockParam, Rectangle intersection)
         {
-            this.block = block;
+            this.block = blockParam;
             this.intersection = intersection;
         }
         public void HandleCollision(IMario mario, Direction result)
         {
             PoisitionAdjustment(mario, result, intersection);
         }
-        public static void PoisitionAdjustment(IMario mario, Direction result, Rectangle intersection)
+        public static void PoisitionAdjustment(IMario marioParam, Direction result, Rectangle intersection)
         {
             if (result.Equals(Direction.Down))
             {
-                mario.Position += Vector2.UnitY * intersection.Height;
-                mario.Physics.ResetGravity();
+                marioParam.Position += Vector2.UnitY * intersection.Height;
+                marioParam.Physics.ResetGravity();
             }
         }
     }

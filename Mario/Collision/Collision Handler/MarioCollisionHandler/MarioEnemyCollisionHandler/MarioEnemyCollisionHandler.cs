@@ -55,7 +55,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             }
             
         }
-        public void MarioTakeDamage(IMario mario)
+        public static void  MarioTakeDamage(IMario mario)
         {
 			mario.TakeDamage();
         }

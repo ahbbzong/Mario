@@ -182,7 +182,7 @@ namespace Mario.XMLRead
 					intersection = collisionDetecter.Intersection;
 					itemHandler = new ItemMarioCollisionHandler();
 					itemHandler.HandleCollision(obj);
-					CallMarioItemHandler(obj, collisionFound, intersection);
+					CallMarioItemHandler(obj, collisionFound);
 				}
 				for (int i = GameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
 				{
@@ -283,7 +283,7 @@ namespace Mario.XMLRead
             }
 
         }
-        public void CallMarioItemHandler(IItem obj, Direction collisionFound, Rectangle intersection)
+        public void CallMarioItemHandler(IItem obj, Direction collisionFound)
         {
             IMarioCollisionHandler marioHandler;
 			if (obj is FireFlower)
@@ -380,7 +380,7 @@ namespace Mario.XMLRead
             }
             else return false;
         }
-        public bool offUpDownScreen(Rectangle box)
+        public static bool offUpDownScreen(Rectangle box)
         {
             if ((box.Top <= 0) || (box.Bottom>=900))
             {
