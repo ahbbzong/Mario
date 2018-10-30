@@ -16,8 +16,7 @@ namespace Mario.GameObjects.Decorators
 		}
 
 		public IBlock DecoratedBlock { get => (IBlock)DecoratedObject; set => DecoratedObject = value; }
-
-		public Rectangle Box => DecoratedBlock.Box;
+		
         public Vector2 Position { get => DecoratedBlock.Position; set => DecoratedBlock.Position = value; }
 		public IBlockState BlockState { get => DecoratedBlock.BlockState; set => DecoratedBlock.BlockState = value; }
         public string ItemContains { get => DecoratedBlock.ItemContains; set => DecoratedBlock.ItemContains = value; }

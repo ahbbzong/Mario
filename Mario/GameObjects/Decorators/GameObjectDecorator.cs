@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Xna.Framework;
 namespace Mario.GameObjects.Decorators
 {
 	abstract class GameObjectDecorator : IGameObject
 	{
 		private IGameObject decoratedObject;
-        public Microsoft.Xna.Framework.Rectangle Box { get; }
+        public virtual Rectangle Box { get => decoratedObject.Box; }
 		protected IGameObject DecoratedObject { get => decoratedObject; set => decoratedObject = value; }
 
 		protected GameObjectDecorator(IGameObject obj)

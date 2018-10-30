@@ -9,8 +9,7 @@ namespace Game1
 {
 	public interface IBlock : IGameObject, IPhysicsBody
 	{
-
-		Rectangle Box { get; }
+		
         string ItemContains { get; set; }
 		bool IsHiddenBlock();
 		bool IsBreakableBlock();
@@ -18,7 +17,6 @@ namespace Game1
 		void React();
 		bool IsBumpedBlockState();
 		bool IsBumpedBreakBlock();
-        //void SetContainsItem(String item);
      
         IBlockState BlockState { get; set; }
        

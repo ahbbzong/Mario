@@ -26,10 +26,11 @@ namespace Mario.GameObjects.Decorators
 
 		public override void Update()
         {
-            timer+= ItemManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
-            if (timer == 5000)
+            timer+= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
+			
+            if (timer > 5000)
             {
-                ItemManager.Instance.Mario = DecoratedMario;
+                GameObjectManager.Instance.Mario = DecoratedMario;
             }
 			base.Update();
         }

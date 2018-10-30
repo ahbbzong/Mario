@@ -19,7 +19,7 @@ namespace Mario.BlockStates
         public override void React()
         {
             Block.BlockState = new DisappearBlockState(Block);
-            ItemManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlock), new Vector2(Block.Position.X, Block.Position.Y)));
+            GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlock), new Vector2(Block.Position.X, Block.Position.Y)));
         }
         public override bool IsHiddenBlock()
         {

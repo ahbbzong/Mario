@@ -11,28 +11,28 @@ namespace Mario.Collision
 {
     public class CollisionDetecter
     {
-        private Direction resultFirst { get; set; }
-        public Rectangle intersection { get; set; }
+        private Direction DirectionOfCollision { get; set; }
+        public Rectangle Intersection { get; set; }
         public CollisionDetecter()
-        {//Constructor
+        {
         }
         public Direction Collision(Rectangle firstRecDetect, Rectangle secondRecDetect)
         {
-            intersection = Rectangle.Intersect(firstRecDetect, secondRecDetect);
-                if (!intersection.IsEmpty)
+            Intersection = Rectangle.Intersect(firstRecDetect, secondRecDetect);
+                if (!Intersection.IsEmpty)
                 {
-                    if (intersection.Height <= intersection.Width)
+                    if (Intersection.Height <= Intersection.Width)
                     {
-                        resultFirst = DetectTopOrBottomCollision(firstRecDetect, secondRecDetect);
+                        DirectionOfCollision = DetectTopOrBottomCollision(firstRecDetect, secondRecDetect);
                     }
-                    else if (intersection.Height > intersection.Width)
+                    else if (Intersection.Height > Intersection.Width)
                     {
-                       resultFirst = DetectLeftOrRightCollision(firstRecDetect, secondRecDetect);
+                       DirectionOfCollision = DetectLeftOrRightCollision(firstRecDetect, secondRecDetect);
                     }
                 }
-                else { resultFirst = Direction.None; }
+                else { DirectionOfCollision = Direction.None; }
             
-            return resultFirst;
+            return DirectionOfCollision;
 
         }  
         private static Direction DetectTopOrBottomCollision(Rectangle firstRecDetect, Rectangle secondRecDetect)

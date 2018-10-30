@@ -74,7 +74,7 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{typeof(BreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
+				{typeof(BrickBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
 				{typeof(FloorBlockState), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
 				{typeof(HiddenBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
 				{typeof(PipeState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },

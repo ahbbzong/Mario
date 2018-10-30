@@ -21,8 +21,7 @@ namespace Game1
         bool IsKoopa();
         bool IsLeftStomped();
         bool IsRightStomped();
-
-        Rectangle Box { get; }
+		
 
         GravityManagement gravityManagement { get; set; }
         bool Island { get; set; }
