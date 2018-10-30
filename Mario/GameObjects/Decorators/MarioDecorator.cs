@@ -68,12 +68,7 @@ namespace Mario.GameObjects.Decorators
 		{
 			return DecoratedMario.Isfalling();
 		}
-
-		public bool IsFireMario()
-		{
-			return DecoratedMario.IsFireMario();
-		}
-
+        
 		public void IsLandFlase()
 		{
 			DecoratedMario.IsLandFlase();
@@ -88,12 +83,7 @@ namespace Mario.GameObjects.Decorators
 		{
 			return DecoratedMario.IsLeft();
 		}
-
-		public bool IsNormalMario()
-		{
-			return DecoratedMario.IsNormalMario();
-		}
-
+        
 		public bool IsRight()
 		{
 			return DecoratedMario.IsRight();
@@ -103,11 +93,7 @@ namespace Mario.GameObjects.Decorators
 		{
 			return DecoratedMario.IsStarMario();
 		}
-
-		public bool IsSuperMario()
-		{
-			return DecoratedMario.IsSuperMario();
-		}
+        
 
 		public void Left()
 		{

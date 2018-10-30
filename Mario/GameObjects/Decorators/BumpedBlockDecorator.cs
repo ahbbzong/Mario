@@ -7,6 +7,7 @@ using Game1;
 using Mario.BlocksClasses;
 using Mario.BlockStates;
 using Mario.Factory;
+using Mario.MarioStates.MarioPowerupStates;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -29,7 +30,7 @@ namespace Mario.GameObjects.Decorators
 			}
 			else
 			{
-                if (!GameObjectManager.Instance.Mario.IsNormalMario() && DecoratedBlock.BlockState is BrickBlockState)
+                if ((!(GameObjectManager.Instance.Mario.MarioPowerupState is NormalMarioPowerupState)) && DecoratedBlock.BlockState is BrickBlockState)
                 {
                     DecoratedBlock.BlockState = new DisappearBlockState(DecoratedBlock);
                 }
