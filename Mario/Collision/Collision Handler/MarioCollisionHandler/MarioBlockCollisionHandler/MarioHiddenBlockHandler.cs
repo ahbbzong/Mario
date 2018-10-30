@@ -12,9 +12,8 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
     public class MarioHiddenBlockHandler : IMarioCollisionHandler
     {
         Rectangle intersection;
-        public MarioHiddenBlockHandler(IBlock block, Rectangle intersection)
+        public MarioHiddenBlockHandler( Rectangle intersection)
         {
-            this.block = block;
             this.intersection = intersection;
         }
         public void HandleCollision(IMario mario, Direction result)
