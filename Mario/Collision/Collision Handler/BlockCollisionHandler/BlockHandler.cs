@@ -59,7 +59,7 @@ namespace Mario.Collision
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    if (block is HiddenBlock || block is QuestionBlock)
                     {
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     }
@@ -75,7 +75,7 @@ namespace Mario.Collision
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    if (block is HiddenBlock || block is QuestionBlock)
                     {
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
                     }
