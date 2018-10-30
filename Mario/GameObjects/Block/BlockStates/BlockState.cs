@@ -50,19 +50,7 @@ namespace Mario.BlockStates
         {
             
         }
-        public virtual bool IsHiddenBlock()
-        {
-            return false;
-        }
-        public virtual bool IsBreakableBlock()
-        {
-            return false;
-        }
-
-        public virtual bool IsQuestionBlock()
-        {
-            return false;
-        }
+       
 
         public virtual bool IsBumpedBlockState()
         {

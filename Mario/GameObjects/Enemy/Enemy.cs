@@ -73,10 +73,7 @@ namespace Mario.AbstractClass
         }
        
 
-        public virtual bool IsGoombaStomped()
-        {
-            return EnemyState.IsGoombaStomped();
-        }
+      
 		
 		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
         public virtual bool IsFlipped()
@@ -123,6 +120,8 @@ namespace Mario.AbstractClass
         }
 
         public virtual void SetContainsItem(String item)
-        { }
+        {
+            //Override
+        }
     }
 }

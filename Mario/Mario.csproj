@@ -142,7 +142,7 @@
     <Compile Include="Command\MarioCommand\RightCommand.cs" />
     <Compile Include="Command\MarioCommand\UpCommand.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\RightMovingGoombaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\StomppedGoombaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\StompedGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\FlippedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftMovingKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />

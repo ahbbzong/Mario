@@ -11,12 +11,8 @@ namespace Game1
 	{
 		
         string ItemContains { get; set; }
-		bool IsHiddenBlock();
-		bool IsBreakableBlock();
-		bool IsQuestionBlock();
 		void React();
-		bool IsBumpedBlockState();
-		bool IsBumpedBreakBlock();
+		
      
         IBlockState BlockState { get; set; }
        

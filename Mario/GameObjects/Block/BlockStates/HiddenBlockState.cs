@@ -21,10 +21,6 @@ namespace Mario.BlockStates
             Block.BlockState = new DisappearBlockState(Block);
             GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlock), new Vector2(Block.Position.X, Block.Position.Y)));
         }
-        public override bool IsHiddenBlock()
-        {
-            return true;
-        }
-       
+   
     }
 }
