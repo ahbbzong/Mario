@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game1;
+using Mario.BlocksClasses;
 using Mario.BlockStates;
+using Mario.Factory;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -27,15 +29,19 @@ namespace Mario.GameObjects.Decorators
 			}
 			else
 			{
-                if (!DecoratedBlock.ItemContains.Equals("None")||DecoratedBlock.IsQuestionBlock())
-                {
-                    DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
-                }
-
-                if (!GameObjectManager.Instance.Mario.IsNormalMario()&&DecoratedBlock.IsBreakableBlock())
+                if (!GameObjectManager.Instance.Mario.IsNormalMario() && DecoratedBlock.BlockState is BrickBlockState)
                 {
                     DecoratedBlock.BlockState = new DisappearBlockState(DecoratedBlock);
                 }
+
+                else if (!DecoratedBlock.ItemContains.Equals("None")||DecoratedBlock.BlockState is QuestionBlockState)
+                {
+                    DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
+                    GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlock), new Vector2(DecoratedBlock.Position.X, DecoratedBlock.Position.Y)));
+                    
+                }
+
+         
                 RemoveSelf();
 			}
 			base.Update();

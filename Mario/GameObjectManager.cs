@@ -24,6 +24,8 @@ using System.Diagnostics;
 using Mario.GameObjects.Block;
 using Mario.XMLRead;
 using Game1;
+using Mario.EnemyClasses;
+using Mario.EnemyStates.GoombaStates;
 
 namespace Mario.XMLRead
 {
@@ -188,7 +190,7 @@ namespace Mario.XMLRead
 				{
                     
                     IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][i];
-                    if (!block.IsHiddenBlock())
+                    if (!(block is HiddenBlock))
                     {
                         collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
                         intersection = collisionDetecter.Intersection;
@@ -222,7 +224,7 @@ namespace Mario.XMLRead
                 if (!enemy.IsFlipped())
                 {
                     collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                    if (!Mario.IsDead())
+                    if (!Mario.IsDead()&&!(enemy.EnemyState is StompedGoombaState))
                     {
                         enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
                         intersection = collisionDetecter.Intersection;
@@ -232,7 +234,7 @@ namespace Mario.XMLRead
                     }
                     foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
                     {
-                        if (!block.IsHiddenBlock())
+                        if (!(block is HiddenBlock))
                         {
                             collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
                             intersection = collisionDetecter.Intersection;
@@ -343,7 +345,7 @@ namespace Mario.XMLRead
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    if (block is HiddenBlock || block is QuestionBlock)
                     {
                         gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     }
@@ -359,7 +361,7 @@ namespace Mario.XMLRead
                     gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    if (block is HiddenBlock || block is QuestionBlock)
                     {
                         gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
                     }

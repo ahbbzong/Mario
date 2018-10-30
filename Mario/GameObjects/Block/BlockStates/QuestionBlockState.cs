@@ -29,9 +29,6 @@ namespace Mario.BlockStates
 				GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 			}
 		}
-        public override bool IsQuestionBlock()
-        {
-            return true;
-        }
+     
     }
 }

@@ -22,6 +22,7 @@ namespace Mario.BlockStates
         {
           
                 Block.Position -= Vector2.UnitY*10.0f;
+                
 
 				int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
 				GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
@@ -35,11 +36,9 @@ namespace Mario.BlockStates
                
 
             }
-        }
-        public override bool IsBreakableBlock()
-        {
-            return true;
-        }
+           
 
+        }
+     
     }
 }
