@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.BlocksClasses;
 using Mario.Enums;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
@@ -23,7 +24,7 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void HandleCollision(IProjectile fireball)
         {
-            if (!block.IsHiddenBlock())
+            if (!(block is HiddenBlock))
             {
                 IsOnLand(fireball);
                 FireballAdjustment(fireball);
@@ -49,11 +50,11 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void IsOnLand(IProjectile fireball)
         {
-            if (result.Equals(Direction.Left) || result.Equals(Direction.Right) || result.Equals(Direction.Up))
+            if (result==Direction.Left || result==Direction.Right || result==Direction.Up)
             {
                 fireball.IsLandTrue();
             }
-            else if (result.Equals(Direction.None))
+            else if (result==Direction.None)
             {
                 fireball.IsLandFalse();
             }

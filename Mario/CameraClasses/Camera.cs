@@ -22,5 +22,21 @@ namespace Mario.CameraClasses
             Location = new Vector2(Location.X + distance, Location.Y);
             Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
         }
+        public bool offLeftRightScreen(Rectangle box)
+        {
+            if ((box.Right <= InnerBox.Left) || (box.Left >= InnerBox.Left + 1440))
+            {
+                return true;
+            }
+            else return false;
+        }
+        public bool offUpDownScreen(Rectangle box)
+        {
+            if ((box.Top <= 0) || (box.Bottom >= 900))
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }

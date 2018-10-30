@@ -16,35 +16,14 @@ namespace Mario.GameObjects.Decorators
 		}
 
 		public IBlock DecoratedBlock { get => (IBlock)DecoratedObject; set => DecoratedObject = value; }
-		
+        
         public Vector2 Position { get => DecoratedBlock.Position; set => DecoratedBlock.Position = value; }
 		public IBlockState BlockState { get => DecoratedBlock.BlockState; set => DecoratedBlock.BlockState = value; }
         public string ItemContains { get => DecoratedBlock.ItemContains; set => DecoratedBlock.ItemContains = value; }
 
-        public bool IsBreakableBlock()
-		{
-			return DecoratedBlock.IsBreakableBlock();
-		}
+       
 
-		public bool IsBumpedBlockState()
-		{
-			return DecoratedBlock.IsBumpedBlockState();
-		}
 
-		public bool IsBumpedBreakBlock()
-		{
-			return DecoratedBlock.IsBumpedBreakBlock();
-		}
-
-		public bool IsHiddenBlock()
-		{
-			return DecoratedBlock.IsHiddenBlock();
-		}
-
-		public bool IsQuestionBlock()
-		{
-			return DecoratedBlock.IsQuestionBlock();
-		}
         public override void SetContainsItem(String item)
         { }
         public void React()

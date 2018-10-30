@@ -24,6 +24,8 @@ using System.Diagnostics;
 using Mario.GameObjects.Block;
 using Mario.XMLRead;
 using Game1;
+using Mario.EnemyClasses;
+using Mario.EnemyStates.GoombaStates;
 
 namespace Mario.XMLRead
 {
@@ -188,7 +190,7 @@ namespace Mario.XMLRead
 				{
                     
                     IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][i];
-                    if (!block.IsHiddenBlock())
+                    if (!(block is HiddenBlock))
                     {
                         collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
                         intersection = collisionDetecter.Intersection;
@@ -222,7 +224,7 @@ namespace Mario.XMLRead
                 if (!enemy.IsFlipped())
                 {
                     collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                    if (!Mario.IsDead())
+                    if (!Mario.IsDead()&&!(enemy.EnemyState is StompedGoombaState))
                     {
                         enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
                         intersection = collisionDetecter.Intersection;
@@ -232,7 +234,7 @@ namespace Mario.XMLRead
                     }
                     foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
                     {
-                        if (!block.IsHiddenBlock())
+                        if (!(block is HiddenBlock))
                         {
                             collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
                             intersection = collisionDetecter.Intersection;
@@ -328,66 +330,7 @@ namespace Mario.XMLRead
 			marioHandler.HandleCollision(Mario, collisionFound);
 
 		}
-        public void AddNormalItem(IBlock block)
-        {
-			Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
-            {
-                case "Coin":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "Starman":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "OneUpMushroom":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
-                    {
-                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    }
-                    break;
-            }
-        }
-        public void AddBigItem(IBlock block)
-        {
-			Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
-            {
-                case "Coin":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
-                    {
-                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
-                    }
-                    break;
-                case "Starman":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "OneUpMushroom":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-            }
-        }
-        public bool offLeftRightScreen(Rectangle box)
-        {
-            if ((box.Right<=CameraMario.InnerBox.Left)||(box.Left>=CameraMario.InnerBox.Left+1440))
-            {
-                return true;
-            }
-            else return false;
-        }
-        public static bool offUpDownScreen(Rectangle box)
-        {
-            if ((box.Top <= 0) || (box.Bottom>=900))
-            {
-                return true;
-            }
-            else return false;
-        }
+      
         public void Update()
         {
 			foreach(IController controller in ControllerList)
@@ -396,16 +339,16 @@ namespace Mario.XMLRead
 			}
 			for(int j =  GameObjectListsByType.Count -1; j>= 0;j--) 
 			{
-				Type key = GameObjectListsByType.ElementAt(j).Key;
-				for(int i = GameObjectListsByType[key].Count - 1; i >= 0 ; i--)
+				Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
+				for(int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0 ; i--)
 				{
                     //only update when inside the screen
-                    if (!offLeftRightScreen(gameObjectListsByType[key][i].Box))
+                    if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
                     {
-                        gameObjectListsByType[key][i].Update();
+                        gameObjectListsByType[gameObjectType][i].Update();
                     }
 				}
-                if (offUpDownScreen(Mario.Box))
+                if (CameraMario.offUpDownScreen(Mario.Box))
                 {
                     Mario.Dead();
                 }
@@ -416,9 +359,9 @@ namespace Mario.XMLRead
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-			foreach (Type key in GameObjectListsByType.Keys)
+			foreach (Type gameObjectType in GameObjectListsByType.Keys)
 			{
-				foreach(IGameObject gameObj in GameObjectListsByType[key])
+				foreach(IGameObject gameObj in GameObjectListsByType[gameObjectType])
 				{
 					gameObj.Draw(spriteBatch);
 				}

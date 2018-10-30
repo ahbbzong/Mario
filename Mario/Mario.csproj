@@ -142,7 +142,7 @@
     <Compile Include="Command\MarioCommand\RightCommand.cs" />
     <Compile Include="Command\MarioCommand\UpCommand.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\RightMovingGoombaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\StomppedGoombaState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\StompedGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\FlippedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftMovingKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
@@ -241,6 +241,7 @@
     <Content Include="CodeReview\Sprint3\CodeQualityReviewSp3_XiaochenZong.txt" />
     <Content Include="CodeReview\Sprint3\ReadMe-Easy for you test!.txt" />
     <Content Include="CodeReview\Sprint4\Camera_cs Readability Review Oct 22 18.txt" />
+    <Content Include="CodeReview\Sprint4\Mario_cs Code Quality Review Oct 29.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 XZ.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 18.txt" />
     <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />

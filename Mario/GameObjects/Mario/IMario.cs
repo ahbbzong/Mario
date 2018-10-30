@@ -15,9 +15,6 @@ namespace Game1
 {
     public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody
     {
-        bool IsSuperMario();
-        bool IsNormalMario();
-        bool IsFireMario();
         bool IsStarMario();
         bool IsDead();
         bool Isfalling();

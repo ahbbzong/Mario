@@ -14,7 +14,6 @@ namespace Game1
         void TurnLeft();
         void TurnRight();
 
-        bool IsGoombaStomped();
         bool IsKoopaStomped();
         bool IsFlipped();
         bool IsGoomba();
