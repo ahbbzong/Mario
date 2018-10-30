@@ -24,7 +24,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
         }
         public static void PoisitionAdjustment(IMario mario, Direction result, Rectangle intersection)
         {
-            if (result.Equals(Direction.Down))
+            if (result==Direction.Down)
             {
                 mario.Position += Vector2.UnitY * intersection.Height;
                 mario.Physics.ResetGravity();

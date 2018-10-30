@@ -42,31 +42,10 @@ namespace Mario.Classes.BlocksClasses
         {
             //Need to override.
         }
-        public virtual bool IsHiddenBlock() {
-            return BlockState.IsHiddenBlock();
-        }
-        public virtual bool IsBreakableBlock()
-        {
-            return BlockState.IsBreakableBlock();
-        }
-        public virtual bool IsQuestionBlock()
-        {
-            return BlockState.IsQuestionBlock();
-        }
-
-        public virtual bool IsBumpedBlockState()
-        {
-            return BlockState.IsBumpedBlockState();
-        }
-
-        public virtual bool IsBumpedBreakBlock()
-        {
-            return BlockState.IsBumpedBreakBlock();
-        }
 
         public virtual void SetContainsItem(String item)
         {
-            this.ItemContains = String.Copy(item);
+            ItemContains = String.Copy(item);
         }
 
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }

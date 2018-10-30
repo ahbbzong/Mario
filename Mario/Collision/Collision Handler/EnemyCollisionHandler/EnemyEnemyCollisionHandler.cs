@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Microsoft.Xna.Framework;
 using System;
@@ -23,7 +24,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemyParam)
         {
                 GoombaKoopaReact(enemyParam);
-            if (!enemy.IsGoombaStomped())
+            if (!(enemy.EnemyState is StompedGoombaState))
             {
                 CollisionCondition(enemyParam);
             }
@@ -39,12 +40,14 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         private void NonStompedKoopaReact(IEnemy enemyParam)
         {
-            if (!enemyParam.IsKoopaStomped()&& !enemyParam.IsRightStomped()&& result.Equals(Direction.Left))
+            if (!(enemyParam.EnemyState is StompedKoopaState)
+                && !(enemyParam.EnemyState is RightStompedKoopaState) 
+                && result==Direction.Left)
             {
                 enemyParam.Position -= Vector2.UnitX * intersection.Width;
                 enemyParam.TurnLeft();
             }
-            if (!enemyParam.IsKoopaStomped() && !enemyParam.IsLeftStomped() && result.Equals(Direction.Right))
+            if (!(enemyParam.EnemyState is StompedKoopaState) && !(enemyParam.EnemyState is LeftStompedKoopaState) && result==Direction.Right)
             {
                 enemyParam.Position += Vector2.UnitX * intersection.Width;
                 enemyParam.TurnRight();

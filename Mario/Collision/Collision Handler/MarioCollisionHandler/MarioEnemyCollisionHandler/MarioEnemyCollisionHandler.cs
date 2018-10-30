@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Microsoft.Xna.Framework;
 using System;
@@ -41,15 +42,16 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
         public void HandleCollision(IMario mario,Direction result)
         {
             
-            if (!(enemy.IsGoombaStomped()))
+            if (!(enemy is StompedGoombaState))
             {
                 PositionAdjustment(mario, result);
             }
         }
         public void MarioReact(IMario mario,Direction result)
         {
-            if ((!enemy.IsLeftStomped()&&result.Equals(Direction.Right)|| !enemy.IsRightStomped() && result.Equals(Direction.Left))
-                && !enemy.IsFlipped()&&!enemy.IsGoombaStomped()&&!enemy.IsKoopaStomped())
+            if ((!(enemy.EnemyState is LeftStompedKoopaState)&&result== Direction.Right)
+                || !(enemy.EnemyState is RightStompedKoopaState) && result== Direction.Left
+                && !(enemy.IsFlipped())&&!(enemy.EnemyState is StompedGoombaState)&&!(enemy.EnemyState is StompedKoopaState))
             {
                 MarioTakeDamage(mario);
             }

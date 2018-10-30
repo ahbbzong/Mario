@@ -24,6 +24,8 @@ using System.Diagnostics;
 using Mario.GameObjects.Block;
 using Mario.XMLRead;
 using Game1;
+using Mario.EnemyClasses;
+using Mario.EnemyStates.GoombaStates;
 
 namespace Mario.XMLRead
 {
@@ -188,7 +190,7 @@ namespace Mario.XMLRead
 				{
                     
                     IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][i];
-                    if (!block.IsHiddenBlock())
+                    if (!(block is HiddenBlock))
                     {
                         collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
                         intersection = collisionDetecter.Intersection;
@@ -222,7 +224,7 @@ namespace Mario.XMLRead
                 if (!enemy.IsFlipped())
                 {
                     collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-                    if (!Mario.IsDead())
+                    if (!Mario.IsDead()&&!(enemy.EnemyState is StompedGoombaState))
                     {
                         enemyHandler = new EnemyMarioCollisionHandler(Mario,collisionFound);
                         intersection = collisionDetecter.Intersection;
@@ -232,7 +234,7 @@ namespace Mario.XMLRead
                     }
                     foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
                     {
-                        if (!block.IsHiddenBlock())
+                        if (!(block is HiddenBlock))
                         {
                             collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
                             intersection = collisionDetecter.Intersection;
@@ -365,5 +367,7 @@ namespace Mario.XMLRead
 				}
 			}
         }
+
+		
     }
 }
