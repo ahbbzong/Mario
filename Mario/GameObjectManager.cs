@@ -320,7 +320,7 @@ namespace Mario.XMLRead
             IMarioCollisionHandler marioHandler;
 			if(block is HiddenBlock)
 			{
-				marioHandler = new MarioHiddenBlockHandler(block,intersection);
+				marioHandler = new MarioHiddenBlockHandler(intersection);
 			}
 			else
 			{

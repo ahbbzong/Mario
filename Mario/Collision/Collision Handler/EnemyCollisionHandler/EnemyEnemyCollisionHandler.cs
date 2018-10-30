@@ -32,8 +32,8 @@ namespace Mario.Collision.EnemyCollisionHandler
         }
         private void GoombaKoopaReact(IEnemy enemyParam)
         {
-            if (enemyParam.IsLeftStomped() && result.Equals(Direction.Right)
-                || enemyParam.IsRightStomped() && result.Equals(Direction.Left))
+            if (enemyParam.EnemyState is LeftStompedKoopaState&& result==Direction.Right
+                || enemyParam.EnemyState is RightStompedKoopaState && result==Direction.Left)
             {
                 enemy.Beflipped();
             }
