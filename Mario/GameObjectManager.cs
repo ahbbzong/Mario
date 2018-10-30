@@ -328,66 +328,7 @@ namespace Mario.XMLRead
 			marioHandler.HandleCollision(Mario, collisionFound);
 
 		}
-        public void AddNormalItem(IBlock block)
-        {
-			Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
-            {
-                case "Coin":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "Starman":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "OneUpMushroom":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
-                    {
-                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    }
-                    break;
-            }
-        }
-        public void AddBigItem(IBlock block)
-        {
-			Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
-            {
-                case "Coin":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "None":
-                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
-                    {
-                        gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
-                    }
-                    break;
-                case "Starman":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-                case "OneUpMushroom":
-                    gameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
-                    break;
-            }
-        }
-        public bool offLeftRightScreen(Rectangle box)
-        {
-            if ((box.Right<=CameraMario.InnerBox.Left)||(box.Left>=CameraMario.InnerBox.Left+1440))
-            {
-                return true;
-            }
-            else return false;
-        }
-        public bool offUpDownScreen(Rectangle box)
-        {
-            if ((box.Top <= 0) || (box.Bottom>=900))
-            {
-                return true;
-            }
-            else return false;
-        }
+      
         public void Update()
         {
 			foreach(IController controller in ControllerList)
@@ -400,12 +341,12 @@ namespace Mario.XMLRead
 				for(int i = GameObjectListsByType[key].Count - 1; i >= 0 ; i--)
 				{
                     //only update when inside the screen
-                    if (!offLeftRightScreen(gameObjectListsByType[key][i].Box))
+                    if (!CameraMario.offLeftRightScreen(gameObjectListsByType[key][i].Box))
                     {
                         gameObjectListsByType[key][i].Update();
                     }
 				}
-                if (offUpDownScreen(Mario.Box))
+                if (CameraMario.offUpDownScreen(Mario.Box))
                 {
                     Mario.Dead();
                 }
@@ -424,7 +365,5 @@ namespace Mario.XMLRead
 				}
 			}
         }
-
-		
     }
 }

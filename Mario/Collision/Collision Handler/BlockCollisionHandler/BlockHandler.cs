@@ -1,7 +1,9 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
 using Mario.Enums;
+using Mario.Factory;
 using Mario.Interfaces.GameObjects;
+using Mario.ItemClasses;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
@@ -25,11 +27,11 @@ namespace Mario.Collision
                 block.React();
                 if (mario.MarioPowerupState is NormalMarioPowerupState)
                 {
-                    GameObjectManager.Instance.AddNormalItem(block);
+                    AddNormalItem(block);
                 }
                 else if (mario.MarioPowerupState is SuperMarioPowerupState || mario.MarioPowerupState is FireMarioPowerupState || mario.IsStarMario() )
                 {
-                    GameObjectManager.Instance.AddBigItem(block);
+                    AddBigItem(block);
                 }
             }
             else if (block is HiddenBlock && result==Direction.Down&&!mario.Isfalling())
@@ -42,5 +44,49 @@ namespace Mario.Collision
         {
             HandleCollision((IBlock)source, (IMario)target, direction);
         }
-	}
+        public void AddNormalItem(IBlock block)
+        {
+            Type IItemType = typeof(IItem);
+            switch (block.ItemContains)
+            {
+                case "Coin":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+                case "Starman":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+                case "OneUpMushroom":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+                case "None":
+                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    {
+                        GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
+                    }
+                    break;
+            }
+        }
+        public void AddBigItem(IBlock block)
+        {
+            Type IItemType = typeof(IItem);
+            switch (block.ItemContains)
+            {
+                case "Coin":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+                case "None":
+                    if (block.IsHiddenBlock() || block.IsQuestionBlock())
+                    {
+                        GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
+                    }
+                    break;
+                case "Starman":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+                case "OneUpMushroom":
+                    GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
+                    break;
+            }
+        }
+    }
 }

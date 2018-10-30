@@ -14,5 +14,9 @@ namespace Game1
         Matrix Transform { get; }
         Rectangle InnerBox { get; set; }
         void MoveRight(float move);
+        bool offLeftRightScreen(Rectangle box);
+
+        bool offUpDownScreen(Rectangle box);
+       
     }
 }
