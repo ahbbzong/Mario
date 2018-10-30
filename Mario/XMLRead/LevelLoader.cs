@@ -55,9 +55,9 @@ namespace Mario.XMLRead
         public void LoadFile(string file)
         {
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
-			foreach(Type key in GameObjectManager.Instance.GameObjectListsByType.Keys)
+			foreach(Type gameObjectType in GameObjectManager.Instance.GameObjectListsByType.Keys)
 			{
-				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(key, LoadFunctionByType[key]));
+				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(gameObjectType, LoadFunctionByType[gameObjectType]));
 			}
 			while(queuedChanges.Count > 0)
 			{
