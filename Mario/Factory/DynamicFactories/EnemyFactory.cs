@@ -42,6 +42,8 @@ namespace Mario.Factory
 			{
 				{typeof(Koopa), new Dictionary<Type, Tuple<Texture2D,int,int>>{
 						{typeof(StompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
+					{typeof(LeftStompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
+					{typeof(RightStompedKoopaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
 						{typeof(FlippedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
 						{typeof(LeftMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
 						{typeof(RightMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
