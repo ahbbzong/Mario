@@ -27,3 +27,27 @@ update, to fake a "force and gravity" just like what the real world have, but it
 for now.
 What I would recommend to do for refactory is to have a better way for jump: adding 
 fixed velocity might face some problem, having an acceleration might be a better way.
+
+
+
+Author of the code review - Wen Che
+Date of the code review - 10/29/2018
+Sprint number - 4
+Name of the .cs file being reviewed - Physics.cs
+Author of the .cs file being reviewed - XiaoChen Zong
+Minutes taken: 25
+
+Specific comments on code quality:
+Naming: Good
+The recommendation I made about positive and negative number is better, and I understand that it need to 
+add or subtracut so it's clear now. All the name in the class is clear and reasonable.
+Logic: Good
+Having Mario Physic and other Physic seperate is a good idea for me, although that is not
+what I think at the first time. Mario need to solve much more condition than other
+objects and forcing them to have only one physic is actually going to make repeated and
+not useful codes.
+Seperating grivaty out and having this class only handles with velocity is a great way
+to acheive the functions this game needs. Because after all, we are not really impelmenting
+physic as we have in the real world( or we will need Matrix, force, etc.), so seperating
+grivaty out can make Physic class much clear and easy to read. It doesn't need to 
+know all the other things that is related to the object, but only tracking the velocity.
