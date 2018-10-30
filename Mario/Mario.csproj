@@ -71,6 +71,7 @@
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Keyboard\ControllUtil.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
