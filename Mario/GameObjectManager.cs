@@ -119,7 +119,7 @@ namespace Mario.XMLRead
                     IItem item = (IItem)GameObjectListsByType[typeof(IItem)][j];
                     collisionFound = collisionDetecter.Collision(item.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
-                    itemHandler = new ItemBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
                     itemHandler.HandleCollision(item);
                 }
                 foreach (IEnemy enemy in GameObjectListsByType[typeof(IEnemy)])
