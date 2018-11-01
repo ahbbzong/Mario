@@ -50,6 +50,7 @@
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
+    <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\UsedBlock.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
