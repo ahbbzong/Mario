@@ -77,7 +77,7 @@ namespace Mario.Collision
                 case "None":
                     if (block is HiddenBlock || block is QuestionBlock)
                     {
-                        GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y)));
+                        GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y-3)));
                     }
                     break;
                 case "Starman":

@@ -16,8 +16,8 @@ namespace Game1
         public GravityManagement(IPhysicsBody physicsBody)
         {
             this.physicsBody = physicsBody;
-            YVelocity = 0;
-            Gravity = 0.8f;
+            YVelocity = PhysicsUtil.zero;
+            Gravity = PhysicsUtil.gravity;
         }
         public void ReverseYVelocity()
         {

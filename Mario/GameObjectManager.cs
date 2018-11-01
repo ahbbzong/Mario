@@ -70,18 +70,14 @@ namespace Mario.XMLRead
             CameraController = new CameraController(CameraMario);
         }
         public void LoadContent()
-		{
-            //move to game 1.
-			ItemFactory.Instance.LoadContent(Game1.Instance.Content);
-			BlockFactory.Instance.LoadContent(Game1.Instance.Content);
-			EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
-			BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
+        {
+            ItemFactory.Instance.LoadContent(Game1.Instance.Content);
+            BlockFactory.Instance.LoadContent(Game1.Instance.Content);
+            EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
+            BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
-
-			LevelLoader.Instance.LoadFile("XMLFile1.xml");
-
-
+            LevelLoader.Instance.LoadFile("XMLFile1.xml");
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
@@ -90,7 +86,6 @@ namespace Mario.XMLRead
 		public void UpdateCollision()
 
 		{
-            //rename into manage collision
 			IMario mario = (IMario)GameObjectListsByType[typeof(IMario)][0];
 			Direction collisionFound;
 			Rectangle intersection;
@@ -101,8 +96,6 @@ namespace Mario.XMLRead
 			IMarioCollisionHandler marioHandler;
 			IProjectileCollisionHandler projectileCollisionHandler;
 			CollisionDetecter collisionDetecter = new CollisionDetecter();
-			
-			
 			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
 			intersection = collisionDetecter.Intersection;
 			if (!collisionFound.Equals(Direction.None))
@@ -342,7 +335,6 @@ namespace Mario.XMLRead
 				Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
 				for(int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0 ; i--)
 				{
-                    //only update when inside the screen
                     if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
                     {
                         gameObjectListsByType[gameObjectType][i].Update();

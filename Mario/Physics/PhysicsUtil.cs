@@ -25,6 +25,7 @@ namespace Game1
         public const float fallDownMultiplier = 0.02f;
         public const float zero = 0;
         public const float reverseYVelocityDivider = 1.2f;
+        public const float gravity = 0.8f;
 
 
 

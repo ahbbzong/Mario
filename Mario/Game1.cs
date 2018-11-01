@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Mario.XMLRead;
+using Mario.Factory;
+
 [assembly: System.CLSCompliant(true)]
 
 namespace Mario
@@ -37,14 +39,14 @@ namespace Mario
 
 			base.Initialize();
 			controllerList.Add(new Keyboards());
-			//controllerList.Add(new GamePadController(this));
 
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             GameObjectManager.Instance.SetInitialValuesCamera();
-		
-		}
+          
+
+        }
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
