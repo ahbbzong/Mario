@@ -26,6 +26,7 @@ using Mario.XMLRead;
 using Game1;
 using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
+using Mario.BlockStates;
 
 namespace Mario.XMLRead
 {
@@ -109,14 +110,14 @@ namespace Mario.XMLRead
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
-                    projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    projectileCollisionHandler = new FireballBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState),new Vector2(0,0)), intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
                 foreach (IItem obj in GameObjectListsByType[typeof(IItem)])
                 {
                     collisionFound = collisionDetecter.Collision(obj.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
-                    itemHandler = new ItemBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                    itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState),new Vector2(0,0)), intersection, collisionFound);
                     itemHandler.HandleCollision(obj);
                 }
                 foreach (IEnemy enemy in GameObjectListsByType[typeof(IEnemy)])
@@ -125,7 +126,7 @@ namespace Mario.XMLRead
                     {
                         collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
                         intersection = collisionDetecter.Intersection;
-                        enemyHandler = new EnemyBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
+                        enemyHandler = new EnemyBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
                         enemyHandler.HandleCollision(enemy);
                     }
                 }
@@ -134,8 +135,8 @@ namespace Mario.XMLRead
                     collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
                     blockHandler = new BlockHandler();
-                    blockHandler.HandleCollision(new BreakableBlock(new Vector2(0, 0)),Mario, collisionFound);
-                    CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
+                    blockHandler.HandleCollision((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)),Mario, collisionFound);
+                    CallMarioBlockHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), collisionFound, intersection);
                 }
             }
             foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])
@@ -183,7 +184,7 @@ namespace Mario.XMLRead
 				{
                     
                     IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][i];
-                    if (!(block is HiddenBlock))
+                    if (!(block.BlockState is HiddenBlockState))
                     {
                         collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
                         intersection = collisionDetecter.Intersection;
@@ -227,7 +228,7 @@ namespace Mario.XMLRead
                     }
                     foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
                     {
-                        if (!(block is HiddenBlock))
+                        if (!(block.BlockState is HiddenBlockState))
                         {
                             collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
                             intersection = collisionDetecter.Intersection;
@@ -311,7 +312,7 @@ namespace Mario.XMLRead
         public void CallMarioBlockHandler(IBlock block, Direction collisionFound, Rectangle intersection)
         {
             IMarioCollisionHandler marioHandler;
-			if(block is HiddenBlock)
+			if(block.BlockState is HiddenBlockState)
 			{
 				marioHandler = new MarioHiddenBlockHandler(intersection);
 			}

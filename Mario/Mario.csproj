@@ -51,7 +51,6 @@
     <Compile Include="Enums\ProjectileType.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\UsedBlock.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
@@ -99,12 +98,7 @@
     <Compile Include="GameObjects\Background\BackgroundClasses\CloudTriple.cs" />
     <Compile Include="GameObjects\Background\BackgroundClasses\MountainBig.cs" />
     <Compile Include="GameObjects\Background\BackgroundClasses\MountainSmall.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\BreakableBlock.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\FloorBlock.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\HiddenBlock.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\Pipe.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\QuestionBlock.cs" />
-    <Compile Include="GameObjects\Block\BlocksClasses\UnbreakableBlock.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\Goomba.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\Koopa.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileClasses\Fireball.cs" />

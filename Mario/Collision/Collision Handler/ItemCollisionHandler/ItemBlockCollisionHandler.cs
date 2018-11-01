@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
@@ -50,14 +51,14 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void ItemTurnLeft(IItem item)
         {
-            if(block is Pipe||block is UnbreakableBlock)
+            if(block is Pipe||block.BlockState is UnbreakableBlockState)
             {
                 item.TurnLeft();
             }
         }
         public void ItemTurnRight(IItem item)
         {
-            if (block is Pipe|| block is UnbreakableBlock)
+            if (block is Pipe|| block.BlockState is UnbreakableBlockState)
             {
                 item.TurnRight();
             }

@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.GameObjects.Decorators;
 using Microsoft.Xna.Framework;
@@ -25,7 +26,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemy)
         {
             IsOnLand(enemy);
-            if (!(block is HiddenBlock))
+            if (!(block.BlockState is HiddenBlockState))
             {
                 PositionAdjustment(enemy);
             }
