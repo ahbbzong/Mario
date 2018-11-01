@@ -51,8 +51,6 @@
     <Compile Include="Enums\ProjectileType.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
-    <Compile Include="GameObjects\Block\BlockStates\BumpedBreakBlockState.cs" />
-    <Compile Include="GameObjects\Block\BlockStates\BumpedBlockState.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
     <Compile Include="GameObjects\Decorators\BlockDecorator.cs" />
     <Compile Include="GameObjects\Decorators\BumpedBlockDecorator.cs" />

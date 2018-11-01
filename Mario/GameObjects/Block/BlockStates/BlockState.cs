@@ -52,16 +52,6 @@ namespace Mario.BlockStates
         }
        
 
-        public virtual bool IsBumpedBlockState()
-        {
-            return false;
-        }
-
-        public virtual bool IsBumpedBreakBlock()
-        {
-            return false;
-        }
-
        
     }
 }

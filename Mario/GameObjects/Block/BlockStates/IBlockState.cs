@@ -8,10 +8,6 @@ namespace Game1
 	{
 		void React();
 		void Draw(SpriteBatch spriteBatch, Vector2 location);
-
-	
-		
-
 		int GetWidth { get; }
 		int GetHeight { get; }
     }
