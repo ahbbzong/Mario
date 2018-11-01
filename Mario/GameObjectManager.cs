@@ -105,19 +105,21 @@ namespace Mario.XMLRead
 			
             foreach (Rectangle floorBox in FloorBoxPosition)
             {
-                foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])
+                for (int j = GameObjectListsByType[typeof(IProjectile)].Count - 1; j >= 0; j--)
                 {
+                    IProjectile projectile = (IProjectile)GameObjectListsByType[typeof(IProjectile)][j];
                     collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
                     projectileCollisionHandler = new FireballBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
                     projectileCollisionHandler.HandleCollision(projectile);
                 }
-                foreach (IItem obj in GameObjectListsByType[typeof(IItem)])
+                for (int j = GameObjectListsByType[typeof(IItem)].Count - 1; j >= 0; j--)
                 {
-                    collisionFound = collisionDetecter.Collision(obj.Box, floorBox);
+                    IItem item = (IItem)GameObjectListsByType[typeof(IItem)][j];
+                    collisionFound = collisionDetecter.Collision(item.Box, floorBox);
                     intersection = collisionDetecter.Intersection;
                     itemHandler = new ItemBlockCollisionHandler(new BreakableBlock(new Vector2(0, 0)), intersection, collisionFound);
-                    itemHandler.HandleCollision(obj);
+                    itemHandler.HandleCollision(item);
                 }
                 foreach (IEnemy enemy in GameObjectListsByType[typeof(IEnemy)])
                 {
@@ -138,8 +140,9 @@ namespace Mario.XMLRead
                     CallMarioBlockHandler(new BreakableBlock(new Vector2(0, 0)), collisionFound, intersection);
                 }
             }
-            foreach (IProjectile projectile in GameObjectListsByType[typeof(IProjectile)])
+            for (int j = GameObjectListsByType[typeof(IProjectile)].Count - 1; j >= 0; j--)
             {
+                IProjectile projectile = (IProjectile)GameObjectListsByType[typeof(IProjectile)][j];
                 foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
                 {
                     collisionFound = collisionDetecter.Collision(projectile.Box, block.Box);
@@ -169,15 +172,16 @@ namespace Mario.XMLRead
                     }
                 }
             }
-            foreach (IItem obj in GameObjectListsByType[typeof(IItem)])
-			{
-				collisionFound = collisionDetecter.Collision(Mario.Box, obj.Box);
+            for (int j = GameObjectListsByType[typeof(IItem)].Count - 1; j >= 0; j--)
+            {
+                IItem item = (IItem)GameObjectListsByType[typeof(IItem)][j];
+                collisionFound = collisionDetecter.Collision(Mario.Box, item.Box);
 				if (collisionFound != Direction.None && !Mario.IsDead())
 				{
 					intersection = collisionDetecter.Intersection;
 					itemHandler = new ItemMarioCollisionHandler();
-					itemHandler.HandleCollision(obj);
-					CallMarioItemHandler(obj, collisionFound);
+					itemHandler.HandleCollision(item);
+					CallMarioItemHandler(item, collisionFound);
 				}
 				for (int i = GameObjectListsByType[typeof(IBlock)].Count - 1; i >= 0; i--)
 				{
@@ -185,19 +189,19 @@ namespace Mario.XMLRead
                     IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][i];
                     if (!(block is HiddenBlock))
                     {
-                        collisionFound = collisionDetecter.Collision(obj.Box, block.Box);
+                        collisionFound = collisionDetecter.Collision(item.Box, block.Box);
                         intersection = collisionDetecter.Intersection;
                         itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
-                        itemHandler.HandleCollision(obj);
+                        itemHandler.HandleCollision(item);
                     }
 				}
 				for (int i = GameObjectListsByType[typeof(IPipe)].Count - 1; i >= 0; i--)
 				{
 					IBlock pipe = (IBlock)GameObjectListsByType[typeof(IPipe)][i];
-					collisionFound = collisionDetecter.Collision(obj.Box, pipe.Box);
+					collisionFound = collisionDetecter.Collision(item.Box, pipe.Box);
 					intersection = collisionDetecter.Intersection;
 					itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
-					itemHandler.HandleCollision(obj);
+					itemHandler.HandleCollision(item);
 				}
 			}
 			for (int j = GameObjectListsByType[typeof(IBlock)].Count - 1; j >= 0; j--)
@@ -278,21 +282,21 @@ namespace Mario.XMLRead
             }
 
         }
-        public void CallMarioItemHandler(IItem obj, Direction collisionFound)
+        public void CallMarioItemHandler(IItem item, Direction collisionFound)
         {
             IMarioCollisionHandler marioHandler;
-			if (obj is FireFlower)
+			if (item is FireFlower)
 			{
 
 				marioHandler = new MarioFireFlowerCollisionHandler();
 			}
-			else if (obj is Starman)
+			else if (item is Starman)
 			{
 
 				marioHandler = new MarioStarmanCollisionHandler();
 
 			}
-			else if(obj is MagicMushroom)
+			else if(item is MagicMushroom)
 			{
 
 				marioHandler = new MarioMagicMushroomCollisionHandler();

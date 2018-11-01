@@ -41,10 +41,10 @@ namespace Mario.Collision.FireballCollisionHandler
                     fireball.Position += Vector2.UnitY * intersection.Height;
                     break;
                 case Direction.Left:
-                    fireball.Position += Vector2.UnitY * LocationOffset.Until;
+                    GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
                     break;
                 case Direction.Right:
-                    fireball.Position += Vector2.UnitY * LocationOffset.Until;
+                    GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
                     break;
             }
         }

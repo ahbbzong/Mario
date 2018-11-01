@@ -8,16 +8,20 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public class GravityManagement
+    public class GravityManagement : IPhysicsBody
     {
         IPhysicsBody physicsBody;
         float Gravity { get; set; }
         float YVelocity { get; set; }
+        public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool Island { get; set ; }
+
         public GravityManagement(IPhysicsBody physicsBody)
         {
             this.physicsBody = physicsBody;
             YVelocity = PhysicsUtil.zero;
             Gravity = PhysicsUtil.gravity;
+            Island = physicsBody.Island;
         }
         public void ReverseYVelocity()
         {
@@ -35,7 +39,8 @@ namespace Game1
 
         public void Update()
         {
-            ApplyGtravity();
+            if (!Island)
+                ApplyGtravity();
         }
         
     }
