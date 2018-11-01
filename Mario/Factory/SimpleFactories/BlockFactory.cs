@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Game1;
 using Mario.BlockStates;
+using Mario.Classes.BlocksClasses;
 
 namespace Mario.Factory
 {
@@ -24,26 +25,37 @@ namespace Mario.Factory
 		{
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
-				{typeof( HiddenBlock ), GetHiddenBlock  },
-				{typeof( FloorBlock ), GetFloorBlock },
-				{typeof( BreakableBlock ), GetBreakableBlock },
+				{typeof( HiddenBlockState ), GetHiddenBlock  },
+				{typeof( FloorBlockState), GetFloorBlock },
 				{typeof( Pipe ), GetPipe },
-				{typeof( QuestionBlock ), GetQuestionBlock },
-				{typeof( UnbreakableBlock ),GetUnbreakableBlock },
-                {typeof( UsedBlock ),GetUsedBlock }
+				{typeof( QuestionBlockState ), GetQuestionBlock },
+				{typeof( UnbreakableBlockState ),GetUnbreakableBlock },
+                {typeof( UsedBlockState ),GetUsedBlock },
+				{typeof( BrickBlockState), GetBrickBlock }
 
 
 			};
 		}
 
+		private IGameObject GetBrickBlock(Vector2 arg)
+		{
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new BrickBlockState(retBlock);
+			return retBlock;
+		}
+
 		private IGameObject GetUnbreakableBlock(Vector2 arg)
 		{
-			return new UnbreakableBlock(arg);
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new UnbreakableBlockState(retBlock);
+			return retBlock;
 		}
 
 		private IGameObject GetQuestionBlock(Vector2 arg)
 		{
-			return new QuestionBlock(arg);
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new QuestionBlockState(retBlock);
+			return retBlock;
 		}
 
 		private IGameObject GetPipe(Vector2 arg)
@@ -51,23 +63,25 @@ namespace Mario.Factory
 			return new Pipe(arg);
 		}
 
-		private IGameObject GetBreakableBlock(Vector2 arg)
-		{
-			return new BreakableBlock(arg);
-		}
 
 		private IGameObject GetFloorBlock(Vector2 arg)
 		{
-			return new FloorBlock(arg);
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new FloorBlockState(retBlock);
+			return retBlock;
 		}
 
 		private IGameObject GetHiddenBlock(Vector2 arg)
 		{
-			return new HiddenBlock(arg);
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new HiddenBlockState(retBlock);
+			return retBlock;
 		}
         private IGameObject GetUsedBlock(Vector2 arg)
         {
-            return new UsedBlock(arg);
+			IBlock retBlock = new BlockWithContainer(arg);
+			retBlock.BlockState = new UsedBlockState(retBlock);
+            return retBlock;
         }
 
 		public override void LoadContent(ContentManager content)

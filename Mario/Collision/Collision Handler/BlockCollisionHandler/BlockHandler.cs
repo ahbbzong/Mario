@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
 using Mario.Interfaces.GameObjects;
@@ -22,7 +23,9 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if ((block is QuestionBlock ||block is BreakableBlock)&& result == Direction.Down)
+			//need to remove breakable block class
+            if ((block.BlockState is QuestionBlockState ||block.BlockState is BrickBlockState)&& result == Direction.Down)
+			
             {
                 block.React();
                 if (mario.MarioPowerupState is NormalMarioPowerupState)
@@ -34,7 +37,7 @@ namespace Mario.Collision
                     AddBigItem(block);
                 }
             }
-            else if (block is HiddenBlock && result==Direction.Down&&!mario.Isfalling())
+            else if (block.BlockState is HiddenBlockState && result==Direction.Down&&!mario.Isfalling())
             {
                 block.React();
             }
@@ -59,7 +62,7 @@ namespace Mario.Collision
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block is HiddenBlock || block is QuestionBlock)
+                    if (block.BlockState is HiddenBlockState || block is QuestionBlockState)
                     {
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     }
@@ -75,7 +78,7 @@ namespace Mario.Collision
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block is HiddenBlock || block is QuestionBlock)
+                    if (block.BlockState is HiddenBlockState || block.BlockState is QuestionBlockState)
                     {
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y-3)));
                     }
