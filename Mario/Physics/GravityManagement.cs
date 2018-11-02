@@ -15,6 +15,8 @@ namespace Game1
         float YVelocity { get; set; }
         public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public bool Island { get; set ; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public GravityManagement(IPhysicsBody physicsBody)
         {

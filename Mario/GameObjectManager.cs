@@ -38,10 +38,9 @@ namespace Mario.XMLRead
 		private static IList<IController> ControllerList { get; set; }
 		private Dictionary<Type, IList<IGameObject>> gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>();
 		public Dictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; set => gameObjectListsByType = value; }
-		public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
+        public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
-        
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
 
@@ -49,7 +48,6 @@ namespace Mario.XMLRead
         {
             GameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
             {
-
                 {typeof(IBackground), new List<IGameObject>() },
                 {typeof(IItem),new List<IGameObject>() },
                 {typeof(IPipe), new List<IGameObject>() },

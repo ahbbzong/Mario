@@ -52,7 +52,7 @@ namespace Mario
                         keyboardMap[key].Execute();
                     }
                 }
-                if (key.Equals(Keys.T))
+                else if (key.Equals(Keys.T))
                 {
                     if (!previous.Contains(key))
                     {

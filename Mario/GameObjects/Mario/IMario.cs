@@ -26,7 +26,7 @@ namespace Game1
         
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }
-        Physics Physics { get;set; }
+        PhysicsMario Physics { get;set; }
         void IsLandTrue();
         bool IsLandResponse();
         void SetFalling(bool fall);
