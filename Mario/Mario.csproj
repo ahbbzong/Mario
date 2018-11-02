@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Collision\LocationOffset.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
+    <Compile Include="Command\PauseCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\MarioTypes.cs" />

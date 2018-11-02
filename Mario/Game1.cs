@@ -17,8 +17,8 @@ namespace Mario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-		private IList<IController> controllerList = new List<IController>();
+        public bool isPause;
+        private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
         public Game1()
@@ -26,6 +26,7 @@ namespace Mario
 			instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            isPause = false;
         }
 
         /// <summary>
@@ -76,13 +77,14 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-			GameObjectManager.Instance.CurrentGameTime = gameTime;
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
 
-            // TODO: Add your update logic here
-            GameObjectManager.Instance.Update();
-            base.Update(gameTime);
+            // TODO: Add your update logic herr.
+                GameObjectManager.Instance.CurrentGameTime = gameTime;
+                GameObjectManager.Instance.Update();
+                base.Update(gameTime);
         }
 
         /// <summary>

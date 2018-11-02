@@ -32,7 +32,8 @@ namespace Mario
 				{ Keys.Q, new QuitCommand(Game1.Instance) },
 				{ Keys.X, new ThrowFireballAndSprintCommand(mario) },
 				{ Keys.R, new ResetCommand(Game1.Instance) },
-				{ Keys.None, new NoInputCommand(mario) }
+                { Keys.T, new PauseCommand(Game1.Instance) },
+                { Keys.None, new NoInputCommand(mario) }
 			};
 		}
         public void Update()
@@ -52,12 +53,32 @@ namespace Mario
                     }
                 }
                 else if(keyboardMap.ContainsKey(key))
-                {
-                    keyboardMap[key].Execute();
 
+                {
+                    if (Game1.Instance.isPause)
+                    {
+                        if (key.Equals(Keys.T))
+                            keyboardMap[key].Execute();
+                    }
+                    else
+                    {
+                        keyboardMap[key].Execute();
+                    }
                 }
             }
             previous = getkeys;
+        }
+        public void Pause(Keys key)
+        {
+            if (Game1.Instance.isPause)
+            {
+                if (key.Equals(Keys.T))
+                    keyboardMap[key].Execute();
+            }
+            else
+            {
+                keyboardMap[key].Execute();
+            }
         }
 		
 		

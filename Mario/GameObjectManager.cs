@@ -335,23 +335,26 @@ namespace Mario.XMLRead
 			{
 				controller.Update();
 			}
-			for(int j =  GameObjectListsByType.Count -1; j>= 0;j--) 
-			{
-				Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
-				for(int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0 ; i--)
-				{
-                    if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
-                    {
-                        gameObjectListsByType[gameObjectType][i].Update();
-                    }
-				}
-                if (CameraMario.offUpDownScreen(Mario.Box))
+            if (!Game1.Instance.isPause)
+            {
+                for (int j = GameObjectListsByType.Count - 1; j >= 0; j--)
                 {
-                    Mario.Dead();
+                    Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
+                    for (int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0; i--)
+                    {
+                        if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
+                        {
+                            gameObjectListsByType[gameObjectType][i].Update();
+                        }
+                    }
+                    if (CameraMario.offUpDownScreen(Mario.Box))
+                    {
+                        Mario.Dead();
+                    }
                 }
-			}
-			UpdateCollision();
-			CameraController.Update();
+                UpdateCollision();
+                CameraController.Update();
+            }
             
         }
         public void Draw(SpriteBatch spriteBatch)
