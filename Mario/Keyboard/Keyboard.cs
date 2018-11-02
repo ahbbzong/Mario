@@ -49,38 +49,24 @@ namespace Mario
                 {
                     if (!previous.Contains(key))
                     {
-                        keyboardMap[Keys.Z].Execute();
+                        keyboardMap[key].Execute();
                     }
                 }
-                else if(keyboardMap.ContainsKey(key))
-
+                if (key.Equals(Keys.T))
                 {
-                    if (Game1.Instance.isPause)
-                    {
-                        if (key.Equals(Keys.T))
-                            keyboardMap[key].Execute();
-                    }
-                    else
+                    if (!previous.Contains(key))
                     {
                         keyboardMap[key].Execute();
                     }
                 }
+                else if(keyboardMap.ContainsKey(key))
+                {
+                    keyboardMap[key].Execute();
+                }
             }
             previous = getkeys;
         }
-        public void Pause(Keys key)
-        {
-            if (Game1.Instance.isPause)
-            {
-                if (key.Equals(Keys.T))
-                    keyboardMap[key].Execute();
-            }
-            else
-            {
-                keyboardMap[key].Execute();
-            }
-        }
-		
+      
 		
     }
 
