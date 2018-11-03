@@ -77,6 +77,7 @@ namespace Mario.XMLRead
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
             LevelLoader.Instance.LoadFile("XMLFile1.xml");
+            //LevelLoader.Instance.LoadFile("XMLFile2.xml");
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);

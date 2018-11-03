@@ -23,7 +23,6 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-			//need to remove breakable block class
             if ((block.BlockState is QuestionBlockState ||block.BlockState is BrickBlockState)&& result == Direction.Down)
 			
             {

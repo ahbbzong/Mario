@@ -225,6 +225,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Windows\x86\Debug\XMLFile2.xml" />
     <Content Include="BurndownChart\Burndown.png" />
     <Content Include="BurndownChart\BurndownChart.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_ChulongLi.txt" />

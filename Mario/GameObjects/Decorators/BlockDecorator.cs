@@ -25,7 +25,8 @@ namespace Mario.GameObjects.Decorators
 
 
         public override void SetContainsItem(String item)
-        { }
+        {
+        }
         public void React()
 		{
 			DecoratedBlock.React();
