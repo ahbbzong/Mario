@@ -72,6 +72,8 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
+    <Compile Include="Sound\BackgroundMusic.cs" />
+    <Compile Include="Sound\SoundEffect.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />

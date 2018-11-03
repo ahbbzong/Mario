@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Mario.XMLRead;
 using Mario.Factory;
+using Mario.Sound;
 
 [assembly: System.CLSCompliant(true)]
 
@@ -57,6 +58,7 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent();
+            MotionEffect.Instance.loadcontent();
            
         }
 
