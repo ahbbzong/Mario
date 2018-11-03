@@ -70,6 +70,8 @@
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightStompedKoopaState.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\BrickParticleRight.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\BrickParticleLeft.cs" />
+    <Compile Include="GameObjects\Mario\ICoinContainer.cs" />
+    <Compile Include="GameObjects\Mario\IPlayerStats.cs" />
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />

@@ -243,12 +243,6 @@ namespace Mario.XMLRead
 				{typeof(IBlock).Name, typeof(IBlock) },
 				{typeof(IBackground).Name,typeof(IBackground) },
 				{typeof(IEnemy).Name, typeof(IEnemy) },
-				
-				
-
-			//remove later
-				{"FloorBlock",typeof(FloorBlockState) },
-			//end remove later
 				{typeof(FloorBlockState).Name, typeof(FloorBlockState) },
 				{typeof(HiddenBlockState).Name, typeof(HiddenBlockState) },
 				{typeof(Pipe).Name, typeof(Pipe) },

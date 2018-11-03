@@ -28,8 +28,8 @@ namespace Mario.Collision.CollisionManager
 	{
 
 		private static CollisionDetector instance = new CollisionDetector();
-		public static CollisionDetector Instance { get => instance; set => instance = value; }
-		private IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => GameObjectManager.Instance.GameObjectListsByType; set => GameObjectManager.Instance.GameObjectListsByType = value; }
+		public static CollisionDetector Instance { get => instance; }
+		private IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => GameObjectManager.Instance.GameObjectListsByType;}
 		private IList<Rectangle> FloorBoxPosition { get => GameObjectManager.Instance.FloorBoxPosition; }
 
 		private ICamera CameraMario { get => GameObjectManager.Instance.CameraMario; }
@@ -277,10 +277,6 @@ namespace Mario.Collision.CollisionManager
 
 			marioHandler.HandleCollision(Mario, collisionFound);
 
-		}
-		public void Update(GameTime gameTime)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }
