@@ -204,7 +204,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
-				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(GetType(back.BackgroundType), new Vector2( back.XLocation, back.YLocation)));
+				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
         }
@@ -243,13 +243,7 @@ namespace Mario.XMLRead
 				{typeof(IBlock).Name, typeof(IBlock) },
 				{typeof(IBackground).Name,typeof(IBackground) },
 				{typeof(IEnemy).Name, typeof(IEnemy) },
-
-				{typeof(BushSingle).Name, typeof(BushSingle) },
-				{typeof(BushTriple).Name, typeof(BushTriple) },
-				{typeof(CloudSingle).Name, typeof(CloudSingle) },
-				{typeof(CloudTriple).Name, typeof(CloudTriple) },
-				{typeof(MountainBig).Name, typeof(MountainBig) },
-				{typeof(MountainSmall).Name, typeof(MountainSmall) },
+				
 				
 
 			//remove later

@@ -51,8 +51,9 @@
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />
+    <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\BackgroundObject.cs" />
+    <Compile Include="GameObjects\Background\BackgroundObject.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
     <Compile Include="GameObjects\Decorators\BlockDecorator.cs" />
@@ -94,12 +95,6 @@
     <Compile Include="GameObjects\Block\BlockStates\UsedBlockState.cs" />
     <Compile Include="CameraClasses\Camera.cs" />
     <Compile Include="CameraClasses\CameraController.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\BushSingle.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\BushTriple.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\CloudSingle.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\CloudTriple.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\MountainBig.cs" />
-    <Compile Include="GameObjects\Background\BackgroundClasses\MountainSmall.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\Pipe.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\Goomba.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\Koopa.cs" />
@@ -143,7 +138,7 @@
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\FlippedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftMovingKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightMovingKoopaState.cs" />
-    <Compile Include="Factory\SimpleFactories\BackgroundFactory.cs" />
+    <Compile Include="Factory\StaticFactories\BackgroundFactory.cs" />
     <Compile Include="Factory\SimpleFactories\BlockFactory.cs" />
     <Compile Include="Factory\DynamicFactories\DynamicGameObjectFactory.cs" />
     <Compile Include="Factory\DynamicFactories\EnemyFactory.cs" />
