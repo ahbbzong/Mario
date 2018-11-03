@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public interface ICollidiable
+    public interface ICollidable
     {
         Rectangle Box { get; }
     }

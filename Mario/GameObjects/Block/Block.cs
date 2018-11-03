@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Block : IBlock, ICollidiable
+    public abstract class Block : IBlock, ICollidable
     {
         private Vector2 BlockLocation;
         private String itemContains = "";

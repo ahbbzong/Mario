@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision\CollisionManager\CollisionDetector.cs" />
     <Compile Include="Collision\LocationOffset.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\PauseCommand.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="GameObjects\Items\ItemClasses\Starman.cs" />
     <Compile Include="GameObjects\Mario\MarioClasses\Mario.cs" />
     <Compile Include="Collision\Collision Handler\BlockCollisionHandler\BlockHandler.cs" />
-    <Compile Include="Collision\CollisionManager\CollisionDetecter.cs" />
+    <Compile Include="Collision\CollisionManager\CollisionUtility.cs" />
     <Compile Include="Collision\Collision Handler\EnemyCollisionHandler\EnemyEnemyCollisionHandler.cs" />
     <Compile Include="Collision\Collision Handler\EnemyCollisionHandler\EnemyBlockCollisionHandler.cs" />
     <Compile Include="Collision\Collision Handler\EnemyCollisionHandler\EnemyProjectileCollisionHandler.cs" />

@@ -94,7 +94,7 @@ namespace Mario.XMLRead
 			IEnemyCollisionHandler enemyHandler;
 			IMarioCollisionHandler marioHandler;
 			IProjectileCollisionHandler projectileCollisionHandler;
-			CollisionDetecter collisionDetecter = new CollisionDetecter();
+			CollisionUtility collisionDetecter = new CollisionUtility();
 			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
 			intersection = collisionDetecter.Intersection;
 			if (!collisionFound.Equals(Direction.None))

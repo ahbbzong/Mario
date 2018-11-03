@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-    public abstract class Enemy : IEnemy,ICollidiable, IMoveable
+    public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
         private Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
