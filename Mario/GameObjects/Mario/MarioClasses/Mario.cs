@@ -14,7 +14,7 @@ using Mario.Enums;
 
 namespace Mario
 {
-    public class Mario : IMario,ICollidiable
+    public class Mario : IMario,ICollidable
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Projectile : IProjectile, ICollidiable
+    public abstract class Projectile : IProjectile, ICollidable
     {
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;

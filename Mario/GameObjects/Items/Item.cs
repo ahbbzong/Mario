@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Item : IItem ,ICollidiable
+    public abstract class Item : IItem ,ICollidable
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
