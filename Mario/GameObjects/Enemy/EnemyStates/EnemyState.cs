@@ -77,10 +77,7 @@ namespace Mario.AbstractClass
         public virtual void Update()
         {
             EnemySprite.Update();
-            if (!Enemy.Island)
-            {
-                Enemy.gravityManagement.Update();
-            }
+            Enemy.gravityManagement.Update();
         }
 
         public virtual bool IsFlipped()

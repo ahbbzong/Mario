@@ -78,8 +78,11 @@ namespace Mario
         }
 		
 
-        public Physics Physics { get; set; }
-		public Mario(Vector2 location)
+        public PhysicsMario Physics { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
@@ -87,7 +90,7 @@ namespace Mario
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
             fall = false;
             Island = true;
-            Physics = new Physics(this);
+            Physics = new PhysicsMario(this);
             
         }
 		public void Up()

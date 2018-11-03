@@ -32,19 +32,21 @@ namespace Mario.Classes.BlocksClasses
         }
 
        
-        public bool IsLand { get; set; }
 		public Vector2 Position { get => ProjectileLocation; set => ProjectileLocation = value; }
+        public bool Island { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		protected Projectile(Vector2 location)
+        protected Projectile(Vector2 location)
         {
             ProjectileLocation = location;
             gravityManagement = new GravityManagement(this);
-            IsLand = false;
+            Island = false;
         }
         public virtual void Update()
         {
             ProjectileSprite.Update();
-            if (!IsLand) { gravityManagement.Update(); }
+            if (!Island) { gravityManagement.Update(); }
             Position += Vector2.UnitX*XVelocity;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -55,11 +57,11 @@ namespace Mario.Classes.BlocksClasses
 		public virtual void IsLandTrue()
         {
             gravityManagement.ReverseYVelocity();
-            IsLand = true;
+            Island = true;
         }
         public virtual void IsLandFalse()
         {
-            IsLand = false;
+            Island = false;
         }
 
         public virtual void React()

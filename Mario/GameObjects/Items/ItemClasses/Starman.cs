@@ -18,7 +18,7 @@ namespace Mario.ItemClasses
         }
         public override void IsLandTrue()
         {
-            IsLand = true;
+            Island = true;
             gravityManagement.ReverseYVelocity();
         }
     }
