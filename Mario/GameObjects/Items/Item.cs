@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Item : IItem ,ICollidiable
+    public abstract class Item : IItem ,ICollidable
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
@@ -31,6 +31,7 @@ namespace Mario.Classes.BlocksClasses
         public GravityManagement gravityManagement { get; set; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
         public bool Island { get; set; }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         protected Item(Vector2 location)
         {

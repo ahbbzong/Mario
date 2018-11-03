@@ -23,7 +23,6 @@ namespace Mario.Collision
     }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-			//need to remove breakable block class
             if ((block.BlockState is QuestionBlockState ||block.BlockState is BrickBlockState)&& result == Direction.Down)
 			
             {
@@ -62,7 +61,7 @@ namespace Mario.Collision
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
                 case "None":
-                    if (block.BlockState is HiddenBlockState || block is QuestionBlockState)
+                    if (block.BlockState is HiddenBlockState || block.BlockState is QuestionBlockState)
                     {
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     }

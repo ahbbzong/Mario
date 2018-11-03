@@ -10,6 +10,8 @@ namespace Game1
     public interface IPhysicsBody
     {
 		Vector2 Position { get; set; }
+        Vector2 Velocity { get; set; }
+        Vector2 Force { get; set; }
         bool Island { get; set; }
     }
 }

@@ -23,12 +23,14 @@ namespace Mario.GameObjects.Decorators
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
-		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
+		public PhysicsMario Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
 		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 		public ISprite MarioSprite { get => DecoratedMario.MarioSprite; set => DecoratedMario.MarioSprite = value; }
         public bool Island { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void BeFire()
 		{

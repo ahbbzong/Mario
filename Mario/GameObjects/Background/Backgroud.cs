@@ -14,7 +14,7 @@ namespace Mario.Classes.BlocksClasses
 {
     public abstract class Background : IBackground
     {
-        protected ISprite BackgroundSprite { get; set; }
+        public ISprite BackgroundSprite { get; set; }
         private Vector2 BackgroundLocation;
         public Rectangle Box { get; }
 
@@ -22,7 +22,6 @@ namespace Mario.Classes.BlocksClasses
         protected Background(Vector2 location)
         {
             BackgroundLocation = location;
-			BackgroundSprite = SpriteFactory.Instance.CreateSprite(BackgroundFactory.Instance.GetSpriteDictionary[this.GetType()]);
             Box = Rectangle.Empty;
 		}
         public virtual void Update()
