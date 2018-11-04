@@ -42,6 +42,7 @@
     <XLocation>5632</XLocation>
     <YLocation>850</YLocation>
   </BlockXML>
+  
 
   //done with floors
 
@@ -194,6 +195,19 @@
     <XLocation>512</XLocation>
     <YLocation>818</YLocation>
   </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>650</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>2150</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  
 
   -<PipeXML>
     <BlockType>Pipe</BlockType>
@@ -747,7 +761,7 @@
     <XLocation>2800</XLocation>
     <YLocation>140</YLocation>
   </BackgroundXML>
-
+//Underground
   <BlockXML>
     <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
@@ -763,5 +777,21 @@
     <XLocation>18000</XLocation>
     <YLocation>800</YLocation>
   </PipeXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>17650</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>17750</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
 
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>17530</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+   
 </Map>
