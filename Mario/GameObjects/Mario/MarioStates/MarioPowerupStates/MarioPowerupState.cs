@@ -20,7 +20,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			this.Mario = mario;
 
-            MotionEffect.Instance.effectPlay(GetType().ToString());
 		}
 
 		public virtual void BeFire()
