@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Game1;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
+using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -18,6 +19,8 @@ namespace Mario.MarioStates.MarioPowerupStates
 		protected MarioPowerupState(IMario mario)
 		{
 			this.Mario = mario;
+
+            MotionEffect.Instance.effectPlay(GetType().ToString());
 		}
 
 		public virtual void BeFire()
