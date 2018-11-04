@@ -6,7 +6,7 @@
     <XLocation>200</XLocation>
     <YLocation>819</YLocation>
   </PlayerXML>
-
+  
   <BlockXML>
     <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
@@ -15,11 +15,11 @@
     <XLocation>0</XLocation>
     <YLocation>850</YLocation>
   </BlockXML>
+  
   <PipeXML>
     <BlockType>Pipe</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>260</XLocation>
     <YLocation>800</YLocation>
   </PipeXML>
-  //done with floors
 </Map>

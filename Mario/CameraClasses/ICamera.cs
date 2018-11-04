@@ -13,6 +13,7 @@ namespace Game1
         Vector2 Location { get; }
         Matrix Transform { get; }
         Rectangle InnerBox { get; set; }
+        void ResetCamera(Rectangle box);
         void MoveRight(float move);
         bool offLeftRightScreen(Rectangle box);
 

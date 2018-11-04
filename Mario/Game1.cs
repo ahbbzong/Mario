@@ -57,7 +57,7 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			GameObjectManager.Instance.LoadContent();
+			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
            
         }
 

@@ -69,7 +69,7 @@ namespace Mario.XMLRead
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
-        public void LoadContent()
+        public void LoadContent(string filename)
         {
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -77,13 +77,12 @@ namespace Mario.XMLRead
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
-            LevelLoader.Instance.LoadFile("XMLFile1.xml");
-            //LevelLoader.Instance.LoadFile("XMLFile2.xml");
+            LevelLoader.Instance.LoadFile(filename);
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
-		}
+        }
    
       
         public void Update()
@@ -124,7 +123,5 @@ namespace Mario.XMLRead
 				}
 			}
         }
-
-		
     }
 }
