@@ -226,10 +226,15 @@ namespace Mario.Collision.CollisionManager
 				}
                 if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe)==0)
                 {
-                    pipeHandler = new PipeHandler();
+                    pipeHandler = new PipeHandler(0);
                     pipeHandler.HandleCollision(pipe, Mario, collisionFound);
                 }
-			}
+                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe) == 8)
+                {
+                    pipeHandler = new PipeHandler(8);
+                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
+                }
+            }
 			float difference = (float)(Mario.Position.X - GameObjectManager.Instance.CameraMario.Location.X);
 			if (difference <= 5 && difference >= 0)
 			{

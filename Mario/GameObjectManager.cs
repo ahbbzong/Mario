@@ -111,10 +111,11 @@ namespace Mario.XMLRead
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
-            
+           
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+           
 			foreach (Type gameObjectType in GameObjectListsByType.Keys)
 			{
 				foreach(IGameObject gameObj in GameObjectListsByType[gameObjectType])
@@ -123,5 +124,6 @@ namespace Mario.XMLRead
 				}
 			}
         }
+      
     }
 }

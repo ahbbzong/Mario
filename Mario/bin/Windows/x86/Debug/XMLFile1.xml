@@ -748,4 +748,20 @@
     <YLocation>140</YLocation>
   </BackgroundXML>
 
+  <BlockXML>
+    <BlockType>FloorBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <Length>30</Length>
+    <Height>2</Height>
+    <XLocation>17000</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>18000</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+
 </Map>

@@ -85,6 +85,7 @@ namespace Mario
                 GameObjectManager.Instance.CurrentGameTime = gameTime;
                 GameObjectManager.Instance.Update();
                 base.Update(gameTime);
+
         }
 
         /// <summary>
@@ -93,12 +94,10 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-			GameObjectManager.Instance.CurrentGameTime = gameTime;
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GameObjectManager.Instance.CurrentGameTime = gameTime;
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
-
+            changeColor();
             GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
@@ -108,6 +107,12 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
-       
+        public void changeColor()
+        {
+            if (GameObjectManager.Instance.Mario.Position.X > 10000)
+            GraphicsDevice.Clear(Color.Black);
+            else if (GameObjectManager.Instance.Mario.Position.X < 10000)
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+        }
     }
 }
