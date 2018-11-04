@@ -67,6 +67,7 @@ namespace Mario
 		public ISprite MarioSprite { get; set; }
 
         private bool fall;
+        private bool isCrouch;
         public bool Island { get; set; }
         public Rectangle Box
         {
@@ -90,6 +91,7 @@ namespace Mario
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
             fall = false;
             Island = true;
+            isCrouch = false;
             Physics = new PhysicsMario(this);
             
         }
@@ -109,6 +111,7 @@ namespace Mario
 		public void Down()
 		{
             MarioMovementState.Down();
+            isCrouch = true;
         }
         public void Left()
         {
@@ -199,6 +202,7 @@ namespace Mario
         {
             MarioMovementState.NoInput();
             Physics.NotJump();
+            isCrouch = false;
         }
             
         public void ThrowFireball()
@@ -220,9 +224,7 @@ namespace Mario
         }
         public bool IsCrouch()
         {
-            return (MarioMovementState is LeftCrouchingMarioMovementState
-                  || MarioMovementState is RightCrouchingMarioMovementState)
-                  &&(!(MarioPowerupState is NormalMarioPowerupState));
+            return isCrouch;
         }
 		public void TakeDamage()
 		{

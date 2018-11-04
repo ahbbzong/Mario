@@ -38,5 +38,11 @@ namespace Mario.CameraClasses
             }
             else return false;
         }
+        public void ResetCamera(Rectangle box)
+        {
+            Location = Vector2.UnitX*(box.Location.X - 450);
+
+
+        }
     }
 }

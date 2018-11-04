@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+
+  <PlayerXML>
+    <PlayerName>Mario</PlayerName>
+    <XLocation>200</XLocation>
+    <YLocation>819</YLocation>
+  </PlayerXML>
+  
+  <BlockXML>
+    <BlockType>FloorBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <Length>30</Length>
+    <Height>2</Height>
+    <XLocation>0</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+  
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>260</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+</Map>

@@ -219,12 +219,16 @@ namespace Mario.Collision.CollisionManager
 				collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
 				if (collisionFound != Direction.None && !Mario.IsDead())
 				{
-					pipeHandler = new BlockHandler();
-					intersection = collisionDetecter.Intersection;
-					pipeHandler.HandleCollision(pipe, Mario, collisionFound);
+
+                    intersection = collisionDetecter.Intersection;
 					CallMarioBlockHandler(pipe, collisionFound, intersection);
 
 				}
+                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe)==0)
+                {
+                    pipeHandler = new PipeHandler();
+                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
+                }
 			}
 			float difference = (float)(Mario.Position.X - GameObjectManager.Instance.CameraMario.Location.X);
 			if (difference <= 5 && difference >= 0)

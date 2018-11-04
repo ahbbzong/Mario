@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision\Collision Handler\BlockCollisionHandler\PipeHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetector.cs" />
     <Compile Include="Collision\LocationOffset.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
@@ -79,8 +80,6 @@
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
-    <Compile Include="Sound\BackgroundMusic.cs" />
-    <Compile Include="Sound\SoundEffect.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />
@@ -226,7 +225,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Windows\x86\Debug\XMLFile2.xml" />
+    <Content Include="bin\Windows\x86\Debug\XMLFile3.xml" />
+    <Content Include="bin\Windows\x86\Debug\XMLFile2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="BurndownChart\Burndown.png" />
     <Content Include="BurndownChart\BurndownChart.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_ChulongLi.txt" />

@@ -3,8 +3,8 @@
 
   <PlayerXML>
     <PlayerName>Mario</PlayerName>
-    <XLocation>200</XLocation>
-    <YLocation>819</YLocation>
+    <XLocation>1952</XLocation>
+    <YLocation>799</YLocation>
   </PlayerXML>
 
   <BlockXML>
@@ -747,5 +747,4 @@
     <XLocation>2800</XLocation>
     <YLocation>140</YLocation>
   </BackgroundXML>
-
 </Map>
