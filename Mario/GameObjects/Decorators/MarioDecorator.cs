@@ -52,14 +52,14 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.BeSuper();
 		}
 
-		public void Dead()
+		public void BeDead()
 		{
-			DecoratedMario.Dead();
+			DecoratedMario.BeDead();
 		}
 
-		public void Down()
+		public void GoDown()
 		{
-			DecoratedMario.Down();
+			DecoratedMario.GoDown();
 		}
 
 		public bool IsDead()
@@ -67,19 +67,19 @@ namespace Mario.GameObjects.Decorators
 			return DecoratedMario.IsDead();
 		}
 
-		public bool Isfalling()
+		public bool IsFalling()
 		{
-			return DecoratedMario.Isfalling();
+			return DecoratedMario.IsFalling();
 		}
         
-		public void IsLandFlase()
+		public void SetIsLandFalse()
 		{
-			DecoratedMario.IsLandFlase();
+			DecoratedMario.SetIsLandFalse();
 		}
 
-		public void IsLandTrue()
+		public void SetIsLandTrue()
 		{
-			DecoratedMario.IsLandTrue();
+			DecoratedMario.SetIsLandTrue();
 		}
 
 		public bool IsLeft()
@@ -98,9 +98,9 @@ namespace Mario.GameObjects.Decorators
 		}
         
 
-		public void Left()
+		public void GoLeft()
 		{
-			DecoratedMario.Left();
+			DecoratedMario.GoLeft();
 		}
 
 		public void NoInput()
@@ -108,19 +108,19 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.NoInput();
 		}
 
-		public void Right()
+		public void GoRight()
 		{
-			DecoratedMario.Right();
+			DecoratedMario.GoRight();
 		}
 
-		public void ThrowFireball()
+		public void ThrowProjectile()
 		{
-			DecoratedMario.ThrowFireball();
+			DecoratedMario.ThrowProjectile();
 		}
 
-		public void Up()
+		public void GoUp()
 		{
-			DecoratedMario.Up();
+			DecoratedMario.GoUp();
 		}
 
 		public virtual void TakeDamage()

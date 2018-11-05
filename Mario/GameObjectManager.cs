@@ -1,32 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Mario.Collision;
-using Mario.Collision.ItemCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler;
-using Mario.Collision.EnemyCollisionHandler;
-using Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler;
 using Mario.Interfaces.GameObjects;
 using Mario.Factory;
-using Mario.Enums;
-using Mario.Interfaces.CollisionHandlers;
-using Mario.Collision.FireballCollisionHandler;
 using Mario.CameraClasses;
-using Mario.BlocksClasses;
-using Mario.ItemClasses;
-using System.Diagnostics;
 using Mario.GameObjects.Block;
-using Mario.XMLRead;
 using Game1;
-using Mario.EnemyClasses;
-using Mario.EnemyStates.GoombaStates;
-using Mario.BlockStates;
 using Mario.Collision.CollisionManager;
 
 namespace Mario.XMLRead
@@ -98,14 +79,14 @@ namespace Mario.XMLRead
                     Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
                     for (int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0; i--)
                     {
-                        if (!CameraMario.offLeftRightScreen(gameObjectListsByType[gameObjectType][i].Box))
+                        if (!CameraMario.IsOffSideOfScreen(gameObjectListsByType[gameObjectType][i].Box))
                         {
                             gameObjectListsByType[gameObjectType][i].Update();
                         }
                     }
-                    if (CameraMario.offUpDownScreen(Mario.Box))
+                    if (CameraMario.IsOffTopOrBottomOfScreen(Mario.Box))
                     {
-                        Mario.Dead();
+                        Mario.BeDead();
                     }
                 }
                 CollisionDetector.Instance.Update();

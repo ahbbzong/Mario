@@ -36,7 +36,7 @@ namespace Mario.Collision
                     AddBigItem(block);
                 }
             }
-            else if (block.BlockState is HiddenBlockState && result==Direction.Down&&!mario.Isfalling())
+            else if (block.BlockState is HiddenBlockState && result==Direction.Down&&!mario.IsFalling())
             {
                 block.React();
             }
@@ -49,7 +49,7 @@ namespace Mario.Collision
         public void AddNormalItem(IBlock block)
         {
             Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
+            switch (block.ItemContained)
             {
                 case "Coin":
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
@@ -71,7 +71,7 @@ namespace Mario.Collision
         public void AddBigItem(IBlock block)
         {
             Type IItemType = typeof(IItem);
-            switch (block.ItemContains)
+            switch (block.ItemContained)
             {
                 case "Coin":
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));

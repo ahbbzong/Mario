@@ -10,10 +10,10 @@ namespace Game1
 	public interface IBlock : IGameObject
 	{
 		
-        string ItemContains { get; set; }
+        string ItemContained { get; set; }
 		void React();
         Vector2 Position { get; set; }
-
+	
         IBlockState BlockState { get; set; }
        
     }

@@ -18,7 +18,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			//override NO-OP
 		}
-        public override void ThrowFireball()
+        public override void ThrowProjectile()
         {
             Vector2 launchPosition = Mario.Position;
             GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Add(new Fireball(launchPosition));

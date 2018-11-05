@@ -80,7 +80,7 @@ namespace Mario.XMLRead
                 if (!GetType(block.BlockType).Equals(typeof(FloorBlockState)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlockState)))
                 {
                     blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
-                    blockList.Last<IGameObject>().SetContainsItem(block.ItemContains);
+                    ((IBlock)blockList.Last<IGameObject>()).ItemContained = block.ItemContains;
                 }
                 else if (GetType(block.BlockType).Equals(typeof(FloorBlockState)))
                 {

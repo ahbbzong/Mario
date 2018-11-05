@@ -5,11 +5,11 @@ namespace Mario.MarioCommand
 
 {
 
-    public class ThrowFireballAndSprintCommand : MarioCommand
+    public class SprintAndFireProjectileMarioCommand : MarioCommand
     {
         int counter;
         bool fire;
-        public ThrowFireballAndSprintCommand(IMario mario):base(mario)
+        public SprintAndFireProjectileMarioCommand(IMario mario):base(mario)
         {
             counter = 0;
             fire = true;
@@ -24,7 +24,7 @@ namespace Mario.MarioCommand
             }
             if (fire)
             {
-                Mario.ThrowFireball();
+                Mario.ThrowProjectile();
                 counter = 0;
                 fire = false;
             }

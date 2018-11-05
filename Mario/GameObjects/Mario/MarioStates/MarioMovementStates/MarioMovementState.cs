@@ -20,21 +20,21 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario = mario;
 		}
-		public virtual void Down()
+		public virtual void GoDown()
 		{
 			//NO-OP by default
 		}
 
-		public virtual void Left()
+		public virtual void GoLeft()
 		{
             mario.Physics.MoveLeft();
         }
 
-		public virtual void Right()
+		public virtual void GoRight()
 		{
             mario.Physics.MoveRight();
         }
-		public virtual void Up()
+		public virtual void GoUp()
 		{
 
         }

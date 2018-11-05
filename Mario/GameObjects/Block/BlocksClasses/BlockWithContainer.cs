@@ -25,12 +25,6 @@ namespace Mario.Classes.BlocksClasses
 		{
 			BlockState.React();
 		}
-
-		public override void SetContainsItem(string item)
-		{
-			base.SetContainsItem(item);
-		}
-
 		public override void Update()
 		{
 			base.Update();

@@ -22,18 +22,18 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
             {
                 case Direction.Up:
                     mario.SetFalling(false);
-                    mario.IsLandTrue();
+                    mario.SetIsLandTrue();
                     mario.Physics.ResetGravity();
                     mario.Position -= Vector2.UnitY*intersection.Height;
                     if (mario.IsUp())
                     {
                         if (mario.Physics.XVelocityResponse() >= 0.1)
                         {
-                            mario.Right();
+                            mario.GoRight();
                         }
                         else if (mario.Physics.XVelocityResponse() <= -0.1)
                         {
-                            mario.Left();
+                            mario.GoLeft();
                         }
                         else
                         {

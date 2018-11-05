@@ -95,12 +95,12 @@ namespace Mario
             Physics = new PhysicsMario(this);
             
         }
-		public void Up()
+		public void GoUp()
         {
             if (Island)
             {
                 Island = false;
-                MarioMovementState.Up();
+                MarioMovementState.GoUp();
                 Physics.Jump();
             }
         }
@@ -108,29 +108,29 @@ namespace Mario
         {
             return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
         }
-		public void Down()
+		public void GoDown()
 		{
-            MarioMovementState.Down();
+            MarioMovementState.GoDown();
             isCrouch = true;
         }
-        public void Left()
+        public void GoLeft()
         {
            
             if (Island)
             {
-                 MarioMovementState.Left();
+                 MarioMovementState.GoLeft();
             }
             else
             {
                 Physics.JumpLeft();
             }
         }
-        public void Right()
+        public void GoRight()
         {
             
             if (Island)
             {
-                MarioMovementState.Right();
+                MarioMovementState.GoRight();
             }
             else
             {
@@ -144,10 +144,10 @@ namespace Mario
                 Physics.Sprint();
             }
         }
-        public void Dead()
+        public void BeDead()
         {
 			MarioPowerupState = new DeadMarioPowerupState(this);
-           MarioMovementState = new DeadMarioMovementState(this);
+			MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
         {
@@ -185,15 +185,15 @@ namespace Mario
         {
             return MarioPowerupState is DeadMarioPowerupState;
         }
-        public bool Isfalling()
+        public bool IsFalling()
         {
             return fall;
         }
-        public void IsLandTrue()
+        public void SetIsLandTrue()
         {
             Island = true;
         }
-        public void IsLandFlase()
+        public void SetIsLandFalse()
         {
             Island = false;
         }
@@ -205,11 +205,11 @@ namespace Mario
             isCrouch = false;
         }
             
-        public void ThrowFireball()
+        public void ThrowProjectile()
         {
             if(MarioPowerupState is FireMarioPowerupState)
             {
-                MarioPowerupState.ThrowFireball();
+                MarioPowerupState.ThrowProjectile();
             }
         }
 

@@ -12,7 +12,7 @@ namespace Mario.CameraClasses
         public Matrix Transform { get; private set; }
         public Camera()
         {
-            Location = new Vector2(0, 0);      
+			Location = Vector2.Zero;      
 			Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
             InnerBox = new Rectangle();
         }
@@ -22,7 +22,7 @@ namespace Mario.CameraClasses
             Location = new Vector2(Location.X + distance, Location.Y);
             Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
         }
-        public bool offLeftRightScreen(Rectangle box)
+        public bool IsOffSideOfScreen(Rectangle box)
         {
             if ((box.Right <= InnerBox.Left) || (box.Left >= InnerBox.Left + 1440))
             {
@@ -30,7 +30,7 @@ namespace Mario.CameraClasses
             }
             else return false;
         }
-        public bool offUpDownScreen(Rectangle box)
+        public bool IsOffTopOrBottomOfScreen(Rectangle box)
         {
             if ((box.Top <= 0) || (box.Bottom >= 900))
             {
@@ -38,11 +38,9 @@ namespace Mario.CameraClasses
             }
             else return false;
         }
-        public void ResetCamera(Rectangle box)
+        public void ResetCameraLocation(Rectangle box)
         {
             Location = Vector2.UnitX*(box.Location.X - 450);
-
-
         }
     }
 }

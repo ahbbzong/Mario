@@ -1,12 +1,5 @@
 namespace Mario.Enums
 {
-	public enum MarioPowerupType
-	{
-		Dead = 0,
-		Normal = 1,
-		Big = 2,
-		Fire = 3,
-	};
 
 	public enum MarioMovementType
 	{

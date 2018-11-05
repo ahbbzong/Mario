@@ -37,11 +37,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
             Mario.MarioPowerupState = new SuperMarioPowerupState(Mario);
 		}
-		public virtual void Dead()
+		public virtual void BeDead()
 		{
             Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
 		}
-        public virtual void ThrowFireball()
+        public virtual void ThrowProjectile()
         {
             //May need to override
         }

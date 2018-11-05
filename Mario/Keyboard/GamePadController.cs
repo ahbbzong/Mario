@@ -42,11 +42,11 @@ namespace Mario
 		public void Initialize(IMario mario) { 
 		
 			commandList.Add(Buttons.Start, new QuitCommand(game));
-			commandList.Add(Buttons.DPadLeft, new LeftCommand(mario));
-			commandList.Add(Buttons.A,new UpCommand(mario));
-			commandList.Add(Buttons.DPadDown, new DownCommand(mario));
-			commandList.Add(Buttons.DPadRight, new RightCommand(mario));
-			commandList.Add(Buttons.B, new ThrowFireballAndSprintCommand(mario));
+			commandList.Add(Buttons.DPadLeft, new MoveMarioLeftCommand(mario));
+			commandList.Add(Buttons.A,new MoveMarioUpCommand(mario));
+			commandList.Add(Buttons.DPadDown, new MoveMarioDownCommand(mario));
+			commandList.Add(Buttons.DPadRight, new MoveRightMarioCommand(mario));
+			commandList.Add(Buttons.B, new SprintAndFireProjectileMarioCommand(mario));
 			
 		}
 	}

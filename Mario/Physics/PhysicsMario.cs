@@ -101,7 +101,7 @@ namespace Game1
             if (YVelocity<PhysicsUtil.fallDownCheckUtil)
             {
                 mario.SetFalling(true);
-                mario.IsLandFlase();
+                mario.SetIsLandFalse();
             }
             else
             {

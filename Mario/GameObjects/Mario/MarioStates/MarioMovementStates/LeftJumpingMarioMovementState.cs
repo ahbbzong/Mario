@@ -11,7 +11,7 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.LeftJump;
 
-		public override void Down()
+		public override void GoDown()
 		{
 			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
 		}
@@ -20,7 +20,7 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
 		}
-        public override void Right()
+        public override void GoRight()
         {
             //No need to right
         }

@@ -17,22 +17,22 @@ namespace Game1
     {
         bool IsStarMario();
         bool IsDead();
-        bool Isfalling();
+        bool IsFalling();
         bool IsLeft();
         bool IsRight();
         bool IsUp();
         bool IsCrouch();
-        void ThrowFireball();
+        void ThrowProjectile();
         
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }
         PhysicsMario Physics { get;set; }
-        void IsLandTrue();
+        void SetIsLandTrue();
         bool IsLandResponse();
         void SetFalling(bool fall);
         void Sprint();
 		void Draw(SpriteBatch spriteBatch, Color c);
-        void IsLandFlase();
+        void SetIsLandFalse();
 
 		ISprite MarioSprite { get; set; }
     }
