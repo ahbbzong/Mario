@@ -60,7 +60,7 @@ namespace Game1
         }
         public void JumpLeft()
         {
-            if (!mario.IsActive())
+            if (mario.IsActive())
             {
                 XVelocity -= 10 * 0.5f;
 
@@ -72,7 +72,7 @@ namespace Game1
         }
         public void JumpRight()
         {
-            if (!mario.IsActive())
+            if (mario.IsActive())
             {
                 XVelocity += 10 * 0.5f;
 
