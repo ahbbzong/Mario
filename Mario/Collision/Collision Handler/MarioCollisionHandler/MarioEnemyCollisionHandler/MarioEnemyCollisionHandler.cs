@@ -57,7 +57,8 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             }
             
         }
-        public static void  MarioTakeDamage(IMario mario)
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+		public static void  MarioTakeDamage(IMario mario)
         {
 			mario.TakeDamage();
         }

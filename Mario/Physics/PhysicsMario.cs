@@ -15,7 +15,7 @@ namespace Game1
         private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }
         private float ForceUp { get; set; }
-        private GravityManagement gravityManagement { get; set; }
+        private GravityManagement GravityManagement { get; set; }
         IMario mario;
         public PhysicsMario(IMario mario)
         {
@@ -25,7 +25,7 @@ namespace Game1
             MinYVelocity = PhysicsUtil.minYVelocity;
             MaxYVelocity = PhysicsUtil.maxYVelocity;
             ForceUp = 45.0f;
-            gravityManagement = new GravityManagement(mario);
+            GravityManagement = new GravityManagement(mario);
         }
         public void Sprint()
         {
@@ -60,7 +60,7 @@ namespace Game1
         }
         public void JumpLeft()
         {
-            if (!mario.IsDead())
+            if (!mario.IsActive())
             {
                 XVelocity -= 10 * 0.5f;
 
@@ -72,7 +72,7 @@ namespace Game1
         }
         public void JumpRight()
         {
-            if (!mario.IsDead())
+            if (!mario.IsActive())
             {
                 XVelocity += 10 * 0.5f;
 

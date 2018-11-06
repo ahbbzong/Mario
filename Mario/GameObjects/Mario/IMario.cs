@@ -16,12 +16,12 @@ namespace Game1
     public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody
     {
         bool IsStarMario();
-        bool IsDead();
+        bool IsActive();
         bool IsFalling();
-        bool IsLeft();
-        bool IsRight();
+        bool IsRunningLeft();
+        bool IsRunningRight();
         bool IsUp();
-        bool IsCrouch();
+        bool IsCrouching();
         void ThrowProjectile();
         
         MarioMovementState MarioMovementState { get; set; }

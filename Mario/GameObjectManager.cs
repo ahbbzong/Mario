@@ -9,6 +9,7 @@ using Mario.CameraClasses;
 using Mario.GameObjects.Block;
 using Game1;
 using Mario.Collision.CollisionManager;
+using System.Diagnostics;
 
 namespace Mario.XMLRead
 {
@@ -72,7 +73,7 @@ namespace Mario.XMLRead
 			{
 				controller.Update();
 			}
-            if (!Game1.Instance.isPause)
+            if (!Game1.Instance.IsPause)
             {
                 for (int j = GameObjectListsByType.Count - 1; j >= 0; j--)
                 {

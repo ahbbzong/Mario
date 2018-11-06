@@ -25,6 +25,14 @@ namespace Mario.MarioStates.MarioMovementStates
 			//NO-OP by default
 		}
 
+		public virtual bool IsActive()
+		{
+			return true;
+		}
+		public virtual bool IsJumping()
+		{
+			return false;
+		}
 		public virtual void GoLeft()
 		{
             mario.Physics.MoveLeft();

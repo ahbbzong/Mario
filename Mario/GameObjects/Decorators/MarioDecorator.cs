@@ -62,9 +62,9 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.GoDown();
 		}
 
-		public bool IsDead()
+		public bool IsActive()
 		{
-			return DecoratedMario.IsDead();
+			return DecoratedMario.IsActive();
 		}
 
 		public bool IsFalling()
@@ -82,14 +82,14 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.SetIsLandTrue();
 		}
 
-		public bool IsLeft()
+		public bool IsRunningLeft()
 		{
-			return DecoratedMario.IsLeft();
+			return DecoratedMario.IsRunningLeft();
 		}
         
-		public bool IsRight()
+		public bool IsRunningRight()
 		{
-			return DecoratedMario.IsRight();
+			return DecoratedMario.IsRunningRight();
 		}
 
 		public virtual bool IsStarMario()
@@ -138,9 +138,9 @@ namespace Mario.GameObjects.Decorators
             return DecoratedMario.IsUp();
         }
 
-        public bool IsCrouch()
+        public bool IsCrouching()
         {
-            return DecoratedMario.IsCrouch();
+            return DecoratedMario.IsCrouching();
         }
 
         public bool IsLandResponse()

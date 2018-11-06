@@ -29,12 +29,5 @@ namespace Game1
 
 
 
-
-
-
-
-
-
-
     }
 }

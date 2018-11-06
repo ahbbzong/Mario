@@ -47,7 +47,7 @@ namespace Mario
 				try
 				{
 					MarioPowerupState newState = value;
-					if (!(newState is DeadMarioPowerupState))
+					if (newState.IsActive())
 					{
 						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
 					}
@@ -106,7 +106,7 @@ namespace Mario
         }
         public bool IsUp()
         {
-            return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
+			return MarioMovementState.IsJumping();
         }
 		public void GoDown()
 		{
@@ -146,7 +146,7 @@ namespace Mario
         }
         public void BeDead()
         {
-			MarioPowerupState = new DeadMarioPowerupState(this);
+			MarioPowerupState.BeDead();
 			MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
@@ -181,9 +181,9 @@ namespace Mario
 			MarioSprite.Draw(spriteBatch,location);
         }
 		
-		public bool IsDead()
+		public bool IsActive()
         {
-            return MarioPowerupState is DeadMarioPowerupState;
+			return MarioPowerupState.IsActive();
         }
         public bool IsFalling()
         {
@@ -207,22 +207,22 @@ namespace Mario
             
         public void ThrowProjectile()
         {
-            if(MarioPowerupState is FireMarioPowerupState)
+            if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
             }
         }
 
-        public bool IsLeft()
+        public bool IsRunningLeft()
         {
             return MarioMovementState is LeftRunningMarioMovementState;
         }
 
-        public bool IsRight()
+        public bool IsRunningRight()
         {
             return MarioMovementState is RightRunningMarioMovementState;
         }
-        public bool IsCrouch()
+        public bool IsCrouching()
         {
             return isCrouch;
         }

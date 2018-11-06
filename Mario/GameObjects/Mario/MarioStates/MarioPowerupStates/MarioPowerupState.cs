@@ -21,6 +21,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 
 		}
 
+		public virtual bool IsActive()
+		{
+			return true;
+		}
+
 		public virtual void BeFire()
 		{
             Mario.MarioPowerupState = new FireMarioPowerupState(Mario);
@@ -40,6 +45,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public virtual void BeDead()
 		{
             Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
+		}
+
+		public virtual bool CanThrowProjectile()
+		{
+			return false;
 		}
         public virtual void ThrowProjectile()
         {

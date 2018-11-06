@@ -16,7 +16,7 @@ namespace Mario.Factory
 {
 	class EnemyFactory : DynamicGameObjectFactory
 	{
-		private static EnemyFactory instance = new EnemyFactory();
+		private static readonly EnemyFactory instance = new EnemyFactory();
 		public static EnemyFactory Instance { get => instance; }
 		private EnemyFactory()
 		{

@@ -15,7 +15,7 @@ namespace Mario.Physics
         public static Physics Instance { get => instance; set => instance = value; }
         private Vector2 Gravity{get;set;} 
         IList<IPhysicsBody> PhysicsBodyObject { get; set; }
-        public static IList<Tuple<IPhysicsBody, Vector2>> PhysicsList { get ; set ; }
+        public static IList<Tuple<IPhysicsBody, Vector2>> PhysicsList { get ;  }
         public Physics()
         {
             Gravity = new Vector2(0, 0.8f);

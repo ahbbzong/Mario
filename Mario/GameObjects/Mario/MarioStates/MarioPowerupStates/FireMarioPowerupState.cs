@@ -24,6 +24,10 @@ namespace Mario.MarioStates.MarioPowerupStates
             GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Add(new Fireball(launchPosition));
         }
 
+		public override bool CanThrowProjectile()
+		{
+			return true;
+		}
 		public override void TakeDamage()
 		{
 			Mario.BeNormal();
