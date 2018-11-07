@@ -10,8 +10,9 @@ using Mario.GameObjects.Block;
 using Game1;
 using Mario.Collision.CollisionManager;
 using System.Diagnostics;
+using Mario.XMLRead;
 
-namespace Mario.XMLRead
+namespace Mario
 {
 	
     public class GameObjectManager

@@ -24,19 +24,12 @@ namespace Mario.CameraClasses
         }
         public bool IsOffSideOfScreen(Rectangle box)
         {
-            if ((box.Right <= InnerBox.Left) || (box.Left >= InnerBox.Left + 1440))
-            {
-                return true;
-            }
-            else return false;
+            return box.Right <= InnerBox.Left || box.Left >= InnerBox.Left + 1440;
         }
         public bool IsOffTopOrBottomOfScreen(Rectangle box)
         {
-            if ((box.Top <= 0) || (box.Bottom >= 900))
-            {
-                return true;
-            }
-            else return false;
+            return box.Top <= 0 || box.Bottom >= 900 ;
+            
         }
         public void ResetCameraLocation(Rectangle box)
         {
