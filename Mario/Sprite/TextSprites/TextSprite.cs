@@ -23,14 +23,7 @@ namespace Sprint1Game.Sprites
             this.font = font;
             this.size = new Vector2(0, 0);
         }
-
-        public TextSprite(SpriteFont font, string text)
-        {
-            this.font = font;
-            this.Text = text;
-            this.size = font.MeasureString(Text);
-        }
-
+        
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             spriteBatch.DrawString(font, Text, location, Color.White);

@@ -3,7 +3,6 @@ using Mario.Sprite;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint1Game.SpriteFactories;
 using System;
 using Game1;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
+using Mario.Factory;
 
 namespace Mario.HeadUpDesign
 {
@@ -32,10 +32,9 @@ namespace Mario.HeadUpDesign
 
         public HeadsUpDisplayBoard()
         {
-
-
             //need to move somewhere else
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+
 
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.Text = "MARIO";

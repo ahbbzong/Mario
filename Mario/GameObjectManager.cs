@@ -12,7 +12,7 @@ using Mario.Collision.CollisionManager;
 using System.Diagnostics;
 using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
-using Sprint1Game.SpriteFactories;
+using Mario.HeadUpDesign;
 
 namespace Mario.XMLRead
 {
@@ -29,8 +29,9 @@ namespace Mario.XMLRead
         public ICameraController CameraController { get; set; }
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
+        private HeadsUpDisplayBoard headUpDisplayBoard;
 
-		private GameObjectManager()
+        private GameObjectManager()
         {
             GameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
             {
@@ -48,6 +49,7 @@ namespace Mario.XMLRead
 				new Keyboards()
 			};
             FloorBoxPosition = new List<Rectangle>();
+            headUpDisplayBoard = new HeadsUpDisplayBoard();
         }
         public void SetInitialValuesCamera()
         {
@@ -62,11 +64,15 @@ namespace Mario.XMLRead
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
+
+            
             LevelLoader.Instance.LoadFile(filename);
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
+
+            
         }
    
       
@@ -108,6 +114,7 @@ namespace Mario.XMLRead
 					gameObj.Draw(spriteBatch);
 				}
 			}
+            headUpDisplayBoard.Draw(spriteBatch);
         }
       
     }

@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Mario.XMLRead;
 using Mario.HeadUpDesign;
-using Sprint1Game.SpriteFactories;
 
 using Mario.Factory;
 
@@ -25,13 +24,12 @@ namespace Mario
 		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
-        private HeadsUpDisplayBoard headUpDisplayBoard; 
-        public Game1()
+                public Game1()
         {
             instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            headUpDisplayBoard= new HeadsUpDisplayBoard();
+            
             IsPause = false;
         }
 
@@ -63,10 +61,8 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			GameObjectManager.Instance.LoadContent();
+			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
 
-            //need to move somewhere else
-            TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
         }
 
         /// <summary>
@@ -106,7 +102,6 @@ namespace Mario
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
             ChangeColor();
-            headUpDisplayBoard.Draw(spriteBatch);
             GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

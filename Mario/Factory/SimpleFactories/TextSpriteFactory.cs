@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sprint1Game.SpriteFactories
+namespace Mario.Factory
 {
     class TextSpriteFactory
     {
@@ -26,16 +26,24 @@ namespace Sprint1Game.SpriteFactories
 
         private TextSpriteFactory()
         {
-
+           // normalFont = Game1.Instance.Content.Load<SpriteFont>("TextSpriteForHUD");
         }
 
         public void LoadAllTextures(ContentManager content)
         {
             normalFont = content.Load<SpriteFont>("TextSpriteForHUD");
+            if (normalFont == null)
+            {
+                Console.WriteLine("null!!");
+            }
         }
 
         public ITextSprite CreateNormalFontTextSpriteSprite()
         {
+            if (normalFont == null)
+            {
+                Console.WriteLine("null!!!!!!");
+            }
             return new TextSprite(normalFont);
         }
     }
