@@ -1,4 +1,6 @@
 ﻿using Game1;
+using Mario.Enums;
+using Mario.Sound;
 using System.Timers;
 
 namespace Mario.MarioCommand
@@ -13,6 +15,7 @@ namespace Mario.MarioCommand
         {
             counter = 0;
             fire = true;
+            MotionEffect.Instance.EffectPlay(MotionType.marioFireball);
         }
         public override void Execute()
         {

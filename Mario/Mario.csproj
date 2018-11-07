@@ -52,6 +52,7 @@
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />
+    <Compile Include="Enums\SoundType.cs" />
     <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />
@@ -80,6 +81,9 @@
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
+    <Compile Include="Sound\BackgroundMusic.cs" />
+    <Compile Include="Sound\Motion.cs" />
+    <Compile Include="Sound\MotionEffect.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game1;
 using Mario.Enums;
+using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -12,10 +13,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public SuperMarioPowerupState(IMario mario) : base(mario)
 		{
+            Motion.MarioPowerUp.Play();
 
-		}
+        }
 
-		public override void BeSuper()
+        public override void BeSuper()
 		{
 			//override NO-OP
 		}

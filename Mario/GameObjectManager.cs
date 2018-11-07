@@ -69,7 +69,7 @@ namespace Mario.XMLRead
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
-        public void LoadContent(string filename)
+        public void  LoadContent(string filename)
         {
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);

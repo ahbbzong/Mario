@@ -3,6 +3,7 @@ using Mario.Enums;
 using Mario.Interfaces.GameObjects;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -126,9 +127,11 @@ namespace Mario.GameObjects.Decorators
 		public virtual void TakeDamage()
 		{
 			DecoratedMario.TakeDamage();
-		}
+            Motion.TakeDamage.Play();
 
-		public void Draw(SpriteBatch spriteBatch, Color c)
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Color c)
 		{
 			DecoratedMario.Draw(spriteBatch, c);
 		}

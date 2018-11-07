@@ -7,6 +7,7 @@ using Mario.Interfaces.GameObjects;
 using Mario.ItemClasses;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.XMLRead;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -23,6 +24,7 @@ namespace Mario.Collision
         public PipeHandler(int index)
         {
             this.index = index;
+            MotionEffect.Instance.EffectPlay(MotionType.pipeTravel);
         }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
