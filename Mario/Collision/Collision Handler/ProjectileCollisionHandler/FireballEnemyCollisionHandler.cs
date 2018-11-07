@@ -18,7 +18,7 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void HandleCollision(IProjectile fireball)
         {
-            fireball.Position += Vector2.UnitY * LocationOffset.Until;
+            GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
         }
     }
 }

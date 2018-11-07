@@ -11,6 +11,8 @@ using System.Threading;
 using Mario.XMLRead;
 using Mario.GameObjects.Decorators;
 using Mario.Enums;
+using Mario.Sound;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Mario
 {
@@ -102,6 +104,7 @@ namespace Mario
                 Island = false;
                 MarioMovementState.GoUp();
                 Physics.Jump();
+
             }
         }
         public bool IsUp()
@@ -148,6 +151,9 @@ namespace Mario
         {
 			MarioPowerupState.BeDead();
 			MarioMovementState = new DeadMarioMovementState(this);
+            Motion.MarioDie.Play();
+
+           
         }
         public void BeSuper()
         {
@@ -210,6 +216,8 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
+                
+                Motion.MarioFireball.Play();
             }
         }
 
@@ -229,9 +237,9 @@ namespace Mario
 		public void TakeDamage()
 		{
 			MarioPowerupState.TakeDamage();
-		}
+        }
 
-		public void Draw(SpriteBatch spriteBatch, Color c)
+        public void Draw(SpriteBatch spriteBatch, Color c)
 		{
 
 			MarioSprite.Draw(spriteBatch, location,c);

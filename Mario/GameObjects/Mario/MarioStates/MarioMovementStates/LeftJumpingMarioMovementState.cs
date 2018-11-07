@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Sound;
 
 namespace Mario.MarioStates.MarioMovementStates
 {
@@ -7,7 +8,8 @@ namespace Mario.MarioStates.MarioMovementStates
 	{
 		public LeftJumpingMarioMovementState(IMario mario) : base(mario)
 		{
-		}
+
+        }
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.LeftJump;
 

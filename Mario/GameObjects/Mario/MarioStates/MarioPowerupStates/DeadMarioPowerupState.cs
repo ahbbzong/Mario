@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -13,9 +14,10 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			return false;
 		}
-		public override void BeDead()
-		{
-			//override with NO -OP, no need to reinstance every frame
-		}
+		public override void BeDead(){
+            Motion.MarioPowerUp.Play();
+        }
+
+        
 	}
 }

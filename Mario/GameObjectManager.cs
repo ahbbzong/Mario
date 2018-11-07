@@ -13,8 +13,9 @@ using System.Diagnostics;
 using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
 using Mario.HeadUpDesign;
+using Mario.XMLRead;
 
-namespace Mario.XMLRead
+namespace Mario
 {
 	
     public class GameObjectManager
@@ -56,7 +57,7 @@ namespace Mario.XMLRead
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
-        public void LoadContent(string filename)
+        public void  LoadContent(string filename)
         {
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);
