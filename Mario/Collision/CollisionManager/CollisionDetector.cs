@@ -27,7 +27,7 @@ namespace Mario.Collision.CollisionManager
 	class CollisionDetector
 	{
 
-		private static CollisionDetector instance = new CollisionDetector();
+		private static readonly CollisionDetector instance = new CollisionDetector();
 		public static CollisionDetector Instance { get => instance; }
 		private IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => GameObjectManager.Instance.GameObjectListsByType;}
 		private IList<Rectangle> FloorBoxPosition { get => GameObjectManager.Instance.FloorBoxPosition; }
@@ -82,7 +82,7 @@ namespace Mario.Collision.CollisionManager
 						enemyHandler.HandleCollision(enemy);
 					}
 				}
-				if (!mario.IsDead())
+				if (mario.IsActive())
 				{
 					collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
 					intersection = collisionDetecter.Intersection;
@@ -127,7 +127,7 @@ namespace Mario.Collision.CollisionManager
 			{
 				IItem item = (IItem)GameObjectListsByType[typeof(IItem)][j];
 				collisionFound = collisionDetecter.Collision(Mario.Box, item.Box);
-				if (collisionFound != Direction.None && !Mario.IsDead())
+				if (collisionFound != Direction.None && Mario.IsActive())
 				{
 					intersection = collisionDetecter.Intersection;
 					itemHandler = new ItemMarioCollisionHandler();
@@ -159,7 +159,7 @@ namespace Mario.Collision.CollisionManager
 			{
 				IBlock block = (IBlock)GameObjectListsByType[typeof(IBlock)][j];
 				collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
-				if (!Mario.IsDead())
+				if (Mario.IsActive())
 				{
 					intersection = collisionDetecter.Intersection;
 					blockHandler = new BlockHandler();
@@ -172,7 +172,7 @@ namespace Mario.Collision.CollisionManager
 				if (!enemy.IsFlipped())
 				{
 					collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-					if (!Mario.IsDead() && !(enemy.EnemyState is StompedGoombaState))
+					if (Mario.IsActive() && !(enemy.EnemyState is StompedGoombaState))
 					{
 						enemyHandler = new EnemyMarioCollisionHandler(Mario, collisionFound);
 						intersection = collisionDetecter.Intersection;
@@ -217,7 +217,7 @@ namespace Mario.Collision.CollisionManager
 			foreach (IBlock pipe in GameObjectListsByType[typeof(IPipe)])
 			{
 				collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
-				if (collisionFound != Direction.None && !Mario.IsDead())
+				if (collisionFound != Direction.None && Mario.IsActive())
 				{
 
                     intersection = collisionDetecter.Intersection;

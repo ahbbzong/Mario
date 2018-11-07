@@ -13,13 +13,13 @@ namespace Mario.BlocksCommand
 
         public void Execute()
         {
-            if (game.isPause)
+            if (game.IsPause)
             {
-                game.isPause = false;
+                game.IsPause = false;
             }
             else
             {
-                game.isPause = true;
+                game.IsPause = true;
             }
         }
 

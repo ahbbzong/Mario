@@ -17,7 +17,6 @@ namespace Mario.ItemClasses
         {
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[this.GetType()]);
             ProjectileState = new FireballState(this);
-            Type = ProjectileType.Fireball;
             gravityManagement = new GravityManagement(this);
             if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||

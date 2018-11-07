@@ -4,13 +4,13 @@ namespace Mario.MarioCommand
 
 {
 
-    public class LeftCommand : MarioCommand
+    public class MoveRightMarioCommand : MarioCommand
     {
-        public LeftCommand(IMario mario):base(mario)
+        public MoveRightMarioCommand(IMario mario):base(mario)
         {        }
         public override void Execute()
         {
-            Mario.Left();
+			Mario.GoRight();
         }
     }
 }

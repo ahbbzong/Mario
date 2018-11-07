@@ -28,12 +28,12 @@ namespace Mario.Collision
         }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if (result == Direction.Up&&mario.IsCrouch()&&index==0)
+            if (result == Direction.Up&&mario.IsCrouching()&&index==0)
             {
                 mario.Position += Vector2.UnitX * 17000;
                 
             }
-            if(result == Direction.Up && mario.IsCrouch() && index == 8)
+            if(result == Direction.Up && mario.IsCrouching() && index == 8)
             {
                 mario.Position -= Vector2.UnitX * 15895;
                 mario.Position -= Vector2.UnitY * 80;

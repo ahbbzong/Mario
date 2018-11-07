@@ -20,17 +20,17 @@ namespace Mario
         {
 			keyboardMap = new Dictionary<Keys, ICommand>
 			{
-				{ Keys.Z, new UpCommand(mario) },
-				{ Keys.Down, new DownCommand(mario) },
-				{ Keys.Left, new LeftCommand(mario) },
-				{ Keys.Right, new RightCommand(mario) },
+				{ Keys.Z, new MoveMarioUpCommand(mario) },
+				{ Keys.Down, new MoveMarioDownCommand(mario) },
+				{ Keys.Left, new MoveMarioLeftCommand(mario) },
+				{ Keys.Right, new MoveRightMarioCommand(mario) },
 				{ Keys.Y, new BeNormalMarioCommand(mario) },
 				{ Keys.U, new BeSuperMarioCommand(mario) },
 				{ Keys.I, new BeFireMarioCommand(mario) },
-				{ Keys.O, new DeadCommand(mario) },
+				{ Keys.O, new BeDeadMarioCommand(mario) },
 				{ Keys.P, new BeStarMarioCommand(mario) },
 				{ Keys.Q, new QuitCommand(Game1.Instance) },
-				{ Keys.X, new ThrowFireballAndSprintCommand(mario) },
+				{ Keys.X, new SprintAndFireProjectileMarioCommand(mario) },
 				{ Keys.R, new ResetCommand(Game1.Instance) },
                 { Keys.T, new PauseCommand(Game1.Instance) },
                 { Keys.None, new NoInputCommand(mario) }

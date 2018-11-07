@@ -33,7 +33,7 @@ namespace Mario.GameObjects.Decorators
                 if (!(GameObjectManager.Instance.Mario.MarioPowerupState is NormalMarioPowerupState) && DecoratedBlock.BlockState is BrickBlockState)
                 {
                 }
-                else if (!DecoratedBlock.ItemContains.Equals("None")||DecoratedBlock.BlockState is QuestionBlockState)
+                else if (!DecoratedBlock.ItemContained.Equals("None")||DecoratedBlock.BlockState is QuestionBlockState)
                 {
                     DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
                     GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(DecoratedBlock.Position.X, DecoratedBlock.Position.Y)));

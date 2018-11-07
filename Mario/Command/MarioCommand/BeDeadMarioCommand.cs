@@ -4,14 +4,14 @@ namespace Mario.MarioCommand
 
 {
 
-    public class DeadCommand : MarioCommand
+    public class BeDeadMarioCommand : MarioCommand
     {
-        public DeadCommand(IMario mario):base(mario)
+        public BeDeadMarioCommand(IMario mario):base(mario)
         {
         }
         public override void Execute()
         {
-            Mario.Dead();
+            Mario.BeDead();
 
         }
     }

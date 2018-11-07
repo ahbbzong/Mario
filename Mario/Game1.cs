@@ -18,16 +18,18 @@ namespace Mario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        public bool isPause;
-        private IList<IController> controllerList = new List<IController>();
+		private bool isPause;
+		public bool IsPause { get => isPause; set => isPause = value; }
+		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
-        public Game1()
+
+		public Game1()
         {
 			instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            isPause = false;
+            IsPause = false;
         }
 
         /// <summary>
@@ -99,7 +101,7 @@ namespace Mario
             GameObjectManager.Instance.CurrentGameTime = gameTime;
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
-            changeColor();
+            ChangeColor();
             GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
@@ -109,7 +111,7 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
-        public void changeColor()
+        public void ChangeColor()
         {
             if (GameObjectManager.Instance.Mario.Position.X > 10000)
             GraphicsDevice.Clear(Color.Black);

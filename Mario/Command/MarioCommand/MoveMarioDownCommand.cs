@@ -4,15 +4,14 @@ namespace Mario.MarioCommand
 
 {
 
-    public class UpCommand : MarioCommand
+    public class MoveMarioDownCommand : MarioCommand
     {
-        public UpCommand(IMario mario):base(mario)
+        public MoveMarioDownCommand(IMario mario):base(mario)
         {
         }
         public override void Execute()
         {
-            Mario.Up();
-            
+            Mario.GoDown();
         }
     }
 }

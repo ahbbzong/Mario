@@ -10,12 +10,12 @@ namespace Mario
 {
     public class GamePadController : IController
     {
-        private Game1 game { get; set; }
+        private Game1 Game { get; set; }
         private IDictionary<Buttons,ICommand> commandList;
         private int delay;
         public GamePadController(Game1 game)
         {
-            this.game = game;
+            this.Game = game;
 			commandList = new Dictionary<Buttons, ICommand>();
             delay = 0;
         }
@@ -41,12 +41,12 @@ namespace Mario
 
 		public void Initialize(IMario mario) { 
 		
-			commandList.Add(Buttons.Start, new QuitCommand(game));
-			commandList.Add(Buttons.DPadLeft, new LeftCommand(mario));
-			commandList.Add(Buttons.A,new UpCommand(mario));
-			commandList.Add(Buttons.DPadDown, new DownCommand(mario));
-			commandList.Add(Buttons.DPadRight, new RightCommand(mario));
-			commandList.Add(Buttons.B, new ThrowFireballAndSprintCommand(mario));
+			commandList.Add(Buttons.Start, new QuitCommand(Game));
+			commandList.Add(Buttons.DPadLeft, new MoveMarioLeftCommand(mario));
+			commandList.Add(Buttons.A,new MoveMarioUpCommand(mario));
+			commandList.Add(Buttons.DPadDown, new MoveMarioDownCommand(mario));
+			commandList.Add(Buttons.DPadRight, new MoveRightMarioCommand(mario));
+			commandList.Add(Buttons.B, new SprintAndFireProjectileMarioCommand(mario));
 			
 		}
 	}

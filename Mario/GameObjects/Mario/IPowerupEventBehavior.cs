@@ -9,7 +9,7 @@ namespace Mario.Interfaces.GameObjects
 {
 	public interface IPowerupEventBehavior
 	{
-		void Dead();
+		void BeDead();
 
 		void BeSuper();
 

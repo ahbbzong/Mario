@@ -15,9 +15,9 @@ namespace Mario.Classes.BlocksClasses
     public abstract class Block : IBlock, ICollidable
     {
         private Vector2 BlockLocation;
-        private String itemContains = "";
+        private String itemContained = "";
         public IBlockState BlockState { get; set; }
-        public String ItemContains { get => itemContains; set => itemContains = value; }
+        public String ItemContained { get => itemContained; set => itemContained = value; }
         public virtual Rectangle Box
         {
             get
@@ -45,7 +45,7 @@ namespace Mario.Classes.BlocksClasses
 
         public virtual void SetContainsItem(String item)
         {
-            ItemContains = String.Copy(item);
+            ItemContained = String.Copy(item);
         }
 
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }
