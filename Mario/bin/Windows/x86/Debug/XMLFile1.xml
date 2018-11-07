@@ -720,6 +720,24 @@
     <YLocation>818</YLocation>
   </EnemyXML>
 
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>3420</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>3920</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+  
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>4420</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+
   <BackgroundXML>
     <BackgroundType>CloudSingle</BackgroundType>
     <XLocation>200</XLocation>
@@ -761,6 +779,9 @@
     <XLocation>2800</XLocation>
     <YLocation>140</YLocation>
   </BackgroundXML>
+  
+  
+  
 //Underground
   <BlockXML>
     <BlockType>FloorBlockState</BlockType>
