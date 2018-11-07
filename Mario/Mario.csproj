@@ -51,7 +51,9 @@
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />
+    <Compile Include="Factory\SimpleFactories\TextSpriteFactory.cs" />
     <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
+    <Compile Include="Factory\TextFactory.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
+    <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
@@ -206,6 +210,8 @@
     <Compile Include="Physics\PhysicsMario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprite\TextSprites\ITextSprite.cs" />
+    <Compile Include="Sprite\TextSprites\TextSprite.cs" />
     <Compile Include="XMLRead\BackgroundXML.cs" />
     <Compile Include="XMLRead\BlockXML.cs" />
     <Compile Include="XMLRead\EnemyXML.cs" />

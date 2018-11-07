@@ -601,6 +601,13 @@
 /processorParam:TextureFormat=Color
 /build:BreakBrickBlock.png
 
+#begin TextSpriteForHUD.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:TextSpriteForHUD.spritefont
+
 #begin breakBlock.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
