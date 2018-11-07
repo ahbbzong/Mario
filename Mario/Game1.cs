@@ -7,6 +7,8 @@ using Mario.XMLRead;
 using Mario.HeadUpDesign;
 using Sprint1Game.SpriteFactories;
 
+using Mario.Factory;
+
 [assembly: System.CLSCompliant(true)]
 
 namespace Mario
@@ -18,7 +20,8 @@ namespace Mario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+		private bool isPause;
+		public bool IsPause { get => isPause; set => isPause = value; }
 		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
@@ -29,6 +32,7 @@ namespace Mario
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             headUpDisplayBoard= new HeadsUpDisplayBoard();
+            IsPause = false;
         }
 
         /// <summary>
@@ -42,14 +46,14 @@ namespace Mario
 
 			base.Initialize();
 			controllerList.Add(new Keyboards());
-			//controllerList.Add(new GamePadController(this));
 
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             GameObjectManager.Instance.SetInitialValuesCamera();
-		
-		}
+          
+
+        }
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -81,14 +85,15 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //System.Diagnostics.Debug.WriteLine(gameTime);
-            GameObjectManager.Instance.CurrentGameTime = gameTime;
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
 
-            // TODO: Add your update logic here
-            GameObjectManager.Instance.Update();
-            base.Update(gameTime);
+            // TODO: Add your update logic herr.
+                GameObjectManager.Instance.CurrentGameTime = gameTime;
+                GameObjectManager.Instance.Update();
+                base.Update(gameTime);
+
         }
 
         /// <summary>
@@ -97,11 +102,10 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-			GameObjectManager.Instance.CurrentGameTime = gameTime;
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GameObjectManager.Instance.CurrentGameTime = gameTime;
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
+            ChangeColor();
             headUpDisplayBoard.Draw(spriteBatch);
             GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
@@ -112,6 +116,12 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
-       
+        public void ChangeColor()
+        {
+            if (GameObjectManager.Instance.Mario.Position.X > 10000)
+            GraphicsDevice.Clear(Color.Black);
+            else if (GameObjectManager.Instance.Mario.Position.X < 10000)
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace Game1
         
   
         ProjectileState ProjectileState { get; set; }
-        bool IsLand { get; set; }
         void IsLandTrue();
         void IsLandFalse();
         void React();

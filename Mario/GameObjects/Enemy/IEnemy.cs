@@ -23,7 +23,6 @@ namespace Game1
 		
 
         GravityManagement gravityManagement { get; set; }
-        bool Island { get; set; }
         IEnemyState EnemyState { get; set; }
         void IsLandTrue();
         void IsLandFalse();

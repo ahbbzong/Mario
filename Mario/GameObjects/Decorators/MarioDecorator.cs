@@ -23,13 +23,16 @@ namespace Mario.GameObjects.Decorators
 		
 		public MarioMovementState MarioMovementState { get => DecoratedMario.MarioMovementState; set => DecoratedMario.MarioMovementState = value; }
 		public MarioPowerupState MarioPowerupState { get => DecoratedMario.MarioPowerupState; set => DecoratedMario.MarioPowerupState = value; }
-		public Physics Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
+		public PhysicsMario Physics { get => DecoratedMario.Physics; set => DecoratedMario.Physics = value; }
 		
 		protected IMario DecoratedMario { get => (IMario)DecoratedObject; }
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 		public ISprite MarioSprite { get => DecoratedMario.MarioSprite; set => DecoratedMario.MarioSprite = value; }
+        public bool Island { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		public void BeFire()
+        public void BeFire()
 		{
 			DecoratedMario.BeFire();
 		}
@@ -49,44 +52,44 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.BeSuper();
 		}
 
-		public void Dead()
+		public void BeDead()
 		{
-			DecoratedMario.Dead();
+			DecoratedMario.BeDead();
 		}
 
-		public void Down()
+		public void GoDown()
 		{
-			DecoratedMario.Down();
+			DecoratedMario.GoDown();
 		}
 
-		public bool IsDead()
+		public bool IsActive()
 		{
-			return DecoratedMario.IsDead();
+			return DecoratedMario.IsActive();
 		}
 
-		public bool Isfalling()
+		public bool IsFalling()
 		{
-			return DecoratedMario.Isfalling();
+			return DecoratedMario.IsFalling();
 		}
         
-		public void IsLandFlase()
+		public void SetIsLandFalse()
 		{
-			DecoratedMario.IsLandFlase();
+			DecoratedMario.SetIsLandFalse();
 		}
 
-		public void IsLandTrue()
+		public void SetIsLandTrue()
 		{
-			DecoratedMario.IsLandTrue();
+			DecoratedMario.SetIsLandTrue();
 		}
 
-		public bool IsLeft()
+		public bool IsRunningLeft()
 		{
-			return DecoratedMario.IsLeft();
+			return DecoratedMario.IsRunningLeft();
 		}
         
-		public bool IsRight()
+		public bool IsRunningRight()
 		{
-			return DecoratedMario.IsRight();
+			return DecoratedMario.IsRunningRight();
 		}
 
 		public virtual bool IsStarMario()
@@ -95,9 +98,9 @@ namespace Mario.GameObjects.Decorators
 		}
         
 
-		public void Left()
+		public void GoLeft()
 		{
-			DecoratedMario.Left();
+			DecoratedMario.GoLeft();
 		}
 
 		public void NoInput()
@@ -105,19 +108,19 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.NoInput();
 		}
 
-		public void Right()
+		public void GoRight()
 		{
-			DecoratedMario.Right();
+			DecoratedMario.GoRight();
 		}
 
-		public void ThrowFireball()
+		public void ThrowProjectile()
 		{
-			DecoratedMario.ThrowFireball();
+			DecoratedMario.ThrowProjectile();
 		}
 
-		public void Up()
+		public void GoUp()
 		{
-			DecoratedMario.Up();
+			DecoratedMario.GoUp();
 		}
 
 		public virtual void TakeDamage()
@@ -135,9 +138,9 @@ namespace Mario.GameObjects.Decorators
             return DecoratedMario.IsUp();
         }
 
-        public bool IsCrouch()
+        public bool IsCrouching()
         {
-            return DecoratedMario.IsCrouch();
+            return DecoratedMario.IsCrouching();
         }
 
         public bool IsLandResponse()

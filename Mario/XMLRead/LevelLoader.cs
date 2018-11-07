@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
+using Mario.BlockStates;
 using Mario.Classes.BackgroundClasses;
 using Mario.EnemyClasses;
 using Mario.Enums;
@@ -76,12 +77,12 @@ namespace Mario.XMLRead
 			IList < IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
-                if (!GetType(block.BlockType).Equals(typeof(FloorBlock)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlock)))
+                if (!GetType(block.BlockType).Equals(typeof(FloorBlockState)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlockState)))
                 {
                     blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
-                    blockList.Last<IGameObject>().SetContainsItem(block.ItemContains);
+                    ((IBlock)blockList.Last<IGameObject>()).ItemContained = block.ItemContains;
                 }
-                else if (GetType(block.BlockType).Equals(typeof(FloorBlock)))
+                else if (GetType(block.BlockType).Equals(typeof(FloorBlockState)))
                 {
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
@@ -203,7 +204,7 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
-				backgroundList.Add(BackgroundFactory.Instance.GetGameObject(GetType(back.BackgroundType), new Vector2( back.XLocation, back.YLocation)));
+				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
         }
@@ -242,20 +243,12 @@ namespace Mario.XMLRead
 				{typeof(IBlock).Name, typeof(IBlock) },
 				{typeof(IBackground).Name,typeof(IBackground) },
 				{typeof(IEnemy).Name, typeof(IEnemy) },
-
-				{typeof(BushSingle).Name, typeof(BushSingle) },
-				{typeof(BushTriple).Name, typeof(BushTriple) },
-				{typeof(CloudSingle).Name, typeof(CloudSingle) },
-				{typeof(CloudTriple).Name, typeof(CloudTriple) },
-				{typeof(MountainBig).Name, typeof(MountainBig) },
-				{typeof(MountainSmall).Name, typeof(MountainSmall) },
-
-				{typeof(BreakableBlock).Name, typeof(BreakableBlock) },
-				{typeof(FloorBlock).Name, typeof(FloorBlock) },
-				{typeof(HiddenBlock).Name, typeof(HiddenBlock) },
+				{typeof(FloorBlockState).Name, typeof(FloorBlockState) },
+				{typeof(HiddenBlockState).Name, typeof(HiddenBlockState) },
 				{typeof(Pipe).Name, typeof(Pipe) },
-				{typeof(QuestionBlock).Name, typeof(QuestionBlock) },
-				{typeof(UnbreakableBlock).Name,typeof(UnbreakableBlock) },
+				{typeof(QuestionBlockState).Name, typeof(QuestionBlockState) },
+				{typeof(UnbreakableBlockState).Name,typeof(UnbreakableBlockState) },
+				{typeof(BrickBlockState).Name, typeof(BrickBlockState) },
 
 				{typeof(Koopa).Name, typeof(Koopa) },
 				{typeof(Goomba).Name, typeof(Goomba) },

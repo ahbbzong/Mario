@@ -11,19 +11,19 @@ namespace Mario.MarioStates.MarioMovementStates
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.LeftRun;
 
-		public override void Down()
+		public override void GoDown()
 		{
 			Mario.MarioMovementState = new LeftCrouchingMarioMovementState(Mario);
 		}
 
-		public override void Right()
+		public override void GoRight()
 		{
 			Mario.MarioMovementState = new LeftIdleMarioMovementState(Mario);
             Mario.Physics.MoveRight();
 
         }
 
-        public override void Up()
+        public override void GoUp()
 		{
 			Mario.MarioMovementState = new LeftJumpingMarioMovementState(Mario);
         }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-    public abstract class Enemy : IEnemy,ICollidiable, IMoveable
+    public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
         private Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
@@ -76,6 +76,8 @@ namespace Mario.AbstractClass
       
 		
 		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public virtual bool IsFlipped()
         {
             return EnemyState.IsFlipped();

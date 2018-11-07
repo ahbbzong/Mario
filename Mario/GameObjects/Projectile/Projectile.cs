@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Projectile : IProjectile, ICollidiable
+    public abstract class Projectile : IProjectile, ICollidable
     {
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;
         public static IMario Mario { get { return (IMario)GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0]; } }
-        public ProjectileType Type { get; set; }
+      
         public float XVelocity { get; set; }
         public GravityManagement gravityManagement { get; set; }
         public ProjectileState ProjectileState { get; set; }
@@ -32,19 +32,21 @@ namespace Mario.Classes.BlocksClasses
         }
 
        
-        public bool IsLand { get; set; }
 		public Vector2 Position { get => ProjectileLocation; set => ProjectileLocation = value; }
+        public bool Island { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		protected Projectile(Vector2 location)
+        protected Projectile(Vector2 location)
         {
             ProjectileLocation = location;
             gravityManagement = new GravityManagement(this);
-            IsLand = false;
+            Island = false;
         }
         public virtual void Update()
         {
             ProjectileSprite.Update();
-            if (!IsLand) { gravityManagement.Update(); }
+            if (!Island) { gravityManagement.Update(); }
             Position += Vector2.UnitX*XVelocity;
         }
         public virtual void Draw(SpriteBatch spriteBatch)
@@ -55,11 +57,11 @@ namespace Mario.Classes.BlocksClasses
 		public virtual void IsLandTrue()
         {
             gravityManagement.ReverseYVelocity();
-            IsLand = true;
+            Island = true;
         }
         public virtual void IsLandFalse()
         {
-            IsLand = false;
+            Island = false;
         }
 
         public virtual void React()

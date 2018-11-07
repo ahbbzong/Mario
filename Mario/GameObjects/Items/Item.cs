@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Classes.BlocksClasses
 {
-    public abstract class Item : IItem ,ICollidiable
+    public abstract class Item : IItem ,ICollidable
     {
         protected ISprite ItemSprite { get; set; }
         private Vector2 ItemLocation;
@@ -29,13 +29,14 @@ namespace Mario.Classes.BlocksClasses
         public Vector2 Velocity { get => velocity; set => velocity = value; }
 
         public GravityManagement gravityManagement { get; set; }
-        public bool IsLand { get ; set ; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
+        public bool Island { get; set; }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-		protected Item(Vector2 location)
+        protected Item(Vector2 location)
         {
             ItemLocation = location;
-            IsLand = false;
+            Island = false;
             gravityManagement = new GravityManagement(this);
             velocity = Vector2.UnitX;
 
@@ -45,9 +46,7 @@ namespace Mario.Classes.BlocksClasses
         public virtual void Update()
         {
             ItemSprite.Update();
-            if (!IsLand){
-                gravityManagement.Update();
-            }
+            gravityManagement.Update();
             Move();
             
         }
@@ -59,12 +58,12 @@ namespace Mario.Classes.BlocksClasses
         {
 
             gravityManagement.ResetGravity();
-            IsLand = true;
+            Island = true;
         }
 
         public virtual void IsLandFalse()
         {
-            IsLand = false;
+            Island = false;
         }
 
         public virtual bool IsStarman()

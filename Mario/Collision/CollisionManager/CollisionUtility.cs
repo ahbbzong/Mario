@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Mario.Collision
 {
-    public class CollisionDetecter
+    public class CollisionUtility
     {
         private Direction DirectionOfCollision { get; set; }
         public Rectangle Intersection { get; set; }
-        public CollisionDetecter()
+        public CollisionUtility()
         {
         }
         public Direction Collision(Rectangle firstRecDetect, Rectangle secondRecDetect)

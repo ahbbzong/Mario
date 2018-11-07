@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mario.Enums
+namespace Mario.GameObjects.Mario
 {
-    public enum ProjectileType
-    {
-      
-        Fireball
-    }
+	interface IPlayerStats
+	{
+		int Lives { get; set; }
+	}
 }

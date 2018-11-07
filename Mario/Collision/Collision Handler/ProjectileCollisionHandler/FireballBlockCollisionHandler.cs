@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
+using Mario.BlockStates;
 using Mario.Enums;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
@@ -24,7 +25,7 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void HandleCollision(IProjectile fireball)
         {
-            if (!(block is HiddenBlock))
+            if (!(block.BlockState is HiddenBlockState))
             {
                 IsOnLand(fireball);
                 FireballAdjustment(fireball);
@@ -41,10 +42,10 @@ namespace Mario.Collision.FireballCollisionHandler
                     fireball.Position += Vector2.UnitY * intersection.Height;
                     break;
                 case Direction.Left:
-                    fireball.Position += Vector2.UnitY * LocationOffset.Until;
+                    GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
                     break;
                 case Direction.Right:
-                    fireball.Position += Vector2.UnitY * LocationOffset.Until;
+                    GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
                     break;
             }
         }

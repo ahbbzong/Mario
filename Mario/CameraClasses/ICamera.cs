@@ -13,10 +13,11 @@ namespace Game1
         Vector2 Location { get; }
         Matrix Transform { get; }
         Rectangle InnerBox { get; set; }
+        void ResetCameraLocation(Rectangle box);
         void MoveRight(float move);
-        bool offLeftRightScreen(Rectangle box);
+        bool IsOffSideOfScreen(Rectangle box);
 
-        bool offUpDownScreen(Rectangle box);
+        bool IsOffTopOrBottomOfScreen(Rectangle box);
        
     }
 }

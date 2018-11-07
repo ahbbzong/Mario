@@ -10,7 +10,10 @@ namespace Mario.MarioStates.MarioMovementStates
 		}
 
         public override MarioMovementType MarioMovementType => MarioMovementType.Dead;
-       
 
-    }
+		public override bool IsActive()
+		{
+			return false;
+		}
+	}
 }

@@ -18,10 +18,12 @@ namespace Mario.BlockStates
         protected ISprite BlockSprite { get; set; }
         protected IBlock Block { get; set; }
         public virtual Rectangle Box { get; }
+		
         public int GetWidth
         {
             get
             {
+				
                 return BlockSprite.Width;
             }
         }
@@ -51,16 +53,6 @@ namespace Mario.BlockStates
             
         }
        
-
-        public virtual bool IsBumpedBlockState()
-        {
-            return false;
-        }
-
-        public virtual bool IsBumpedBreakBlock()
-        {
-            return false;
-        }
 
        
     }

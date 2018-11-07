@@ -39,10 +39,7 @@ namespace Mario.EnemyStates.GoombaStates
         public override void Update()
         {
             EnemySprite.Update();
-            if (!Enemy.Island)
-            {
-                Enemy.gravityManagement.Update();
-            }
+            Enemy.gravityManagement.Update();
             Enemy.Position -= Vector2.UnitX;
         }
 

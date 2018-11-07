@@ -14,7 +14,7 @@ using Mario.Enums;
 
 namespace Mario
 {
-    public class Mario : IMario,ICollidiable
+    public class Mario : IMario,ICollidable
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }
@@ -47,7 +47,7 @@ namespace Mario
 				try
 				{
 					MarioPowerupState newState = value;
-					if (!(newState is DeadMarioPowerupState))
+					if (newState.IsActive())
 					{
 						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
 					}
@@ -67,6 +67,7 @@ namespace Mario
 		public ISprite MarioSprite { get; set; }
 
         private bool fall;
+        private bool isCrouch;
         public bool Island { get; set; }
         public Rectangle Box
         {
@@ -78,8 +79,11 @@ namespace Mario
         }
 		
 
-        public Physics Physics { get; set; }
-		public Mario(Vector2 location)
+        public PhysicsMario Physics { get; set; }
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);
@@ -87,44 +91,46 @@ namespace Mario
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
             fall = false;
             Island = true;
-            Physics = new Physics(this);
+            isCrouch = false;
+            Physics = new PhysicsMario(this);
             
         }
-		public void Up()
+		public void GoUp()
         {
             if (Island)
             {
                 Island = false;
-                MarioMovementState.Up();
+                MarioMovementState.GoUp();
                 Physics.Jump();
             }
         }
         public bool IsUp()
         {
-            return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
+			return MarioMovementState.IsJumping();
         }
-		public void Down()
+		public void GoDown()
 		{
-            MarioMovementState.Down();
+            MarioMovementState.GoDown();
+            isCrouch = true;
         }
-        public void Left()
+        public void GoLeft()
         {
            
             if (Island)
             {
-                 MarioMovementState.Left();
+                 MarioMovementState.GoLeft();
             }
             else
             {
                 Physics.JumpLeft();
             }
         }
-        public void Right()
+        public void GoRight()
         {
             
             if (Island)
             {
-                MarioMovementState.Right();
+                MarioMovementState.GoRight();
             }
             else
             {
@@ -138,10 +144,10 @@ namespace Mario
                 Physics.Sprint();
             }
         }
-        public void Dead()
+        public void BeDead()
         {
-			MarioPowerupState = new DeadMarioPowerupState(this);
-           MarioMovementState = new DeadMarioMovementState(this);
+			MarioPowerupState.BeDead();
+			MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
         {
@@ -175,19 +181,19 @@ namespace Mario
 			MarioSprite.Draw(spriteBatch,location);
         }
 		
-		public bool IsDead()
+		public bool IsActive()
         {
-            return MarioPowerupState is DeadMarioPowerupState;
+			return MarioPowerupState.IsActive();
         }
-        public bool Isfalling()
+        public bool IsFalling()
         {
             return fall;
         }
-        public void IsLandTrue()
+        public void SetIsLandTrue()
         {
             Island = true;
         }
-        public void IsLandFlase()
+        public void SetIsLandFalse()
         {
             Island = false;
         }
@@ -196,30 +202,29 @@ namespace Mario
         {
             MarioMovementState.NoInput();
             Physics.NotJump();
+            isCrouch = false;
         }
             
-        public void ThrowFireball()
+        public void ThrowProjectile()
         {
-            if(MarioPowerupState is FireMarioPowerupState)
+            if(MarioPowerupState.CanThrowProjectile())
             {
-                MarioPowerupState.ThrowFireball();
+                MarioPowerupState.ThrowProjectile();
             }
         }
 
-        public bool IsLeft()
+        public bool IsRunningLeft()
         {
             return MarioMovementState is LeftRunningMarioMovementState;
         }
 
-        public bool IsRight()
+        public bool IsRunningRight()
         {
             return MarioMovementState is RightRunningMarioMovementState;
         }
-        public bool IsCrouch()
+        public bool IsCrouching()
         {
-            return (MarioMovementState is LeftCrouchingMarioMovementState
-                  || MarioMovementState is RightCrouchingMarioMovementState)
-                  &&(!(MarioPowerupState is NormalMarioPowerupState));
+            return isCrouch;
         }
 		public void TakeDamage()
 		{

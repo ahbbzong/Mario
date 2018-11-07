@@ -8,7 +8,7 @@
   </PlayerXML>
 
   <BlockXML>
-    <BlockType>FloorBlock</BlockType>
+    <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>96</Length>
     <Height>2</Height>
@@ -17,7 +17,7 @@
   </BlockXML>
 
   <BlockXML>
-    <BlockType>FloorBlock</BlockType>
+    <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>15</Length>
     <Height>2</Height>
@@ -26,7 +26,7 @@
   </BlockXML>
 
   <BlockXML>
-    <BlockType>FloorBlock</BlockType>
+    <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>58</Length>
     <Height>2</Height>
@@ -35,60 +35,61 @@
   </BlockXML>
 
   <BlockXML>
-    <BlockType>FloorBlock</BlockType>
+    <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>60</Length>
     <Height>2</Height>
     <XLocation>5632</XLocation>
     <YLocation>850</YLocation>
   </BlockXML>
+  
 
   //done with floors
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>0</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
    <BlockXML>
-    <BlockType>HiddenBlock</BlockType>
+    <BlockType>HiddenBlockState</BlockType>
      <ItemContains>None</ItemContains>
     <XLocation>32</XLocation>
     <YLocation>618</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
     <XLocation>64</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
     <XLocation>160</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>192</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>224</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>256</XLocation>
     <YLocation>700</YLocation>
@@ -102,70 +103,70 @@
   </PipeXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>416</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>448</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>HiddenBlock</BlockType>
+    <BlockType>HiddenBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>480</XLocation>
     <YLocation>669</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>352</XLocation>
     <YLocation>432</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>384</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>416</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>448</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>480</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>512</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>544</XLocation>
     <YLocation>432</YLocation>
@@ -194,6 +195,19 @@
     <XLocation>512</XLocation>
     <YLocation>818</YLocation>
   </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>650</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>2150</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  
 
   -<PipeXML>
     <BlockType>Pipe</BlockType>
@@ -228,49 +242,49 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>1500</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>1596</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>1628</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>1660</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
     <XLocation>1692</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>1724</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>1660</XLocation>
     <YLocation>532</YLocation>
@@ -341,21 +355,21 @@
 </BackgroundXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3338</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>3370</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3402</XLocation>
     <YLocation>700</YLocation>
@@ -363,49 +377,49 @@
 
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3440</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3472</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3504</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3536</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3568</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3600</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3632</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3664</XLocation>
     <YLocation>464</YLocation>
@@ -420,32 +434,32 @@
 </BackgroundXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3776</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3808</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>3840</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
     <XLocation>3872</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>3872</XLocation>
     <YLocation>700</YLocation>
@@ -458,38 +472,38 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4064</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>4096</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4256</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4320</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>4320</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
     <XLocation>4384</XLocation>
     <YLocation>700</YLocation>
@@ -508,7 +522,7 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4544</XLocation>
     <YLocation>700</YLocation>
@@ -521,64 +535,64 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4608</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4640</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4672</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4800</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
     <XLocation>4832</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>4864</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4896</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4832</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>4864</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
-    <BlockType>UnbreakableBlock</BlockType>
+    <BlockType>UnbreakableBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>4</Length>
     <Height>4</Height>
@@ -593,7 +607,7 @@
   </BackgroundXML>
 
   <BlockXML>
-    <BlockType>UnbreakableBlock</BlockType>
+    <BlockType>UnbreakableBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>4</Length>
     <Height>-4</Height>
@@ -608,7 +622,7 @@
   </BackgroundXML>
   
   <BlockXML>
-    <BlockType>UnbreakableBlock</BlockType>
+    <BlockType>UnbreakableBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>5</Length>
     <Height>4</Height>
@@ -619,7 +633,7 @@
   //end of part 3. Start part 4.
   //x start at 5632
   <BlockXML>
-  <BlockType>UnbreakableBlock</BlockType>
+  <BlockType>UnbreakableBlockState</BlockType>
     <ItemContains>None</ItemContains>
   <Length>4</Length>
   <Height>-4</Height>
@@ -647,25 +661,25 @@
   </PipeXML>
   
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>6048</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>6080</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>QuestionBlock</BlockType>
+    <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
     <XLocation>6112</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   <BlockXML>
-    <BlockType>BreakableBlock</BlockType>
+    <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <XLocation>6144</XLocation>
     <YLocation>700</YLocation>
@@ -685,7 +699,7 @@
   </PipeXML>
 
   -<BlockXML>
-    <BlockType>UnbreakableBlock</BlockType>
+    <BlockType>UnbreakableBlockState</BlockType>
     <ItemContains>None</ItemContains>
     <Length>9</Length>
     <Height>8</Height>
@@ -747,4 +761,37 @@
     <XLocation>2800</XLocation>
     <YLocation>140</YLocation>
   </BackgroundXML>
+//Underground
+  <BlockXML>
+    <BlockType>FloorBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <Length>30</Length>
+    <Height>2</Height>
+    <XLocation>17000</XLocation>
+    <YLocation>850</YLocation>
+  </BlockXML>
+
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>18000</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>17650</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>17750</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>17530</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+   
 </Map>

@@ -20,21 +20,29 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			Mario = mario;
 		}
-		public virtual void Down()
+		public virtual void GoDown()
 		{
 			//NO-OP by default
 		}
 
-		public virtual void Left()
+		public virtual bool IsActive()
+		{
+			return true;
+		}
+		public virtual bool IsJumping()
+		{
+			return false;
+		}
+		public virtual void GoLeft()
 		{
             mario.Physics.MoveLeft();
         }
 
-		public virtual void Right()
+		public virtual void GoRight()
 		{
             mario.Physics.MoveRight();
         }
-		public virtual void Up()
+		public virtual void GoUp()
 		{
 
         }
