@@ -51,7 +51,6 @@
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Enums\PipeType.cs" />
     <Compile Include="Enums\ProjectileType.cs" />
-    <Compile Include="Enums\SoundType.cs" />
     <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />

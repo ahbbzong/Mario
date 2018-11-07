@@ -15,7 +15,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 			return false;
 		}
 		public override void BeDead()
-        { 
             Motion.MarioPowerUp.Play();
         }
 
