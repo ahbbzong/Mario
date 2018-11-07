@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.Sound;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,12 +38,15 @@ namespace Mario.GameObjects.Decorators
 
 		public override bool IsStarMario()
 		{
-			return true;
-		}
+            //Motion.StarMarioMusic.
+            return true;
+
+        }
 
         public override void Draw(SpriteBatch spriteBatch){
 
             timer++;
+
             switch (timer%10)
             {
                 case 1: 

@@ -7,6 +7,7 @@ using Mario.XMLRead;
 using Mario.HeadUpDesign;
 
 using Mario.Factory;
+using Mario.Sound;
 
 [assembly: System.CLSCompliant(true)]
 
@@ -62,7 +63,8 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
-
+            Motion.loadcontent(Content);
+            
         }
 
         /// <summary>

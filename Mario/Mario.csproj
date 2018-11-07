@@ -44,12 +44,13 @@
   <ItemGroup>
     <Compile Include="Collision\Collision Handler\BlockCollisionHandler\PipeHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetector.cs" />
-    <Compile Include="Collision\LocationOffset.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\PauseCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\MarioTypes.cs" />
+    <Compile Include="Enums\PipeType.cs" />
+    <Compile Include="Enums\ProjectileType.cs" />
     <Compile Include="Factory\SimpleFactories\TextSpriteFactory.cs" />
     <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
     <Compile Include="Factory\TextFactory.cs" />
@@ -82,6 +83,9 @@
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
+    <Compile Include="Sound\BackgroundMusic.cs" />
+    <Compile Include="Sound\Motion.cs" />
+    <Compile Include="Sound\MotionEffect.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />
