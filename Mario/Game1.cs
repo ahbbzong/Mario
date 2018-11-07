@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Mario.XMLRead;
+using Mario.HeadUpDesign;
+using Sprint1Game.SpriteFactories;
+
 [assembly: System.CLSCompliant(true)]
 
 namespace Mario
@@ -19,11 +22,13 @@ namespace Mario
 		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
+        private HeadsUpDisplayBoard headUpDisplayBoard; 
         public Game1()
         {
-			instance = this;
+            instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            headUpDisplayBoard= new HeadsUpDisplayBoard();
         }
 
         /// <summary>
@@ -55,7 +60,9 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent();
-           
+
+            //need to move somewhere else
+            TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
         }
 
         /// <summary>
@@ -74,7 +81,8 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-			GameObjectManager.Instance.CurrentGameTime = gameTime;
+            //System.Diagnostics.Debug.WriteLine(gameTime);
+            GameObjectManager.Instance.CurrentGameTime = gameTime;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -94,7 +102,7 @@ namespace Mario
 
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
-
+            headUpDisplayBoard.Draw(spriteBatch);
             GameObjectManager.Instance.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

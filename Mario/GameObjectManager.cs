@@ -26,6 +26,7 @@ using Mario.XMLRead;
 using Game1;
 using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
+using Sprint1Game.SpriteFactories;
 
 namespace Mario.XMLRead
 {
@@ -79,7 +80,8 @@ namespace Mario.XMLRead
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
 
-			LevelLoader.Instance.LoadFile("XMLFile1.xml");
+
+            LevelLoader.Instance.LoadFile("XMLFile1.xml");
 
 
             foreach (IController controller in ControllerList)
