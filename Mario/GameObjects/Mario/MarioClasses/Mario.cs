@@ -150,7 +150,9 @@ namespace Mario
         public void BeDead()
         {
 			MarioPowerupState = new DeadMarioPowerupState(this);
-           MarioMovementState = new DeadMarioMovementState(this);
+            MarioMovementState = new DeadMarioMovementState(this);
+            Motion.MarioDie.Play();
+
         }
         public void BeSuper()
         {
