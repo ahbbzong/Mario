@@ -8,16 +8,18 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public DeadMarioPowerupState(IMario mario) : base(mario)
 		{
-		}
+            Motion.MarioPowerUp.Play();
+        }
+
+       
 
 		public override bool IsActive()
 		{
 			return false;
 		}
-		public override void BeDead(){
-            Motion.MarioPowerUp.Play();
-        }
-
-        
+		public override void BeDead()
+		{
+			//override with NO -OP, no need to reinstance every frame
+		}
 	}
 }

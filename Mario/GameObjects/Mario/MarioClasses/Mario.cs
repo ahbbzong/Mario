@@ -109,7 +109,7 @@ namespace Mario
         }
         public bool IsUp()
         {
-			return MarioMovementState.IsJumping();
+            return MarioMovementState is LeftJumpingMarioMovementState|| MarioMovementState is RightJumpingMarioMovementState;
         }
 		public void GoDown()
 		{
@@ -149,11 +149,8 @@ namespace Mario
         }
         public void BeDead()
         {
-			MarioPowerupState.BeDead();
-			MarioMovementState = new DeadMarioMovementState(this);
-            Motion.MarioDie.Play();
-
-           
+			MarioPowerupState = new DeadMarioPowerupState(this);
+           MarioMovementState = new DeadMarioMovementState(this);
         }
         public void BeSuper()
         {
@@ -215,9 +212,7 @@ namespace Mario
         {
             if(MarioPowerupState.CanThrowProjectile())
             {
-                MarioPowerupState.ThrowProjectile();
-                
-                Motion.MarioFireball.Play();
+                MarioPowerupState.ThrowFireball();
             }
         }
 
