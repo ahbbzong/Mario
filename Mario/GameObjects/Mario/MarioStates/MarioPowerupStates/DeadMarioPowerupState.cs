@@ -19,7 +19,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public override void BeDead()
 		{
-            Motion.MarioPowerUp.Play();
+            Motion.MarioDie.Play();
 			//override with NO -OP, no need to reinstance every frame
 		}
 	}
