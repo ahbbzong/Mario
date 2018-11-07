@@ -22,11 +22,6 @@ namespace Mario.MarioStates.MarioPowerupStates
             //Motion.MarioPowerUp.Play();
         }
 
-		public virtual bool IsActive()
-		{
-			return true;
-		}
-
 		public virtual void BeFire()
 		{
             Mario.MarioPowerupState = new FireMarioPowerupState(Mario);

@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using Mario.XMLRead;
+using Mario.HeadUpDesign;
+
 using Mario.Factory;
 using Mario.Sound;
 
@@ -23,12 +25,12 @@ namespace Mario
 		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
-
-		public Game1()
+                public Game1()
         {
-			instance = this;
+            instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
             IsPause = false;
         }
 
