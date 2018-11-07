@@ -32,8 +32,6 @@ namespace Mario.HeadUpDesign
 
         public HeadsUpDisplayBoard()
         {
-            //need to move somewhere else
-            TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
 
 
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();

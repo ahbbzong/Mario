@@ -49,7 +49,7 @@ namespace Mario.XMLRead
 				new Keyboards()
 			};
             FloorBoxPosition = new List<Rectangle>();
-            headUpDisplayBoard = new HeadsUpDisplayBoard();
+            
         }
         public void SetInitialValuesCamera()
         {
@@ -64,15 +64,16 @@ namespace Mario.XMLRead
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
-
             
+            TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+
             LevelLoader.Instance.LoadFile(filename);
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
+            headUpDisplayBoard = new HeadsUpDisplayBoard();
 
-            
         }
    
       
