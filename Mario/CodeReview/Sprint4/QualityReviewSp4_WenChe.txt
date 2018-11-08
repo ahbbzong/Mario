@@ -51,3 +51,4 @@ to acheive the functions this game needs. Because after all, we are not really i
 physic as we have in the real world( or we will need Matrix, force, etc.), so seperating
 grivaty out can make Physic class much clear and easy to read. It doesn't need to 
 know all the other things that is related to the object, but only tracking the velocity.
+
