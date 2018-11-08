@@ -7,7 +7,6 @@ namespace Mario.MarioStates.MarioMovementStates
 	{
 		public RightJumpingMarioMovementState(IMario mario):base(mario)
 		{
-
 		}
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.RightJump;

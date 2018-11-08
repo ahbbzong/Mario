@@ -10,8 +10,12 @@ using Mario.GameObjects.Block;
 using Game1;
 using Mario.Collision.CollisionManager;
 using System.Diagnostics;
+using Mario.EnemyClasses;
+using Mario.EnemyStates.GoombaStates;
+using Mario.HeadUpDesign;
+using Mario.XMLRead;
 
-namespace Mario.XMLRead
+namespace Mario
 {
 	
     public class GameObjectManager
@@ -26,8 +30,9 @@ namespace Mario.XMLRead
         public ICameraController CameraController { get; set; }
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
+        private HeadsUpDisplayBoard headUpDisplayBoard;
 
-		private GameObjectManager()
+        private GameObjectManager()
         {
             GameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
             {
@@ -45,13 +50,14 @@ namespace Mario.XMLRead
 				new Keyboards()
 			};
             FloorBoxPosition = new List<Rectangle>();
+            
         }
         public void SetInitialValuesCamera()
         {
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
-        public void LoadContent(string filename)
+        public void  LoadContent(string filename)
         {
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -59,11 +65,16 @@ namespace Mario.XMLRead
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
+            
+            TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+
             LevelLoader.Instance.LoadFile(filename);
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
+            headUpDisplayBoard = new HeadsUpDisplayBoard();
+
         }
    
       
@@ -105,6 +116,7 @@ namespace Mario.XMLRead
 					gameObj.Draw(spriteBatch);
 				}
 			}
+            headUpDisplayBoard.Draw(spriteBatch);
         }
       
     }

@@ -7,7 +7,8 @@ namespace Mario.MarioStates.MarioMovementStates
 	{
 		public DeadMarioMovementState(IMario mario) : base(mario)
 		{
-		}
+			
+        }
 
         public override MarioMovementType MarioMovementType => MarioMovementType.Dead;
 

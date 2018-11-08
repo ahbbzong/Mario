@@ -7,7 +7,8 @@ namespace Mario.MarioStates.MarioMovementStates
 	{
 		public LeftJumpingMarioMovementState(IMario mario) : base(mario)
 		{
-		}
+
+        }
 
 		public override MarioMovementType MarioMovementType => MarioMovementType.LeftJump;
 

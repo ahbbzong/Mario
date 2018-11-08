@@ -1,23 +1,11 @@
 ﻿using Game1;
-using Mario.BlocksClasses;
-using Mario.BlockStates;
 using Mario.Enums;
-using Mario.Factory;
 using Mario.Interfaces.GameObjects;
-using Mario.ItemClasses;
-using Mario.MarioStates.MarioPowerupStates;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision
 {
-    public class PipeHandler : IBlockCollisionHandler
+	public class PipeHandler : IBlockCollisionHandler
     {
         int index;
         public PipeHandler(int index)

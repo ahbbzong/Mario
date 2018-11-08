@@ -1,11 +1,10 @@
 ﻿using Game1;
-using System.Timers;
 
 namespace Mario.MarioCommand
 
 {
 
-    public class SprintAndFireProjectileMarioCommand : MarioCommand
+	public class SprintAndFireProjectileMarioCommand : MarioCommand
     {
         int counter;
         bool fire;
