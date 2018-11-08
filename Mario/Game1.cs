@@ -3,20 +3,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
-using Mario.XMLRead;
-using Mario.HeadUpDesign;
-
-using Mario.Factory;
-using Mario.Sound;
 
 [assembly: System.CLSCompliant(true)]
 
 namespace Mario
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+	/// <summary>
+	/// This is the main type for your game.
+	/// </summary>
+	public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -63,7 +58,6 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
-            Motion.loadcontent(Content);
             
         }
 

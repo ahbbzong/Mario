@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Game1;
-using Mario.Enums;
-using Mario.Sound;
+﻿using Game1;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -13,7 +6,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public SuperMarioPowerupState(IMario mario) : base(mario)
 		{
-            Motion.MarioPowerUp.Play();
 
         }
 

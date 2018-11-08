@@ -2,21 +2,15 @@
 using Microsoft.Xna.Framework;
 using System;
 using Game1;
-using Mario.MarioStates;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
 using System.Diagnostics;
-using System.Threading;
-using Mario.XMLRead;
 using Mario.GameObjects.Decorators;
-using Mario.Enums;
-using Mario.Sound;
-using Microsoft.Xna.Framework.Audio;
 
 namespace Mario
 {
-    public class Mario : IMario,ICollidable
+	public class Mario : IMario,ICollidable
     {
         private Vector2 location = Vector2.Zero;
 		public Vector2 Position { get => location; set => location = value; }
@@ -214,7 +208,6 @@ namespace Mario
             {
                 MarioPowerupState.ThrowProjectile();
                 
-                Motion.MarioFireball.Play();
             }
         }
 
