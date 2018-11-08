@@ -1,11 +1,18 @@
 ﻿Author: Xiaochen Zong
 Date: Nov 7, 2018
 Sprint 5
-File: Mario.cs
+File: CollisionHandlerFractory.cs
+(On the CollisionHandlerFractory Branch )
 
 Comments on Code Quality:
-
-
+-The way is effcient, it make the files be good to read and reduce the running time.
+-The way to handle the collision response is easy to read and not too much complex.
+-The way of the internal class looks decent and easy to handle. 
 
 Suggestions:
+-There still exist some problem inside the game.
+-They way to use delegate maybe is not a good way to go.
+-I think the class is too long, if it is possible, it can sperate into several classes.
 
+This is the refractory part for the mario game. we want to create a new version of Collision, so that is why we missed 
+something on the sprint. We are still working on that and we will make up what we left on refractory.
