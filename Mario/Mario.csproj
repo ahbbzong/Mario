@@ -81,6 +81,9 @@
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />
+    <Compile Include="Sound\BackgroundMusic.cs" />
+    <Compile Include="Sound\Motion.cs" />
+    <Compile Include="Sound\MotionEffect.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />
@@ -246,8 +249,6 @@
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 XZ.txt" />
     <Content Include="CodeReview\Sprint4\Mario_cs Readability Review Oct 22 18.txt" />
     <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
-    <Content Include="CodeReview\Sprint5\ReadMe.txt" />
-    <Content Include="CodeReview\Sprint5\CodeReview_XZ.txt" />
     <Content Include="Icon.ico" />
     <Content Include="bin\Windows\x86\Debug\XMLFile1.xml" />
   </ItemGroup>
