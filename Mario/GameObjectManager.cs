@@ -99,9 +99,10 @@ namespace Mario
                     if (CameraMario.IsOffTopOrBottomOfScreen(Mario.Box))
                     {
                         Mario.BeDead();
+                        Game1.Instance.Reset();
                     }
                 }
-                    CollisionDetector.Instance.Update();
+                CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
            

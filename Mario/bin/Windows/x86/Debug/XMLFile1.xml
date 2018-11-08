@@ -207,6 +207,61 @@
     <XLocation>2150</XLocation>
     <YLocation>810</YLocation>
   </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>4270</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>4300</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>4330</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>4360</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>4390</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>5390</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML> <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>5390</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>5790</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML> <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>5810</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+  
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>6090</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML> <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>5910</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
   
 
   -<PipeXML>
