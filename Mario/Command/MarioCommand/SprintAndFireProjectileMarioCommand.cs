@@ -1,13 +1,10 @@
 ﻿using Game1;
-using Mario.Enums;
-using Mario.Sound;
-using System.Timers;
 
 namespace Mario.MarioCommand
 
 {
 
-    public class SprintAndFireProjectileMarioCommand : MarioCommand
+	public class SprintAndFireProjectileMarioCommand : MarioCommand
     {
         int counter;
         bool fire;
@@ -15,7 +12,6 @@ namespace Mario.MarioCommand
         {
             counter = 0;
             fire = true;
-            MotionEffect.Instance.EffectPlay(MotionType.marioFireball);
         }
         public override void Execute()
         {

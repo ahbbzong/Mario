@@ -101,7 +101,7 @@ namespace Mario
                         Mario.BeDead();
                     }
                 }
-                CollisionDetector.Instance.Update();
+                    CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
            

@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Game1;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -21,6 +20,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 			this.Mario = mario;
             //Motion.MarioPowerUp.Play();
         }
+
+		public virtual bool IsActive()
+		{
+			return true;
+		}
 
 		public virtual void BeFire()
 		{

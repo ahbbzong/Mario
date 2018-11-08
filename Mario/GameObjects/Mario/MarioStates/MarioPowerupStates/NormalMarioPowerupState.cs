@@ -1,6 +1,4 @@
 ﻿using Game1;
-using Mario.Enums;
-using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {

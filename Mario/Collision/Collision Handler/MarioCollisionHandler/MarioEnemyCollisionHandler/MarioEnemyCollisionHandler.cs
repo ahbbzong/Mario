@@ -1,7 +1,6 @@
 ﻿using Game1;
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
-using Mario.Sound;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -31,7 +30,6 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                     break;
                 case Direction.Down:
                     mario.Position += new Vector2(0, intersection.Height);
-                    Motion.Stomp.Play();
                     break;
                 case Direction.Left:
                     mario.Position -= new Vector2(intersection.Width, 0);

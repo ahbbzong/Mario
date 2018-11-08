@@ -2,7 +2,6 @@
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.ItemClasses;
-using Mario.Sound;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using System;
@@ -13,7 +12,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public FireMarioPowerupState(IMario mario) : base(mario)
 		{
-            Motion.MarioPowerUp.Play();
                 }
 
 		public override void BeFire()
