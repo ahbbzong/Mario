@@ -78,8 +78,14 @@ namespace Mario
         public PhysicsMario Physics { get; set; }
         public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		private int lives = 0;
+		public int Lives { get =>lives; set => lives = value; }
+		private int score = 0;
+		public int Score { get => score; set => score= value; }
+		private float scoreMultiplier = 1;
+		public float ScoreMultiplier { set => scoreMultiplier = value; }
 
-        public Mario(Vector2 location)
+		public Mario(Vector2 location)
         {
             this.location = location;
 			marioPowerupState = new NormalMarioPowerupState(this);

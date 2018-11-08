@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mario.GameObjects.Mario
 {
-	interface IPlayerStats
+	public interface IPlayerStats
 	{
 		int Lives { get; set; }
+		int Score { get; set; }
+		float ScoreMultiplier { set; }
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Mario;
+using Mario.GameObjects.Mario;
 using Mario.Interfaces.GameObjects;
 using Mario.MarioStates;
 using Mario.MarioStates.MarioMovementStates;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody
+    public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody, IPlayerStats
     {
         bool IsStarMario();
         bool IsActive();
