@@ -1,18 +1,21 @@
 ﻿Author: Xiaochen Zong
+Code to be reviewed: Jacob Grove
 Date: Nov 7, 2018
 Sprint 5
 File: CollisionHandlerFractory.cs
 (On the CollisionHandlerFractory Branch )
 
-Comments on Code Quality:
--The way is effcient, it make the files be good to read and reduce the running time.
--The way to handle the collision response is easy to read and not too much complex.
--The way of the internal class looks decent and easy to handle. 
-
+Comments on Code Readablilty:
+-The name of the each method is readable and easy to know. 
+-The internal class name is easy to understand, we can easily to find the purpose.
+-The interaction method toward two object collision is good to read.
 Suggestions:
--There still exist some problem inside the game.
--They way to use delegate maybe is not a good way to go.
--I think the class is too long, if it is possible, it can sperate into several classes.
+-The naming pattern should be consist, use Carmel or Pascal pattern
+-The name as parameter on the line 41 colhandler should be collisionhandler. 
+-On line 356, the null pointer operation should be NonePointerOperation should be better.
+
+The Overall of the readibablity looks not bad, only some tiny problem on that.I think there should be some changes for 
+the name that make the readibality be better.
 
 This is the refractory part for the mario game. we want to create a new version of Collision, so that is why we missed 
 something on the sprint. We are still working on that and we will make up what we left on refractory.
