@@ -1,10 +1,22 @@
-﻿For this Sprint5, we got some problems before we start, So decide to refractory first, then implement some frature for the 
-SPrint5
+﻿Per discussion with the grader, our group is addressing some substantial refactoring concerns and deferring some feature correctness 
+until the Sprint's final implementation deadline.
 
-Here is the thing we left:
-1. Castle for the mario.
-2. Flag at the end of the game.
-3. Some problems with the sound.
+Completed Objectives:
+1. Underground Level (go down first pipe, come up second pipe)
+2. Pausing
+In-Progress Objectives:
+1. HUD
+	- system for displaying text on screen ("Mario")
+2. Points and score system
+	- containers exist for this info inside of mario, but there is no mechanism to change them yet
+3. Removing magic numbers. Most are absent (except for some zero initializers)
 
-The HUD and Underground can work well. Also, to pause the game. It also good to go.
-The way to the underground world it the first pipe. Go to the first pipe and press down key to get there.
+Not-Completed Objectives:
+1. Sounds
+2. Floating Coins (In Underground)
+3. Remaining Lives Screen
+
+Problems causing holds:
+1. Issues with refactored collision handlers. 
+Several new features extend collision features, so the new system should be in place to avoid acruing more debt
+

@@ -25,8 +25,11 @@ namespace Mario.GameObjects.Decorators
         public bool Island { get; set; }
         public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public int Lives { get => DecoratedMario.Lives; set => DecoratedMario.Lives = value; }
+		public int Score { get => DecoratedMario.Score; set => DecoratedMario.Score = value; }
+		public float ScoreMultiplier { set => DecoratedMario.ScoreMultiplier = value; }
 
-        public void BeFire()
+		public void BeFire()
 		{
 			DecoratedMario.BeFire();
 		}
