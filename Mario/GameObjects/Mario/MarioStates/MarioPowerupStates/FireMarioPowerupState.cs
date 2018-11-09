@@ -12,7 +12,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public FireMarioPowerupState(IMario mario) : base(mario)
 		{
-                }
+        }
 
 		public override void BeFire()
 		{

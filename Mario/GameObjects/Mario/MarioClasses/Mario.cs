@@ -149,8 +149,7 @@ namespace Mario
         }
         public void BeDead()
         {
-			MarioPowerupState = new DeadMarioPowerupState(this);
-           MarioMovementState = new DeadMarioMovementState(this);
+            MarioPowerupState.BeDead();
         }
         public void BeSuper()
         {
@@ -213,7 +212,6 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
-                
             }
         }
 
@@ -249,8 +247,6 @@ namespace Mario
         {
             return Island;
         }
-        public void SetContainsItem(String item)
-        {
-        }
+      
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Game1;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
+using Mario.MarioStates.MarioMovementStates;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -46,7 +47,8 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public virtual void BeDead()
 		{
             Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
-		}
+            Mario.MarioMovementState = new DeadMarioMovementState(Mario);
+        }
 
 		public virtual bool CanThrowProjectile()
 		{

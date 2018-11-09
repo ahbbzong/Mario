@@ -64,13 +64,11 @@ namespace Mario.Collision.EnemyCollisionHandler
                 case Direction.Left:
                     enemy.Position -= Vector2.UnitX * intersection.Width;
                     enemy.TurnLeft();
-
                     break;
                 case Direction.Right:
                     enemy.Position += Vector2.UnitX * intersection.Width;
                     enemy.TurnRight();
                     break;
-
             }
 
         }

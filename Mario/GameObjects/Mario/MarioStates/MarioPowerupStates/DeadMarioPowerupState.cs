@@ -7,6 +7,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public DeadMarioPowerupState(IMario mario) : base(mario)
 		{
+
 		}
 
 		public override bool IsActive()

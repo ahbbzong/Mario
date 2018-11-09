@@ -20,5 +20,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 			base.TakeDamage();
 			Mario.BeDead();
 		}
-	}
+     
+    }
 }
