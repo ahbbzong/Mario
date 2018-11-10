@@ -47,7 +47,7 @@ namespace Mario
 					{
 						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, marioPowerupState, newState);
 					}
-					else
+					else if(!(newState is DeadMarioPowerupState))
 					{
 						GameObjectManager.Instance.Mario = new TransitionStateMarioDecorator(this, newState, newState);
 					}
@@ -78,7 +78,7 @@ namespace Mario
         public PhysicsMario Physics { get; set; }
         public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		private int lives = 0;
+		private int lives = 3;
 		public int Lives { get =>lives; set => lives = value; }
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
@@ -150,6 +150,8 @@ namespace Mario
         public void BeDead()
         {
             MarioPowerupState.BeDead();
+            MarioMovementState.BeDead();
+
         }
         public void BeSuper()
         {

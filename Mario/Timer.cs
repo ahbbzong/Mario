@@ -11,13 +11,11 @@ namespace Mario
 {
     static class Timer
     {
-        public static int MarioLife { get; set; } = 3;
-
-        public static int Time { get; set; } = 0;
+        public static int Time { get; set; } = 300;
         public static int HighestScore { get; set; } = 0;
 
         private static int counter = 0;
-        private static bool isTimeTicking = false;
+        private static bool timeRunning = false;
         private static int maxTime = 300;
 
         public static void UpdateHighestScore()
@@ -31,28 +29,28 @@ namespace Mario
         public static void ResetTimer()
         {
             Time = maxTime;
-            isTimeTicking = false;
+            timeRunning = false;
         }
 
-        public static void ClearTimer()
+        public static void CleanTimer()
         {
             Time = 0;
-            isTimeTicking = false;
+            timeRunning = false;
         }
 
         public static void StartTimer()
         {
-            isTimeTicking = true;
+            timeRunning = true;
         }
 
         public static void StopTimer()
         {
-            isTimeTicking = false;
+            timeRunning = false;
         }
 
-        public static void tick(GameTime gameTime)
+        public static void TimerCheckingTime(GameTime gameTime)
         {
-            if (isTimeTicking)
+            if (timeRunning)
             {
                 counter += gameTime.ElapsedGameTime.Milliseconds;
                 if (counter >= 1000)
@@ -63,7 +61,7 @@ namespace Mario
                 if (Time == 0)
                 {
                     GameObjectManager.Instance.Mario.BeDead();
-                    isTimeTicking = false;
+                    timeRunning = false;
                 }
             }
         }

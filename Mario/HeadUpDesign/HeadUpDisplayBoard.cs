@@ -47,7 +47,7 @@ namespace Mario.HeadUpDesign
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.Text = "TIME";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            timeTextSprite.Text = fixText("" + DateTime.Now, timeLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);
         }
 
         public void Draw(SpriteBatch spriteBatch)

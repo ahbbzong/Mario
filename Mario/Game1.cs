@@ -26,7 +26,6 @@ namespace Mario
             instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
             IsPause = false;
         }
 
@@ -59,7 +58,8 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
-            
+
+            Timer.StartTimer();
         }
 
         /// <summary>
@@ -78,7 +78,11 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
+            //check the time first
+
+            Timer.TimerCheckingTime(gameTime);
+
+
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
 
@@ -86,6 +90,7 @@ namespace Mario
                 GameObjectManager.Instance.CurrentGameTime = gameTime;
                 GameObjectManager.Instance.Update();
                 base.Update(gameTime);
+
 
         }
 
@@ -106,6 +111,7 @@ namespace Mario
         public void Reset()
         {
             GameObjectManager.Instance.SetInitialValuesCamera();
+            Timer.ResetTimer();
             LoadContent();
         }
         public void ChangeColor()
