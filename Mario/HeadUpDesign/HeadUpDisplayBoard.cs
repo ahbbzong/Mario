@@ -76,7 +76,9 @@ namespace Mario.HeadUpDesign
 
         public void Update()
         {
-           
+            scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score, scoreLength);
+            coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);// "put the time here");//MarioAttributes.Time, timeLength);
         }
 
         private static String fixText(String str, int length)

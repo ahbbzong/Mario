@@ -81,10 +81,12 @@
     <Compile Include="GameObjects\Block\Block.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileUtil.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HeadUpDesign\CoinSystem.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="Sprite\SpriteUtil.cs" />
     <Compile Include="GameUtil.cs" />
+    <Compile Include="Timer.cs" />
     <Compile Include="TimerUtil.cs" />
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />

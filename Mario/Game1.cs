@@ -15,6 +15,7 @@ namespace Mario
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public static int Time = 300;
 		private bool isPause;
 		public bool IsPause { get => isPause; set => isPause = value; }
 		private IList<IController> controllerList = new List<IController>();
