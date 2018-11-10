@@ -16,7 +16,7 @@ namespace Mario.EnemyStates.GoombaStates
 {
     public class StompedGoombaState : EnemyState
     {
-        int count = 0;
+        int count = EnemyUtil.goombaAppear;
         public StompedGoombaState(IEnemy enemy) :base(enemy)
         {
         }
@@ -36,7 +36,7 @@ namespace Mario.EnemyStates.GoombaStates
         }
         public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            if (count < 15)
+            if (count < EnemyUtil.goombaDisappear)
             {
                 EnemySprite.Draw(spriteBatch, location);
             }

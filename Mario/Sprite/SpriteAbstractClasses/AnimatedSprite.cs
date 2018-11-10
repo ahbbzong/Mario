@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.Sprite;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -25,7 +26,7 @@ namespace Mario.AbstractClass
             SpriteSheet = spriteSheet;
             Rows = rows;
             Columns = columns;
-            CurrentFrame = 0;
+            CurrentFrame = SpriteUtil.Zero;
             TotalFrame = rows * columns;
         }
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 location)
@@ -37,14 +38,14 @@ namespace Mario.AbstractClass
 		public virtual void Update()
         {
             Delay++;
-            if (Delay == 5)
+            if (Delay == SpriteUtil.delayUtil)
             {
-                Delay = 0;
+                Delay = SpriteUtil.Zero;
                 CurrentFrame++;
             }
             if (CurrentFrame == TotalFrame)
             {
-                CurrentFrame = 0;
+                CurrentFrame = SpriteUtil.Zero;
             }
         }
 

@@ -21,10 +21,10 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-			Block.Position = new Vector2(Block.Position.X, Block.Position.Y - 10.0f);
+			Block.Position = new Vector2(Block.Position.X, Block.Position.Y - BlockUtil.BlockOffset);
 
 			int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
-			if (index >= 0)
+			if (index >= BlockUtil.Zero)
 			{
 				GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 			}

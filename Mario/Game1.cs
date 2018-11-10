@@ -109,9 +109,9 @@ namespace Mario
         }
         public void ChangeColor()
         {
-            if (GameObjectManager.Instance.Mario.Position.X > 10000)
+            if (GameObjectManager.Instance.Mario.Position.X > GameUtil.UndergroundPosition)
             GraphicsDevice.Clear(Color.Black);
-            else if (GameObjectManager.Instance.Mario.Position.X < 10000)
+            else if (GameObjectManager.Instance.Mario.Position.X < GameUtil.UndergroundPosition)
             GraphicsDevice.Clear(Color.CornflowerBlue);
         }
     }

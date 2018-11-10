@@ -15,7 +15,7 @@ namespace Mario.GameObjects.Decorators
 {
 	class TransitionStateMarioDecorator:MarioDecorator
 	{
-		private double timer = 1.5f;
+		private double timer = TimerUtil.OnePointFive;
 		private ISprite newSprite;
 		private ISprite oldSprite;
 		private ISprite currentSprite = null;
@@ -38,7 +38,7 @@ namespace Mario.GameObjects.Decorators
 		public override void Update()
 		{
 			timer -= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.TotalSeconds;
-			if(timer >= 0.0)
+			if(timer >= TimerUtil.Zero)
 			{
 				if (currentSprite.Equals(oldSprite))
 				{

@@ -7,6 +7,7 @@ using Mario.Classes.BlocksClasses;
 using Mario.Items;
 using Mario.XMLRead;
 using Mario.MarioStates.MarioMovementStates;
+using Mario.GameObjects.Projectile;
 
 namespace Mario.ItemClasses
 {
@@ -21,11 +22,11 @@ namespace Mario.ItemClasses
             if (Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightRun||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightIdle||
                 Mario.MarioMovementState.MarioMovementType == MarioMovementType.RightJump)
-            { XVelocity = 6; }
+            { XVelocity = ProjectileUtil.projectileSpeed; }
             if (Mario.MarioMovementState is LeftRunningMarioMovementState ||
                 Mario.MarioMovementState is LeftIdleMarioMovementState||
                 Mario.MarioMovementState is LeftJumpingMarioMovementState)
-            { XVelocity = -6; }
+            { XVelocity = -ProjectileUtil.projectileSpeed; }
         }
         public override void React()
         {

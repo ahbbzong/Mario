@@ -21,16 +21,16 @@ namespace Mario.BlockStates
 		}
         public override void React()
         {
-            Block.Position -= Vector2.UnitY * 10.0f;
+            Block.Position -= Vector2.UnitY * BlockUtil.BlockOffset;
             int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
             GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 
             if (!(GameObjectManager.Instance.Mario.MarioPowerupState is NormalMarioPowerupState))
             {
                 GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y)));
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y + 16)));
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + 16, Block.Position.Y)));
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + 16, Block.Position.Y + 16)));
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y + BlockUtil.brickBlockParticleOffset)));
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + BlockUtil.brickBlockParticleOffset, Block.Position.Y)));
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + BlockUtil.brickBlockParticleOffset, Block.Position.Y + BlockUtil.brickBlockParticleOffset)));
                 GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].RemoveAt(index);
             }
         }

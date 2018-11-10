@@ -14,15 +14,15 @@ namespace Mario.Collision
         }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if (result == Direction.Up&&mario.IsCrouching()&&index==0)
+            if (result == Direction.Up&&mario.IsCrouching()&&index==CollisionUtil.groundPipeIndex)
             {
-                mario.Position += Vector2.UnitX * 17000;
+                mario.Position += Vector2.UnitX * CollisionUtil.undergroundOffset;
                 
             }
-            if(result == Direction.Up && mario.IsCrouching() && index == 8)
+            if(result == Direction.Up && mario.IsCrouching() && index == CollisionUtil.undergroundPipeIndex)
             {
-                mario.Position -= Vector2.UnitX * 15895;
-                mario.Position -= Vector2.UnitY * 80;
+               
+                mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
             }
 
         }

@@ -14,7 +14,7 @@ namespace Mario.BlockStates
     {
         public HiddenBlockState(IBlock block) : base(block)
         {
-            BlockSprite = SpriteFactory.Instance.CreateEmptySprite(32,32);
+            BlockSprite = SpriteFactory.Instance.CreateEmptySprite(BlockUtil.HiddenEmptySprite, BlockUtil.HiddenEmptySprite);
         }
         public override void React()
         {

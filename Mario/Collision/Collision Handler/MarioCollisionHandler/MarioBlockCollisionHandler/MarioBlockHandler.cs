@@ -27,11 +27,11 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     mario.Position -= Vector2.UnitY*intersection.Height;
                     if (mario.IsUp())
                     {
-                        if (mario.Physics.XVelocityResponse() >= 0.1)
+                        if (mario.Physics.XVelocityResponse() >= CollisionUtil.marioMinVelocity)
                         {
                             mario.GoRight();
                         }
-                        else if (mario.Physics.XVelocityResponse() <= -0.1)
+                        else if (mario.Physics.XVelocityResponse() <= -CollisionUtil.marioMinVelocity)
                         {
                             mario.GoLeft();
                         }

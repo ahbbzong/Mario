@@ -21,7 +21,7 @@ namespace Sprint1Game.Sprites
         public TextSprite(SpriteFont font)
         {
             this.font = font;
-            this.size = new Vector2(0, 0);
+            this.size = new Vector2(SpriteUtil.Zero, SpriteUtil.Zero);
         }
         
         public void Draw(SpriteBatch spriteBatch, Vector2 location)

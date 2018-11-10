@@ -24,7 +24,6 @@ namespace Game1
             YVelocity = PhysicsUtil.zero;
             MinYVelocity = PhysicsUtil.minYVelocity;
             MaxYVelocity = PhysicsUtil.maxYVelocity;
-            ForceUp = 45.0f;
             GravityManagement = new GravityManagement(mario);
         }
         public void Sprint()
@@ -62,7 +61,7 @@ namespace Game1
         {
             if (mario.IsActive())
             {
-                XVelocity -= 10 * 0.5f;
+                XVelocity -= PhysicsUtil.jumpFriction;
 
                 if (XVelocity < -PhysicsUtil.maxXVelocity)
                 {
@@ -74,9 +73,9 @@ namespace Game1
         {
             if (mario.IsActive())
             {
-                XVelocity += 10 * 0.5f;
+                XVelocity += PhysicsUtil.jumpFriction;
 
-                   if (XVelocity > PhysicsUtil.maxXVelocity)
+                if (XVelocity > PhysicsUtil.maxXVelocity)
                    {
                      XVelocity = PhysicsUtil.maxXVelocity;
             }
@@ -84,9 +83,7 @@ namespace Game1
         }
         public void Jump()
         {
-            UpwardForce();
-
-           
+            YVelocity += PhysicsUtil.upForce;
         }
         public void NotJump()
         {
@@ -127,7 +124,7 @@ namespace Game1
             mario.Position += Vector2.UnitX * XVelocity;
             if (mario.IsLandResponse())
             {
-                XVelocity *= 0.9f;
+                XVelocity *= PhysicsUtil.notJumpPhaseUtil;
             }
             else
             {
@@ -154,16 +151,12 @@ namespace Game1
         {
             YVelocity = -YVelocity/PhysicsUtil.reverseYVelocityDivider;
         }
-        public void UpwardForce()
-        {
-            YVelocity += ForceUp;
-        }
+      
         public void Update()
         {
             UpdateHorizontal();
             UpdateVertical();
             CheckFalling();
-            //gravityManagement.Update();
         }
     }
 }

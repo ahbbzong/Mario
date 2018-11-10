@@ -31,7 +31,6 @@ namespace Mario.GameObjects.Decorators
 
 		public override bool IsStarMario()
 		{
-            //Motion.StarMarioMusic.
             return true;
 
         }
@@ -40,7 +39,7 @@ namespace Mario.GameObjects.Decorators
 
             timer++;
 
-            switch (timer%10)
+            switch (timer%TimerUtil.Ten)
             {
                 case 1: 
                     DecoratedMario.Draw(spriteBatch , Color.White);

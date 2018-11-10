@@ -16,14 +16,14 @@ namespace Mario.GameObjects.Decorators
 {
 	class BumpedBlockDecorator : BlockDecorator
 	{
-		private int movedY = 10;
+		private int movedY = BlockUtil.BlockOffset;
 		public BumpedBlockDecorator(IBlock decoratedBlock) : base(decoratedBlock)
 		{
 			
 		}
 		public override void Update()
 		{
-			if (movedY != 0)
+			if (movedY != BlockUtil.Zero)
 			{
 				DecoratedBlock.Position += Vector2.UnitY;
 				movedY--;

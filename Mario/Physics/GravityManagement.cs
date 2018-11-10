@@ -27,11 +27,11 @@ namespace Game1
         }
         public void ReverseYVelocity()
         {
-            YVelocity = -YVelocity / 1.2f;
+            YVelocity = -YVelocity / PhysicsUtil.reverseYVelocityDivider;
         }
         public void ResetGravity()
         {
-            YVelocity = 0;
+            YVelocity = PhysicsUtil.zero;
         }
         private void ApplyGtravity()
         {

@@ -18,7 +18,7 @@ namespace Mario.Physics
         public static IList<Tuple<IPhysicsBody, Vector2>> PhysicsList { get ;  }
         public Physics()
         {
-            Gravity = new Vector2(0, 0.8f);
+            Gravity = new Vector2(PhysicsUtil.zero, PhysicsUtil.gravity);
         }
         internal void ApplyGravity(IPhysicsBody physicsObject)
         {

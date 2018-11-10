@@ -42,8 +42,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CameraClasses\CameraUtil.cs" />
     <Compile Include="Collision\Collision Handler\BlockCollisionHandler\PipeHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetector.cs" />
+    <Compile Include="Collision\CollisionUtil.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\PauseCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
+    <Compile Include="GameObjects\Block\BlockStates\BlockUtil.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
     <Compile Include="GameObjects\Decorators\BlockDecorator.cs" />
     <Compile Include="GameObjects\Decorators\BumpedBlockDecorator.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\TransitionStateMarioDecorator.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyUtil.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\FlippedGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\LeftMovingGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
@@ -75,9 +79,13 @@
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
+    <Compile Include="GameObjects\Projectile\ProjectileUtil.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
+    <Compile Include="Sprite\SpriteUtil.cs" />
+    <Compile Include="GameUtil.cs" />
+    <Compile Include="TimerUtil.cs" />
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
     <Compile Include="Physics\PhysicsUtil.cs" />

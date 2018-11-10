@@ -51,8 +51,8 @@ namespace Mario.Collision.CollisionManager
 			intersection = collisionDetecter.Intersection;
 			if (!collisionFound.Equals(Direction.None))
 			{
-				mario.Position += new Vector2(intersection.Width, 0);
-			}
+				mario.Position += Vector2.UnitY * intersection.Width;
+            }
 
 			foreach (Rectangle floorBox in FloorBoxPosition)
 			{
@@ -224,22 +224,22 @@ namespace Mario.Collision.CollisionManager
 					CallMarioBlockHandler(pipe, collisionFound, intersection);
 
 				}
-                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe)==0)
+                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe)==CollisionUtil.groundPipeIndex)
                 {
-                    pipeHandler = new PipeHandler(0);
+                    pipeHandler = new PipeHandler(CollisionUtil.groundPipeIndex);
                     pipeHandler.HandleCollision(pipe, Mario, collisionFound);
                 }
-                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe) == 8)
+                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe) == CollisionUtil.undergroundPipeIndex)
                 {
-                    pipeHandler = new PipeHandler(8);
+                    pipeHandler = new PipeHandler(CollisionUtil.undergroundPipeIndex);
                     pipeHandler.HandleCollision(pipe, Mario, collisionFound);
                 }
             }
 			float difference = (float)(Mario.Position.X - GameObjectManager.Instance.CameraMario.Location.X);
-			if (difference <= 5 && difference >= 0)
+			if (difference <= CollisionUtil.differenceFive && difference >= CollisionUtil.differenceZero)
 			{
-				mario.Position += new Vector2(difference, 0);
-			}
+				mario.Position += Vector2.UnitY * difference;
+            }
 		}
 
 		public void CallMarioItemHandler(IItem item, Direction collisionFound)

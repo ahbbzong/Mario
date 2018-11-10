@@ -13,27 +13,27 @@ namespace Mario.CameraClasses
         public Camera()
         {
 			Location = Vector2.Zero;      
-			Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
+			Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, CameraUtil.zero));
             InnerBox = new Rectangle();
         }
 
         public void MoveRight(float distance)
         {
             Location = new Vector2(Location.X + distance, Location.Y);
-            Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, 0));
+            Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, CameraUtil.zero));
         }
         public bool IsOffSideOfScreen(Rectangle box)
         {
-            return box.Right <= InnerBox.Left || box.Left >= InnerBox.Left + 1440;
+            return box.Right <= InnerBox.Left || box.Left >= InnerBox.Left + CameraUtil.resolutionWidth;
         }
         public bool IsOffTopOrBottomOfScreen(Rectangle box)
         {
-            return box.Top <= 0 || box.Bottom >= 900 ;
+            return box.Top <= CameraUtil.zero || box.Bottom >= CameraUtil.resolutionHeight;
             
         }
         public void ResetCameraLocation(Rectangle box)
         {
-            Location = Vector2.UnitX*(box.Location.X - 450);
+            Location = Vector2.UnitX*(box.Location.X - CameraUtil.cameraOffset);
         }
     }
 }

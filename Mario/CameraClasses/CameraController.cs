@@ -25,11 +25,11 @@ namespace Mario.CameraClasses
             {
                 camera.ResetCameraLocation(GameObjectManager.Instance.Mario.Box);
             }
-            if (marioPosition.X > camera.Location.X + 450/* add an offset here, maybe half the width of the screen */)
+            if (marioPosition.X > camera.Location.X + CameraUtil.cameraOffset)
             {
-                camera.MoveRight(5);
+                camera.MoveRight(CameraUtil.cameraFive);
             }
-            camera.InnerBox = new Rectangle((int)camera.Location.X-10, (int)marioPosition.Y, 10, 400);
+            camera.InnerBox = new Rectangle((int)camera.Location.X-CameraUtil.cameraTen, (int)marioPosition.Y, CameraUtil.cameraTen, CameraUtil.cameraFourHundred);
         }
     }
 
