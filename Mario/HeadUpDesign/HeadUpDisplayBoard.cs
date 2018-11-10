@@ -14,7 +14,7 @@ using Mario.Factory;
 
 namespace Mario.HeadUpDesign
 {
-    class HeadsUpDisplayBoard //: IDisplayPanel
+    class HeadsUpDisplayBoard
     {
         public bool IsEnable { get; set; } = true;
         ITextSprite marioTitleTextSprite;
@@ -78,7 +78,7 @@ namespace Mario.HeadUpDesign
         {
             scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score, scoreLength);
             coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
-            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);// "put the time here");//MarioAttributes.Time, timeLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);// "put the time here"
         }
 
         private static String fixText(String str, int length)
