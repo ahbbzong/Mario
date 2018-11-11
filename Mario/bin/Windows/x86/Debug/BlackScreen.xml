@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+
+  <PlayerXML>
+    <PlayerName>Mario</PlayerName>
+    <XLocation>200</XLocation>
+    <YLocation>819</YLocation>
+  </PlayerXML>
+</Map>
