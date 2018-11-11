@@ -49,6 +49,9 @@
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\PauseCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
+    <Compile Include="Display\IDisplay.cs" />
+    <Compile Include="Display\LifeDisplay.cs" />
+    <Compile Include="Display\GameOverDisplay.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Factory\SimpleFactories\TextSpriteFactory.cs" />
@@ -80,6 +83,11 @@
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileUtil.cs" />
+    <Compile Include="GameState\AbstractGame.cs" />
+    <Compile Include="GameState\IGameState.cs" />
+    <Compile Include="GameState\GameOverState.cs" />
+    <Compile Include="GameState\PlayState.cs" />
+    <Compile Include="GameState\ShowLifeState.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
@@ -233,6 +241,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Windows\x86\Debug\BlackScreen.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="BurndownChart\Burndown.png" />
     <Content Include="BurndownChart\BurndownChart.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_ChulongLi.txt" />

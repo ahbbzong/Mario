@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.GameState;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,7 +12,7 @@ namespace Mario
 	/// <summary>
 	/// This is the main type for your game.
 	/// </summary>
-	public class Game1 : Microsoft.Xna.Framework.Game
+	public class Game1 : AbstractGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -20,13 +21,13 @@ namespace Mario
 		private IList<IController> controllerList = new List<IController>();
 		private static Game1 instance;
 		public static Game1 Instance { get => instance; set => instance = value; }
-                public Game1()
+        public Game1()
         {
             instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
             IsPause = false;
+            State = new ShowLifeState(this);
         }
 
         /// <summary>
@@ -40,13 +41,10 @@ namespace Mario
 
 			base.Initialize();
 			controllerList.Add(new Keyboards());
-
 			graphics.PreferredBackBufferWidth = 1440;
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             GameObjectManager.Instance.SetInitialValuesCamera();
-          
-
         }
 
         /// <summary>
@@ -58,7 +56,6 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
-            
         }
 
         /// <summary>
@@ -77,13 +74,11 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                    Exit();
 
-            // TODO: Add your update logic herr.
-                GameObjectManager.Instance.CurrentGameTime = gameTime;
-                GameObjectManager.Instance.Update();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
+            GameObjectManager.Instance.CurrentGameTime = gameTime;
+            GameObjectManager.Instance.Update();
                 base.Update(gameTime);
 
         }
@@ -95,7 +90,6 @@ namespace Mario
         protected override void Draw(GameTime gameTime)
         {
             GameObjectManager.Instance.CurrentGameTime = gameTime;
-            // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise, null, GameObjectManager.Instance.CameraMario.Transform);
             ChangeColor();
             GameObjectManager.Instance.Draw(spriteBatch);
@@ -107,7 +101,7 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             LoadContent();
         }
-        public void ChangeColor()
+        private void ChangeColor()
         {
             if (GameObjectManager.Instance.Mario.Position.X > GameUtil.UndergroundPosition)
             GraphicsDevice.Clear(Color.Black);

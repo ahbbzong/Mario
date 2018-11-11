@@ -39,7 +39,8 @@ namespace Mario.Factory
 				{"CloudSingle", new Tuple<Texture2D,int,int>(content.Load<Texture2D>("singleCloud"),1,1) },
 				{"CloudTriple",new Tuple<Texture2D,int,int>(content.Load<Texture2D>("tripleCloud"),1,1) },
 				{"MountainBig", new Tuple<Texture2D,int,int>(content.Load<Texture2D>("bigMountain"),1,1) },
-				{"MountainSmall", new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
+                {"BlackGround", new Tuple<Texture2D,int,int>(content.Load<Texture2D>("BlackGround"),1,1) },
+                {"MountainSmall", new Tuple<Texture2D,int,int>(content.Load<Texture2D>("smallMountain"),1,1) }
 			};
 		}
 	}

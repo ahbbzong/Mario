@@ -95,7 +95,6 @@ namespace Mario
             Island = true;
             isCrouch = false;
             Physics = new PhysicsMario(this);
-            
         }
 		public void GoUp()
         {
@@ -104,7 +103,6 @@ namespace Mario
                 Island = false;
                 MarioMovementState.GoUp();
                 Physics.Jump();
-
             }
         }
         public bool IsUp()
@@ -171,18 +169,15 @@ namespace Mario
         {
 			return false;
         }
-
         public void Update()
         {
 			MarioSprite.Update();
             Physics.Update();
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-			MarioSprite.Draw(spriteBatch,location);
+            MarioSprite.Draw(spriteBatch, location);
         }
-		
 		public bool IsActive()
         {
 			return MarioPowerupState.IsActive();
@@ -199,7 +194,6 @@ namespace Mario
         {
             Island = false;
         }
-
         public void NoInput()
         {
             MarioMovementState.NoInput();
@@ -232,7 +226,6 @@ namespace Mario
 		{
 			MarioPowerupState.TakeDamage();
         }
-
         public void Draw(SpriteBatch spriteBatch, Color c)
 		{
 
@@ -247,6 +240,5 @@ namespace Mario
         {
             return Island;
         }
-      
     }
 }

@@ -61,9 +61,11 @@ namespace Mario.Factory
 				{typeof(DeadMarioPowerupState),new Dictionary<Type, Tuple<Texture2D,int,int>>()
 				{
 					{typeof(DeadMarioMovementState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("normalMarioDead"),1,1) }
-				} }
+				} },
+               
 
-			};
+
+            };
 		}
 		private IGameObject GetMario(Vector2 arg)
 		{

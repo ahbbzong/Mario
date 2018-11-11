@@ -14,6 +14,7 @@ using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
 using Mario.HeadUpDesign;
 using Mario.XMLRead;
+using Mario.Display;
 
 namespace Mario
 {
@@ -31,6 +32,7 @@ namespace Mario
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
+        private IDisplay lifeDisplay;
 
         private GameObjectManager()
         {
@@ -51,6 +53,7 @@ namespace Mario
 			};
             FloorBoxPosition = new List<Rectangle>();
             
+            
         }
         public void SetInitialValuesCamera()
         {
@@ -59,21 +62,21 @@ namespace Mario
         }
         public void  LoadContent(string filename)
         {
+            
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);
             EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
-            
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
-
             LevelLoader.Instance.LoadFile(filename);
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
             headUpDisplayBoard = new HeadsUpDisplayBoard();
+            lifeDisplay = new LifeDisplay();
 
         }
    
@@ -105,7 +108,7 @@ namespace Mario
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
-           
+            lifeDisplay.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -118,6 +121,7 @@ namespace Mario
 				}
 			}
             headUpDisplayBoard.Draw(spriteBatch);
+            lifeDisplay.Draw(spriteBatch);
         }
       
     }

@@ -38,6 +38,8 @@ namespace Mario.Factory
 		{
 			return new EmptySprite(width, height);
 		}
+       
+
     }
 }
 
