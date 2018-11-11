@@ -108,6 +108,7 @@ namespace Mario
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
+            headUpDisplayBoard.Update();
             lifeDisplay.Update();
         }
         public void Draw(SpriteBatch spriteBatch)

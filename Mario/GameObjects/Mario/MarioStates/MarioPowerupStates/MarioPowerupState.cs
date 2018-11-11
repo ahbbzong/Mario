@@ -18,7 +18,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		protected IMario Mario { get => mario; set => mario = value; }
 		protected MarioPowerupState(IMario mario)
 		{
-			this.Mario = mario;
+			Mario = mario;
             //Motion.MarioPowerUp.Play();
         }
 
@@ -47,7 +47,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public virtual void BeDead()
 		{
             Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
-            Mario.MarioMovementState = new DeadMarioMovementState(Mario);
         }
 
 		public virtual bool CanThrowProjectile()

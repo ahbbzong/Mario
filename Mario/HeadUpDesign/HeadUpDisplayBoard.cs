@@ -14,7 +14,7 @@ using Mario.Factory;
 
 namespace Mario.HeadUpDesign
 {
-    class HeadsUpDisplayBoard //: IDisplayPanel
+    class HeadsUpDisplayBoard
     {
         public bool IsEnable { get; set; } = true;
         ITextSprite marioTitleTextSprite;
@@ -47,7 +47,7 @@ namespace Mario.HeadUpDesign
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.Text = "TIME";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            timeTextSprite.Text = fixText("" + DateTime.Now, timeLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -76,7 +76,9 @@ namespace Mario.HeadUpDesign
 
         public void Update()
         {
-           
+            scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score, scoreLength);
+            coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);// "put the time here"
         }
 
         private static String fixText(String str, int length)
