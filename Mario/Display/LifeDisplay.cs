@@ -30,12 +30,12 @@ namespace Mario.Display
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (counter < 30)
+            if (counter < 100)
             {
                 backgroundSprite.Draw(spriteBatch);
                 marioSprite.Draw(spriteBatch, new Microsoft.Xna.Framework.Vector2(500, 500));
-                
             }
+           
         }
     }
 }

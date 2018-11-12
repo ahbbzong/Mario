@@ -83,15 +83,11 @@
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileUtil.cs" />
-    <Compile Include="GameState\AbstractGame.cs" />
-    <Compile Include="GameState\IGameState.cs" />
-    <Compile Include="GameState\GameOverState.cs" />
-    <Compile Include="GameState\PlayState.cs" />
-    <Compile Include="GameState\ShowLifeState.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HeadUpDesign\CoinSystem.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
+    <Compile Include="LifeCounter.cs" />
     <Compile Include="Sprite\SpriteUtil.cs" />
     <Compile Include="GameUtil.cs" />
     <Compile Include="Timer.cs" />

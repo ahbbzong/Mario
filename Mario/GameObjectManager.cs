@@ -33,6 +33,7 @@ namespace Mario
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
         private IDisplay lifeDisplay;
+        private IDisplay gameOverDisplay;
 
         private GameObjectManager()
         {
@@ -75,8 +76,9 @@ namespace Mario
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
-            headUpDisplayBoard = new HeadsUpDisplayBoard();
+            gameOverDisplay = new GameOverDisplay();
             lifeDisplay = new LifeDisplay();
+            headUpDisplayBoard = new HeadsUpDisplayBoard();
 
         }
    
@@ -102,6 +104,7 @@ namespace Mario
                     if (CameraMario.IsOffTopOrBottomOfScreen(Mario.Box))
                     {
                         Mario.BeDead();
+                        LifeCounter.Instance.DecreaseLife();
                         Game1.Instance.Reset();
                     }
                 }
@@ -109,7 +112,18 @@ namespace Mario
                 CameraController.Update();
             }
             headUpDisplayBoard.Update();
-            lifeDisplay.Update();
+            if (LifeCounter.Instance.LifeRemains()>0)
+            {
+                lifeDisplay.Update();
+            }
+            else if (LifeCounter.Instance.LifeRemains() == 0)
+            {
+                gameOverDisplay.Update();
+            }
+            else if (LifeCounter.Instance.LifeRemains() < 0)
+            {
+                LifeCounter.Instance.ResetLife();
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -122,7 +136,14 @@ namespace Mario
 				}
 			}
             headUpDisplayBoard.Draw(spriteBatch);
-            lifeDisplay.Draw(spriteBatch);
+            if (LifeCounter.Instance.LifeRemains() > 0)
+            {
+                lifeDisplay.Draw(spriteBatch);
+            }
+            else if (LifeCounter.Instance.LifeRemains() == 0)
+            {
+                gameOverDisplay.Draw(spriteBatch);
+            }
         }
       
     }
