@@ -1,5 +1,4 @@
 ﻿using Game1;
-using Mario.GameState;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,7 +12,7 @@ namespace Mario
 	/// <summary>
 	/// This is the main type for your game.
 	/// </summary>
-	public class Game1 : AbstractGame
+	public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -29,7 +28,6 @@ namespace Mario
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsPause = false;
-            State = new ShowLifeState(this);
         }
 
         /// <summary>
