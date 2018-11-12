@@ -111,7 +111,6 @@ namespace Mario
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
-            headUpDisplayBoard.Update();
             if (LifeCounter.Instance.LifeRemains()>0)
             {
                 lifeDisplay.Update();
@@ -124,6 +123,7 @@ namespace Mario
             {
                 LifeCounter.Instance.ResetLife();
             }
+            headUpDisplayBoard.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -135,7 +135,6 @@ namespace Mario
 					gameObj.Draw(spriteBatch);
 				}
 			}
-            headUpDisplayBoard.Draw(spriteBatch);
             if (LifeCounter.Instance.LifeRemains() > 0)
             {
                 lifeDisplay.Draw(spriteBatch);
@@ -144,7 +143,9 @@ namespace Mario
             {
                 gameOverDisplay.Draw(spriteBatch);
             }
+            headUpDisplayBoard.Draw(spriteBatch);
+
         }
-      
+
     }
 }
