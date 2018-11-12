@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Enums;
 using Mario.MarioStates.MarioPowerupStates;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
                 || mario.MarioPowerupState is SuperMarioPowerupState)
                 &&!mario.IsStarMario())
             {
+                MotionSound.MarioPowerUp.Play();
                 mario.BeFire();
             }
         }

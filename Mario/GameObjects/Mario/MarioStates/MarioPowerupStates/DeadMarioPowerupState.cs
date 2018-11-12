@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Sound;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -7,10 +8,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public DeadMarioPowerupState(IMario mario) : base(mario)
 		{
+            MotionSound.MarioDie.Play();
 
-		}
+        }
 
-		public override bool IsActive()
+        public override bool IsActive()
 		{
 			return false;
 		}

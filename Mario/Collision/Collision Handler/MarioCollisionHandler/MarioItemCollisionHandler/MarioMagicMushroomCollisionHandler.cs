@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Enums;
 using Mario.MarioStates.MarioPowerupStates;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
     {
         public MarioMagicMushroomCollisionHandler()
         {
+            MotionSound.MarioPowerUp.Play();
         }
         public void HandleCollision(IMario mario, Direction result)
         {

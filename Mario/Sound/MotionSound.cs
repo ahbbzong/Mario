@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace Mario.Sound
 {
-    public static class Motion
+    public static class MotionSound
     {
-
         private static SoundEffect breakBlock;
         private static SoundEffect bump;
         private static SoundEffect flip;
@@ -26,9 +25,10 @@ namespace Mario.Sound
         private static SoundEffect stomp;
         private static SoundEffect takeDamage;
         private static Song starMarioMusic;
-        private static Song clearStage;
-        private static Song gameOver;
-        private static Song timeRunningOut;
+        private static Song marioBGM;
+        private static SoundEffect clearStage;
+        private static SoundEffect gameOver;
+        private static SoundEffect timeRunningOut;
 
         public static void loadcontent(ContentManager content)
         {
@@ -43,17 +43,18 @@ namespace Mario.Sound
             marioPowerUp = content.Load<SoundEffect>("marioPowerUp");
             pipeTravel = content.Load<SoundEffect>("pipeTravel");
             powerUpAppears = content.Load<SoundEffect>("powerUpAppears");
-            stomp = content.Load<SoundEffect>("stomp");
+            stomp = content.Load<SoundEffect>("smb_stomp");
             takeDamage = content.Load<SoundEffect>("takeDamage");
             starMarioMusic = content.Load<Song>("starMarioMusic");
-            //clearStage = content.Load<Song>("clearStage");
-            //gameOver = content.Load<Song>("gameOver");
-            //timeRunningOut = content.Load<Song>("timeRunningOut");
+            marioBGM = content.Load<Song>("marioBGM");
+            clearStage = content.Load<SoundEffect>("clearStage");
+            gameOver = content.Load<SoundEffect>("gameOver");
+            timeRunningOut = content.Load<SoundEffect>("timeRunningOut");
 
 
         }
 
-        public static SoundEffect BreakBlock { get { return breakBlock; } }
+        public static SoundEffect BreakBlock { get { return breakBlock;} }
         public static SoundEffect Bump { get { return bump; } }
         public static SoundEffect Flip { get { return flip; } }
         public static SoundEffect MarioCoin { get { return marioCoin; } }
@@ -70,9 +71,12 @@ namespace Mario.Sound
         public static SoundEffect TakeDamage { get { return takeDamage; } }
 
         public static Song StarMarioMusic { get { return starMarioMusic; } }
-        public static Song ClearStage { get { return clearStage; } }
-        public static Song TimeRunningOut { get { return timeRunningOut; } }
-        public static Song GameOver { get { return gameOver; } }
+        public static Song MarioBGM { get { return marioBGM; } }
 
+        public static SoundEffect ClearStage { get { return clearStage; } }
+        public static SoundEffect TimeRunningOut { get { return timeRunningOut; } }
+        public static SoundEffect GameOver { get { return gameOver; } }
+
+        
     }
 }
