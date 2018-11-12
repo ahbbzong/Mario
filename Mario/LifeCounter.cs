@@ -10,7 +10,7 @@ namespace Mario
     {
         private static LifeCounter instance = new LifeCounter();
         public static LifeCounter Instance { get => instance; set => instance = value; }
-        public static int Life { get; set; }
+        public int Life { get; set; }
         private LifeCounter()
         {
             Life = 3;

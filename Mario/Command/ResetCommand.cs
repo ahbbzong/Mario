@@ -14,8 +14,9 @@ namespace Mario.BlocksCommand
         public void Execute()
         {
             game.Reset();
+            LifeCounter.Instance.ResetLife();
         }
 
-        
+
     }
 }

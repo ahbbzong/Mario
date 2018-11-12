@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Factory;
 using Mario.Interfaces.GameObjects;
+using Mario.Sprite;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,24 +14,27 @@ namespace Mario.Display
 {
   public  class GameOverDisplay: IDisplay
     {
-      
-            IGameObject backgroundSprite;
+        ITextSprite lifeTextSprite;
+        IGameObject backgroundSprite;
             private int counter;
             public GameOverDisplay()
             {
+                lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 counter = 0;
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(0, 0));
-            }
+                lifeTextSprite.Text = "Game Over";
+        }
             public void Update()
             {
                 counter++;
             }
             public void Draw(SpriteBatch spriteBatch)
             {
-                if (counter < 100)
-                {
-                    backgroundSprite.Draw(spriteBatch);
-                }
+               
+                backgroundSprite.Draw(spriteBatch);
+                lifeTextSprite.Draw(spriteBatch, new Vector2(600, 500));
+                
+            
             }
     }
 }

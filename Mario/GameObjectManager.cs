@@ -61,7 +61,7 @@ namespace Mario
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
-        public void  LoadContent(string filename)
+        public void  LoadContent()
         {
             
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
@@ -71,7 +71,8 @@ namespace Mario
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
-            LevelLoader.Instance.LoadFile(filename);
+            LevelLoader.Instance.LoadFile("XMLFile1.xml");
+            
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
@@ -115,13 +116,10 @@ namespace Mario
             {
                 lifeDisplay.Update();
             }
+          
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
                 gameOverDisplay.Update();
-            }
-            else if (LifeCounter.Instance.LifeRemains() < 0)
-            {
-                LifeCounter.Instance.ResetLife();
             }
             headUpDisplayBoard.Update();
         }
@@ -146,6 +144,7 @@ namespace Mario
             headUpDisplayBoard.Draw(spriteBatch);
 
         }
+        
 
     }
 }
