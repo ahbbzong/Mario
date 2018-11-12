@@ -2,6 +2,7 @@
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,18 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (result==Direction.Up)
             {
                 enemy.BeStomped();
+                MotionSound.Stomp.Play();
+
             }
             if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)
             {
                 enemy.TurnLeft();
+                MotionSound.Flip.Play();
             }
             else if(enemy.EnemyState is StompedKoopaState && result==Direction.Left)
             {
                 enemy.TurnRight();
+                MotionSound.Flip.Play();
             }
 
         }

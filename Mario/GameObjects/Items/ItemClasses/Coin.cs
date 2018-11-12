@@ -4,6 +4,7 @@ using Game1;
 using Mario.Factory;
 using Mario.Enums;
 using Mario.Classes.BlocksClasses;
+using Mario.Sound;
 
 namespace Mario.ItemClasses
 {
@@ -11,6 +12,8 @@ namespace Mario.ItemClasses
     {
         public Coin(Vector2 location):base(location)
         {
+            MotionSound.MarioCoin.Play();
+
         }
         public override bool IsCoin()
         {

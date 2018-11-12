@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -55,6 +56,8 @@ namespace Mario
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameObjectManager.Instance.LoadContent();
+            MotionSound.loadcontent(Content);
+			GameObjectManager.Instance.LoadContent("XMLFile1.xml");
 
             Timer.StartTimer();
         }

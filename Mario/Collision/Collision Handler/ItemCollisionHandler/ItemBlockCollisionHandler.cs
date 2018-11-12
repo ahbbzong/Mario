@@ -3,6 +3,7 @@ using Mario.BlocksClasses;
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.ItemClasses;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -35,6 +36,7 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Down:
                     item.Position += Vector2.UnitY* intersection.Height;
+                        MotionSound.MarioCoin.Play();
                     break;
                 case Direction.Left:
                     item.Position -= Vector2.UnitX*intersection.Width;

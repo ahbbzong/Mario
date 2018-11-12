@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mario.Sound;
+using Microsoft.Xna.Framework.Media;
 
 namespace Mario
 {
@@ -20,6 +22,7 @@ namespace Mario
         }
         public PlayState(AbstractGame game)
         {
+
             this.game = game;
         }
 

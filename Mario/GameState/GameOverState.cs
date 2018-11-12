@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.GameState;
+using Mario.Sound;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Mario
         }
         public GameOverState(AbstractGame game)
         {
+            MotionSound.GameOver.Play();
             this.game = game;
         }
 

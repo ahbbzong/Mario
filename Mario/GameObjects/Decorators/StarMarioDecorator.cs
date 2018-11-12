@@ -1,6 +1,9 @@
 ﻿using Game1;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+
 
 namespace Mario.GameObjects.Decorators
 {
@@ -9,11 +12,12 @@ namespace Mario.GameObjects.Decorators
 
         private int timer = 0;
 		public StarMarioDecorator(IMario mario):base(mario){
+            MediaPlayer.Play(MotionSound.StarMarioMusic);
 
-		}
-		
+        }
 
-		public override void TakeDamage()
+
+        public override void TakeDamage()
 		{
 			//NO -OP
 		}
@@ -21,9 +25,10 @@ namespace Mario.GameObjects.Decorators
 		public override void Update()
         {
             timer+= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
-			
+
             if (timer > 5000)
             {
+
                 GameObjectManager.Instance.Mario = DecoratedMario;
             }
 			base.Update();

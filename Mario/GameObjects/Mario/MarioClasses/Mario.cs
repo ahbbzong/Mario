@@ -7,6 +7,8 @@ using Mario.MarioStates.MarioPowerupStates;
 using Mario.Factory;
 using System.Diagnostics;
 using Mario.GameObjects.Decorators;
+using Mario.Sound;
+using Microsoft.Xna.Framework.Media;
 
 namespace Mario
 {
@@ -95,14 +97,17 @@ namespace Mario
             Island = true;
             isCrouch = false;
             Physics = new PhysicsMario(this);
+            MediaPlayer.Play(MotionSound.MarioBGM);
+
         }
-		public void GoUp()
+        public void GoUp()
         {
             if (Island)
             {
                 Island = false;
                 MarioMovementState.GoUp();
                 Physics.Jump();
+                MotionSound.MarioJump.Play();
             }
         }
         public bool IsUp()
@@ -226,6 +231,7 @@ namespace Mario
         }
 		public void TakeDamage()
 		{
+            MotionSound.TakeDamage.Play();
 			MarioPowerupState.TakeDamage();
         }
         public void Draw(SpriteBatch spriteBatch, Color c)
