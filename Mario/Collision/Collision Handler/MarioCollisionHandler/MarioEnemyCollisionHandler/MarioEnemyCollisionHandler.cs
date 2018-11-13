@@ -28,11 +28,13 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 case Direction.Up:
                     mario.Position -= Vector2.UnitY* intersection.Height;
                     mario.Physics.ReverseYVelocity();
-                    if (enemy.IsKoopa())
+                    //just to test score, the second condition can be removed after the mario stop standing on the shell
+                    if (enemy.IsKoopa()&& enemy.KoopaStompedCounted==false)
                     {
                         ScoringSystem.Instance.AddPointsForInitiatingShell(enemy);
+                        enemy.KoopaStompedCounted = true;
                     }
-                    else
+                    else if(enemy.IsGoomba())
                     {
                         ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
                     }
