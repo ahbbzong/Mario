@@ -3,7 +3,6 @@ using Mario.AbstractClass;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
-using Mario.GameObjects.Enemy.EnemyStates.KoopaStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -44,8 +43,8 @@ namespace Mario.EnemyStates.GoombaStates
         public override void Update()
         {
             EnemySprite.Update();
-                Enemy.gravityManagement.Update();
-            Enemy.Position -= StompedMovingUtil.Util;
+            Enemy.gravityManagement.Update();
+            Enemy.Position -= EnemyUtil.Util;
         }
 
     }

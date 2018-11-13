@@ -10,8 +10,10 @@ namespace Game1
     {
 
         public const float OnePointFive = 1.5f;
-        public const float Ten = 10;
-        public const float Zero = 0;
+        public const int Ten = 10;
+        public const int Zero = 0;
+        public const int Thousand = 1000;
+        public const int MaxTimer = 300;
 
 
 
