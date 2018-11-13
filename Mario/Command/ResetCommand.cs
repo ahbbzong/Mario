@@ -1,5 +1,4 @@
 ﻿using Game1;
-using Mario.HeadUpDesign;
 
 namespace Mario.BlocksCommand
 {
@@ -15,7 +14,6 @@ namespace Mario.BlocksCommand
         public void Execute()
         {
             game.Reset();
-            ScoringSystem.Instance.ResetScore();
             LifeCounter.Instance.ResetLife();
         }
 
