@@ -14,22 +14,7 @@ namespace Mario.HeadUpDesign
 {
     public class ScoringSystem
     {
-        private const int BreakingBlockScore = 50;
-        private const int ItemCollectedScore = 500;
-        private const int CoinCollectedScore = 100;
-        private const int SecondBonusScore = 10;
-        private const int EnemyBelowBlockHitScore = 100;
-        private const int SpecialGoombaHitScore = 100;
-        private const int SpecialKoopaHitScore = 200;
-        private const int OffTheFlagHighestScore = 5000;
-        private const int OffTheFlagSecondScore = 2000;
-        private const int OffTheFlagThirdScore = 800;
-        private const int OffTheFlagFourthScore = 400;
-        private const int OffTheFlagFifthScore = 100;
-        private const int FlagFirstCutoff = 1;
-        private const int FlagSecondCutoff = 3;
-        private const int FlagThridCutoff = 4;
-        private const int FlagFourthCutoff = 5;
+       
 
         private int score = 0;
         public int Score { get { return score; } }
@@ -60,20 +45,20 @@ namespace Mario.HeadUpDesign
 
         public void AddPointsForBreakingBlock()
         {
-            score += BreakingBlockScore;
+            score += ScoreUtil.BreakingBlockScore;
         }
         public void AddPointsForCollectingItem(IGameObject item)
         {
-            score += ItemCollectedScore;
-            CreateNewScoreAnimation(item, ItemCollectedScore);
+            score += ScoreUtil.ItemCollectedScore;
+            CreateNewScoreAnimation(item, ScoreUtil.ItemCollectedScore);
         }
         public void AddPointsForCoin()
         {
-            score += CoinCollectedScore;
+            score += ScoreUtil.CoinCollectedScore;
         }
         public void AddPointsForRestTime()
         {
-            score += SecondBonusScore;
+            score += ScoreUtil.SecondBonusScore;
             //wating for sounds here
            // SoundManager.Instance.PlayCoinSound();
         }
@@ -85,19 +70,19 @@ namespace Mario.HeadUpDesign
         }
         public void AddPointsForEnemyBelowBlockHit(IGameObject enemy)
         {
-            int scoreToAdd = EnemyBelowBlockHitScore;
+            int scoreToAdd = ScoreUtil.EnemyBelowBlockHitScore;
             score += scoreToAdd;
             CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForFireballGoombaHit(IGameObject goomba)
         {
-            int scoreToAdd = SpecialGoombaHitScore;
+            int scoreToAdd = ScoreUtil.SpecialGoombaHitScore;
             score += scoreToAdd;
             CreateNewScoreAnimation(goomba, scoreToAdd);
         }
         public void AddPointsForFireballKoopaHit(IGameObject koopa)
         {
-            int scoreToAdd = SpecialKoopaHitScore;
+            int scoreToAdd = ScoreUtil.SpecialKoopaHitScore;
             score += scoreToAdd;
             CreateNewScoreAnimation(koopa, scoreToAdd);
         }
@@ -115,22 +100,22 @@ namespace Mario.HeadUpDesign
         }
         public void AddPointsForFinalPole(Rectangle marioDestination)
         {
-            int scoreToAdd = OffTheFlagFifthScore;
+            int scoreToAdd = ScoreUtil.OffTheFlagFifthScore;
             if (marioDestination.Y < 100)//hard code in, need to fix the magic number here
             {
-                scoreToAdd = OffTheFlagHighestScore;
+                scoreToAdd = ScoreUtil.OffTheFlagHighestScore;
             }
             else if (marioDestination.Y <300)
             {
-                scoreToAdd = OffTheFlagSecondScore;
+                scoreToAdd = ScoreUtil.OffTheFlagSecondScore;
             }
             else if (marioDestination.Y < 500)
             {
-                scoreToAdd = OffTheFlagThirdScore;
+                scoreToAdd = ScoreUtil.OffTheFlagThirdScore;
             }
             else if (marioDestination.Y < 700)
             {
-                scoreToAdd = OffTheFlagFourthScore;
+                scoreToAdd = ScoreUtil.OffTheFlagFourthScore;
             }
             score += scoreToAdd;
             //pass in the rectangle for the score! add it later
