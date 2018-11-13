@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                 || enemyParam.EnemyState is RightStompedKoopaState && result==Direction.Left)
             {
                 enemy.Beflipped();
+                ScoringSystem.Instance.AddPointsForEnemyHitByShell(enemyParam);
             }
         }
         private void NonStompedKoopaReact(IEnemy enemyParam)

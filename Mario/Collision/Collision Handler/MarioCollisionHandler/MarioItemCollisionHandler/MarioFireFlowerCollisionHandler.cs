@@ -18,6 +18,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
         }
         public void HandleCollision(IMario mario, Direction result)
         {
+
             if ((mario.MarioPowerupState is NormalMarioPowerupState 
                 || mario.MarioPowerupState is SuperMarioPowerupState)
                 &&!mario.IsStarMario())

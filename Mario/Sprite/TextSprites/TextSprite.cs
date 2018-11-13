@@ -17,22 +17,30 @@ namespace Sprint1Game.Sprites
         public Texture2D Texture { get; set; } //= null;
         private SpriteFont font;
         private Vector2 size;
+        public Vector2 Location { get; set; }
+        public bool IsFlying { get; set; }
+
+        public Rectangle Box { get; set; }
+        public int InitialY { get; set; }
 
         public TextSprite(SpriteFont font)
         {
             this.font = font;
             this.size = new Vector2(SpriteUtil.Zero, SpriteUtil.Zero);
+            IsFlying = false;
         }
         
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(font, Text, location, Color.White);
+            spriteBatch.DrawString(font, Text, Location, Color.White);
         }
 
         public Rectangle MakeDestinationRectangle(Vector2 location)
         {
             size = font.MeasureString(Text);
-            return new Rectangle((int)location.X, (int)location.Y, (int)size.X, (int)size.Y);
+            InitialY = (int)location.Y;
+            Box = new Rectangle((int)location.X, (int)location.Y, (int)size.X, (int)size.Y);
+            return Box;
         }
 
         public void Update()

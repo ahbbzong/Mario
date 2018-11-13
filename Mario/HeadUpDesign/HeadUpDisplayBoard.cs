@@ -53,25 +53,32 @@ namespace Mario.HeadUpDesign
         public void Draw(SpriteBatch spriteBatch)
         {
             int marioTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5);
-            marioTitleTextSprite.Draw(spriteBatch, new Vector2(marioTitleTextX, distance));
+            marioTitleTextSprite.Location = new Vector2(marioTitleTextX, distance);
+            marioTitleTextSprite.Draw(spriteBatch);
 
             int scoreTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText*6;
-            scoreTextSprite.Draw(spriteBatch, new Vector2(scoreTextX, distanceOfSecRowText));
+            scoreTextSprite.Location = new Vector2(scoreTextX, distanceOfSecRowText);
+            scoreTextSprite.Draw(spriteBatch);
 
             int coinTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText*12;
-            coinTextSprite.Draw(spriteBatch, new Vector2(coinTextX, distanceOfSecRowText));
+            coinTextSprite.Location = new Vector2(coinTextX, distanceOfSecRowText);
+            coinTextSprite.Draw(spriteBatch);
 
             int worldTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText*18;
-            worldTitleTextSprite.Draw(spriteBatch, new Vector2(worldTitleTextX, distance));
+            worldTextSprite.Location = new Vector2(worldTitleTextX, distance);
+            worldTitleTextSprite.Draw(spriteBatch);
 
             int worldTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText * 24;
-            worldTextSprite.Draw(spriteBatch, new Vector2(worldTextX, distanceOfSecRowText));
+            worldTextSprite.Location = new Vector2(worldTextX, distanceOfSecRowText);
+            worldTextSprite.Draw(spriteBatch);
 
             int timeTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText * 30;
-            timeTitleTextSprite.Draw(spriteBatch, new Vector2(timeTitleTextX, distance));
+            timeTitleTextSprite.Location = new Vector2(timeTitleTextX, distance);
+            timeTitleTextSprite.Draw(spriteBatch);
 
             int timeTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText * 34;
-            timeTextSprite.Draw(spriteBatch, new Vector2(timeTextX, distanceOfSecRowText));
+            timeTextSprite.Location = new Vector2(timeTextX, distanceOfSecRowText);
+            timeTextSprite.Draw(spriteBatch);
         }
 
         public void Update()

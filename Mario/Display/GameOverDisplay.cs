@@ -32,7 +32,8 @@ namespace Mario.Display
             {
                
                 backgroundSprite.Draw(spriteBatch);
-                lifeTextSprite.Draw(spriteBatch, new Vector2(600, 500));
+            lifeTextSprite.Location = new Vector2(600, 500);
+                lifeTextSprite.Draw(spriteBatch);
                 
             
             }
