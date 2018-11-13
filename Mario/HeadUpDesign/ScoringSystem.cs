@@ -157,7 +157,7 @@ namespace Mario.HeadUpDesign
                 {
                     TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y - 1);
                 }
-                else if (difference > 10 || !TextBars.IsFlying)
+                else
                 {
                     DrawAndUpdateBars.Remove(TextBars);
                     DrawAndUpdateBars.Sort();
