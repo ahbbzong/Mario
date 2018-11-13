@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Utils\LevelLoaderUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
     <Compile Include="Utils\CameraUtil.cs" />
     <Compile Include="Collision\Collision Handler\BlockCollisionHandler\PipeHandler.cs" />

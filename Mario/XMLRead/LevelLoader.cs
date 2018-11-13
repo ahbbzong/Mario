@@ -60,7 +60,7 @@ namespace Mario.XMLRead
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(gameObjectType, LoadFunctionByType[gameObjectType]));
 			}
-			while(queuedChanges.Count > 0)
+			while(queuedChanges.Count > LevelLoaderUtil.zero)
 			{
 				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
 				GameObjectManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
@@ -87,26 +87,26 @@ namespace Mario.XMLRead
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
                     GameObjectManager.Instance.FloorBoxPosition.Add(floorLocationBox);
-                    int count = 0;
-                    int count2 = 0;
+                    int count = LevelLoaderUtil.zero;
+                    int count2 = LevelLoaderUtil.zero;
                     int startLocation = block.XLocation;
                     while (count < block.Height)
                     {
                         while (count2 < block.Length)
                         {
                             blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
-                            block.XLocation += 32;
+                            block.XLocation += LevelLoaderUtil.blockOffset;
                             count2++;
                         }
-                        block.YLocation = block.YLocation + 32;
+                        block.YLocation = block.YLocation + LevelLoaderUtil.blockOffset;
                         count++;
-                        count2 = 0;
+                        count2 = LevelLoaderUtil.zero;
                         block.XLocation = startLocation;
                     }
                 }
                 else
                 {
-                    if (block.Height > 0)
+                    if (block.Height > LevelLoaderUtil.zero)
                     {
                         int count = block.Length;
                         int differentBetween = block.Length - block.Height;
@@ -114,13 +114,13 @@ namespace Mario.XMLRead
                         while (count > differentBetween)
                         {
                             int startX = block.XLocation;
-                            for (int i = 0; i < count; i++)
+                            for (int i = LevelLoaderUtil.zero; i < count; i++)
                             {
                                 blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
-                                block.XLocation = block.XLocation + 32;
+                                block.XLocation = block.XLocation + LevelLoaderUtil.blockOffset;
                             }
-                            block.YLocation = block.YLocation - 32;
-                            block.XLocation = startX + 32;
+                            block.YLocation = block.YLocation - LevelLoaderUtil.blockOffset;
+                            block.XLocation = startX + LevelLoaderUtil.blockOffset;
                             count--;
                         }
                     }
@@ -132,12 +132,12 @@ namespace Mario.XMLRead
                         while (count > differentBetween)
                         {
                             int startX = block.XLocation;
-                            for (int i = 0; i < count; i++)
+                            for (int i = LevelLoaderUtil.zero; i < count; i++)
                             {
                                 blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
-                                block.XLocation = block.XLocation + 32;
+                                block.XLocation = block.XLocation + LevelLoaderUtil.blockOffset;
                             }
-                            block.YLocation = block.YLocation - 32;
+                            block.YLocation = block.YLocation - LevelLoaderUtil.blockOffset;
                             block.XLocation = startX;
                             count--;
                         }
