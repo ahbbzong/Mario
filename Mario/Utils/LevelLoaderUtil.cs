@@ -16,6 +16,5 @@ namespace Mario.BlockStates
     {
         public const int zero = 16;
         public const int blockOffset = 32;
-        public const int 
     }
 }
