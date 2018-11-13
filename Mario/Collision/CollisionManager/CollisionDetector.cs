@@ -21,6 +21,7 @@ using Mario.EnemyStates.GoombaStates;
 using Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler;
 using Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler;
 using Mario.ItemClasses;
+using Mario.HeadUpDesign;
 
 namespace Mario.Collision.CollisionManager
 {
@@ -120,6 +121,7 @@ namespace Mario.Collision.CollisionManager
 					{
 						enemyHandler.HandleCollision(enemy);
 						projectileCollisionHandler.HandleCollision(projectile);
+
 					}
 				}
 			}
@@ -179,6 +181,7 @@ namespace Mario.Collision.CollisionManager
 						enemyHandler.HandleCollision(enemy);
 						marioHandler = new MarioEnemyCollisionHandler(enemy, intersection);
 						marioHandler.HandleCollision(Mario, collisionFound);
+                        
 					}
 					foreach (IBlock block in GameObjectListsByType[typeof(IBlock)])
 					{
@@ -270,7 +273,15 @@ namespace Mario.Collision.CollisionManager
 			{
 				marioHandler.HandleCollision(Mario, collisionFound);
 			}
-
+            if (item is Coin)
+            {
+                CoinSystem.Instance.AddCoin();
+            }
+            else
+            {
+                ScoringSystem.Instance.AddPointsForCollectingItem(item);
+            }
+     
 		}
 		public void CallMarioBlockHandler(IBlock block, Direction collisionFound, Rectangle intersection)
 		{

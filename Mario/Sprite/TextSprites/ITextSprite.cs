@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.Sprite
 {
-    interface ITextSprite
+    interface ITextSprite : IGameObject
     {
         string Text { get; set; }
-
-        void Draw(SpriteBatch spriteBatch, Vector2 vector2);
+        Vector2 Location { get; set; }
+        bool IsFlying { get; set; }
+        int InitialY { get; set; }
     }
 }

@@ -15,6 +15,7 @@ using Mario.EnemyStates.GoombaStates;
 using Mario.HeadUpDesign;
 using Mario.XMLRead;
 using Mario.Display;
+using Mario.Sprite;
 
 namespace Mario
 {
@@ -32,6 +33,7 @@ namespace Mario
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
+        private ScoringSystem scoringSystem = new ScoringSystem();
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
 
@@ -122,6 +124,7 @@ namespace Mario
                 gameOverDisplay.Update();
             }
             headUpDisplayBoard.Update();
+            scoringSystem.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -142,7 +145,7 @@ namespace Mario
                 gameOverDisplay.Draw(spriteBatch);
             }
             headUpDisplayBoard.Draw(spriteBatch);
-
+            scoringSystem.Draw(spriteBatch);
         }
         
 

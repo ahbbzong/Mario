@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,14 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                 case Direction.Up:
                     mario.Position -= Vector2.UnitY* intersection.Height;
                     mario.Physics.ReverseYVelocity();
+                    if (enemy.IsKoopa())
+                    {
+                        ScoringSystem.Instance.AddPointsForInitiatingShell(enemy);
+                    }
+                    else
+                    {
+                        ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
+                    }
                     break;
                 case Direction.Down:
                     mario.Position += Vector2.UnitY * intersection.Height;

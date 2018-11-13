@@ -1,6 +1,9 @@
 ﻿using Game1;
+using Mario.Factory;
 using Mario.Interfaces.GameObjects;
+using Mario.Sprite;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,12 +36,13 @@ namespace Mario.HeadUpDesign
         //fixing the combo parts
         //private ScoringComboManager comboManager;
         private List<IGameObject> FlagParts;
-
+        private List<ITextSprite> DrawAndUpdateBars;
         private static ScoringSystem instance = new ScoringSystem();
         public static ScoringSystem Instance { get { return instance; } }
-        private ScoringSystem()
+        public ScoringSystem()
         {
-            this.FlagParts = new List<IGameObject>();
+            FlagParts = new List<IGameObject>();
+            DrawAndUpdateBars = new List<ITextSprite>();
         }
         public void RegisterMario(IMario mario)
         {
@@ -85,13 +89,13 @@ namespace Mario.HeadUpDesign
             score += scoreToAdd;
             CreateNewScoreAnimation(enemy, scoreToAdd);
         }
-        public void AddPointsForSpecialGoombaHit(IGameObject goomba)
+        public void AddPointsForFireballGoombaHit(IGameObject goomba)
         {
             int scoreToAdd = SpecialGoombaHitScore;
             score += scoreToAdd;
             CreateNewScoreAnimation(goomba, scoreToAdd);
         }
-        public void AddPointsForSpecialKoopaHit(IGameObject koopa)
+        public void AddPointsForFireballKoopaHit(IGameObject koopa)
         {
             int scoreToAdd = SpecialKoopaHitScore;
             score += scoreToAdd;
@@ -143,17 +147,44 @@ namespace Mario.HeadUpDesign
            // comboManager.HitEnemyAlreadyThisIteration = false;
         }
 
-        private static void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
+        private void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
         {
             Rectangle objectBox = gameObject.Box;
             Vector2 location = new Vector2(objectBox.X, objectBox.Y);
             //create the score board, fly up a little, disappear
-            
+            ITextSprite scoreTextSprite;
+            scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+            scoreTextSprite.Text = ""+scoreToDisplay;
+            scoreTextSprite.IsFlying = true;
+            DrawAndUpdateBars.Add(scoreTextSprite);
         }
-        private static void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
+        private void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
         {
             //create the score board, fly up, disappear
             
+        }
+        public void Update()
+        {
+            foreach (ITextSprite TextBars in DrawAndUpdateBars)
+            {
+                int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
+                if (TextBars.IsFlying && difference < 10)
+                {
+                    TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y - 1);
+                }
+                else if (difference > 10 || !TextBars.IsFlying)
+                {
+                    DrawAndUpdateBars.Remove(TextBars);
+                    DrawAndUpdateBars.Sort();
+                }
+            }
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (ITextSprite TextBars in DrawAndUpdateBars)
+            {
+                TextBars.Draw(spriteBatch);
+            }
         }
     }
 }

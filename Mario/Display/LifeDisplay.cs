@@ -39,7 +39,8 @@ namespace Mario.Display
             if (counter < 100)
             {
                 backgroundSprite.Draw(spriteBatch);
-                lifeTextSprite.Draw(spriteBatch, new Vector2(550, 500));
+                lifeTextSprite.Location = new Vector2(550, 500);
+                lifeTextSprite.Draw(spriteBatch);
                 marioSprite.Draw(spriteBatch, new Microsoft.Xna.Framework.Vector2(500, 500));
             }
            

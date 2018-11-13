@@ -3,6 +3,7 @@ using Mario.BlocksClasses;
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.GameObjects.Decorators;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (block is BumpedBlockDecorator)
             {
                 enemy.Beflipped();
+                ScoringSystem.Instance.AddPointsForEnemyBelowBlockHit(enemy);
             }
         }
         public void IsOnLand(IEnemy enemy)
@@ -57,6 +59,7 @@ namespace Mario.Collision.EnemyCollisionHandler
                 case Direction.Up:
                     enemy.Position -= Vector2.UnitY * intersection.Height;
                     EnemyBumpedBlockReact(enemy);
+                    
                     break;
                 case Direction.Down:
                     enemy.Position += Vector2.UnitY * intersection.Height;

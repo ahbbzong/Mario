@@ -86,6 +86,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HeadUpDesign\CoinSystem.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
+    <Compile Include="HeadUpDesign\MultiplerForScore.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="Sound\MotionSound.cs" />
     <Compile Include="LifeCounter.cs" />
