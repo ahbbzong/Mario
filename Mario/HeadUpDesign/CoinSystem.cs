@@ -11,9 +11,9 @@ namespace Mario.HeadUpDesign
     {
         private static CoinSystem instance = new CoinSystem();
         public static CoinSystem Instance { get { return instance; } }
-        private int coins = 0;
+        private int coins = ScoreUtil.ZeroCoin;
         public int Coins { get { return coins; } }
-        private const int maxCoin = 99;
+        private const int maxCoin = ScoreUtil.MaxCoin;
         public void AddCoin()
         {
             if (coins < maxCoin)
@@ -22,7 +22,7 @@ namespace Mario.HeadUpDesign
             }
             else if (coins == maxCoin)
             {
-                coins = 0;
+                coins = ScoreUtil.ZeroCoin;
                 GameObjectManager.Instance.Mario.Lives++;
                // SoundManager.Instance.Play1UpSound();
             }
@@ -32,7 +32,7 @@ namespace Mario.HeadUpDesign
 
         public void ResetCoin()
         {
-            coins = 0;
+            coins = ScoreUtil.ZeroCoin;
         }
     }
 }

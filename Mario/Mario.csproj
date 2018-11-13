@@ -42,10 +42,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CameraClasses\CameraUtil.cs" />
+    <Compile Include="Utils\LevelLoaderUtil.cs" />
+    <Compile Include="Utils\ScoreUtil.cs" />
+    <Compile Include="Utils\CameraUtil.cs" />
     <Compile Include="Collision\Collision Handler\BlockCollisionHandler\PipeHandler.cs" />
     <Compile Include="Collision\CollisionManager\CollisionDetector.cs" />
-    <Compile Include="Collision\CollisionUtil.cs" />
+    <Compile Include="Utils\CollisionUtil.cs" />
     <Compile Include="Command\MarioCommand\NoInputCommand.cs" />
     <Compile Include="Command\PauseCommand.cs" />
     <Compile Include="Command\ResetCommand.cs" />
@@ -60,7 +62,7 @@
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />
-    <Compile Include="GameObjects\Block\BlockStates\BlockUtil.cs" />
+    <Compile Include="Utils\BlockUtil.cs" />
     <Compile Include="GameObjects\Block\IPipe.cs" />
     <Compile Include="GameObjects\Decorators\BlockDecorator.cs" />
     <Compile Include="GameObjects\Decorators\BumpedBlockDecorator.cs" />
@@ -68,11 +70,11 @@
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\TransitionStateMarioDecorator.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyUtil.cs" />
+    <Compile Include="Utils\EnemyUtil.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\FlippedGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\LeftMovingGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedMovingUtil.cs" />
+    <Compile Include="Utils\StompedMovingUtil.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightStompedKoopaState.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\BrickParticleRight.cs" />
@@ -82,7 +84,7 @@
     <Compile Include="GameObjects\Projectile\Projectile.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="GameObjects\Block\Block.cs" />
-    <Compile Include="GameObjects\Projectile\ProjectileUtil.cs" />
+    <Compile Include="Utils\ProjectileUtil.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HeadUpDesign\CoinSystem.cs" />
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
@@ -90,13 +92,13 @@
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="Sound\MotionSound.cs" />
     <Compile Include="LifeCounter.cs" />
-    <Compile Include="Sprite\SpriteUtil.cs" />
-    <Compile Include="GameUtil.cs" />
+    <Compile Include="Utils\SpriteUtil.cs" />
+    <Compile Include="Utils\GameUtil.cs" />
     <Compile Include="Timer.cs" />
-    <Compile Include="TimerUtil.cs" />
+    <Compile Include="Utils\TimerUtil.cs" />
     <Compile Include="Physics\Physics.cs" />
     <Compile Include="Physics\GravityManagement.cs" />
-    <Compile Include="Physics\PhysicsUtil.cs" />
+    <Compile Include="Utils\PhysicsUtil.cs" />
     <Compile Include="Sprite\SpriteAbstractClasses\EmptySprite.cs" />
     <Compile Include="GameObjects\Projectile\ProjectileStates\ProjectileState.cs" />
     <Compile Include="GameObjects\Block\BlockStates\BlockState.cs" />
