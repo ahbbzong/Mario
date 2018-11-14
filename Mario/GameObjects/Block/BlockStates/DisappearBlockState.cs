@@ -3,6 +3,7 @@ using Mario.BlocksClasses;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,6 +14,7 @@ namespace Mario.BlockStates
         public DisappearBlockState(IBlock block) : base(block)
         {
             BlockSprite = SpriteFactory.Instance.CreateEmptySprite(BlockUtil.emptySprite, BlockUtil.emptySprite);
+            MotionSound.BreakBlock.Play();
         }
 
 

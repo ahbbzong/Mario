@@ -26,5 +26,23 @@ namespace Mario.GameObjects.Decorators
 		{
 			GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = this.DecoratedMario;
 		}
+
+		public override void NoInput()
+		{
+
+		}
+		public override void GoLeft()
+		{
+			
+		}
+		public override void GoRight()
+		{
+			
+		}
+
+		public override void GoUp()
+		{
+			
+		}
 	}
 }

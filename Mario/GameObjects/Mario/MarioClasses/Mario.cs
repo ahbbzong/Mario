@@ -9,6 +9,7 @@ using System.Diagnostics;
 using Mario.GameObjects.Decorators;
 using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
+using Mario.GameObjects.Decorators.Special_Event_Behaviors;
 
 namespace Mario
 {
@@ -85,6 +86,7 @@ namespace Mario
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
 		private float scoreMultiplier = 1;
+		private bool hasCompletedLevel = false;
 		public float ScoreMultiplier { set => scoreMultiplier = value; }
 
 		public Mario(Vector2 location)
@@ -180,6 +182,11 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
+			if((this.location.X > GameObjectManager.Instance.EndOfLevelX -10 && this.location.X < GameObjectManager.Instance.EndOfLevelX + 10) && !hasCompletedLevel)
+			{
+				hasCompletedLevel = true;
+				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+			}
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -213,6 +220,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
+
             }
         }
 

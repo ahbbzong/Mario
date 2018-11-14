@@ -30,8 +30,10 @@ namespace Mario.GameObjects.Decorators
             {
 
                 GameObjectManager.Instance.Mario = DecoratedMario;
+                MediaPlayer.Play(MotionSound.MarioBGM);
+
             }
-			base.Update();
+            base.Update();
         }
 
 		public override bool IsStarMario()

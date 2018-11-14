@@ -204,6 +204,9 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
+				if (back.BackgroundType.Equals("Flag")){
+					GameObjectManager.Instance.EndOfLevelX = back.XLocation;
+				}
 				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation, back.YLocation)));
             }
 			return backgroundList;
