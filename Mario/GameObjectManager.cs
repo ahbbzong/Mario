@@ -39,6 +39,8 @@ namespace Mario
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
 
+		public float EndOfLevelX;
+
         private GameObjectManager()
         {
             GameObjectListsByType = new Dictionary<Type, IList<IGameObject>>

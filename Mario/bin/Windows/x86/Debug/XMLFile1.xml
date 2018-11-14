@@ -761,7 +761,18 @@
     <XLocation>6464</XLocation>
     <YLocation>818</YLocation>
   </BlockXML>
-  
+
+  <BackgroundXML>
+    <BackgroundType>Flag</BackgroundType>
+    <XLocation>7000</XLocation>
+    <YLocation>700</YLocation>
+  </BackgroundXML>
+
+  <BackgroundXML>
+    <BackgroundType>Castle</BackgroundType>
+    <XLocation>7200</XLocation>
+    <YLocation>700</YLocation>
+  </BackgroundXML>
   
 
 
