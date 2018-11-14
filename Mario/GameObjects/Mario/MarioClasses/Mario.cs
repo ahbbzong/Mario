@@ -9,6 +9,7 @@ using System.Diagnostics;
 using Mario.GameObjects.Decorators;
 using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
+using Mario.GameObjects.Decorators.Special_Event_Behaviors;
 
 namespace Mario
 {
@@ -180,6 +181,11 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
+			if(this.location.X > GameObjectManager.Instance.EndOfLevelX)
+			{
+
+				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 700), 3.0f);
+			}
         }
         public void Draw(SpriteBatch spriteBatch)
         {

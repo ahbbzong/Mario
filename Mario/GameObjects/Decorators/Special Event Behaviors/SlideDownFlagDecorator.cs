@@ -22,9 +22,13 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 
 		public override void Update()
 		{
-			while(Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > 1)
+			if(Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > 1)
 			{
 				DecoratedMario.Position += Vector2.UnitY * 10;
+			}
+			else
+			{
+				RemoveSelf();
 			}
 		}
 
