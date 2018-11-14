@@ -16,6 +16,7 @@ namespace Mario.AbstractClass
     {
         private Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
+        public bool KoopaStompedCounted { get; set; }
         public Rectangle Box
         {
             get
@@ -37,6 +38,7 @@ namespace Mario.AbstractClass
         {
             EnemyLocation = location;
 			Island = false;
+            KoopaStompedCounted = false;
             gravityManagement = new GravityManagement(this);
         }
 
@@ -120,7 +122,6 @@ namespace Mario.AbstractClass
         {
             return EnemyState.IsKoopaStomped();
         }
-
         public virtual void SetContainsItem(String item)
         {
             //Override

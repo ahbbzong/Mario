@@ -8,6 +8,7 @@ namespace Game1
 {
     public interface IEnemy: IGameObject, IPhysicsBody
     {
+        bool KoopaStompedCounted { get; set; }
         void Beflipped();
         void BeStomped();
 
@@ -20,7 +21,7 @@ namespace Game1
         bool IsKoopa();
         bool IsLeftStomped();
         bool IsRightStomped();
-		
+        
 
         GravityManagement gravityManagement { get; set; }
         IEnemyState EnemyState { get; set; }

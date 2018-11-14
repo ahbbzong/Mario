@@ -76,7 +76,6 @@
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\FlippedGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\GoombaStates\LeftMovingGoombaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\StompedKoopaState.cs" />
-    <Compile Include="Utils\StompedMovingUtil.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\LeftStompedKoopaState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\KoopaStates\RightStompedKoopaState.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\BrickParticleRight.cs" />
