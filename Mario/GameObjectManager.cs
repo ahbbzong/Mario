@@ -35,11 +35,12 @@ namespace Mario
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
-        private ScoringSystem scoringSystem; 
+        //private ScoringSystem scoringSystem; 
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
+        public List<ITextSprite> DrawAndUpdateBars { get; set; }
 
-		public float EndOfLevelX;
+        public float EndOfLevelX;
 
         private GameObjectManager()
         {
@@ -59,6 +60,8 @@ namespace Mario
 				new Keyboards()
 			};
             FloorBoxPosition = new List<Rectangle>();
+
+            DrawAndUpdateBars = new List<ITextSprite>();
         }
 
         public void SetInitialValuesCamera()
@@ -86,7 +89,7 @@ namespace Mario
             gameOverDisplay = new GameOverDisplay();
             lifeDisplay = new LifeDisplay();
             headUpDisplayBoard = new HeadsUpDisplayBoard();
-            scoringSystem = new ScoringSystem();
+            //scoringSystem = new ScoringSystem();
         }
    
       
@@ -128,7 +131,7 @@ namespace Mario
                 gameOverDisplay.Update();
             }
             headUpDisplayBoard.Update();
-            scoringSystem.Update();
+            ScoreBarFlyingOut.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -149,7 +152,7 @@ namespace Mario
                 gameOverDisplay.Draw(spriteBatch);
             }
             headUpDisplayBoard.Draw(spriteBatch);
-            scoringSystem.Draw(spriteBatch);
+            ScoreBarFlyingOut.Draw(spriteBatch);
         }
         
 

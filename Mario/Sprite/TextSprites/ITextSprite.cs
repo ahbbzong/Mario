@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.Sprite
 {
-    interface ITextSprite : IGameObject
+    public interface ITextSprite : IGameObject
     {
         string Text { get; set; }
         Vector2 Location { get; set; }

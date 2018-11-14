@@ -26,7 +26,11 @@ namespace Mario.HeadUpDesign
         public const int FlagFourthCutoff = 5;
         public const int MaxCoin = 99;
         public const int ZeroCoin = 0;
-
-
+        public const int ZeroScore = 0;
+        public const int FlyingBar = 32;
+        public const int FlagFirst = 100;
+        public const int FlagSecond = 300;
+        public const int FlagThird = 500;
+        public const int FlagForth = 700;
     }
 }

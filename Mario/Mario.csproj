@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HeadUpDesign\ScoreBarFlyingOut.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
     <Compile Include="Utils\CameraUtil.cs" />
@@ -58,7 +59,6 @@
     <Compile Include="Enums\MarioTypes.cs" />
     <Compile Include="Factory\SimpleFactories\TextSpriteFactory.cs" />
     <Compile Include="Factory\StaticFactories\StaticGameObjectFactory.cs" />
-    <Compile Include="Factory\TextFactory.cs" />
     <Compile Include="GameObjects\Background\Backgroud.cs" />
     <Compile Include="GameObjects\Background\BackgroundObject.cs" />
     <Compile Include="GameObjects\Block\BlocksClasses\BlockWithContainer.cs" />

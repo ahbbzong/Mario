@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.HeadUpDesign;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,7 +20,7 @@ namespace Mario.GameObjects.Decorators
 
         public override void TakeDamage()
 		{
-			//NO -OP
+            //NO -OP
 		}
 
 		public override void Update()

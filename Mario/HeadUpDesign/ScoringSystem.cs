@@ -14,21 +14,20 @@ namespace Mario.HeadUpDesign
 {
     public class ScoringSystem
     {
-       
-
         private int score = 0;
         public int Score { get { return score; } }
         //fixing the combo parts
         private MultiplerForScore multilperForScore;
         private List<IGameObject> FlagParts;
-        private List<ITextSprite> DrawAndUpdateBars;
+        //private ITextSprite textSpriteDrawUpdate;
         private static ScoringSystem instance = new ScoringSystem();
         public static ScoringSystem Instance { get { return instance; } }
-        public ScoringSystem()
+        private ScoringSystem()
         {
+            Console.WriteLine("constr");
             FlagParts = new List<IGameObject>();
-            DrawAndUpdateBars = new List<ITextSprite>();
            multilperForScore = new MultiplerForScore(GameObjectManager.Instance.Mario);
+           // textSpriteDrawUpdate = //TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
         }
         public IGameObject RegisterPole(IGameObject pole)
         {
@@ -37,7 +36,7 @@ namespace Mario.HeadUpDesign
         }
         public void ResetScore()
         {
-            score = 0;
+            score = ScoreUtil.ZeroScore;
         }
 
         public void AddPointsForBreakingBlock()
@@ -47,7 +46,7 @@ namespace Mario.HeadUpDesign
         public void AddPointsForCollectingItem(IGameObject item)
         {
             score += ScoreUtil.ItemCollectedScore;
-            CreateNewScoreAnimation(item, ScoreUtil.ItemCollectedScore);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(item, ScoreUtil.ItemCollectedScore);
         }
         public void AddPointsForCoin()
         {
@@ -56,67 +55,64 @@ namespace Mario.HeadUpDesign
         public void AddPointsForRestTime()
         {
             score += ScoreUtil.SecondBonusScore;
-            //wating for sounds here
         }
         public void AddPointsForStompingEnemy(IGameObject enemy)
         {
             int scoreToAdd = 500;
             score += scoreToAdd;
-            CreateNewScoreAnimation(enemy, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForEnemyBelowBlockHit(IGameObject enemy)
         {
             int scoreToAdd = ScoreUtil.EnemyBelowBlockHitScore;
             score += scoreToAdd;
-            CreateNewScoreAnimation(enemy, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForFireballGoombaHit(IGameObject goomba)
         {
             int scoreToAdd = ScoreUtil.SpecialGoombaHitScore;
             score += scoreToAdd;
-            CreateNewScoreAnimation(goomba, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(goomba, scoreToAdd);
         }
         public void AddPointsForFireballKoopaHit(IGameObject koopa)
         {
             int scoreToAdd = ScoreUtil.SpecialKoopaHitScore;
             score += scoreToAdd;
-            CreateNewScoreAnimation(koopa, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(koopa, scoreToAdd);
         }
         public void AddPointsForInitiatingShell(IGameObject enemy)
         {
             int scoreToAdd = multilperForScore.DetermineShellInitializationSequence(enemy);
             score += scoreToAdd;
-            CreateNewScoreAnimation(enemy, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForEnemyHitByShell(IGameObject enemy)
         {
             int scoreToAdd = multilperForScore.DetermineShellHitSequence(enemy);
             score += scoreToAdd;
-            CreateNewScoreAnimation(enemy, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForFinalPole(Rectangle marioDestination)
         {
             int scoreToAdd = ScoreUtil.OffTheFlagFifthScore;
-            if (marioDestination.Y < 100)//hard code in, need to fix the magic number here
+            if (marioDestination.Y < ScoreUtil.FlagFirst)//hard code in, need to fix the magic number here
             {
                 scoreToAdd = ScoreUtil.OffTheFlagHighestScore;
             }
-            else if (marioDestination.Y <300)
+            else if (marioDestination.Y <ScoreUtil.FlagSecond)
             {
                 scoreToAdd = ScoreUtil.OffTheFlagSecondScore;
             }
-            else if (marioDestination.Y < 500)
+            else if (marioDestination.Y < ScoreUtil.FlagThird)
             {
                 scoreToAdd = ScoreUtil.OffTheFlagThirdScore;
             }
-            else if (marioDestination.Y < 700)
+            else if (marioDestination.Y < ScoreUtil.FlagForth)
             {
                 scoreToAdd = ScoreUtil.OffTheFlagFourthScore;
             }
             score += scoreToAdd;
-            //pass in the rectangle for the score! add it later
-            //second params
-            CreateNewScoreAnimation(marioDestination, GameObjectManager.Instance.Mario.Box, scoreToAdd);
+            ScoreBarFlyingOut.CreateNewScoreAnimation(GameObjectManager.Instance.Mario,scoreToAdd);
         }
 
         public void SetMarioAirbourneToFalse()
@@ -126,47 +122,6 @@ namespace Mario.HeadUpDesign
         public void SetMarioEnemyHitThisIterationToFalse()
         {
            multilperForScore.HitEnemyAlreadyThisIteration = false;
-        }
-
-        private void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
-        {
-            Rectangle objectBox = gameObject.Box;
-            Vector2 location = new Vector2(objectBox.X, objectBox.Y);
-            //create the score board, fly up a little, disappear
-            ITextSprite scoreTextSprite;
-            scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            scoreTextSprite.Text = ""+scoreToDisplay;
-            scoreTextSprite.IsFlying = true;
-            DrawAndUpdateBars.Add(scoreTextSprite);
-            System.Console.WriteLine("create the bar");
-        }
-        private void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
-        {
-            //create the score board, fly up, disappear
-            
-        }
-        public void Update()
-        {
-            foreach (ITextSprite TextBars in DrawAndUpdateBars)
-            {
-                int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
-                if (TextBars.IsFlying && difference < 10)
-                {
-                    TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y - 1);
-                }
-                //else
-                //{
-                  //  DrawAndUpdateBars.Remove(TextBars);
-                    //DrawAndUpdateBars.Sort();
-                //}
-            }
-        }
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (ITextSprite TextBars in DrawAndUpdateBars)
-            {
-                TextBars.Draw(spriteBatch);
-            }
         }
     }
 }
