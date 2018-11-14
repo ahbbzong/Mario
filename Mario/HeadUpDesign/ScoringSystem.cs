@@ -19,7 +19,7 @@ namespace Mario.HeadUpDesign
         private int score = 0;
         public int Score { get { return score; } }
         //fixing the combo parts
-        //private ScoringComboManager comboManager;
+        private MultiplerForScore multilperForScore;
         private List<IGameObject> FlagParts;
         private List<ITextSprite> DrawAndUpdateBars;
         private static ScoringSystem instance = new ScoringSystem();
@@ -28,10 +28,7 @@ namespace Mario.HeadUpDesign
         {
             FlagParts = new List<IGameObject>();
             DrawAndUpdateBars = new List<ITextSprite>();
-        }
-        public void RegisterMario(IMario mario)
-        {
-           // this.comboManager = new ScoringComboManager(mario);
+           multilperForScore = new MultiplerForScore(GameObjectManager.Instance.Mario);
         }
         public IGameObject RegisterPole(IGameObject pole)
         {
@@ -60,7 +57,6 @@ namespace Mario.HeadUpDesign
         {
             score += ScoreUtil.SecondBonusScore;
             //wating for sounds here
-           // SoundManager.Instance.PlayCoinSound();
         }
         public void AddPointsForStompingEnemy(IGameObject enemy)
         {
@@ -88,13 +84,13 @@ namespace Mario.HeadUpDesign
         }
         public void AddPointsForInitiatingShell(IGameObject enemy)
         {
-            int scoreToAdd = 500;
+            int scoreToAdd = multilperForScore.DetermineShellInitializationSequence(enemy);
             score += scoreToAdd;
             CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForEnemyHitByShell(IGameObject enemy)
         {
-            int scoreToAdd = 500;
+            int scoreToAdd = multilperForScore.DetermineShellHitSequence(enemy);
             score += scoreToAdd;
             CreateNewScoreAnimation(enemy, scoreToAdd);
         }
@@ -125,11 +121,11 @@ namespace Mario.HeadUpDesign
 
         public void SetMarioAirbourneToFalse()
         {
-           // comboManager.IsMarioAirbourne = false;
+            multilperForScore.IsMarioAirbourne = false;
         }
         public void SetMarioEnemyHitThisIterationToFalse()
         {
-           // comboManager.HitEnemyAlreadyThisIteration = false;
+           multilperForScore.HitEnemyAlreadyThisIteration = false;
         }
 
         private void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
