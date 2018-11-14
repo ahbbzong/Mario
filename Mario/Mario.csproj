@@ -248,8 +248,6 @@
     <Content Include="bin\Windows\x86\Debug\BlackScreen.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="BurndownChart\Burndown.png" />
-    <Content Include="BurndownChart\BurndownChart.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_ChulongLi.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_JiWoongKim.txt" />
     <Content Include="CodeReview\Sprint2\CodeQualityReviewSp2_WenChe.txt" />
@@ -275,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Windows\x86\Release\" />
+    <Folder Include="BurndownChart\" />
     <Folder Include="CodeReview\Sprint5\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

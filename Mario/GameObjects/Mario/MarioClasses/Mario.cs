@@ -99,7 +99,6 @@ namespace Mario
             Island = true;
             isCrouch = false;
             Physics = new PhysicsMario(this);
-            MediaPlayer.Play(MotionSound.MarioBGM);
 
         }
         public void GoUp()
@@ -220,7 +219,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
-
+                MotionSound.MarioFireball.Play();
             }
         }
 

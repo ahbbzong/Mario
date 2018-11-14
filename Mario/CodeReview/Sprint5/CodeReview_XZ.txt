@@ -19,3 +19,11 @@ the name that make the readibality be better.
 
 This is the refractory part for the mario game. we want to create a new version of Collision, so that is why we missed 
 something on the sprint. We are still working on that and we will make up what we left on refractory.
+
+--------------------------------------------------------
+Quality Code Review
+Author: Xiaochen Zong
+Code to be reviewed: Jacob Grove
+Date: Nov 14, 2018
+Sprint 5
+File: 

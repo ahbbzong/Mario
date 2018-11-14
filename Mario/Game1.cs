@@ -1,8 +1,10 @@
 ﻿using Game1;
+using Mario.HeadUpDesign;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 
 [assembly: System.CLSCompliant(true)]
@@ -45,6 +47,7 @@ namespace Mario
             graphics.PreferredBackBufferHeight = 900;
             graphics.ApplyChanges();
             GameObjectManager.Instance.SetInitialValuesCamera();
+
         }
 
         /// <summary>
@@ -55,10 +58,11 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			GameObjectManager.Instance.LoadContent();
             MotionSound.loadcontent(Content);
-
+            GameObjectManager.Instance.LoadContent();
             Timer.StartTimer();
+            MediaPlayer.Play(MotionSound.MarioBGM);
+
         }
 
         /// <summary>
@@ -109,6 +113,9 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             Timer.ResetTimer();
             LoadContent();
+            LifeCounter.Instance.ResetLife();
+            ScoringSystem.Instance.ResetScore();
+            CoinSystem.Instance.ResetCoin();
         }
         private void ChangeColor()
         {
