@@ -95,17 +95,17 @@ namespace Mario.GameObjects.Decorators
 		}
         
 
-		public void GoLeft()
+		public virtual void GoLeft()
 		{
 			DecoratedMario.GoLeft();
 		}
 
-		public void NoInput()
+		public virtual void NoInput()
 		{
 			DecoratedMario.NoInput();
 		}
 
-		public void GoRight()
+		public virtual void GoRight()
 		{
 			DecoratedMario.GoRight();
 		}
@@ -115,7 +115,7 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.ThrowProjectile();
 		}
 
-		public void GoUp()
+		public virtual void GoUp()
 		{
 			DecoratedMario.GoUp();
 		}

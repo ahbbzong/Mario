@@ -24,6 +24,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 
 		public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase, float timeToFall):base(mario)
 		{
+
 			this.locationOfBase = locationOfBase;
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
@@ -44,13 +45,14 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					}
 					break;
 				case SlidingStates.WALKING_RIGHT:
-					if(timeToFall < 0)
+					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelX + 400) 
 					{
 						slidingState = SlidingStates.EXIT;
 					}
 					else
 					{
 						this.DecoratedMario.GoRight();
+						this.DecoratedMario.Position += Vector2.UnitX * 2;
 						timeToFall--;
 					}
 
@@ -69,6 +71,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		}
 		public override void RemoveSelf()
 		{
+
 			base.RemoveSelf();
 		}
 		

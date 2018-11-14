@@ -35,7 +35,7 @@ namespace Mario
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
-        private ScoringSystem scoringSystem = new ScoringSystem();
+        private ScoringSystem scoringSystem; 
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
 
@@ -86,7 +86,7 @@ namespace Mario
             gameOverDisplay = new GameOverDisplay();
             lifeDisplay = new LifeDisplay();
             headUpDisplayBoard = new HeadsUpDisplayBoard();
-
+            scoringSystem = new ScoringSystem();
         }
    
       
