@@ -30,6 +30,12 @@ namespace Mario.Sound
         private static SoundEffect gameOver;
         private static SoundEffect timeRunningOut;
 
+        public static void StopSong(){
+
+
+            MediaPlayer.Stop();
+        }
+
         public static void loadcontent(ContentManager content)
         {
             breakBlock = content.Load<SoundEffect>("breakBlock");
