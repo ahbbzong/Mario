@@ -7,6 +7,7 @@ using Mario.GameObjects.Decorators;
 using Mario.HeadUpDesign;
 using Mario.ItemClasses;
 using Mario.MarioStates.MarioPowerupStates;
+using Mario.Sound;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,6 +24,8 @@ namespace Mario.BlockStates
         public override void React()
         {
             Block.Position -= Vector2.UnitY * BlockUtil.BlockOffset;
+            MotionSound.Bump.Play();
+
             int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(Block);
             GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = new BumpedBlockDecorator(Block);
 
