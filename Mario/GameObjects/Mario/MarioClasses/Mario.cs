@@ -86,6 +86,7 @@ namespace Mario
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
 		private float scoreMultiplier = 1;
+		private bool hasCompletedLevel = false;
 		public float ScoreMultiplier { set => scoreMultiplier = value; }
 
 		public Mario(Vector2 location)
@@ -181,10 +182,10 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-			if(this.location.X > GameObjectManager.Instance.EndOfLevelX)
+			if(this.location.X > GameObjectManager.Instance.EndOfLevelX && !hasCompletedLevel)
 			{
-
-				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 700), 3.0f);
+				hasCompletedLevel = true;
+				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 800), 3.0f);
 			}
         }
         public void Draw(SpriteBatch spriteBatch)

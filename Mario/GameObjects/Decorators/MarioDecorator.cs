@@ -59,7 +59,7 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.GoDown();
 		}
 
-		public bool IsActive()
+		public virtual bool IsActive()
 		{
 			return DecoratedMario.IsActive();
 		}
