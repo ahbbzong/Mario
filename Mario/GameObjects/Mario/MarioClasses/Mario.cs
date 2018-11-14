@@ -213,6 +213,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
+
             }
         }
 

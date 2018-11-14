@@ -3,8 +3,10 @@ using Mario.BlocksClasses;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.Sound;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
 
 
@@ -18,6 +20,7 @@ namespace Mario.BlockStates
         }
         public override void React()
         {
+            MotionSound.BreakBlock.Play();
             Block.BlockState = new DisappearBlockState(Block);
             GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(Block.Position.X, Block.Position.Y)));
         }

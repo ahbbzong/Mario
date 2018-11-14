@@ -16,6 +16,8 @@ using Mario.HeadUpDesign;
 using Mario.XMLRead;
 using Mario.Display;
 using Mario.Sprite;
+using Mario.Sound;
+using Microsoft.Xna.Framework.Media;
 
 namespace Mario
 {
@@ -55,17 +57,17 @@ namespace Mario
 				new Keyboards()
 			};
             FloorBoxPosition = new List<Rectangle>();
-            
-            
         }
+
         public void SetInitialValuesCamera()
         {
+            MediaPlayer.Play(MotionSound.MarioBGM);
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
         public void  LoadContent()
         {
-            
+
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
             BlockFactory.Instance.LoadContent(Game1.Instance.Content);
             EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
