@@ -8,6 +8,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public DeadMarioPowerupState(IMario mario) : base(mario)
 		{
+            MotionSound.StopSong();
             MotionSound.MarioDie.Play();
 
         }

@@ -2,6 +2,7 @@
 using Mario.Classes;
 using Mario.Classes.BlocksClasses;
 using Mario.Factory;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -50,7 +51,7 @@ namespace Mario.BlockStates
       
         public virtual void React()
         {
-            
+            MotionSound.Bump.Play();
         }
        
 

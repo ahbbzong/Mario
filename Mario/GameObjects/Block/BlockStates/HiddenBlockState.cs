@@ -20,7 +20,7 @@ namespace Mario.BlockStates
         }
         public override void React()
         {
-            MotionSound.BreakBlock.Play();
+            base.React();
             Block.BlockState = new DisappearBlockState(Block);
             GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(Block.Position.X, Block.Position.Y)));
         }
