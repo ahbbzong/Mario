@@ -112,7 +112,9 @@ namespace Mario
                     {
                         Mario.BeDead();
                         LifeCounter.Instance.DecreaseLife();
-                        Game1.Instance.Reset();
+                        SetInitialValuesCamera();
+                        Timer.ResetTimer();
+                        LoadContent();
                     }
                 }
                 CollisionDetector.Instance.Update();
@@ -147,6 +149,7 @@ namespace Mario
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
                 gameOverDisplay.Draw(spriteBatch);
+               
             }
             headUpDisplayBoard.Draw(spriteBatch);
             scoringSystem.Draw(spriteBatch);

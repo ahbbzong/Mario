@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.HeadUpDesign;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -109,6 +110,9 @@ namespace Mario
             GameObjectManager.Instance.SetInitialValuesCamera();
             Timer.ResetTimer();
             LoadContent();
+            LifeCounter.Instance.ResetLife();
+            ScoringSystem.Instance.ResetScore();
+            CoinSystem.Instance.ResetCoin();
         }
         private void ChangeColor()
         {
