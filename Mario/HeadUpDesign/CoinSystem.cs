@@ -23,7 +23,7 @@ namespace Mario.HeadUpDesign
             else if (coins == maxCoin)
             {
                 coins = ScoreUtil.ZeroCoin;
-                GameObjectManager.Instance.Mario.Lives++;
+                LifeCounter.Instance.IncreaseLife();
                // SoundManager.Instance.Play1UpSound();
             }
             ScoringSystem.Instance.AddPointsForCoin();

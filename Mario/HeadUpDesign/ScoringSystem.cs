@@ -142,6 +142,7 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.Text = ""+scoreToDisplay;
             scoreTextSprite.IsFlying = true;
             DrawAndUpdateBars.Add(scoreTextSprite);
+            System.Console.WriteLine("create the bar");
         }
         private void CreateNewScoreAnimation(Rectangle marioDestination, Rectangle poleDestination, int scoreToDisplay)
         {
@@ -157,11 +158,11 @@ namespace Mario.HeadUpDesign
                 {
                     TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y - 1);
                 }
-                else
-                {
-                    DrawAndUpdateBars.Remove(TextBars);
-                    DrawAndUpdateBars.Sort();
-                }
+                //else
+                //{
+                  //  DrawAndUpdateBars.Remove(TextBars);
+                    //DrawAndUpdateBars.Sort();
+                //}
             }
         }
         public void Draw(SpriteBatch spriteBatch)
