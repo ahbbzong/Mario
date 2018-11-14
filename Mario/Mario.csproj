@@ -68,6 +68,8 @@
     <Compile Include="GameObjects\Decorators\BumpedBlockDecorator.cs" />
     <Compile Include="GameObjects\Decorators\GameObjectDecorator.cs" />
     <Compile Include="GameObjects\Decorators\MarioDecorator.cs" />
+    <Compile Include="GameObjects\Decorators\Special Event Behaviors\MarioSpecialEventDecorator.cs" />
+    <Compile Include="GameObjects\Decorators\Special Event Behaviors\SlideDownFlagDecorator.cs" />
     <Compile Include="GameObjects\Decorators\StarMarioDecorator.cs" />
     <Compile Include="GameObjects\Decorators\TransitionStateMarioDecorator.cs" />
     <Compile Include="Utils\EnemyUtil.cs" />
