@@ -37,7 +37,7 @@ namespace Mario.Sound
             flip = content.Load<SoundEffect>("flip");
             marioCoin = content.Load<SoundEffect>("marioCoin");
             marioDie = content.Load<SoundEffect>("marioDie");
-            marioFireball = content.Load<SoundEffect>("marioFireball");
+            marioFireball = content.Load<SoundEffect>("smb_fireball");
             marioJump = content.Load<SoundEffect>("marioJump");
             marioOneUp = content.Load<SoundEffect>("marioOneUp");
             marioPowerUp = content.Load<SoundEffect>("marioPowerUp");

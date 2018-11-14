@@ -182,10 +182,10 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-			if(this.location.X > GameObjectManager.Instance.EndOfLevelX && !hasCompletedLevel)
+			if((this.location.X > GameObjectManager.Instance.EndOfLevelX -10 && this.location.X < GameObjectManager.Instance.EndOfLevelX + 10) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
-				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 800), 3.0f);
+				GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
 			}
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -220,7 +220,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
-
+                MotionSound.MarioFireball.Play();
             }
         }
 

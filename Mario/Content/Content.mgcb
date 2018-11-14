@@ -758,3 +758,9 @@
 /processorParam:TextureFormat=Color
 /build:Flag.png
 
+#begin smb_fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_fireball.wav
+
