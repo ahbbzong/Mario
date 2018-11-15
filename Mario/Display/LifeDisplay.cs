@@ -17,7 +17,7 @@ namespace Mario.Display
    public class LifeDisplay : IDisplay
     {
         ISprite marioSprite;
-        IGameObject backgroundSprite;
+        IGameObject backgroundObject;
         ITextSprite lifeTextSprite;
       
         private int counter;

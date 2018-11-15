@@ -12,12 +12,12 @@ namespace Mario.HeadUpDesign
     class ScoreMultiplierUtility
     {
         private Dictionary<IGameObject, int> koopaKickedShells;
-        private int stompedEnemiesInSequence = 0;
+        private int stompedEnemiesInSequence = ScoreUtil.ZeroScore;
         public bool HitEnemyAlreadyThisIteration { get; set; } = false;
         
         public ScoreMultiplierUtility()
         {
-            this.stompedEnemiesInSequence = 0;
+            this.stompedEnemiesInSequence = ScoreUtil.ZeroScore;
             this.koopaKickedShells = new Dictionary<IGameObject, int>();
         }
 
@@ -75,7 +75,7 @@ namespace Mario.HeadUpDesign
             }
             else if (GameObjectManager.Instance.Mario.Island)
             {
-                stompedEnemiesInSequence = 0;
+                stompedEnemiesInSequence = ScoreUtil.ZeroScore;
             }
             return scoreToAdd;
         }

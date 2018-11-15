@@ -25,12 +25,6 @@ namespace Mario.HeadUpDesign
         ITextSprite timeTitleTextSprite;
         ITextSprite timeTextSprite;
 
-        private const int distance = 12;
-        private const int distanceOfSecRowText = 4 * distance;
-        private const int scoreLength = 6;
-        private const int coinLength = 2;
-        private const int timeLength = 3;
-
         public HeadsUpDisplayBoard()
         {
 
@@ -38,9 +32,9 @@ namespace Mario.HeadUpDesign
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.Text = "MARIO";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            scoreTextSprite.Text = FixText("" + 0, scoreLength);
+            scoreTextSprite.Text = fixText("" + 0, HUDUtil.scoreLength);
             coinTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            coinTextSprite.Text = "*" + FixText("" + 0, coinLength);
+            coinTextSprite.Text = "*" + fixText("" + 0, HUDUtil.coinLength);
             worldTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             worldTitleTextSprite.Text = "WORLD";
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
@@ -48,21 +42,21 @@ namespace Mario.HeadUpDesign
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.Text = "TIME";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            timeTextSprite.Text = FixText("" + Timer.Time, timeLength);
+            timeTextSprite.Text = fixText("" + Timer.Time, HUDUtil.timeLength);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             int marioTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5);
-            marioTitleTextSprite.Location = new Vector2(marioTitleTextX, distance);
+            marioTitleTextSprite.Location = new Vector2(marioTitleTextX, HUDUtil.distance);
             marioTitleTextSprite.Draw(spriteBatch);
 
             int scoreTextX = marioTitleTextX;
-            scoreTextSprite.Location = new Vector2(scoreTextX, distanceOfSecRowText);
+            scoreTextSprite.Location = new Vector2(scoreTextX, HUDUtil.distanceOfSecRowText);
             scoreTextSprite.Draw(spriteBatch);
 
-            int coinTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText*6;
-            coinTextSprite.Location = new Vector2(coinTextX, distanceOfSecRowText);
+            int coinTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText*6;
+            coinTextSprite.Location = new Vector2(coinTextX, HUDUtil.distanceOfSecRowText);
 
 
             ISprite CoinSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[typeof(Coin)]);
@@ -71,31 +65,31 @@ namespace Mario.HeadUpDesign
             CoinSprite.Draw(spriteBatch, coinSpriteLocation);
 
 
-            int worldTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText * 12;
-            worldTitleTextSprite.Location = new Vector2(worldTitleTextX, distance);
+            int worldTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText * 12;
+            worldTitleTextSprite.Location = new Vector2(worldTitleTextX, HUDUtil.distance);
             worldTitleTextSprite.Draw(spriteBatch);
 
             int worldTextX = worldTitleTextX;
-            worldTextSprite.Location = new Vector2(worldTextX, distanceOfSecRowText);
+            worldTextSprite.Location = new Vector2(worldTextX, HUDUtil.distanceOfSecRowText);
             worldTextSprite.Draw(spriteBatch);
 
-            int timeTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + distanceOfSecRowText * 18;
-            timeTitleTextSprite.Location = new Vector2(timeTitleTextX, distance);
+            int timeTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText * 18;
+            timeTitleTextSprite.Location = new Vector2(timeTitleTextX, HUDUtil.distance);
             timeTitleTextSprite.Draw(spriteBatch);
 
             int timeTextX = timeTitleTextX;
-            timeTextSprite.Location = new Vector2(timeTextX, distanceOfSecRowText);
+            timeTextSprite.Location = new Vector2(timeTextX, HUDUtil.distanceOfSecRowText);
             timeTextSprite.Draw(spriteBatch);
         }
 
         public void Update()
         {
-            scoreTextSprite.Text = FixText("" + ScoringSystem.Instance.Score, scoreLength);
-            coinTextSprite.Text = "*" + FixText("" + CoinSystem.Instance.Coins, coinLength);
-            timeTextSprite.Text = FixText("" + Timer.Time, timeLength);
+            scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score,HUDUtil.scoreLength);
+            coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins,HUDUtil.coinLength);
+            timeTextSprite.Text = fixText("" + Timer.Time,HUDUtil.timeLength);
         }
 
-        private static String FixText(String str, int length)
+        private static String fixText(String str, int length)
         {
             while (str.Length < length)
             {

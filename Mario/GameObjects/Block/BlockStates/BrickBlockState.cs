@@ -36,7 +36,7 @@ namespace Mario.BlockStates
                 GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + BlockUtil.brickBlockParticleOffset, Block.Position.Y + BlockUtil.brickBlockParticleOffset)));
                 GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].RemoveAt(index);
                 ScoringSystem.Instance.AddPointsForBreakingBlock();
-                MotionSound.BreakBlock.Play();
+				SoundManager.Instance.PlaySoundEffect("breakBlock");
             }
             else {
                 base.React();

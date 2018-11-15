@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game1
 {
-    public interface IDisplay
+    public interface IDisplay :IUpdateable, IDrawable
     {
-       void Draw(SpriteBatch spriteBatch);
-       void Update();
     }
 }
