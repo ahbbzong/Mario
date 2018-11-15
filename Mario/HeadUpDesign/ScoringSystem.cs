@@ -18,9 +18,9 @@ namespace Mario.HeadUpDesign
         public int Score { get { return score; } }
         //fixing the combo parts
         private MultiplerForScore multilperForScore;
-        private List<IGameObject> FlagParts;
+        private readonly List<IGameObject> FlagParts;
         //private ITextSprite textSpriteDrawUpdate;
-        private static ScoringSystem instance = new ScoringSystem();
+        private static readonly ScoringSystem instance = new ScoringSystem();
         public static ScoringSystem Instance { get { return instance; } }
         private ScoringSystem()
         {

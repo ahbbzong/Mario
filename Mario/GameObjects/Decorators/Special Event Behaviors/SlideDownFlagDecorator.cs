@@ -25,7 +25,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		private Vector2 locationOfBase = Vector2.Zero;
 		private float timeToFall = DecoratorUtil.fallFlag;
 		private SlidingStates slidingState = SlidingStates.INITIAL;
-        private IDisplay gameOverDisplay;
+        private readonly IDisplay gameOverDisplay;
 
         public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase, float timeToFall):base(mario)
 		{
@@ -77,8 +77,8 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		}
 		public override void RemoveSelf()
 		{
+			LifeCounter.Instance.Life = 0;
 			base.RemoveSelf();
-			Game1.Instance.Reset();
 		}
 		
 	}

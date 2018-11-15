@@ -87,7 +87,7 @@ namespace Mario
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
 
-		private float scoreMultiplier { get; set; }
+		private float scoreMultiplier;
 		private bool hasCompletedLevel = false;
 		public float ScoreMultiplier { set => scoreMultiplier = value; }
 

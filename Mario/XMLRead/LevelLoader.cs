@@ -23,7 +23,7 @@ namespace Mario.XMLRead
 {
     public sealed class LevelLoader
     {
-		private IList<IGameObject> projectileList = new List<IGameObject>();
+		private readonly IList<IGameObject> projectileList = new List<IGameObject>();
 		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
 		public static LevelLoader Instance { get => instance; set => instance = value; }
@@ -40,7 +40,7 @@ namespace Mario.XMLRead
 		private Dictionary<string, XmlSerializer> xmlSerializersByType;
 		public Dictionary<string, XmlSerializer> XmlSerializersByType { get => xmlSerializersByType; set => xmlSerializersByType = value; }
 
-		private Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
+		private readonly Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
 			{typeof(IBlock),LoadBlock },
 			{typeof(IItem), LoadItem },
@@ -240,7 +240,7 @@ namespace Mario.XMLRead
             }
             return marioList;
         }
-		private static IDictionary<string, Type> typeDictionary = new Dictionary<string, Type>
+		private static readonly IDictionary<string, Type> typeDictionary = new Dictionary<string, Type>
 			{
 				{typeof(IMario).Name, typeof(IMario) },
 				{typeof(IBlock).Name, typeof(IBlock) },
