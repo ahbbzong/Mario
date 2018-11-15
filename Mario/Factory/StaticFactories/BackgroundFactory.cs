@@ -16,7 +16,7 @@ namespace Mario.Factory
 {
 	class BackgroundFactory : StaticGameObjectFactory
 	{
-		private static BackgroundFactory instance = new BackgroundFactory();
+		private static readonly BackgroundFactory instance = new BackgroundFactory();
 		public static BackgroundFactory Instance { get => instance;  }
 		
 		public BackgroundFactory()
@@ -26,8 +26,10 @@ namespace Mario.Factory
 
 		public IGameObject GetBackgroundObject(string backgroundObjectName, Vector2 arg)
 		{
-			Background backgroundObj = new BackgroundObject(arg);
-			backgroundObj.BackgroundSprite = SpriteFactory.Instance.CreateSprite(GameObjectSprites[backgroundObjectName]);
+			Background backgroundObj = new BackgroundObject(arg)
+			{
+				BackgroundSprite = SpriteFactory.Instance.CreateSprite(GameObjectSprites[backgroundObjectName])
+			};
 			return backgroundObj;
 		}
 		public override void LoadContent(ContentManager content)

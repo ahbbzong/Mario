@@ -37,9 +37,9 @@ namespace Mario.HeadUpDesign
             marioTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             marioTitleTextSprite.Text = "MARIO";
             scoreTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            scoreTextSprite.Text = fixText("" + 0, scoreLength);
+            scoreTextSprite.Text = FixText("" + 0, scoreLength);
             coinTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            coinTextSprite.Text = "*" + fixText("" + 0, coinLength);
+            coinTextSprite.Text = "*" + FixText("" + 0, coinLength);
             worldTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             worldTitleTextSprite.Text = "WORLD";
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
@@ -47,7 +47,7 @@ namespace Mario.HeadUpDesign
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.Text = "TIME";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);
+            timeTextSprite.Text = FixText("" + Timer.Time, timeLength);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -89,12 +89,12 @@ namespace Mario.HeadUpDesign
 
         public void Update()
         {
-            scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score, scoreLength);
-            coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins, coinLength);
-            timeTextSprite.Text = fixText("" + Timer.Time, timeLength);
+            scoreTextSprite.Text = FixText("" + ScoringSystem.Instance.Score, scoreLength);
+            coinTextSprite.Text = "*" + FixText("" + CoinSystem.Instance.Coins, coinLength);
+            timeTextSprite.Text = FixText("" + Timer.Time, timeLength);
         }
 
-        private static String fixText(String str, int length)
+        private static String FixText(String str, int length)
         {
             while (str.Length < length)
             {

@@ -31,7 +31,6 @@ namespace Mario.HeadUpDesign
         {
             foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
             {
-                System.Console.WriteLine("UPDATE");
                 int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
                 System.Console.WriteLine(difference);
                 if (TextBars.IsFlying && difference < ScoreUtil.FlyingBar)

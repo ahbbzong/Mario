@@ -27,8 +27,17 @@ namespace Mario
 		private static GameObjectManager instance = new GameObjectManager();
 		public static GameObjectManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get; set; }
-		private IDictionary<Type, IList<IGameObject>> gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>();
-		public IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; set => gameObjectListsByType = value; }
+		private IDictionary<Type, IList<IGameObject>> gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
+			{
+				{typeof(IBackground), new List<IGameObject>() },
+				{typeof(IItem),new List<IGameObject>() },
+				{typeof(IPipe), new List<IGameObject>() },
+				{typeof(IBlock), new List<IGameObject>() },
+				{typeof(IProjectile), new List<IGameObject>() },
+				{typeof(IEnemy), new List<IGameObject>() },
+				{typeof(IMario),new List<IGameObject>() }
+			};
+		public IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; }
         public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
@@ -37,22 +46,13 @@ namespace Mario
         private HeadsUpDisplayBoard headUpDisplayBoard;
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
-        public List<ITextSprite> DrawAndUpdateBars { get;  }
+        public IList<ITextSprite> DrawAndUpdateBars { get;  }
 
         public float EndOfLevelX { get; set; }
 
         private GameObjectManager()
         {
-            GameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
-            {
-                {typeof(IBackground), new List<IGameObject>() },
-                {typeof(IItem),new List<IGameObject>() },
-                {typeof(IPipe), new List<IGameObject>() },
-                {typeof(IBlock), new List<IGameObject>() },
-                {typeof(IProjectile), new List<IGameObject>() },
-                {typeof(IEnemy), new List<IGameObject>() },
-                {typeof(IMario),new List<IGameObject>() }
-            };
+           
 
 			ControllerList = new List<IController>
 			{
