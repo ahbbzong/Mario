@@ -15,6 +15,8 @@ namespace Mario.Sprite
         public const int gameOverPositionY = 500;
         public const int marioPositionX = 550;
         public const int marioPositionY = 500;
+        public const int textPositionX = 600;
+        public const int textPositionY = 500;
 
 
     }

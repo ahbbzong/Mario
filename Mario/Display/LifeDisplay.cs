@@ -24,10 +24,10 @@ namespace Mario.Display
         public LifeDisplay()
         {
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            lifeTextSprite.Text = "X ";
+            lifeTextSprite.Text = " X ";
             lifeTextSprite.Text += LifeCounter.Instance.LifeRemains().ToString();
             counter = SpriteUtil.Zero;
-            backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
+            backgroundObject = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
             marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[typeof(NormalMarioPowerupState)][typeof(RightIdleMarioMovementState)]);
         }
         public void Update()
@@ -38,8 +38,8 @@ namespace Mario.Display
         {
             if (counter < TimerUtil.DisplayTimer)
             {
-                backgroundSprite.Draw(spriteBatch);
-                lifeTextSprite.Location = new Vector2(SpriteUtil.marioPositionX, SpriteUtil.marioPositionY);
+                backgroundObject.Draw(spriteBatch);
+                lifeTextSprite.Location = new Vector2(SpriteUtil.textPositionX, SpriteUtil.textPositionY);
                 lifeTextSprite.Draw(spriteBatch);
                 marioSprite.Draw(spriteBatch, new Microsoft.Xna.Framework.Vector2(SpriteUtil.marioPositionX, SpriteUtil.marioPositionY));
             }
