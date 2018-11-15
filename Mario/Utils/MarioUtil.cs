@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Utils
 {
-	class MarioUtil
+	public static class MarioUtil
 	{
 		public const int FlagpoleBuffer = 10;
 		public const int HeightOfFloor = 820;

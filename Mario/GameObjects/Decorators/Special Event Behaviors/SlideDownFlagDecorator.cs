@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.HeadUpDesign;
 using Mario.Sound;
+using Mario.Sprite;
 using Mario.Utils;
 using Microsoft.Xna.Framework;
 using System;
@@ -60,7 +61,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 
                     break;
 				case SlidingStates.HOLDING:
-					if (holdingTime <= 0)
+					if (holdingTime <= DecoratorUtil.zero)
 					{
 						holdingTime--;
 
@@ -85,7 +86,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		{
             
             base.RemoveSelf();
-            LifeCounter.Instance.Life = 3;
+            LifeCounter.Instance.Life = LifeUtil.maxLife;
             Game1.Instance.Reset();
         }
 		

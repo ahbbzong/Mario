@@ -26,4 +26,18 @@ Author: Xiaochen Zong
 Code to be reviewed: Jacob Grove
 Date: Nov 14, 2018
 Sprint 5
-File: 
+File: SlideDownFlagDecorator.cs
+
+Code Quality Review:
+- The way to assemble the code is good and easy to understand, the switch combine with the state is good to go.
+-The way to use base.Reset is good and easy logical when Mario come to the end of the game.
+-The way to use decorator for the mario come to the castle is good to go, it reduce lots of work.
+
+Suggestions:
+-The statement in the switch may a little mess, hope it can be revise.
+-In the switch statement it is better to not use IF statement.
+
+Overall, it is good to go. The quality is not bad and the readablility is also good to understand. However, it does not 
+means that it does not have problem, the if case, the logic is good ,however, I think it is not put if statement in the 
+switch statements.
+

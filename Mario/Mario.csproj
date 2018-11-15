@@ -97,6 +97,7 @@
     <Compile Include="Sound\MotionSound.cs" />
     <Compile Include="LifeCounter.cs" />
     <Compile Include="Utils\ScoringMultiplerUtil.cs" />
+    <Compile Include="Utils\LifeUtil.cs" />
     <Compile Include="Utils\SpriteUtil.cs" />
     <Compile Include="Utils\GameUtil.cs" />
     <Compile Include="Timer.cs" />

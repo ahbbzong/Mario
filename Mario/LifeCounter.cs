@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mario.Sprite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Mario
         public int Life { get; set; }
         private LifeCounter()
         {
-            Life = 3;
+            Life = LifeUtil.maxLife;
         }
         public int LifeRemains()
         {
@@ -29,11 +30,11 @@ namespace Mario
         }
         public void ResetLife()
         {
-            Life = 3;
+            Life = LifeUtil.maxLife;
         }
         public void SetLifeZero()
         {
-            Life = 0;
+            Life = LifeUtil.minLife;
         }
     }
 }
