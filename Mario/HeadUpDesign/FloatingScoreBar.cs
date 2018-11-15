@@ -23,13 +23,13 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.IsFlying = true;
             scoreTextSprite.Location = location;
             scoreTextSprite.InitialY = (int)location.Y;
-            GameObjectManager.Instance.DrawAndUpdateBars.Add(scoreTextSprite);
+            GameObjectManager.Instance.UITextSprites.Add(scoreTextSprite);
             System.Console.WriteLine("create the bar");
-            System.Console.WriteLine(GameObjectManager.Instance.DrawAndUpdateBars.Count);
+            System.Console.WriteLine(GameObjectManager.Instance.UITextSprites.Count);
         }
         public static void Update()
         {
-            foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
+            foreach (ITextSprite TextBars in GameObjectManager.Instance.UITextSprites)
             {
                 int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
                 System.Console.WriteLine(difference);
@@ -45,7 +45,7 @@ namespace Mario.HeadUpDesign
         }
         public static void Draw(SpriteBatch spriteBatch)
         {
-            foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
+            foreach (ITextSprite TextBars in GameObjectManager.Instance.UITextSprites)
             if (TextBars.IsFlying)
             {
                 TextBars.Draw(spriteBatch);

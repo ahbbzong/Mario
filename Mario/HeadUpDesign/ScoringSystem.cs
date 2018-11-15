@@ -17,7 +17,7 @@ namespace Mario.HeadUpDesign
         private int score = 0;
         public int Score { get { return score; } }
         //fixing the combo parts
-        private ScoreMultiplierManager multilperForScore;
+        private ScoreMultiplierUtility multilperForScore;
         private readonly List<IGameObject> FlagParts;
         //private ITextSprite textSpriteDrawUpdate;
         private static readonly ScoringSystem instance = new ScoringSystem();
@@ -25,7 +25,7 @@ namespace Mario.HeadUpDesign
         private ScoringSystem()
         {
             FlagParts = new List<IGameObject>();
-           multilperForScore = new ScoreMultiplierManager();
+           multilperForScore = new ScoreMultiplierUtility();
         }
         public IGameObject RegisterPole(IGameObject pole)
         {

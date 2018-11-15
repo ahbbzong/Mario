@@ -52,7 +52,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					}
 					break;
 				case SlidingStates.WALKING_RIGHT:
-					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelX + DecoratorUtil.walkRightOffset) 
+					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelXPosition + DecoratorUtil.walkRightOffset) 
 					{
 						slidingState = SlidingStates.EXIT;
 					}
