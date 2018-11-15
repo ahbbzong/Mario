@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.Display;
 using Mario.HeadUpDesign;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 {
+
 	internal enum SlidingStates
 	{
 		SLIDING_DOWN = 0,
@@ -25,7 +27,6 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		private Vector2 locationOfBase = Vector2.Zero;
 		private float timeToFall = DecoratorUtil.fallFlag;
 		private SlidingStates slidingState = SlidingStates.INITIAL;
-        private readonly IDisplay gameOverDisplay;
 
         public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase, float timeToFall):base(mario)
 		{
@@ -34,7 +35,8 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
-            gameOverDisplay = new GameOverDisplay();
+            MotionSound.StopSong();
+            MotionSound.ClearStage.Play();
         }
 
 		public override void Update()
@@ -61,9 +63,10 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 						this.DecoratedMario.GoRight();
 						this.DecoratedMario.Position += Vector2.UnitX * DecoratorUtil.Double;
 						timeToFall--;
+
                     }
 
-					break;
+                    break;
 				default:
 					RemoveSelf();
 					break;
@@ -77,8 +80,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		}
 		public override void RemoveSelf()
 		{
-			LifeCounter.Instance.Life = 0;
-			base.RemoveSelf();
+            base.RemoveSelf();
 		}
 		
 	}

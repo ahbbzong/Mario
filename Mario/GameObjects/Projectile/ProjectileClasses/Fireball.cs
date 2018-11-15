@@ -8,6 +8,7 @@ using Mario.Items;
 using Mario.XMLRead;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.GameObjects.Projectile;
+using Mario.Sound;
 
 namespace Mario.ItemClasses
 {
@@ -16,6 +17,7 @@ namespace Mario.ItemClasses
         
         public Fireball(Vector2 location):base(location)
         {
+            MotionSound.MarioFireball.Play();
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[this.GetType()]);
             ProjectileState = new FireballState(this);
             gravityManagement = new GravityManagement(this);

@@ -31,5 +31,9 @@ namespace Mario
         {
             Life = 3;
         }
+        public void SetLifeZero()
+        {
+            Life = 0;
+        }
     }
 }
