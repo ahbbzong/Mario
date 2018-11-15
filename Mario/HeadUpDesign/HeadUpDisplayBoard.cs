@@ -17,7 +17,6 @@ namespace Mario.HeadUpDesign
 {
     class HeadsUpDisplayBoard
     {
-        public bool IsEnable { get; set; } = true;
         ITextSprite marioTitleTextSprite;
         ITextSprite scoreTextSprite;
         ITextSprite coinTextSprite;

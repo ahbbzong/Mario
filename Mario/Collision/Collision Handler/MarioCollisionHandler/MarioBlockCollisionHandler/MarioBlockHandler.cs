@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.Enums;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
 					mario.Position += Vector2.UnitY* intersection.Height;
                     mario.Physics.ResetGravity();
                     mario.SetFalling(true);
+                    MotionSound.Bump.Play();
                     break;
                 case Direction.Left:
                    

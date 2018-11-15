@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Utils
 {
-    class ScoringMultiplerUtil
+   public static class ScoringMultiplerUtil
     {
         public const int InitialStompScore = 100;
         public const int DoubleStompScore = 200;

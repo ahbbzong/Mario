@@ -35,12 +35,11 @@ namespace Mario
         public IList<Rectangle> FloorBoxPosition { get; }
 		public GameTime CurrentGameTime { get; set; }
         private HeadsUpDisplayBoard headUpDisplayBoard;
-        //private ScoringSystem scoringSystem; 
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
         public List<ITextSprite> DrawAndUpdateBars { get; set; }
 
-        public float EndOfLevelX;
+        public float EndOfLevelX { get; set; }
 
         private GameObjectManager()
         {
@@ -89,7 +88,6 @@ namespace Mario
             gameOverDisplay = new GameOverDisplay();
             lifeDisplay = new LifeDisplay();
             headUpDisplayBoard = new HeadsUpDisplayBoard();
-            //scoringSystem = new ScoringSystem();
         }
    
       
@@ -116,8 +114,10 @@ namespace Mario
                         Mario.BeDead();
                         LifeCounter.Instance.DecreaseLife();
                         SetInitialValuesCamera();
-                        Timer.ResetTimer();
                         LoadContent();
+                        Timer.ResetTimer();
+                        Timer.StartTimer();
+
                     }
                 }
                 CollisionDetector.Instance.Update();
@@ -138,12 +138,14 @@ namespace Mario
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-           
-			foreach (Type gameObjectType in GameObjectListsByType.Keys)
-			{
-				foreach(IGameObject gameObj in GameObjectListsByType[gameObjectType])
-				{
-					gameObj.Draw(spriteBatch);
+
+            for (int j = 0; j < GameObjectListsByType.Count; j++)
+            {
+                Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
+                for(int i = 0; i < GameObjectListsByType[gameObjectType].Count; i++)
+                { 
+                    IGameObject gameObj = GameObjectListsByType[gameObjectType].ElementAt(i);
+                    gameObj.Draw(spriteBatch);
 				}
 			}
             if (LifeCounter.Instance.LifeRemains() > 0)

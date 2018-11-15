@@ -13,10 +13,10 @@ namespace Game1
         IPhysicsBody physicsBody;
         float Gravity { get; set; }
         float YVelocity { get; set; }
-        public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Position { get ; set; }
         public bool Island { get; set ; }
-        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Velocity { get; set; }
+        public Vector2 Force { get ; set ; }
 
         public GravityManagement(IPhysicsBody physicsBody)
         {

@@ -34,8 +34,8 @@ namespace Mario.Classes.BlocksClasses
        
 		public Vector2 Position { get => ProjectileLocation; set => ProjectileLocation = value; }
         public bool Island { get; set; }
-        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Velocity { get; set ; }
+        public Vector2 Force { get; set; }
 
         protected Projectile(Vector2 location)
         {

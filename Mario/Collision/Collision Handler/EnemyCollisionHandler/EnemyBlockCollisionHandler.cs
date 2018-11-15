@@ -59,7 +59,6 @@ namespace Mario.Collision.EnemyCollisionHandler
                 case Direction.Up:
                     enemy.Position -= Vector2.UnitY * intersection.Height;
                     EnemyBumpedBlockReact(enemy);
-                    
                     break;
                 case Direction.Down:
                     enemy.Position += Vector2.UnitY * intersection.Height;

@@ -12,19 +12,14 @@ namespace Game1
        
         public float XVelocity { get; set; }
         public float YVelocity { get; set; }
-        private float MinYVelocity { get; set; }
         private float MaxYVelocity { get; set; }
-        private float ForceUp { get; set; }
-        private GravityManagement GravityManagement { get; set; }
         IMario mario;
         public PhysicsMario(IMario mario)
         {
             this.mario = mario;
             XVelocity = PhysicsUtil.zero;
             YVelocity = PhysicsUtil.zero;
-            MinYVelocity = PhysicsUtil.minYVelocity;
             MaxYVelocity = PhysicsUtil.maxYVelocity;
-            GravityManagement = new GravityManagement(mario);
         }
         public void Sprint()
         {

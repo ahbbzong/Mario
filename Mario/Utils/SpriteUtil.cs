@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mario.Sprite
 {
-   public class SpriteUtil
+   public static class SpriteUtil
     {
         public const int delayUtil = 5;
         public const int Zero = 0;

@@ -10,6 +10,6 @@ namespace Mario.GameObjects.Mario
 	{
 		int Lives { get; set; }
 		int Score { get; set; }
-		float ScoreMultiplier { set; }
+		float ScoreMultiplier {  set; }
 	}
 }

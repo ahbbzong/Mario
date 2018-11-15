@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mario.GameObjects.Projectile
 {
-   public class ProjectileUtil
+   public static class ProjectileUtil
     {
         public const int projectileSpeed = 6;
     }
