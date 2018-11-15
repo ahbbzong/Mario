@@ -63,7 +63,6 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					RemoveSelf();
 					break;
 			}
-			Debug.WriteLine(slidingState.ToString() + "," + DecoratedMario.Position.Y + " , " + locationOfBase.Y);
 			
 		}
 
@@ -75,6 +74,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		{
 
 			base.RemoveSelf();
+			Game1.Instance.Reset();
 		}
 		
 	}
