@@ -24,16 +24,12 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.Location = location;
             scoreTextSprite.InitialY = (int)location.Y;
             GameObjectManager.Instance.DrawAndUpdateBars.Add(scoreTextSprite);
-            System.Console.WriteLine("create the bar");
-            System.Console.WriteLine(GameObjectManager.Instance.DrawAndUpdateBars.Count);
         }
         public static void Update()
         {
             foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
             {
-                System.Console.WriteLine("UPDATE");
                 int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
-                System.Console.WriteLine(difference);
                 if (TextBars.IsFlying && difference < ScoreUtil.FlyingBar)
                 {
                     TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y - 1);

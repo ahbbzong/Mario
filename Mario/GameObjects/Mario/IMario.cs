@@ -22,6 +22,7 @@ namespace Game1
         bool IsRunningLeft();
         bool IsRunningRight();
         bool IsUp();
+        bool IsAtEnd();
         bool IsCrouching();
         void ThrowProjectile();
         

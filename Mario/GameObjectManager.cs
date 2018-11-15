@@ -37,6 +37,8 @@ namespace Mario
         private HeadsUpDisplayBoard headUpDisplayBoard;
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public List<ITextSprite> DrawAndUpdateBars { get; set; }
 
         public float EndOfLevelX { get; set; }

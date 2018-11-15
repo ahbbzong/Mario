@@ -68,6 +68,7 @@ namespace Mario
 
         private bool fall;
         private bool isCrouch;
+        private bool atTheEnd; 
         public bool Island { get; set; }
         public Rectangle Box
         {
@@ -100,6 +101,7 @@ namespace Mario
             fall = false;
             Island = true;
             isCrouch = false;
+            atTheEnd = false;
             Physics = new PhysicsMario(this);
 
         }
@@ -116,6 +118,10 @@ namespace Mario
         public bool IsUp()
         {
 			return MarioMovementState.IsJumping();
+        }
+        public bool IsAtEnd()
+        {
+            return atTheEnd;
         }
 		public void GoDown()
 		{
@@ -185,7 +191,10 @@ namespace Mario
 			if((this.location.X > GameObjectManager.Instance.EndOfLevelX -10 && this.location.X < GameObjectManager.Instance.EndOfLevelX + 10) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
-                ScoringSystem.Instance.AddPointsForRestTime(); GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+                ScoringSystem.Instance.AddPointsForRestTime();
+                Timer.CleanTimer();
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+                atTheEnd = true;
 			}
         }
         public void Draw(SpriteBatch spriteBatch)
