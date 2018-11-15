@@ -37,7 +37,7 @@ namespace Mario
         private HeadsUpDisplayBoard headUpDisplayBoard;
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
-        public List<ITextSprite> DrawAndUpdateBars { get; set; }
+        public List<ITextSprite> DrawAndUpdateBars { get;  }
 
         public float EndOfLevelX { get; set; }
 
