@@ -13,19 +13,9 @@ namespace Mario
     static class Timer
     {
         public static int Time { get; set; } = TimerUtil.MaxTimer;
-        public static int HighestScore { get; set; } = TimerUtil.Zero;
-
         private static int counter = TimerUtil.Zero;
         private static bool timeRunning = false;
         private static readonly int maxTime = TimerUtil.MaxTimer;
-
-        public static void UpdateHighestScore()
-        {
-            if (ScoringSystem.Instance.Score > HighestScore)
-            {
-                HighestScore = ScoringSystem.Instance.Score;
-            }
-        }
 
         public static void ResetTimer()
         {
@@ -59,7 +49,7 @@ namespace Mario
                     Time--;
                     counter = TimerUtil.Zero;
                 }
-                if (Time == TimerUtil.Zero)
+                if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
                 {
                     GameObjectManager.Instance.Mario.BeDead();
                     timeRunning = false;

@@ -18,19 +18,12 @@ namespace Mario.HeadUpDesign
         public int Score { get { return score; } }
         //fixing the combo parts
         private ScoreMultiplierUtility multilperForScore;
-        private readonly List<IGameObject> FlagParts;
         //private ITextSprite textSpriteDrawUpdate;
         private static readonly ScoringSystem instance = new ScoringSystem();
         public static ScoringSystem Instance { get { return instance; } }
         private ScoringSystem()
         {
-            FlagParts = new List<IGameObject>();
            multilperForScore = new ScoreMultiplierUtility();
-        }
-        public IGameObject RegisterPole(IGameObject pole)
-        {
-            this.FlagParts.Add(pole);
-            return pole;
         }
         public void ResetScore()
         {
@@ -93,7 +86,7 @@ namespace Mario.HeadUpDesign
         public void AddPointsForFinalPole(Rectangle marioDestination)
         {
             int scoreToAdd = ScoreUtil.OffTheFlagFifthScore;
-            if (marioDestination.Y < ScoreUtil.FlagFirst)//hard code in, need to fix the magic number here
+            if (marioDestination.Y < ScoreUtil.FlagFirst)
             {
                 scoreToAdd = ScoreUtil.OffTheFlagHighestScore;
             }

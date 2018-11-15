@@ -16,10 +16,12 @@ namespace Mario.BlocksCommand
             if (game.IsPause)
             {
                 game.IsPause = false;
+                Timer.StartTimer();
             }
             else
             {
                 game.IsPause = true;
+                Timer.StopTimer();
             }
         }
 
