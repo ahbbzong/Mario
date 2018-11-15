@@ -15,7 +15,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
     {
         public MarioMagicMushroomCollisionHandler()
         {
-            MotionSound.MarioPowerUp.Play();
+			SoundManager.Instance.PlaySoundEffect("marioPowerUp");
         }
         public void HandleCollision(IMario mario, Direction result)
         {

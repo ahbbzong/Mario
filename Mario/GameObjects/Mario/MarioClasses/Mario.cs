@@ -11,6 +11,7 @@ using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
 using Mario.GameObjects.Decorators.Special_Event_Behaviors;
 using Mario.HeadUpDesign;
+using Mario.Utils;
 
 namespace Mario
 {
@@ -68,6 +69,7 @@ namespace Mario
 
         private bool fall;
         private bool isCrouch;
+        private bool atTheEnd; 
         public bool Island { get; set; }
         public Rectangle Box
         {
@@ -86,7 +88,8 @@ namespace Mario
 		public int Lives { get =>lives; set => lives = value; }
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
-		
+
+		private float scoreMultiplier;
 		private bool hasCompletedLevel = false;
 		public float ScoreMultiplier { get; set; }
 
@@ -99,6 +102,7 @@ namespace Mario
             fall = false;
             Island = true;
             isCrouch = false;
+            atTheEnd = false;
             Physics = new PhysicsMario(this);
 
         }
@@ -109,12 +113,16 @@ namespace Mario
                 Island = false;
                 MarioMovementState.GoUp();
                 Physics.Jump();
-                MotionSound.MarioJump.Play();
+				SoundManager.Instance.PlaySoundEffect("marioJump");
             }
         }
         public bool IsUp()
         {
 			return MarioMovementState.IsJumping();
+        }
+        public bool IsAtEnd()
+        {
+            return atTheEnd;
         }
 		public void GoDown()
 		{
@@ -181,11 +189,13 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-			if((this.location.X > GameObjectManager.Instance.EndOfLevelXPosition -10 && this.location.X < GameObjectManager.Instance.EndOfLevelXPosition + 10) && !hasCompletedLevel)
+			if((this.location.X > GameObjectManager.Instance.EndOfLevelXPosition -MarioUtil.FlagpoleBuffer && this.location.X < GameObjectManager.Instance.EndOfLevelXPosition + MarioUtil.FlagpoleBuffer) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+                Timer.CleanTimer();
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor));
+                atTheEnd = true;
 			}
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -220,6 +230,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
+				SoundManager.Instance.PlaySoundEffect("marioFireball");
             }
         }
 
@@ -238,7 +249,7 @@ namespace Mario
         }
 		public void TakeDamage()
 		{
-            MotionSound.TakeDamage.Play();
+			SoundManager.Instance.PlaySoundEffect("takeDamage");
 			MarioPowerupState.TakeDamage();
         }
         public void Draw(SpriteBatch spriteBatch, Color c)

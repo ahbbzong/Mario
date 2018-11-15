@@ -24,10 +24,8 @@ namespace Mario.HeadUpDesign
             {
                 coins = ScoreUtil.ZeroCoin;
                 LifeCounter.Instance.IncreaseLife();
-               // SoundManager.Instance.Play1UpSound();
             }
             ScoringSystem.Instance.AddPointsForCoin();
-            //SoundManager.Instance.PlayCoinSound();
         }
 
         public void ResetCoin()

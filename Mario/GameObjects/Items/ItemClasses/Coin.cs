@@ -12,7 +12,7 @@ namespace Mario.ItemClasses
     {
         public Coin(Vector2 location):base(location)
         {
-            MotionSound.MarioCoin.Play();
+			SoundManager.Instance.PlaySoundEffect("marioCoin");
 
         }
         public override bool IsCoin()

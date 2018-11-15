@@ -155,5 +155,10 @@ namespace Mario.GameObjects.Decorators
         {
             DecoratedMario.Sprint();
         }
+
+        public bool IsAtEnd()
+        {
+            return DecoratedMario.IsAtEnd();
+        }
     }
 }

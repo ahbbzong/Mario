@@ -67,6 +67,7 @@ namespace Mario
 
         public void SetInitialValuesCamera()
         {
+			SoundManager.Instance.PlayBGM("marioBGM");
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
@@ -132,11 +133,7 @@ namespace Mario
           
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
-               
-               
-
                 gameOverDisplay.Update();
-            
             }
             headUpDisplayBoard.Update();
             FloatingScoreBar.Update();
