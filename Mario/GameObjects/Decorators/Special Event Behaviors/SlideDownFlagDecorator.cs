@@ -35,7 +35,6 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
-            gameOverDisplay = new GameOverDisplay();
             MotionSound.StopSong();
             MotionSound.ClearStage.Play();
         }
