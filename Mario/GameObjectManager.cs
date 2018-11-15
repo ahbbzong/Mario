@@ -16,7 +16,7 @@ using Mario.HeadUpDesign;
 using Mario.XMLRead;
 using Mario.Display;
 using Mario.Sprite;
-using Mario.Sound;
+using Mario.SoundManager;
 using Microsoft.Xna.Framework.Media;
 
 namespace Mario
@@ -42,6 +42,8 @@ namespace Mario
 
         public float EndOfLevelXPosition { get; set; }
 
+
+        private bool gameOverCheck = true;
         private GameObjectManager()
         {
 			gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
@@ -65,7 +67,6 @@ namespace Mario
 
         public void SetInitialValuesCamera()
         {
-            MediaPlayer.Play(MotionSound.MarioBGM);
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
@@ -126,11 +127,16 @@ namespace Mario
             if (LifeCounter.Instance.LifeRemains()>0)
             {
                 lifeDisplay.Update();
+ 
             }
           
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
+               
+               
+
                 gameOverDisplay.Update();
+            
             }
             headUpDisplayBoard.Update();
             FloatingScoreBar.Update();
@@ -154,8 +160,16 @@ namespace Mario
             }
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
+                if (gameOverCheck)
+                {
+                    SoundManager.Instance.StopSong();
+                    SoundManager.Instance.PlaySoundEffect("GameOver");
+                }
+                gameOverCheck = false;
                 gameOverDisplay.Draw(spriteBatch);
-               
+          
+
+
             }
             headUpDisplayBoard.Draw(spriteBatch);
             FloatingScoreBar.Draw(spriteBatch);
