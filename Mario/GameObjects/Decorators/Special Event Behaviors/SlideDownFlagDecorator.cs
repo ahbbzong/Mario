@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,8 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.locationOfBase = locationOfBase;
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
-		}
+            ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
+        }
 
 		public override void Update()
 		{

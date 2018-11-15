@@ -12,29 +12,16 @@ namespace Mario.HeadUpDesign
     class MultiplerForScore
     {
         private Dictionary<IGameObject, int> koopaKickedShells;
-        private int stompedEnemiesInSequence;
-        public bool HitEnemyAlreadyThisIteration { get; set; }
-        private bool isMarioInAir;
-        public bool IsMarioAirbourne
-        {
-            get { return isMarioInAir; }
-            set
-            {
-                if (!value)
-                    stompedEnemiesInSequence = 0;
-                isMarioInAir = value;
-            }
-        }
-
-        public MultiplerForScore(IMario mario)
+        private int stompedEnemiesInSequence = 0;
+        public bool HitEnemyAlreadyThisIteration { get; set; } = false;
+        
+        public MultiplerForScore()
         {
             this.stompedEnemiesInSequence = 0;
             this.koopaKickedShells = new Dictionary<IGameObject, int>();
-            this.isMarioInAir = !(mario.Island);
-            HitEnemyAlreadyThisIteration = false;
         }
 
-        private int DetermineDoubleStompSequence()
+        public int DetermineDoubleStompSequence()
         {
             int scoreToAdd = ScoringMultiplerUtil.InitialStompScore;
             if (HitEnemyAlreadyThisIteration)
@@ -46,7 +33,7 @@ namespace Mario.HeadUpDesign
         public int DetermineStompSequence()
         {
             int scoreToAdd = DetermineDoubleStompSequence();
-            if (scoreToAdd == ScoringMultiplerUtil.InitialStompScore && isMarioInAir)
+            if (scoreToAdd == ScoringMultiplerUtil.InitialStompScore && (!GameObjectManager.Instance.Mario.Island))
             {
                 switch (stompedEnemiesInSequence)
                 {
@@ -83,9 +70,13 @@ namespace Mario.HeadUpDesign
                     default:
                         break;
                 }
+
+                stompedEnemiesInSequence++;
             }
-            isMarioInAir = true;
-            stompedEnemiesInSequence++;
+            else if (GameObjectManager.Instance.Mario.Island)
+            {
+                stompedEnemiesInSequence = 0;
+            }
             return scoreToAdd;
         }
 
@@ -127,7 +118,7 @@ namespace Mario.HeadUpDesign
             int scoreToAdd = ScoringMultiplerUtil.InitialShellKickScore;
             if (!koopaKickedShells.ContainsKey(koopa))
                 koopaKickedShells.Add(koopa, 0);
-            if (isMarioInAir)
+            if ((!GameObjectManager.Instance.Mario.Island))
                 scoreToAdd = ScoringMultiplerUtil.InAirAfterMakingShellKickScore;
             return scoreToAdd;
         }

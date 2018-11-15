@@ -24,10 +24,8 @@ namespace Mario.HeadUpDesign
         public static ScoringSystem Instance { get { return instance; } }
         private ScoringSystem()
         {
-            Console.WriteLine("constr");
             FlagParts = new List<IGameObject>();
-           multilperForScore = new MultiplerForScore(GameObjectManager.Instance.Mario);
-           // textSpriteDrawUpdate = //TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
+           multilperForScore = new MultiplerForScore();
         }
         public IGameObject RegisterPole(IGameObject pole)
         {
@@ -58,7 +56,7 @@ namespace Mario.HeadUpDesign
         }
         public void AddPointsForStompingEnemy(IGameObject enemy)
         {
-            int scoreToAdd = 500;
+            int scoreToAdd = multilperForScore.DetermineStompSequence();
             score += scoreToAdd;
             ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
@@ -114,11 +112,7 @@ namespace Mario.HeadUpDesign
             score += scoreToAdd;
             ScoreBarFlyingOut.CreateNewScoreAnimation(GameObjectManager.Instance.Mario,scoreToAdd);
         }
-
-        public void SetMarioAirbourneToFalse()
-        {
-            multilperForScore.IsMarioAirbourne = false;
-        }
+        
         public void SetMarioEnemyHitThisIterationToFalse()
         {
            multilperForScore.HitEnemyAlreadyThisIteration = false;
