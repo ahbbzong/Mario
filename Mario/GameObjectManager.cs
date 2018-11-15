@@ -27,7 +27,24 @@ namespace Mario
 		private static GameObjectManager instance = new GameObjectManager();
 		public static GameObjectManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get; set; }
-		private IDictionary<Type, IList<IGameObject>> gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
+		private readonly IDictionary<Type, IList<IGameObject>> gameObjectListsByType;
+		
+		public IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; }
+        public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
+        public ICamera CameraMario { get; set; }
+        public ICameraController CameraController { get; set; }
+        public IList<Rectangle> FloorBoxPositions { get; }
+		public GameTime CurrentGameTime { get; set; }
+        private HeadsUpDisplayBoard headUpDisplayBoard;
+        private IDisplay lifeDisplay;
+        private IDisplay gameOverDisplay;
+        public IList<ITextSprite> UITextSprites { get;  }
+
+        public float EndOfLevelXPosition { get; set; }
+
+        private GameObjectManager()
+        {
+			gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
 			{
 				{typeof(IBackground), new List<IGameObject>() },
 				{typeof(IItem),new List<IGameObject>() },
@@ -37,30 +54,13 @@ namespace Mario
 				{typeof(IEnemy), new List<IGameObject>() },
 				{typeof(IMario),new List<IGameObject>() }
 			};
-		public IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; }
-        public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
-        public ICamera CameraMario { get; set; }
-        public ICameraController CameraController { get; set; }
-        public IList<Rectangle> FloorBoxPosition { get; }
-		public GameTime CurrentGameTime { get; set; }
-        private HeadsUpDisplayBoard headUpDisplayBoard;
-        private IDisplay lifeDisplay;
-        private IDisplay gameOverDisplay;
-        public IList<ITextSprite> DrawAndUpdateBars { get;  }
-
-        public float EndOfLevelX { get; set; }
-
-        private GameObjectManager()
-        {
-           
-
 			ControllerList = new List<IController>
 			{
 				new Keyboards()
 			};
-            FloorBoxPosition = new List<Rectangle>();
+            FloorBoxPositions = new List<Rectangle>();
 
-            DrawAndUpdateBars = new List<ITextSprite>();
+            UITextSprites = new List<ITextSprite>();
         }
 
         public void SetInitialValuesCamera()
@@ -133,7 +133,7 @@ namespace Mario
                 gameOverDisplay.Update();
             }
             headUpDisplayBoard.Update();
-            ScoreBarFlyingOut.Update();
+            FloatingScoreBar.Update();
             ScoringSystem.Instance.SetMarioEnemyHitThisIterationToFalse();
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -158,7 +158,7 @@ namespace Mario
                
             }
             headUpDisplayBoard.Draw(spriteBatch);
-            ScoreBarFlyingOut.Draw(spriteBatch);
+            FloatingScoreBar.Draw(spriteBatch);
         }
         
 

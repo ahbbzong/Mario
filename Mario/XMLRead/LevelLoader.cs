@@ -86,7 +86,7 @@ namespace Mario.XMLRead
                 {
                     
                     Rectangle floorLocationBox = new Rectangle(block.XLocation,block.YLocation,block.Length*32 ,block.Height*32);
-                    GameObjectManager.Instance.FloorBoxPosition.Add(floorLocationBox);
+                    GameObjectManager.Instance.FloorBoxPositions.Add(floorLocationBox);
                     int count = LevelLoaderUtil.zero;
                     int count2 = LevelLoaderUtil.zero;
                     int startLocation = block.XLocation;
@@ -205,7 +205,7 @@ namespace Mario.XMLRead
             foreach (BackgroundXML back in myBackgroundObject)
             {
 				if (back.BackgroundType.Equals("Flag")){
-					GameObjectManager.Instance.EndOfLevelX = back.XLocation;
+					GameObjectManager.Instance.EndOfLevelXPosition = back.XLocation;
 				}
 				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation, back.YLocation)));
             }
