@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.Display;
 using Mario.HeadUpDesign;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -34,6 +35,9 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
+            gameOverDisplay = new GameOverDisplay();
+            MotionSound.StopSong();
+            MotionSound.ClearStage.Play();
         }
 
 		public override void Update()
@@ -51,7 +55,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					}
 					break;
 				case SlidingStates.WALKING_RIGHT:
-					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelX + DecoratorUtil.walkRightOffset) 
+					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelXPosition + DecoratorUtil.walkRightOffset) 
 					{
 						slidingState = SlidingStates.EXIT;
 					}

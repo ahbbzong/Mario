@@ -24,6 +24,7 @@ namespace Mario.HeadUpDesign
         ITextSprite worldTextSprite;
         ITextSprite timeTitleTextSprite;
         ITextSprite timeTextSprite;
+
         private const int distance = 12;
         private const int distanceOfSecRowText = 4 * distance;
         private const int scoreLength = 6;

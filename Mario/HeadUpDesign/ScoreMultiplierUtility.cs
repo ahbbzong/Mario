@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    class MultiplerForScore
+    class ScoreMultiplierUtility
     {
         private Dictionary<IGameObject, int> koopaKickedShells;
         private int stompedEnemiesInSequence = 0;
         public bool HitEnemyAlreadyThisIteration { get; set; } = false;
         
-        public MultiplerForScore()
+        public ScoreMultiplierUtility()
         {
             this.stompedEnemiesInSequence = 0;
             this.koopaKickedShells = new Dictionary<IGameObject, int>();

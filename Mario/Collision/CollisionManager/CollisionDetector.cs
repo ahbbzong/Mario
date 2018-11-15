@@ -31,7 +31,7 @@ namespace Mario.Collision.CollisionManager
 		private static readonly CollisionDetector instance = new CollisionDetector();
 		public static CollisionDetector Instance { get => instance; }
 		private IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => GameObjectManager.Instance.GameObjectListsByType;}
-		private IList<Rectangle> FloorBoxPosition { get => GameObjectManager.Instance.FloorBoxPosition; }
+		private IList<Rectangle> FloorBoxPosition { get => GameObjectManager.Instance.FloorBoxPositions; }
 
 		private ICamera CameraMario { get => GameObjectManager.Instance.CameraMario; }
 		private IMario Mario { get => GameObjectManager.Instance.Mario; }
