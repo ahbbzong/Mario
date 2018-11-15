@@ -32,18 +32,10 @@ namespace Mario.Factory
         public void LoadAllTextures(ContentManager content)
         {
             normalFont = content.Load<SpriteFont>("TextSpriteForHUD");
-            if (normalFont == null)
-            {
-                Console.WriteLine("null!!");
-            }
         }
 
         public ITextSprite CreateNormalFontTextSpriteSprite()
         {
-            if (normalFont == null)
-            {
-                Console.WriteLine("null!!!!!!");
-            }
             return new TextSprite(normalFont);
         }
     }

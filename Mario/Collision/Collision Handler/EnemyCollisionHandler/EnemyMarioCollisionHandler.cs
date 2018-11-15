@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
+using Mario.HeadUpDesign;
 using Mario.Interfaces.GameObjects;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
@@ -26,6 +27,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (mario.IsStarMario()&&result!=Direction.None)
             {
                 enemy.Beflipped();
+                ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
             }
             if (result==Direction.Up)
             {
