@@ -11,6 +11,7 @@ using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
 using Mario.GameObjects.Decorators.Special_Event_Behaviors;
 using Mario.HeadUpDesign;
+using Mario.Utils;
 
 namespace Mario
 {
@@ -188,12 +189,12 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-			if((this.location.X > GameObjectManager.Instance.EndOfLevelXPosition -10 && this.location.X < GameObjectManager.Instance.EndOfLevelXPosition + 10) && !hasCompletedLevel)
+			if((this.location.X > GameObjectManager.Instance.EndOfLevelXPosition -MarioUtil.FlagpoleBuffer && this.location.X < GameObjectManager.Instance.EndOfLevelXPosition + MarioUtil.FlagpoleBuffer) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
                 Timer.CleanTimer();
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor));
                 atTheEnd = true;
 			}
         }
