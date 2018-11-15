@@ -1,9 +1,5 @@
-﻿using Mario.BlockStates;
-using Mario.Enums;
-using Mario.Interfaces.GameObjects;
+﻿using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace Game1
 {

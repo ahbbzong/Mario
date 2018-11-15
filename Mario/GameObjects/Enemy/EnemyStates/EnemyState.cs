@@ -1,19 +1,12 @@
 ﻿using Game1;
-using Mario.EnemyStates.GoombaStates;
-using Mario.Enums;
 using Mario.Factory;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-    public abstract class EnemyState : IEnemyState
+	public abstract class EnemyState : IEnemyState
     {
         protected ISprite EnemySprite { get; set; }
         protected IEnemy Enemy { get; set; }

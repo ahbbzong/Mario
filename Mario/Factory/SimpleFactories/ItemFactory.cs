@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mario.Interfaces.GameObjects;
-using Mario.Factory;
+﻿using Mario.Interfaces.GameObjects;
 using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Mario.Enums;
-using Game1;
+using System;
+using System.Collections.Generic;
 
 namespace Mario.Factory
 {

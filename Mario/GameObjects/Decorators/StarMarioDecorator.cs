@@ -1,10 +1,8 @@
 ﻿using Game1;
 using Mario.BlockStates;
-using Mario.HeadUpDesign;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
 
 
 namespace Mario.GameObjects.Decorators

@@ -1,18 +1,14 @@
 ﻿
 
-using System;
 using Game1;
 using Mario.AbstractClass;
 using Mario.AbstractClass.SpriteAbstractClasses;
-using Mario.Items;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace Mario.Factory
 {
-    public class SpriteFactory
+	public class SpriteFactory
     {
        
         private static SpriteFactory instance = new SpriteFactory();

@@ -1,15 +1,10 @@
-﻿using Game1;
-using Mario.Interfaces.GameObjects;
+﻿using Mario.Interfaces.GameObjects;
 using Mario.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    class ScoreMultiplierUtility
+	class ScoreMultiplierUtility
     {
         private Dictionary<IGameObject, int> koopaKickedShells;
         private int stompedEnemiesInSequence = ScoreUtil.ZeroScore;

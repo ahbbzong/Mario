@@ -3,15 +3,10 @@ using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class EnemyEnemyCollisionHandler : IEnemyCollisionHandler
+	public class EnemyEnemyCollisionHandler : IEnemyCollisionHandler
     {
         Rectangle intersection;
         IEnemy enemy;

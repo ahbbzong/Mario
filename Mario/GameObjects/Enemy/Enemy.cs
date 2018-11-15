@@ -1,18 +1,12 @@
 ﻿using Game1;
-using Mario.BlockStates;
-using Mario.Factory;
 using Mario.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.AbstractClass
 {
-    public abstract class Enemy : IEnemy,ICollidable, IMoveable
+	public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
         private Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
