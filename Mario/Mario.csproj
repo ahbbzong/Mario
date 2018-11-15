@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="HeadUpDesign\ScoreBarFlyingOut.cs" />
+    <Compile Include="Utils\DecoratorUtil.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
     <Compile Include="Utils\CameraUtil.cs" />

@@ -185,7 +185,8 @@ namespace Mario
 			if((this.location.X > GameObjectManager.Instance.EndOfLevelX -10 && this.location.X < GameObjectManager.Instance.EndOfLevelX + 10) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
-                ScoringSystem.Instance.AddPointsForRestTime(); GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
+                ScoringSystem.Instance.AddPointsForRestTime();
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, 820), 3000.0f);
 			}
         }
         public void Draw(SpriteBatch spriteBatch)
