@@ -1,11 +1,9 @@
-﻿using System;
-using Game1;
-using Mario.XMLRead;
+﻿using Game1;
 using Microsoft.Xna.Framework;
 
 namespace Mario.CameraClasses
 {
-    public class Camera : ICamera
+	public class Camera : ICamera
     {
         public Vector2 Location { get; set; }
         public Rectangle InnerBox { get; set; }

@@ -3,7 +3,7 @@
 namespace Mario.MarioCommand
 {
 
-    public class BeStarMarioCommand : MarioCommand
+	public class BeStarMarioCommand : MarioCommand
 	{ 
         public BeStarMarioCommand(IMario mario):base(mario)
         {

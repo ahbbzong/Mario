@@ -1,20 +1,13 @@
-﻿using Mario;
-using Mario.GameObjects.Mario;
+﻿using Mario.GameObjects.Mario;
 using Mario.Interfaces.GameObjects;
-using Mario.MarioStates;
 using Mario.MarioStates.MarioMovementStates;
 using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game1
 {
-    public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody, IPlayerStats
+	public interface IMario : IGameObject, IMovementEventBehavior, IPowerupEventBehavior, IPhysicsBody, IPlayerStats
     {
         bool IsStarMario();
         bool IsActive();

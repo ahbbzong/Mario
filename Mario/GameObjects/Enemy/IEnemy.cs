@@ -1,12 +1,7 @@
-﻿using Mario.AbstractClass;
-using Mario.BlockStates;
-using Mario.Enums;
-using Mario.Interfaces.GameObjects;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Mario.Interfaces.GameObjects;
 namespace Game1
 {
-    public interface IEnemy: IGameObject, IPhysicsBody
+	public interface IEnemy: IGameObject, IPhysicsBody
     {
         bool KoopaStompedCounted { get; set; }
         void Beflipped();

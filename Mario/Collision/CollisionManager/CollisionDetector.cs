@@ -1,16 +1,11 @@
 ﻿
 using Mario.Collision.FireballCollisionHandler;
 using Mario.Collision.ItemCollisionHandler;
-using Mario.Collision;
 using Mario.Enums;
 using Mario.Interfaces.GameObjects;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Game1;
 using Mario.Collision.EnemyCollisionHandler;
 using Mario.Factory;

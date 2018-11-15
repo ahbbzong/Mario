@@ -1,6 +1,5 @@
 ﻿using Game1;
 using Mario.Enums;
-using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
 
 namespace Mario.Collision

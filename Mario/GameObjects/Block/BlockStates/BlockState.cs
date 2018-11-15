@@ -1,20 +1,11 @@
 ﻿using Game1;
-using Mario.Classes;
-using Mario.Classes.BlocksClasses;
-using Mario.Factory;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.BlockStates
 {
-    public abstract class BlockState : IBlockState
+	public abstract class BlockState : IBlockState
     {
         protected ISprite BlockSprite { get; set; }
         protected IBlock Block { get; set; }
