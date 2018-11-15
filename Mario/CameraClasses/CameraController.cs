@@ -1,15 +1,9 @@
 ﻿using Game1;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.CameraClasses
 {
-    internal class CameraController : ICameraController
+	internal class CameraController : ICameraController
     {
         private ICamera camera;
 

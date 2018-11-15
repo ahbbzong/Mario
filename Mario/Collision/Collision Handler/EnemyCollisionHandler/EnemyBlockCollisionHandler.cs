@@ -1,19 +1,13 @@
 ﻿using Game1;
-using Mario.BlocksClasses;
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.GameObjects.Decorators;
 using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class EnemyBlockCollisionHandler : IEnemyCollisionHandler
+	public class EnemyBlockCollisionHandler : IEnemyCollisionHandler
     {
 		readonly IBlock block;
         Rectangle intersection;

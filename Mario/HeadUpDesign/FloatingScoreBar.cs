@@ -3,15 +3,10 @@ using Mario.Interfaces.GameObjects;
 using Mario.Sprite;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    static class FloatingScoreBar
+	static class FloatingScoreBar
     {
         public static void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
         {

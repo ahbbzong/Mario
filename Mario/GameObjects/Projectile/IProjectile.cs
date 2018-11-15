@@ -1,14 +1,10 @@
-﻿using Mario;
-using Mario.BlockStates;
-using Mario.Enums;
+﻿using Mario.BlockStates;
 using Mario.Interfaces.GameObjects;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Game1
 {
-    public interface IProjectile : IGameObject, IPhysicsBody
+	public interface IProjectile : IGameObject, IPhysicsBody
     {
         
   

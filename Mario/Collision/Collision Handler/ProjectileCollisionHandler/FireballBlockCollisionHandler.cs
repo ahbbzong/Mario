@@ -1,18 +1,11 @@
 ﻿using Game1;
-using Mario.BlocksClasses;
 using Mario.BlockStates;
 using Mario.Enums;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.FireballCollisionHandler
 {
-    public class FireballBlockCollisionHandler : IProjectileCollisionHandler
+	public class FireballBlockCollisionHandler : IProjectileCollisionHandler
     {
         IBlock block;
         Rectangle intersection;

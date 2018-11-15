@@ -1,18 +1,12 @@
 ﻿using Game1;
-using Mario.BlocksClasses;
-using Mario.Classes.BlocksClasses;
-using Mario.Enums;
 using Mario.Factory;
 using Mario.GameObjects.Decorators;
-using Mario.Sound;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 
 namespace Mario.BlockStates
 {
-    class QuestionBlockState : BlockState
+	class QuestionBlockState : BlockState
     {
 
         public QuestionBlockState(IBlock block) : base(block)

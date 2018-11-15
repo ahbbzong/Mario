@@ -1,20 +1,15 @@
 ﻿using Game1;
-using Mario.BlocksClasses;
-using Mario.Classes.BlocksClasses;
-using Mario.Enums;
 using Mario.Factory;
 using Mario.GameObjects.Decorators;
 using Mario.HeadUpDesign;
 using Mario.ItemClasses;
 using Mario.MarioStates.MarioPowerupStates;
 using Mario.Sound;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.BlockStates
 {
-    class BrickBlockState : BlockState
+	class BrickBlockState : BlockState
     {
         public BrickBlockState(IBlock block) : base(block)
         {

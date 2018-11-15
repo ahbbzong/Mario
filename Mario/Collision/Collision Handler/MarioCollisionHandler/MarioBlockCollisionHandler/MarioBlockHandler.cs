@@ -2,15 +2,10 @@
 using Mario.Enums;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
 {
-    public class MarioBlockHandler : IMarioCollisionHandler
+	public class MarioBlockHandler : IMarioCollisionHandler
     {
         Rectangle intersection;
         public MarioBlockHandler(Rectangle intersection)

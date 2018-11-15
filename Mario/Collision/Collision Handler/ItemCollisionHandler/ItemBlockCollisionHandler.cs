@@ -5,16 +5,10 @@ using Mario.Enums;
 using Mario.ItemClasses;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.ItemCollisionHandler
 {
-    class ItemBlockCollisionHandler : IItemCollisionHandler
+	class ItemBlockCollisionHandler : IItemCollisionHandler
     {
         Rectangle intersection;
         IBlock block;

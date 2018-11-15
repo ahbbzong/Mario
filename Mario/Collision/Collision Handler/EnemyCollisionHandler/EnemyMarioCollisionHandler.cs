@@ -2,18 +2,11 @@
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Mario.HeadUpDesign;
-using Mario.Interfaces.GameObjects;
 using Mario.Sound;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mario.Collision.EnemyCollisionHandler
 {
-    public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
+	public class EnemyMarioCollisionHandler: IEnemyCollisionHandler
     {
         IMario mario;
         Direction result;

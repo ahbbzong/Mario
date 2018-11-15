@@ -159,6 +159,7 @@ namespace Mario
             {
                 if (gameOverCheck)
                 {
+                    SoundManager.StopSong();
                     SoundManager.Instance.PlaySoundEffect("GameOver");
                 }
                 gameOverCheck = false;

@@ -1,21 +1,14 @@
-﻿using Mario.HeadUpDesign;
+﻿using Game1;
+using Mario.Factory;
+using Mario.ItemClasses;
 using Mario.Sprite;
-using Mario.XMLRead;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Game1;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Content;
-using Mario.Factory;
-using Mario.ItemClasses;
 
 namespace Mario.HeadUpDesign
 {
-    class HeadsUpDisplayBoard
+	class HeadsUpDisplayBoard
     {
         ITextSprite marioTitleTextSprite;
         ITextSprite scoreTextSprite;

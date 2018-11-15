@@ -1,17 +1,15 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System;
-using Game1;
-using Mario.MarioStates.MarioMovementStates;
-using Mario.MarioStates.MarioPowerupStates;
+﻿using Game1;
 using Mario.Factory;
-using System.Diagnostics;
 using Mario.GameObjects.Decorators;
-using Mario.Sound;
-using Microsoft.Xna.Framework.Media;
 using Mario.GameObjects.Decorators.Special_Event_Behaviors;
 using Mario.HeadUpDesign;
+using Mario.MarioStates.MarioMovementStates;
+using Mario.MarioStates.MarioPowerupStates;
+using Mario.Sound;
 using Mario.Utils;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace Mario
 {

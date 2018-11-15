@@ -1,14 +1,10 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using Game1;
-using Mario.Factory;
+﻿using Mario.AbstractClass;
 using Mario.EnemyStates.GoombaStates;
-using Mario.Enums;
-using Mario.AbstractClass;
+using Microsoft.Xna.Framework;
 
 namespace Mario.EnemyClasses
 {
-    public class Goomba : Enemy
+	public class Goomba : Enemy
     {
 
         public Goomba(Vector2 location) : base(location)
