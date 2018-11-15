@@ -155,7 +155,6 @@ namespace Mario
         {
             MarioPowerupState.BeDead();
             MarioMovementState.BeDead();
-
         }
         public void BeSuper()
         {
@@ -243,7 +242,6 @@ namespace Mario
         }
         public void Draw(SpriteBatch spriteBatch, Color c)
 		{
-
 			MarioSprite.Draw(spriteBatch, location,c);
 		}
 

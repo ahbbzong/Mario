@@ -113,8 +113,10 @@ namespace Mario
                         Mario.BeDead();
                         LifeCounter.Instance.DecreaseLife();
                         SetInitialValuesCamera();
-                        Timer.ResetTimer();
                         LoadContent();
+                        Timer.ResetTimer();
+                        Timer.StartTimer();
+
                     }
                 }
                 CollisionDetector.Instance.Update();

@@ -116,6 +116,7 @@ namespace Mario
             LifeCounter.Instance.ResetLife();
             ScoringSystem.Instance.ResetScore();
             CoinSystem.Instance.ResetCoin();
+
         }
         private void ChangeColor()
         {
