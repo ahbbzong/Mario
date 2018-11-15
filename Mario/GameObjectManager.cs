@@ -16,8 +16,8 @@ using Mario.HeadUpDesign;
 using Mario.XMLRead;
 using Mario.Display;
 using Mario.Sprite;
-using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
+using Mario.Sound;
 
 namespace Mario
 {
