@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Mario.Sound
 {
-    public class MotionSound
+    public class SoundManager
     {
-		private static MotionSound instance = new MotionSound();
-		public static MotionSound Instance { get => instance; set => instance = value; }
+		private static SoundManager instance = new SoundManager();
+		public static SoundManager Instance { get => instance; set => instance = value; }
 
 		private static IDictionary<string, SoundEffect> soundEffectDictionary = new Dictionary<string, SoundEffect>();
 		private static IDictionary<string, Song> songDictionary = new Dictionary<string, Song>();

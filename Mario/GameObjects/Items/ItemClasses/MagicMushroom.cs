@@ -12,7 +12,7 @@ namespace Mario.ItemClasses
     {
         public MagicMushroom(Vector2 location) : base(location)
         {
-			MotionSound.Instance.PlaySoundEffect("powerUpAppears");
+			SoundManager.Instance.PlaySoundEffect("powerUpAppears");
         }
     }
 }

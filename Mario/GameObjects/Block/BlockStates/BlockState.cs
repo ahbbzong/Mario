@@ -51,7 +51,7 @@ namespace Mario.BlockStates
       
         public virtual void React()
         {
-			MotionSound.Instance.PlaySoundEffect("bump");
+			SoundManager.Instance.PlaySoundEffect("bump");
         }
        
 

@@ -57,10 +57,10 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-            MotionSound.loadcontent(Content);
+            SoundManager.loadcontent(Content);
             GameObjectManager.Instance.LoadContent();
             Timer.StartTimer();
-			MotionSound.Instance.PlayBGM("marioBGM");
+			SoundManager.Instance.PlayBGM("marioBGM");
 
         }
 

@@ -23,7 +23,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioItemCollisionHandler
                 || mario.MarioPowerupState is SuperMarioPowerupState)
                 &&!mario.IsStarMario())
             {
-				MotionSound.Instance.PlaySoundEffect("marioPowerUp");
+				SoundManager.Instance.PlaySoundEffect("marioPowerUp");
                 mario.BeFire();
             }
         }

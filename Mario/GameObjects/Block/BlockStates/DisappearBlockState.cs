@@ -14,7 +14,7 @@ namespace Mario.BlockStates
         public DisappearBlockState(IBlock block) : base(block)
         {
             BlockSprite = SpriteFactory.Instance.CreateEmptySprite(BlockUtil.emptySprite, BlockUtil.emptySprite);
-			MotionSound.Instance.PlaySoundEffect("bump");
+			SoundManager.Instance.PlaySoundEffect("bump");
         }
 
 
