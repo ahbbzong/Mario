@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.BlockStates;
 using Mario.HeadUpDesign;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
@@ -11,7 +12,7 @@ namespace Mario.GameObjects.Decorators
 	class StarMarioDecorator: MarioDecorator
 	{
 
-        private int timer = 0;
+        private int timer = DecoratorUtil.zero;
 		public StarMarioDecorator(IMario mario):base(mario){
             MediaPlayer.Play(MotionSound.StarMarioMusic);
 
@@ -27,7 +28,7 @@ namespace Mario.GameObjects.Decorators
         {
             timer+= GameObjectManager.Instance.CurrentGameTime.ElapsedGameTime.Milliseconds;
 
-            if (timer > 5000)
+            if (timer > DecoratorUtil.starMarioTimerLimit)
             {
 
                 GameObjectManager.Instance.Mario = DecoratedMario;

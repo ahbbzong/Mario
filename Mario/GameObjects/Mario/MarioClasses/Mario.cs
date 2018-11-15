@@ -90,7 +90,7 @@ namespace Mario
 
 		private float scoreMultiplier;
 		private bool hasCompletedLevel = false;
-		public float ScoreMultiplier { set => scoreMultiplier = value; }
+		public float ScoreMultiplier { get; set; }
 
 		public Mario(Vector2 location)
         {
@@ -188,7 +188,7 @@ namespace Mario
         {
 			MarioSprite.Update();
             Physics.Update();
-			if((this.location.X > GameObjectManager.Instance.EndOfLevelX -10 && this.location.X < GameObjectManager.Instance.EndOfLevelX + 10) && !hasCompletedLevel)
+			if((this.location.X > GameObjectManager.Instance.EndOfLevelXPosition -10 && this.location.X < GameObjectManager.Instance.EndOfLevelXPosition + 10) && !hasCompletedLevel)
 			{
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
@@ -229,7 +229,6 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
-                MotionSound.MarioFireball.Play();
             }
         }
 

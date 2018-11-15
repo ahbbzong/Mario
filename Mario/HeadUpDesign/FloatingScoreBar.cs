@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    static class ScoreBarFlyingOut
+    static class FloatingScoreBar
     {
         public static void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
         {
@@ -23,11 +23,11 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.IsFlying = true;
             scoreTextSprite.Location = location;
             scoreTextSprite.InitialY = (int)location.Y;
-            GameObjectManager.Instance.DrawAndUpdateBars.Add(scoreTextSprite);
+            GameObjectManager.Instance.UITextSprites.Add(scoreTextSprite);
         }
         public static void Update()
         {
-            foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
+            foreach (ITextSprite TextBars in GameObjectManager.Instance.UITextSprites)
             {
                 int difference = (int)TextBars.InitialY - (int)TextBars.Location.Y;
                 if (TextBars.IsFlying && difference < ScoreUtil.FlyingBar)
@@ -42,7 +42,7 @@ namespace Mario.HeadUpDesign
         }
         public static void Draw(SpriteBatch spriteBatch)
         {
-            foreach (ITextSprite TextBars in GameObjectManager.Instance.DrawAndUpdateBars)
+            foreach (ITextSprite TextBars in GameObjectManager.Instance.UITextSprites)
             if (TextBars.IsFlying)
             {
                 TextBars.Draw(spriteBatch);

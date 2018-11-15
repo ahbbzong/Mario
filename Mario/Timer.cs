@@ -15,7 +15,7 @@ namespace Mario
         public static int Time { get; set; } = TimerUtil.MaxTimer;
         private static int counter = TimerUtil.Zero;
         private static bool timeRunning = false;
-        private static int maxTime = TimerUtil.MaxTimer;
+        private static readonly int maxTime = TimerUtil.MaxTimer;
 
         public static void ResetTimer()
         {

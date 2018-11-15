@@ -1,6 +1,10 @@
 ﻿using Game1;
+using Mario.BlockStates;
+using Mario.Display;
 using Mario.HeadUpDesign;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,16 +24,20 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 	class SlideDownFlagDecorator :MarioSpecialEventDecorator
 	{
 		private Vector2 locationOfBase = Vector2.Zero;
-		private float timeToFall = 1;
+		private float timeToFall = DecoratorUtil.fallFlag;
 		private SlidingStates slidingState = SlidingStates.INITIAL;
+        private readonly IDisplay gameOverDisplay;
 
-		public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase, float timeToFall):base(mario)
+        public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase, float timeToFall):base(mario)
 		{
 
 			this.locationOfBase = locationOfBase;
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
+            gameOverDisplay = new GameOverDisplay();
+            MotionSound.StopSong();
+            MotionSound.ClearStage.Play();
         }
 
 		public override void Update()
@@ -37,9 +45,9 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			switch (slidingState)
 			{
 				case SlidingStates.SLIDING_DOWN:
-					if (Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > 10)
+					if (Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > DecoratorUtil.locationOffset)
 					{
-						DecoratedMario.Position += Vector2.UnitY * 10;
+						DecoratedMario.Position += Vector2.UnitY * DecoratorUtil.locationOffset;
 					}
 					else
 					{
@@ -47,23 +55,22 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					}
 					break;
 				case SlidingStates.WALKING_RIGHT:
-					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelX + 400) 
+					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelXPosition + DecoratorUtil.walkRightOffset) 
 					{
 						slidingState = SlidingStates.EXIT;
 					}
 					else
 					{
 						this.DecoratedMario.GoRight();
-						this.DecoratedMario.Position += Vector2.UnitX * 2;
+						this.DecoratedMario.Position += Vector2.UnitX * DecoratorUtil.Double;
 						timeToFall--;
-					}
+                    }
 
 					break;
 				default:
 					RemoveSelf();
 					break;
 			}
-			Debug.WriteLine(slidingState.ToString() + "," + DecoratedMario.Position.Y + " , " + locationOfBase.Y);
 			
 		}
 
@@ -73,7 +80,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		}
 		public override void RemoveSelf()
 		{
-
+			LifeCounter.Instance.Life = 0;
 			base.RemoveSelf();
 		}
 		
