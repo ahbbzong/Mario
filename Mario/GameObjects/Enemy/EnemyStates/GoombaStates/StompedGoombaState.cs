@@ -40,6 +40,10 @@ namespace Mario.EnemyStates.GoombaStates
             {
                 EnemySprite.Draw(spriteBatch, location);
             }
+            else
+            {
+                GameObjectManager.Instance.GameObjectListsByType[typeof(IEnemy)].Remove(Enemy);
+            }
         }
 
 
