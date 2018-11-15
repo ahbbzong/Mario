@@ -11,5 +11,6 @@ namespace Game1
     {
        void Draw(SpriteBatch spriteBatch);
        void Update();
+        void Draw(object spriteBatch);
     }
 }
