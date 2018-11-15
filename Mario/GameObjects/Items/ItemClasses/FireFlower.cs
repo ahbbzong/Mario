@@ -13,7 +13,7 @@ namespace Mario.ItemClasses
     {
         public FireFlower(Vector2 location) : base(location)
         {
-            MotionSound.PowerUpAppears.Play();
+			SoundManager.Instance.PlaySoundEffect("powerUpAppears");
         }
         public override void Update()
         {

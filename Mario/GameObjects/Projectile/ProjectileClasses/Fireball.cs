@@ -17,7 +17,7 @@ namespace Mario.ItemClasses
         
         public Fireball(Vector2 location):base(location)
         {
-            MotionSound.MarioFireball.Play();
+            SoundManager.Instance.PlaySoundEffect("marioFireball");
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[this.GetType()]);
             ProjectileState = new FireballState(this);
             gravityManagement = new GravityManagement(this);

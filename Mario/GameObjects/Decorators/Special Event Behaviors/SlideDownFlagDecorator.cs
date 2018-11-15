@@ -35,8 +35,8 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.timeToFall = timeToFall;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
-            MotionSound.StopSong();
-            MotionSound.ClearStage.Play();
+            SoundManager.StopSong();
+            SoundManager.Instance.PlaySoundEffect("clearStage");
         }
 
 		public override void Update()
