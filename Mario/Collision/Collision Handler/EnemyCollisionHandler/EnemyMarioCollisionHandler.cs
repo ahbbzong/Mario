@@ -32,18 +32,18 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (result==Direction.Up)
             {
                 enemy.BeStomped();
-                MotionSound.Stomp.Play();
+				SoundManager.Instance.PlaySoundEffect("stomp");
 
             }
             if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)
             {
                 enemy.TurnLeft();
-                MotionSound.Flip.Play();
+				SoundManager.Instance.PlaySoundEffect("flip");
             }
             else if(enemy.EnemyState is StompedKoopaState && result==Direction.Left)
             {
                 enemy.TurnRight();
-                MotionSound.Flip.Play();
+				SoundManager.Instance.PlaySoundEffect("flip");
             }
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,8 @@ namespace Mario.Sprite
     {
         public const int delayUtil = 5;
         public const int Zero = 0;
+        public const int gameOverPositionX = 600;
+        public const int gameOverPositionY = 500;
+
     }
 }

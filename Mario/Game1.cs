@@ -17,7 +17,7 @@ namespace Mario
 	public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
 		private bool isPause;
 		public bool IsPause { get => isPause; set => isPause = value; }
 		private IList<IController> controllerList = new List<IController>();
@@ -57,10 +57,10 @@ namespace Mario
         {
 			base.LoadContent();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-            MotionSound.loadcontent(Content);
+            SoundManager.loadcontent(Content);
             GameObjectManager.Instance.LoadContent();
             Timer.StartTimer();
-            MediaPlayer.Play(MotionSound.MarioBGM);
+			SoundManager.Instance.PlayBGM("marioBGM");
 
         }
 
