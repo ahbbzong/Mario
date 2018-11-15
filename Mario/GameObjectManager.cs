@@ -134,6 +134,7 @@ namespace Mario
             }
             headUpDisplayBoard.Update();
             ScoreBarFlyingOut.Update();
+            ScoringSystem.Instance.SetMarioEnemyHitThisIterationToFalse();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
