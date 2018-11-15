@@ -35,22 +35,23 @@ namespace Mario.Collision.CollisionManager
 
 		private ICamera CameraMario { get => GameObjectManager.Instance.CameraMario; }
 		private IMario Mario { get => GameObjectManager.Instance.Mario; }
-
+       
 		public void Update()
 		{
-			IMario mario = (IMario)GameObjectListsByType[typeof(IMario)][0];
-			Direction collisionFound;
-			Rectangle intersection;
-			IBlockCollisionHandler blockHandler;
-			IBlockCollisionHandler pipeHandler;
-			IItemCollisionHandler itemHandler;
-			IEnemyCollisionHandler enemyHandler;
-			IMarioCollisionHandler marioHandler;
-			IProjectileCollisionHandler projectileCollisionHandler;
-			CollisionUtility collisionDetecter = new CollisionUtility();
-			collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
-			intersection = collisionDetecter.Intersection;
-			if (!collisionFound.Equals(Direction.None))
+            IMario mario = (IMario)GameObjectListsByType[typeof(IMario)][0];
+            Direction collisionFound;
+            Rectangle intersection;
+            IBlockCollisionHandler blockHandler;
+            IBlockCollisionHandler pipeHandler;
+            IItemCollisionHandler itemHandler;
+            IEnemyCollisionHandler enemyHandler;
+            IMarioCollisionHandler marioHandler;
+            IProjectileCollisionHandler projectileCollisionHandler;
+            CollisionUtility collisionDetecter = new CollisionUtility();
+            collisionFound = collisionDetecter.Collision(mario.Box, CameraMario.InnerBox);
+            intersection = collisionDetecter.Intersection;
+
+            if (!collisionFound.Equals(Direction.None))
 			{
 				mario.Position += Vector2.UnitY * intersection.Width;
             }
@@ -114,7 +115,7 @@ namespace Mario.Collision.CollisionManager
 				foreach (IEnemy enemy in GameObjectListsByType[typeof(IEnemy)])
 				{
 
-					projectileCollisionHandler = new FireballEnemyCollisionHandler(enemy);
+					projectileCollisionHandler = new FireballEnemyCollisionHandler();
 					collisionFound = collisionDetecter.Collision(enemy.Box, projectile.Box);
 					enemyHandler = new EnemyProjectileCollisionHandler();
 					if (collisionFound != Direction.None)
@@ -298,5 +299,6 @@ namespace Mario.Collision.CollisionManager
 			marioHandler.HandleCollision(Mario, collisionFound);
 
 		}
+       
 	}
 }

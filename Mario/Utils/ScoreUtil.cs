@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    public class ScoreUtil
+    public static class ScoreUtil
     {
         public const int BreakingBlockScore = 50;
         public const int ItemCollectedScore = 500;

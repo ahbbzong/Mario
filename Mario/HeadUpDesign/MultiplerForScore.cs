@@ -13,7 +13,7 @@ namespace Mario.HeadUpDesign
     {
         private Dictionary<IGameObject, int> koopaKickedShells;
         private int stompedEnemiesInSequence;
-        public bool HitEnemyAlreadyThisIteration { get; set; } = false;
+        public bool HitEnemyAlreadyThisIteration { get; set; }
         private bool isMarioInAir;
         public bool IsMarioAirbourne
         {
@@ -31,9 +31,10 @@ namespace Mario.HeadUpDesign
             this.stompedEnemiesInSequence = 0;
             this.koopaKickedShells = new Dictionary<IGameObject, int>();
             this.isMarioInAir = !(mario.Island);
+            HitEnemyAlreadyThisIteration = false;
         }
 
-        public int DetermineDoubleStompSequence()
+        private int DetermineDoubleStompSequence()
         {
             int scoreToAdd = ScoringMultiplerUtil.InitialStompScore;
             if (HitEnemyAlreadyThisIteration)

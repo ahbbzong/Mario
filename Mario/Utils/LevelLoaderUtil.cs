@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.BlockStates
 {
-   public class LevelLoaderUtil
+   public static class LevelLoaderUtil
     {
         public const int zero = 0;
         public const int blockOffset = 32;

@@ -14,7 +14,6 @@ namespace Mario.Factory
 		private IDictionary<string, Tuple<Texture2D,int,int>> gameObjectSprites = new Dictionary<string, Tuple<Texture2D,int,int>>();
 		protected IDictionary<string, Tuple<Texture2D,int,int>> GameObjectSprites { get => gameObjectSprites; set => gameObjectSprites = value; }
 
-		public IDictionary<string, Tuple<Texture2D,int,int>> GetGameObjectSprites { get => GameObjectSprites; }
 		protected StaticGameObjectFactory()
 		{
 

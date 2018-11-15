@@ -31,7 +31,7 @@ namespace Mario.Classes.BlocksClasses
         public GravityManagement gravityManagement { get; set; }
 		public Vector2 Position { get => ItemLocation; set => ItemLocation = value; }
         public bool Island { get; set; }
-        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get ; set; }
 
         protected Item(Vector2 location)
         {

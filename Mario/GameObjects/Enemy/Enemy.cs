@@ -78,7 +78,7 @@ namespace Mario.AbstractClass
       
 		
 		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
-        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Force { get ; set ; }
 
         public virtual bool IsFlipped()
         {

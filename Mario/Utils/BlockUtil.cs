@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Mario.BlockStates
 {
-   public class BlockUtil
+   public static class BlockUtil
     {
         public const int brickBlockParticleOffset = 16;
         public const int BlockOffset = 10;

@@ -79,13 +79,14 @@ namespace Mario
 		
 
         public PhysicsMario Physics { get; set; }
-        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Velocity { get; set ; }
+        public Vector2 Force { get; set ; }
 		private int lives = 3;
 		public int Lives { get =>lives; set => lives = value; }
 		private int score = 0;
 		public int Score { get => score; set => score= value; }
-		private float scoreMultiplier = 1;
+
+		private float scoreMultiplier;
 		private bool hasCompletedLevel = false;
 		public float ScoreMultiplier { set => scoreMultiplier = value; }
 
