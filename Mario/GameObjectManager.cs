@@ -16,8 +16,8 @@ using Mario.HeadUpDesign;
 using Mario.XMLRead;
 using Mario.Display;
 using Mario.Sprite;
-using Mario.Sound;
 using Microsoft.Xna.Framework.Media;
+using Mario.Sound;
 
 namespace Mario
 {
@@ -160,7 +160,7 @@ namespace Mario
                 if (gameOverCheck)
                 {
                     SoundManager.StopSong();
-                    SoundManager.Instance.PlaySoundEffect("GameOver");
+                    SoundManager.Instance.PlaySoundEffect("gameOver");
                 }
                 gameOverCheck = false;
                 gameOverDisplay.Draw(spriteBatch);

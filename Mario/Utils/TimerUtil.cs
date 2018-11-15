@@ -14,6 +14,7 @@ namespace Game1
         public const int Zero = 0;
         public const int Thousand = 1000;
         public const int MaxTimer = 300;
+        public const int DisplayTimer = 100;
 
 
 
