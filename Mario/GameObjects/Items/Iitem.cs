@@ -1,14 +1,9 @@
-﻿using Mario;
-using Mario.BlockStates;
-using Mario.Enums;
-using Mario.Interfaces.GameObjects;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Mario.Interfaces.GameObjects;
 
 
 namespace Game1
 {
-    public interface IItem : IGameObject, IPhysicsBody
+	public interface IItem : IGameObject, IPhysicsBody
     {
 
         GravityManagement gravityManagement { get; set; }
