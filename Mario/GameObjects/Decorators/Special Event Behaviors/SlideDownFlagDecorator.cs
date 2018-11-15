@@ -3,6 +3,7 @@ using Mario.BlockStates;
 using Mario.Display;
 using Mario.HeadUpDesign;
 using Mario.Sound;
+using Mario.Utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -19,13 +20,15 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 	{
 		SLIDING_DOWN = 0,
 		WALKING_RIGHT = 1,
-		INITIAL = 2,
+		HOLDING = 2,
+		INITIAL = 3,
 		EXIT = 3
 	}
 	class SlideDownFlagDecorator :MarioSpecialEventDecorator
 	{
 		private Vector2 locationOfBase = Vector2.Zero;
 		private SlidingStates slidingState = SlidingStates.INITIAL;
+		private float holdingTime = MarioUtil.WinConditionHoldingTime;
 
         public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase):base(mario)
 		{
@@ -54,7 +57,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 				case SlidingStates.WALKING_RIGHT:
 					if (DecoratedMario.Position.X > GameObjectManager.Instance.EndOfLevelXPosition + DecoratorUtil.walkRightOffset) 
 					{
-						slidingState = SlidingStates.EXIT;
+						slidingState = SlidingStates.HOLDING;
 					}
 					else
 					{
@@ -63,6 +66,17 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
                     }
 
                     break;
+				case SlidingStates.HOLDING:
+					if (holdingTime <= 0)
+					{
+						holdingTime--;
+
+					}
+					else
+					{
+						slidingState = SlidingStates.EXIT;
+					}
+					break;
 				default:
 					RemoveSelf();
 					break;
@@ -77,6 +91,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		public override void RemoveSelf()
 		{
             base.RemoveSelf();
+			Game1.Instance.Reset();
 		}
 		
 	}
