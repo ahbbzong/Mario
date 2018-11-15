@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />
     <Compile Include="Utils\DecoratorUtil.cs" />
-    <Compile Include="HeadUpDesign\ScoreBarFlyingOut.cs" />
     <Compile Include="Utils\HUDUtil.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
