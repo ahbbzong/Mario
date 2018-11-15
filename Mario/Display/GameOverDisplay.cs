@@ -16,26 +16,21 @@ namespace Mario.Display
     {
         ITextSprite lifeTextSprite;
         IGameObject backgroundSprite;
-            private int counter;
             public GameOverDisplay()
             {
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-                counter = 0;
-                backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(0, 0));
+                backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
         }
             public void Update()
             {
-                counter++;
+
             }
             public void Draw(SpriteBatch spriteBatch)
             {
-               
                 backgroundSprite.Draw(spriteBatch);
-            lifeTextSprite.Location = new Vector2(600, 500);
+                lifeTextSprite.Location = new Vector2(SpriteUtil.gameOverPositionX, SpriteUtil.gameOverPositionY);
                 lifeTextSprite.Draw(spriteBatch);
-                
-            
             }
     }
 }
