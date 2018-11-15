@@ -133,7 +133,7 @@ namespace Mario
                 gameOverDisplay.Update();
             }
             headUpDisplayBoard.Update();
-            ScoreBarFlyingOut.Update();
+            FloatingScoreBar.Update();
             ScoringSystem.Instance.SetMarioEnemyHitThisIterationToFalse();
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -158,7 +158,7 @@ namespace Mario
                
             }
             headUpDisplayBoard.Draw(spriteBatch);
-            ScoreBarFlyingOut.Draw(spriteBatch);
+            FloatingScoreBar.Draw(spriteBatch);
         }
         
 

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Mario.HeadUpDesign
 {
-    static class ScoreBarFlyingOut
+    static class FloatingScoreBar
     {
         public static void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
         {

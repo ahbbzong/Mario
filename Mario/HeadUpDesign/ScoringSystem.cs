@@ -17,7 +17,7 @@ namespace Mario.HeadUpDesign
         private int score = 0;
         public int Score { get { return score; } }
         //fixing the combo parts
-        private MultiplerForScore multilperForScore;
+        private ScoreMultiplierManager multilperForScore;
         private readonly List<IGameObject> FlagParts;
         //private ITextSprite textSpriteDrawUpdate;
         private static readonly ScoringSystem instance = new ScoringSystem();
@@ -25,7 +25,7 @@ namespace Mario.HeadUpDesign
         private ScoringSystem()
         {
             FlagParts = new List<IGameObject>();
-           multilperForScore = new MultiplerForScore();
+           multilperForScore = new ScoreMultiplierManager();
         }
         public IGameObject RegisterPole(IGameObject pole)
         {
@@ -44,7 +44,7 @@ namespace Mario.HeadUpDesign
         public void AddPointsForCollectingItem(IGameObject item)
         {
             score += ScoreUtil.ItemCollectedScore;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(item, ScoreUtil.ItemCollectedScore);
+            FloatingScoreBar.CreateNewScoreAnimation(item, ScoreUtil.ItemCollectedScore);
         }
         public void AddPointsForCoin()
         {
@@ -58,37 +58,37 @@ namespace Mario.HeadUpDesign
         {
             int scoreToAdd = multilperForScore.DetermineStompSequence();
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForEnemyBelowBlockHit(IGameObject enemy)
         {
             int scoreToAdd = ScoreUtil.EnemyBelowBlockHitScore;
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForFireballGoombaHit(IGameObject goomba)
         {
             int scoreToAdd = ScoreUtil.SpecialGoombaHitScore;
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(goomba, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(goomba, scoreToAdd);
         }
         public void AddPointsForFireballKoopaHit(IGameObject koopa)
         {
             int scoreToAdd = ScoreUtil.SpecialKoopaHitScore;
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(koopa, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(koopa, scoreToAdd);
         }
         public void AddPointsForInitiatingShell(IGameObject enemy)
         {
             int scoreToAdd = multilperForScore.DetermineShellInitializationSequence(enemy);
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForEnemyHitByShell(IGameObject enemy)
         {
             int scoreToAdd = multilperForScore.DetermineShellHitSequence(enemy);
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(enemy, scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(enemy, scoreToAdd);
         }
         public void AddPointsForFinalPole(Rectangle marioDestination)
         {
@@ -110,7 +110,7 @@ namespace Mario.HeadUpDesign
                 scoreToAdd = ScoreUtil.OffTheFlagFourthScore;
             }
             score += scoreToAdd;
-            ScoreBarFlyingOut.CreateNewScoreAnimation(GameObjectManager.Instance.Mario,scoreToAdd);
+            FloatingScoreBar.CreateNewScoreAnimation(GameObjectManager.Instance.Mario,scoreToAdd);
         }
         
         public void SetMarioEnemyHitThisIterationToFalse()
