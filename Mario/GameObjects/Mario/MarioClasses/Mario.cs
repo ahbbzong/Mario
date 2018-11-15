@@ -109,7 +109,7 @@ namespace Mario
                 Island = false;
                 MarioMovementState.GoUp();
                 Physics.Jump();
-                MotionSound.MarioJump.Play();
+				MotionSound.Instance.PlaySoundEffect("marioJump");
             }
         }
         public bool IsUp()
@@ -220,7 +220,7 @@ namespace Mario
             if(MarioPowerupState.CanThrowProjectile())
             {
                 MarioPowerupState.ThrowProjectile();
-                MotionSound.MarioFireball.Play();
+				MotionSound.Instance.PlaySoundEffect("marioFireball");
             }
         }
 
@@ -239,7 +239,7 @@ namespace Mario
         }
 		public void TakeDamage()
 		{
-            MotionSound.TakeDamage.Play();
+			MotionSound.Instance.PlaySoundEffect("takeDamage");
 			MarioPowerupState.TakeDamage();
         }
         public void Draw(SpriteBatch spriteBatch, Color c)

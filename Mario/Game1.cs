@@ -60,7 +60,7 @@ namespace Mario
             MotionSound.loadcontent(Content);
             GameObjectManager.Instance.LoadContent();
             Timer.StartTimer();
-            MediaPlayer.Play(MotionSound.MarioBGM);
+			MotionSound.Instance.PlayBGM("marioBGM");
 
         }
 

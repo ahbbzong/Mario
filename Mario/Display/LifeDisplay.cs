@@ -17,7 +17,7 @@ namespace Mario.Display
    public class LifeDisplay : IDisplay
     {
         ISprite marioSprite;
-        IGameObject backgroundSprite;
+        IGameObject backgroundObject;
         ITextSprite lifeTextSprite;
       
         private int counter;
@@ -27,7 +27,7 @@ namespace Mario.Display
             lifeTextSprite.Text = "X ";
             lifeTextSprite.Text += LifeCounter.Instance.LifeRemains().ToString();
             counter = 0;
-            backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(0, 0));
+            backgroundObject = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(0, 0));
             marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[typeof(NormalMarioPowerupState)][typeof(RightIdleMarioMovementState)]);
         }
         public void Update()
@@ -38,7 +38,7 @@ namespace Mario.Display
         {
             if (counter < 100)
             {
-                backgroundSprite.Draw(spriteBatch);
+                backgroundObject.Draw(spriteBatch);
                 lifeTextSprite.Location = new Vector2(550, 500);
                 lifeTextSprite.Draw(spriteBatch);
                 marioSprite.Draw(spriteBatch, new Microsoft.Xna.Framework.Vector2(500, 500));

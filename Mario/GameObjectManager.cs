@@ -65,7 +65,7 @@ namespace Mario
 
         public void SetInitialValuesCamera()
         {
-            MediaPlayer.Play(MotionSound.MarioBGM);
+			MotionSound.Instance.PlayBGM("marioBGM");
             CameraMario = new Camera();
             CameraController = new CameraController(CameraMario);
         }
