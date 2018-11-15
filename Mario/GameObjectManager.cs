@@ -160,7 +160,7 @@ namespace Mario
                 if (gameOverCheck)
                 {
                     SoundManager.StopSong();
-                    SoundManager.Instance.PlaySoundEffect("GameOver");
+                    SoundManager.Instance.PlaySoundEffect("gameOver");
                 }
                 gameOverCheck = false;
                 gameOverDisplay.Draw(spriteBatch);
