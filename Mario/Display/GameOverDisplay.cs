@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Factory;
 using Mario.Interfaces.GameObjects;
+using Mario.Sound;
 using Mario.Sprite;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,8 +17,11 @@ namespace Mario.Display
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
+                SoundManager.StopSong();
+                SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+
         }
-            public void Update()
+        public void Update()
             {
 
             }

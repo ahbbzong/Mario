@@ -43,6 +43,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />
+    <Compile Include="StringUtil\SpriteString.cs" />
+    <Compile Include="StringUtil\SoundString.cs" />
+    <Compile Include="StringUtil\ItemString.cs" />
     <Compile Include="Utils\DecoratorUtil.cs" />
     <Compile Include="Utils\HUDUtil.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />

@@ -30,7 +30,7 @@ namespace Mario.Collision.ItemCollisionHandler
                     break;
                 case Direction.Down:
                     item.Position += Vector2.UnitY* intersection.Height;
-						SoundManager.Instance.PlaySoundEffect("marioCoin");
+						SoundManager.Instance.PlaySoundEffect(SoundString.marioCoin);
                     break;
                 case Direction.Left:
                     item.Position -= Vector2.UnitX*intersection.Width;

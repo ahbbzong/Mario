@@ -19,8 +19,8 @@ namespace Mario.Sound
 
         public static void loadcontent(ContentManager Content)
         {
-            SoundEffect BreakBlock = Content.Load<SoundEffect>("breakBlock");
-            SoundEffect Bump = Content.Load<SoundEffect>("bump");
+            SoundEffect BreakBlock = Content.Load<SoundEffect>(SoundString.breakBlock);
+            SoundEffect Bump = Content.Load<SoundEffect>(SoundString);
             SoundEffect Flip = Content.Load<SoundEffect>("flip");
             SoundEffect MarioPowerUp = Content.Load<SoundEffect>("marioPowerUp");
             SoundEffect MarioDie  = Content.Load<SoundEffect>("marioDie");

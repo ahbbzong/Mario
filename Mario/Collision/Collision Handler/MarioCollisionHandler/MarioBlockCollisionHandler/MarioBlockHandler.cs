@@ -41,7 +41,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
 					mario.Position += Vector2.UnitY* intersection.Height;
                     mario.Physics.ResetGravity();
                     mario.SetFalling(true);
-					SoundManager.Instance.PlaySoundEffect("bump");
+					SoundManager.Instance.PlaySoundEffect(SoundString.bump);
                     break;
                 case Direction.Left:
                    

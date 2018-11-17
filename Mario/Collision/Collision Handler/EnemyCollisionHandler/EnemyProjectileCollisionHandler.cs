@@ -11,7 +11,7 @@ namespace Mario.Collision.EnemyCollisionHandler
         public void HandleCollision(IEnemy enemy)
         {
             enemy.Beflipped();
-            if (enemy.IsGoomba())//need to change later
+            if (enemy.IsGoomba())
             {
                 ScoringSystem.Instance.AddPointsForFireballGoombaHit(enemy);
             }

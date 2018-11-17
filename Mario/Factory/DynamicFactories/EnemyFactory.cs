@@ -1,4 +1,5 @@
-﻿using Mario.EnemyClasses;
+﻿using Game1;
+using Mario.EnemyClasses;
 using Mario.EnemyStates.GoombaStates;
 using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
@@ -36,12 +37,12 @@ namespace Mario.Factory
 			SpriteDictionary = new Dictionary<Type, Dictionary<Type, Tuple<Texture2D,int,int>>>
 			{
 				{typeof(Koopa), new Dictionary<Type, Tuple<Texture2D,int,int>>{
-						{typeof(StompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
-						{typeof(LeftStompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
-						{typeof(RightStompedKoopaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedKoopa"),1,1) },
-						{typeof(FlippedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FlippedKoopa"),1,1) },
-						{typeof(LeftMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("LeftMovingKoopa"),1,2) },
-						{typeof(RightMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("RightMovingKoopa"),1,2) }
+						{typeof(StompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.StompedKoopa),1,1) },
+						{typeof(LeftStompedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.StompedKoopa),1,1) },
+						{typeof(RightStompedKoopaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.StompedKoopa),1,1) },
+						{typeof(FlippedKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.FlippedKoopa),1,1) },
+						{typeof(LeftMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.LeftMovingKoopa),1,2) },
+						{typeof(RightMovingKoopaState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.RightMovingKoopa),1,2) }
 					}
 				},
 

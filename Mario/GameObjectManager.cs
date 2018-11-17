@@ -43,7 +43,6 @@ namespace Mario
         public float EndOfLevelXPosition { get; set; }
 
 
-        private bool gameOverCheck = true;
         private GameObjectManager()
         {
 			gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
@@ -87,6 +86,7 @@ namespace Mario
             {
                 controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
             }
+            if(LifeCounter.Instance.Life==LifeUtil.minLife)
             gameOverDisplay = new GameOverDisplay();
             lifeDisplay = new LifeDisplay();
             headUpDisplayBoard = new HeadsUpDisplayBoard();
@@ -157,11 +157,7 @@ namespace Mario
             }
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
-              
                 gameOverDisplay.Draw(spriteBatch);
-          
-
-
             }
             headUpDisplayBoard.Draw(spriteBatch);
             FloatingScoreBar.Draw(spriteBatch);

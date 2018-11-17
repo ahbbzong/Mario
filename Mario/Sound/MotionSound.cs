@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game1;
 
 namespace Mario.Sound
 {
@@ -25,26 +26,26 @@ namespace Mario.Sound
 		{
 			soundEffectDictionary = new Dictionary<string, SoundEffect>
 			{
-				{ "breakBlock", content.Load<SoundEffect>("breakBlock")},
-				{"bump", content.Load<SoundEffect>("bump") },
-				{"flip", content.Load<SoundEffect>("flip") },
-				{"marioCoin", content.Load<SoundEffect>("marioCoin") },
-				{"marioDie", content.Load<SoundEffect>("marioDie") },
-				{"marioFireball",content.Load<SoundEffect>("smb_fireball") },
-				{"marioJump" , content.Load<SoundEffect>("marioJump") },
-				{"marioOneUp",content.Load<SoundEffect>("marioOneUp") },
-				{"marioPowerUp",content.Load<SoundEffect>("marioPowerUp") },
-				{"pipeTravel", content.Load<SoundEffect>("pipeTravel") },
-				{"powerUpAppears", content.Load<SoundEffect>("powerUpAppears") },
-				{"stomp", content.Load<SoundEffect>("smb_stomp") },
-				{"takeDamage", content.Load<SoundEffect>("takeDamage") },
-				{ "clearStage" , content.Load<SoundEffect>("clearStage")},
-				{ "gameOver", content.Load<SoundEffect>("gameOver")},
-				{ "timeRunningOut", content.Load<SoundEffect>("timeRunningOut")}
+				{SoundString.breakBlock, content.Load<SoundEffect>(SoundString.breakBlock)},
+				{SoundString.bump, content.Load<SoundEffect>(SoundString.bump) },
+				{SoundString.flip, content.Load<SoundEffect>(SoundString.flip) },
+				{SoundString.marioCoin, content.Load<SoundEffect>(SoundString.marioCoin) },
+				{SoundString.marioDie, content.Load<SoundEffect>(SoundString.marioDie) },
+				{SoundString.marioFireball,content.Load<SoundEffect>(SoundString.marioFireballTexture) },
+				{SoundString.marioJump , content.Load<SoundEffect>(SoundString.marioJump) },
+				{SoundString.marioOneUp,content.Load<SoundEffect>(SoundString.marioOneUp) },
+				{SoundString.marioPowerUp,content.Load<SoundEffect>(SoundString.marioPowerUp) },
+				{SoundString.pipeTravel, content.Load<SoundEffect>(SoundString.pipeTravel) },
+				{SoundString.powerUpAppears, content.Load<SoundEffect>(SoundString.powerUpAppears) },
+				{SoundString.stomp, content.Load<SoundEffect>(SoundString.stompTexture) },
+				{SoundString.takeDamage, content.Load<SoundEffect>(SoundString.takeDamage) },
+				{SoundString.clearStage , content.Load<SoundEffect>(SoundString.clearStage)},
+				{SoundString.gameOver, content.Load<SoundEffect>(SoundString.gameOver)},
+				{SoundString.timeRunningOut, content.Load<SoundEffect>(SoundString.timeRunningOut)}
 			};
 			songDictionary = new Dictionary<string, Song>{
-				{"starMarioMusic",content.Load<Song>("starMarioMusic") },
-				{ "marioBGM", content.Load<Song>("marioBGM")}
+				{SoundString.starMarioMusic,content.Load<Song>(SoundString.starMarioMusic) },
+				{SoundString.marioBGM, content.Load<Song>(SoundString.marioBGM)}
 			};
 		}
 		public void PlaySoundEffect(string soundEffectName)

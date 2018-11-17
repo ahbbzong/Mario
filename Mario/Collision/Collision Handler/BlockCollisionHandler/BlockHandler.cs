@@ -39,16 +39,16 @@ namespace Mario.Collision
             Type IItemType = typeof(IItem);
             switch (block.ItemContained)
             {
-                case "Coin":
+                case ItemString.Coin:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
-                case "Starman":
+                case ItemString.Starman:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
                     break;
-                case "OneUpMushroom":
+                case ItemString.OneUpMushroom:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
-                case "None":
+                case ItemString.None:
                     if (block.BlockState is HiddenBlockState || block.BlockState is QuestionBlockState)
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(MagicMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
@@ -59,17 +59,17 @@ namespace Mario.Collision
             Type IItemType = typeof(IItem);
             switch (block.ItemContained)
             {
-                case "Coin":
+                case ItemString.Coin:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Coin), new Vector2(block.Position.X, block.Position.Y)));
                     break;
-                case "None":
+                case ItemString.None:
                     if (block.BlockState is HiddenBlockState || block.BlockState is QuestionBlockState)
                         GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(FireFlower), new Vector2(block.Position.X, block.Position.Y-3)));
                     break;
-                case "Starman":
+                case ItemString.Starman:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(Starman), new Vector2(block.Position.X, block.Position.Y)));
                     break;
-                case "OneUpMushroom":
+                case ItemString.OneUpMushroom:
                     GameObjectManager.Instance.GameObjectListsByType[IItemType].Add(ItemFactory.Instance.GetGameObject(typeof(OneUpMushroom), new Vector2(block.Position.X, block.Position.Y)));
                     break;
             }
