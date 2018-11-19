@@ -49,10 +49,7 @@ namespace Mario.MarioStates.MarioPowerupStates
             Mario.MarioPowerupState = new DeadMarioPowerupState(Mario);
         }
 
-		public virtual bool CanThrowProjectile()
-		{
-			return false;
-		}
+	
         public virtual void ThrowProjectile()
         {
             //May need to override

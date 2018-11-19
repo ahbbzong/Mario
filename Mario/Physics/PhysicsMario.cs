@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Mario.Sound;
+
 namespace Game1
 {
     public class PhysicsMario
@@ -78,8 +80,14 @@ namespace Game1
         }
         public void Jump()
         {
-            YVelocity += PhysicsUtil.upForce;
-        }
+            if (mario.Island)
+            {
+                mario.Island = false;
+                mario.MarioMovementState.GoUp();
+                YVelocity += PhysicsUtil.upForce;
+                SoundManager.Instance.PlaySoundEffect("marioJump");
+            }
+         }
         public void NotJump()
         {
             if (YVelocity >PhysicsUtil.notJumpPhaseUtil)
@@ -93,7 +101,7 @@ namespace Game1
             if (YVelocity<PhysicsUtil.fallDownCheckUtil)
             {
                 mario.SetFalling(true);
-                mario.SetIsLandFalse();
+                mario.SetIsLand(false);
             }
             else
             {
@@ -117,7 +125,7 @@ namespace Game1
         public void UpdateHorizontal()
         {
             mario.Position += Vector2.UnitX * XVelocity;
-            if (mario.IsLandResponse())
+            if (mario.Island)
             {
                 XVelocity *= PhysicsUtil.notJumpPhaseUtil;
             }

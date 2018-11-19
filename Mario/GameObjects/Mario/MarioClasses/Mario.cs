@@ -65,9 +65,10 @@ namespace Mario
 		}
 		public ISprite MarioSprite { get; set; }
 
-        private bool fall;
-        private bool isCrouch;
-        private bool atTheEnd; 
+        public bool Fall { get; set; }
+        public bool IsCrouch { get; set; }
+        private bool atTheEnd;
+        private bool isOnPipe;
         public bool Island { get; set; }
         public Rectangle Box
         {
@@ -97,27 +98,21 @@ namespace Mario
 			marioPowerupState = new NormalMarioPowerupState(this);
 			marioMovementState = new RightIdleMarioMovementState(this);
 			MarioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[MarioPowerupState.GetType()][MarioMovementState.GetType()]);
-            fall = false;
+            Fall = false;
             Island = true;
-            isCrouch = false;
+            IsCrouch = false;
             atTheEnd = false;
+            isOnPipe = false;
             Physics = new PhysicsMario(this);
 
         }
         public void GoUp()
         {
-            if (Island)
-            {
-                Island = false;
-                MarioMovementState.GoUp();
+          
                 Physics.Jump();
-				SoundManager.Instance.PlaySoundEffect("marioJump");
-            }
+				
         }
-        public bool IsUp()
-        {
-			return MarioMovementState.IsJumping();
-        }
+      
         public bool IsAtEnd()
         {
             return atTheEnd;
@@ -125,7 +120,7 @@ namespace Mario
 		public void GoDown()
 		{
             MarioMovementState.GoDown();
-            isCrouch = true;
+            IsCrouch = true;
         }
         public void GoLeft()
         {
@@ -195,6 +190,10 @@ namespace Mario
                 GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor));
                 atTheEnd = true;
 			}
+            if (isOnPipe)
+            {
+                location.Y++;
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -204,47 +203,31 @@ namespace Mario
         {
 			return MarioPowerupState.IsActive();
         }
-        public bool IsFalling()
+       
+        public void SetIsLand(bool land)
         {
-            return fall;
+            if (land)
+                Island = true;
+            else
+                Island = false;
         }
-        public void SetIsLandTrue()
-        {
-            Island = true;
-        }
-        public void SetIsLandFalse()
-        {
-            Island = false;
-        }
+       
         public void NoInput()
         {
             MarioMovementState.NoInput();
             Physics.NotJump();
-            isCrouch = false;
+            IsCrouch = false;
         }
             
         public void ThrowProjectile()
         {
-            if(MarioPowerupState.CanThrowProjectile())
-            {
+           
                 MarioPowerupState.ThrowProjectile();
 				SoundManager.Instance.PlaySoundEffect("marioFireball");
-            }
         }
 
-        public bool IsRunningLeft()
-        {
-            return MarioMovementState is LeftRunningMarioMovementState;
-        }
-
-        public bool IsRunningRight()
-        {
-            return MarioMovementState is RightRunningMarioMovementState;
-        }
-        public bool IsCrouching()
-        {
-            return isCrouch;
-        }
+        
+       
 		public void TakeDamage()
 		{
 			SoundManager.Instance.PlaySoundEffect("takeDamage");
@@ -257,11 +240,19 @@ namespace Mario
 
         public void SetFalling(bool fallState)
         {
-            fall = fallState;
+            Fall = fallState;
         }
-        public bool IsLandResponse()
+     
+        public void MarioGoIntoPipe(bool isOnPipe)
         {
-            return Island;
+            if (isOnPipe)
+            {
+                isOnPipe = true;
+            }
+            else
+            {
+                isOnPipe = false ;
+            }
         }
     }
 }

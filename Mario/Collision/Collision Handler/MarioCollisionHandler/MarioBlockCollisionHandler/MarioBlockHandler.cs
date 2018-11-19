@@ -18,24 +18,10 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
             {
                 case Direction.Up:
                     mario.SetFalling(false);
-                    mario.SetIsLandTrue();
+                    mario.SetIsLand(true);
                     mario.Physics.ResetGravity();
                     mario.Position -= Vector2.UnitY*intersection.Height;
-                    if (mario.IsUp())
-                    {
-                        if (mario.Physics.XVelocityResponse() >= CollisionUtil.marioMinVelocity)
-                        {
-                            mario.GoRight();
-                        }
-                        else if (mario.Physics.XVelocityResponse() <= -CollisionUtil.marioMinVelocity)
-                        {
-                            mario.GoLeft();
-                        }
-                        else
-                        {
-                            mario.NoInput();
-                        }
-                    }
+                    MarioLandHandling(mario);
                     break;
                 case Direction.Down:
 					mario.Position += Vector2.UnitY* intersection.Height;
@@ -56,6 +42,24 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
                     
                     break;
                
+            }
+        }
+        public void MarioLandHandling(IMario mario)
+        {
+            if (mario.MarioMovementState.IsJumping())
+            {
+                if (mario.Physics.XVelocityResponse() >= CollisionUtil.marioMinVelocity)
+                {
+                    mario.GoRight();
+                }
+                else if (mario.Physics.XVelocityResponse() <= -CollisionUtil.marioMinVelocity)
+                {
+                    mario.GoLeft();
+                }
+                else
+                {
+                    mario.NoInput();
+                }
             }
         }
 

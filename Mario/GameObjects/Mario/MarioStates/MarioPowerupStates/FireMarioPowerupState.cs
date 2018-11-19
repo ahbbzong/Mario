@@ -39,10 +39,7 @@ namespace Mario.MarioStates.MarioPowerupStates
             
         }
 
-		public override bool CanThrowProjectile()
-		{
-			return true;
-		}
+		
 		public override void TakeDamage()
 		{
 			Mario.BeNormal();

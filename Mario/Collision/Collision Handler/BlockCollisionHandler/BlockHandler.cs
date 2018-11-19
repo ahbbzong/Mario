@@ -14,12 +14,12 @@ namespace Mario.Collision
     {
         public BlockHandler()
         {
-    }
+        }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
             bool isDown = result == Direction.Down;
             bool isHidden = block.BlockState is HiddenBlockState;
-            bool isHiddenTouched = isHidden && !mario.IsFalling();
+            bool isHiddenTouched = isHidden && !mario.Fall;
             bool isReactable = block.BlockState is QuestionBlockState || block.BlockState is BrickBlockState || isHiddenTouched;
             if (!isDown || !isReactable) return;
             block.React();

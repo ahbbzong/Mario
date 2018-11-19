@@ -23,13 +23,15 @@ namespace Mario.GameObjects.Decorators
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 		public ISprite MarioSprite { get => DecoratedMario.MarioSprite; set => DecoratedMario.MarioSprite = value; }
         public bool Island { get; set; }
+        public bool IsCrouch { get; set; }
         public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public int Lives { get => DecoratedMario.Lives; set => DecoratedMario.Lives = value; }
 		public int Score { get => DecoratedMario.Score; set => DecoratedMario.Score = value; }
 		public float ScoreMultiplier { get => DecoratedMario.ScoreMultiplier; set => DecoratedMario.ScoreMultiplier = value; }
+        public bool Fall { get ; set ; }
 
-		public void BeFire()
+        public void BeFire()
 		{
 			DecoratedMario.BeFire();
 		}
@@ -66,28 +68,16 @@ namespace Mario.GameObjects.Decorators
 
 		public bool IsFalling()
 		{
-			return DecoratedMario.IsFalling();
+            return DecoratedMario.Fall;
 		}
         
-		public void SetIsLandFalse()
+
+		public void SetIsLand(bool Land)
 		{
-			DecoratedMario.SetIsLandFalse();
+			DecoratedMario.SetIsLand(Land);
 		}
 
-		public void SetIsLandTrue()
-		{
-			DecoratedMario.SetIsLandTrue();
-		}
-
-		public bool IsRunningLeft()
-		{
-			return DecoratedMario.IsRunningLeft();
-		}
-        
-		public bool IsRunningRight()
-		{
-			return DecoratedMario.IsRunningRight();
-		}
+		
 
 		public virtual bool IsStarMario()
 		{
@@ -131,20 +121,11 @@ namespace Mario.GameObjects.Decorators
 			DecoratedMario.Draw(spriteBatch, c);
 		}
 
-        public bool IsUp()
-        {
-            return DecoratedMario.IsUp();
-        }
+      
 
-        public bool IsCrouching()
-        {
-            return DecoratedMario.IsCrouching();
-        }
+      
 
-        public bool IsLandResponse()
-        {
-            return DecoratedMario.IsLandResponse();
-        }
+       
 
         public void SetFalling(bool fall)
         {
@@ -159,6 +140,11 @@ namespace Mario.GameObjects.Decorators
         public bool IsAtEnd()
         {
             return DecoratedMario.IsAtEnd();
+        }
+
+        public void MarioGoIntoPipe(bool isOnPipe)
+        {
+            
         }
     }
 }
