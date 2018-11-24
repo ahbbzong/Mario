@@ -20,7 +20,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 
 		public override void BeFire()
 		{
-			//override NO-OP
 		}
         public override void ThrowProjectile()
         {

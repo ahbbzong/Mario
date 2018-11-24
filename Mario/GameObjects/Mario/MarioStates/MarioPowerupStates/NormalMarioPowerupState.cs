@@ -17,9 +17,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 
 		public override void TakeDamage()
 		{
-			Mario.BeDead();
-            Mario.GoUp();
-		}
+            
+            Mario.BeDead();
+            Mario.Physics.YVelocity = PhysicsUtil.upForce;
+
+        }
      
     }
 }

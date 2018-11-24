@@ -16,5 +16,12 @@ namespace Mario.MarioStates.MarioMovementStates
 		{
 			return false;
 		}
-	}
+        public override void GoLeft()
+        {
+            
+        }
+        public override void GoRight()
+        {
+        }
+    }
 }

@@ -107,9 +107,7 @@ namespace Mario
         }
         public void GoUp()
         {
-          
-                Physics.Jump();
-				
+          Physics.Jump();
         }
       
         public bool IsAtEnd()
@@ -156,6 +154,7 @@ namespace Mario
         {
             MarioPowerupState.BeDead();
             MarioMovementState.BeDead();
+
         }
         public void BeSuper()
         {
@@ -214,6 +213,7 @@ namespace Mario
         public void NoInput()
         {
             MarioMovementState.NoInput();
+            if(!(MarioPowerupState is DeadMarioPowerupState))
             Physics.NotJump();
             IsCrouch = false;
         }
