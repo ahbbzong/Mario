@@ -21,7 +21,6 @@ namespace Mario.Factory
 
         private TextSpriteFactory()
         {
-           // normalFont = Game1.Instance.Content.Load<SpriteFont>("TextSpriteForHUD");
         }
 
         public void LoadAllTextures(ContentManager content)

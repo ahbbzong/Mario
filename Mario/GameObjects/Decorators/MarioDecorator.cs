@@ -122,11 +122,6 @@ namespace Mario.GameObjects.Decorators
 		}
 
       
-
-      
-
-       
-
         public void SetFalling(bool fall)
         {
             DecoratedMario.SetFalling(fall);

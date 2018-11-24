@@ -47,10 +47,10 @@ namespace Mario.Factory
 				},
 
 				{typeof(Goomba), new Dictionary<Type, Tuple<Texture2D,int,int>>{
-						{typeof(StompedGoombaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("StompedGoomba"),1,1 )},
-						{typeof(FlippedGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("flippedGoomba"),1,2 )},
-						{typeof(RightMovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2) },
-                        { typeof(LeftMovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>("MovingGoomba"),1,2)}
+						{typeof(StompedGoombaState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.StompedGoomba),1,1 )},
+						{typeof(FlippedGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>(SpriteString.FlippedGoomba),1,2 )},
+						{typeof(RightMovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>(SpriteString.MovingGoomba),1,2) },
+                        { typeof(LeftMovingGoombaState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>(SpriteString.MovingGoomba),1,2)}
 					}
 				}
 			};

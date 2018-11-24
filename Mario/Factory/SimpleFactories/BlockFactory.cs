@@ -84,13 +84,13 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D,int,int>>
 			{
-				{typeof(BrickBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("brickBlock"),1,1)},
-				{typeof(FloorBlockState), new Tuple<Texture2D,int,int>( content.Load<Texture2D>("floorBlock"),1,1) },
-				{typeof(HiddenBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) },
-				{typeof(PipeState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("pipe"),1,1) },
-				{typeof(QuestionBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("questionBlock"),1,3) },
-				{typeof(UnbreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("UnbreakableBlock"),1,1) },
-				{typeof(UsedBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>("usedBlock"),1,1) }
+				{typeof(BrickBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.BrickBlock),1,1)},
+				{typeof(FloorBlockState), new Tuple<Texture2D,int,int>( content.Load<Texture2D>(SpriteString.FloorBlock),1,1) },
+				{typeof(HiddenBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.UsedBlock),1,1) },
+				{typeof(PipeState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.Pipe),1,1) },
+				{typeof(QuestionBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.QuestionBlock),1,3) },
+				{typeof(UnbreakableBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.UnbreakableBlock),1,1) },
+				{typeof(UsedBlockState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.UsedBlock),1,1) }
 
             };
 		}

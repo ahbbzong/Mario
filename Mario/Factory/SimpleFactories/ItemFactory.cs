@@ -1,4 +1,5 @@
-﻿using Mario.Interfaces.GameObjects;
+﻿using Game1;
+using Mario.Interfaces.GameObjects;
 using Mario.ItemClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -65,13 +66,13 @@ namespace Mario.Factory
 		{
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D, int, int>>
 			{
-				{typeof(Coin), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Coin"),1,4) },
-				{typeof(FireFlower),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("FireFlower"),1,4)},
-				{typeof(MagicMushroom), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("MagicMushroom"),1,1) },
-				{typeof(OneUpMushroom),new Tuple<Texture2D, int, int>(content.Load<Texture2D>("OneUpMushroom"),1,1) },
-				{typeof(Starman), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("Starman"),1,4) },
-                {typeof(BrickParticleRight), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("BreakBrickBlock"),1,1) },
-                {typeof(BrickParticleLeft), new Tuple<Texture2D, int, int>(content.Load<Texture2D>("BreakBrickBlock"),1,1) }
+				{typeof(Coin), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.Coin),1,4) },
+				{typeof(FireFlower),new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.FireFlower),1,4)},
+				{typeof(MagicMushroom), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.MagicMushroom),1,1) },
+				{typeof(OneUpMushroom),new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.OneUpMushroom),1,1) },
+				{typeof(Starman), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.Starman),1,4) },
+                {typeof(BrickParticleRight), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.BreakBrickBlock),1,1) },
+                {typeof(BrickParticleLeft), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.BreakBrickBlock),1,1) }
 
 
             };

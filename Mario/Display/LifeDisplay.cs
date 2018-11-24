@@ -36,7 +36,7 @@ namespace Mario.Display
                 backgroundObject.Draw(spriteBatch);
                 lifeTextSprite.Location = new Vector2(SpriteUtil.textPositionX, SpriteUtil.textPositionY);
                 lifeTextSprite.Draw(spriteBatch);
-                marioSprite.Draw(spriteBatch, new Microsoft.Xna.Framework.Vector2(SpriteUtil.marioPositionX, SpriteUtil.marioPositionY));
+                marioSprite.Draw(spriteBatch, new Vector2(SpriteUtil.marioPositionX, SpriteUtil.marioPositionY));
             }
            
         }
