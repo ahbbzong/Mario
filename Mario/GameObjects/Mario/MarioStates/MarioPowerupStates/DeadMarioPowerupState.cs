@@ -19,7 +19,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		}
 		public override void BeDead()
 		{
-			//override with NO -OP, no need to reinstance every frame
 		}
 	}
 }

@@ -19,7 +19,6 @@ namespace Mario.MarioStates.MarioPowerupStates
 		protected MarioPowerupState(IMario mario)
 		{
 			Mario = mario;
-            //Motion.MarioPowerUp.Play();
         }
 
 		public virtual bool IsActive()
