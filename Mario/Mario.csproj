@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\Items\ItemClasses\UnderGroundCoin.cs" />
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />
     <Compile Include="StringUtil\SpriteString.cs" />
     <Compile Include="StringUtil\SoundString.cs" />
@@ -272,7 +273,9 @@
     <Content Include="CodeReview\Sprint5\README_Sprint5.txt" />
     <Content Include="CodeReview\Sprint5\CodeReviewHUD_cs.txt" />
     <Content Include="Icon.ico" />
-    <Content Include="bin\Windows\x86\Debug\XMLFile1.xml" />
+    <Content Include="bin\Windows\x86\Debug\XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

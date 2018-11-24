@@ -880,5 +880,19 @@
     <XLocation>17530</XLocation>
     <YLocation>810</YLocation>
   </EnemyXML>
+  
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17530</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
+  
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17560</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
+   
+
    
 </Map>

@@ -19,7 +19,8 @@ namespace Mario.Factory
 			InstantiationLedger = new Dictionary<Type, Func<Vector2, IGameObject>>
 			{
 				{typeof(Coin),GetCoin },
-				{typeof(FireFlower),GetFireFlower },
+                {typeof(UnderGroundCoin),GetUnderGroundCoin },
+                {typeof(FireFlower),GetFireFlower },
 				{typeof(MagicMushroom),GetMagicMushroom },
 				{typeof(OneUpMushroom),GetOneUpMushroom },
 				{typeof(Starman), GetStarman },
@@ -53,6 +54,10 @@ namespace Mario.Factory
 		{
 			return new Coin(arg);
 		}
+        private IGameObject GetUnderGroundCoin(Vector2 arg)
+        {
+            return new UnderGroundCoin(arg);
+        }
         private IGameObject GetBrickParticleLeft(Vector2 arg)
         {
             return new BrickParticleLeft(arg);
@@ -67,7 +72,8 @@ namespace Mario.Factory
 			SpriteDictionary = new Dictionary<Type, Tuple<Texture2D, int, int>>
 			{
 				{typeof(Coin), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.Coin),1,4) },
-				{typeof(FireFlower),new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.FireFlower),1,4)},
+                {typeof(UnderGroundCoin), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.Coin),1,4) },
+                {typeof(FireFlower),new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.FireFlower),1,4)},
 				{typeof(MagicMushroom), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.MagicMushroom),1,1) },
 				{typeof(OneUpMushroom),new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.OneUpMushroom),1,1) },
 				{typeof(Starman), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.Starman),1,4) },

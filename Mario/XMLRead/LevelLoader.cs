@@ -261,8 +261,10 @@ namespace Mario.XMLRead
 				{typeof(MagicMushroom).Name, typeof(MagicMushroom) },
 				{typeof(OneUpMushroom).Name,typeof(OneUpMushroom) },
 				{typeof(Starman).Name, typeof(Starman) },
+                {typeof(UnderGroundCoin).Name, typeof(UnderGroundCoin) },
 
-				{typeof(Mario).Name, typeof(Mario) },
+
+                {typeof(Mario).Name, typeof(Mario) },
 
 				{typeof(Fireball).Name, typeof(Fireball) }
 			};
