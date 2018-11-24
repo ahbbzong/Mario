@@ -6,13 +6,11 @@ namespace Mario.MarioStates.MarioPowerupStates
 	{
 		public NormalMarioPowerupState(IMario mario) : base(mario)
 		{
-            //Motion.MarioOneUp.Play();
         }
 
 
         public override void BeNormal()
 		{
-			//override NO-OP
 		}
 
 		public override void TakeDamage()
@@ -20,7 +18,6 @@ namespace Mario.MarioStates.MarioPowerupStates
             
             Mario.BeDead();
             Mario.Physics.YVelocity = PhysicsUtil.upForce;
-
         }
      
     }
