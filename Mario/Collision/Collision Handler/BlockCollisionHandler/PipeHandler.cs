@@ -15,7 +15,6 @@ namespace Mario.Collision
         {
             if (result == Direction.Up&&mario.IsCrouch&&index==CollisionUtil.groundPipeIndex)
             {
-               
                 mario.Position += Vector2.UnitX * CollisionUtil.undergroundOffset;
             }
             if(result == Direction.Up && mario.IsCrouch&& index == CollisionUtil.undergroundPipeIndex)

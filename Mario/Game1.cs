@@ -63,8 +63,11 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            Timer.TimerCheckingTime(gameTime);
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GameObjectManager.Instance.Mario.Position.X > GameUtil.UndergroundPosition)
+                Timer.UndergroundTimer(gameTime);
+            else if (GameObjectManager.Instance.Mario.Position.X < GameUtil.UndergroundPosition)
+                Timer.TimerCheckingTime(gameTime);
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
             GameObjectManager.Instance.CurrentGameTime = gameTime;
             GameObjectManager.Instance.Update();

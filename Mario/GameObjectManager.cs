@@ -63,7 +63,6 @@ namespace Mario
 
             UITextSprites = new List<ITextSprite>();
         }
-
         public void SetInitialValuesCamera()
         {
 			SoundManager.Instance.PlayBGM("marioBGM");
@@ -119,7 +118,6 @@ namespace Mario
                         LoadContent();
                         Timer.ResetTimer();
                         Timer.StartTimer();
-
                     }
                 }
                 CollisionDetector.Instance.Update();

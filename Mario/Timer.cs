@@ -12,6 +12,7 @@ namespace Mario
 {
     static class Timer
     {
+      
         public static int Time { get; set; } = TimerUtil.MaxTimer;
         private static int counter = TimerUtil.Zero;
         private static bool timeRunning = false;
@@ -55,6 +56,28 @@ namespace Mario
                     timeRunning = false;
                 }
             }
+        }
+        public static void UndergroundTimer(GameTime gameTime)
+        {
+            if (timeRunning)
+            {
+                counter += gameTime.ElapsedGameTime.Milliseconds;
+                if (counter >= 10)
+                {
+                    Time--;
+                    counter = TimerUtil.Zero;
+                }
+                if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
+                {
+                    GameObjectManager.Instance.Mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
+                    timeRunning = false;
+                }
+            }
+        }
+        public static void ExtendTime()
+        {
+            if(Time<TimerUtil.MaxTimer)
+            Time += 30;
         }
     }
 }
