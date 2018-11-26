@@ -18,7 +18,6 @@ namespace Game1
         PhysicsMario Physics { get;set; }
         bool Fall { get; set; }
         bool IsCrouch { get; set; }
-        void MarioGoIntoPipe(bool isOnPipe);
         void SetIsLand(bool Land);
         void SetFalling(bool fall);
         void Sprint();

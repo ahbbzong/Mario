@@ -242,16 +242,6 @@ namespace Mario
             Fall = fallState;
         }
      
-        public void MarioGoIntoPipe(bool isOnPipe)
-        {
-            if (isOnPipe)
-            {
-                isOnPipe = true;
-            }
-            else
-            {
-                isOnPipe = false ;
-            }
-        }
+       
     }
 }

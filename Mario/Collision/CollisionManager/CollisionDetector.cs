@@ -269,7 +269,7 @@ namespace Mario.Collision.CollisionManager
 			{
 				marioHandler.HandleCollision(Mario, collisionFound);
 			}
-            if (item is Coin)
+            if (item is Coin||item is UnderGroundCoin)
             {
                 CoinSystem.Instance.AddCoin();
             }

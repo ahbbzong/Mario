@@ -892,6 +892,28 @@
     <XLocation>17560</XLocation>
     <YLocation>700</YLocation>
   </ItemXML>
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17590</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
+
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17610</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17640</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
+
+  <ItemXML>
+    <GameObjectType>UnderGroundCoin</GameObjectType>
+    <XLocation>17670</XLocation>
+    <YLocation>700</YLocation>
+  </ItemXML>
    
 
    
