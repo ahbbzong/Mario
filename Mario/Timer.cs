@@ -42,20 +42,20 @@ namespace Mario
 
         public static void TimerCheckingTime(GameTime gameTime)
         {
-            if (timeRunning)
-            {
-                counter += gameTime.ElapsedGameTime.Milliseconds;
-                if (counter >= TimerUtil.Thousand)
+                if (timeRunning)
                 {
-                    Time--;
-                    counter = TimerUtil.Zero;
+                    counter += gameTime.ElapsedGameTime.Milliseconds;
+                    if (counter >= TimerUtil.Thousand)
+                    {
+                        Time--;
+                        counter = TimerUtil.Zero;
+                    }
+                    if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
+                    {
+                        GameObjectManager.Instance.Mario.BeDead();
+                        timeRunning = false;
+                    }
                 }
-                if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
-                {
-                    GameObjectManager.Instance.Mario.BeDead();
-                    timeRunning = false;
-                }
-            }
         }
         public static void UndergroundTimer(GameTime gameTime)
         {
@@ -70,14 +70,14 @@ namespace Mario
                 if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
                 {
                     GameObjectManager.Instance.Mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                    timeRunning = false;
+                    Time = TimerUtil.MaxTimer;
                 }
             }
         }
         public static void ExtendTime()
         {
             if(Time<TimerUtil.MaxTimer)
-            Time += 30;
+                Time += 30;
         }
     }
 }
