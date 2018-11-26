@@ -9,7 +9,7 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void HandleCollision(IProjectile fireball)
         {
-            GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Remove(fireball);
+            GameObjectManager.Instance.GameObjectList.Remove(fireball);
         }
     }
 }

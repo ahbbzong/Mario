@@ -33,7 +33,7 @@ namespace Mario.EnemyStates.GoombaStates
             }
             else
             {
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IEnemy)].Remove(Enemy);
+                GameObjectManager.Instance.GameObjectList.Remove(Enemy);
             }
         }
 

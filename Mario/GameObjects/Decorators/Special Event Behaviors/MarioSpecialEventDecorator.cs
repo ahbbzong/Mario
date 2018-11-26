@@ -25,7 +25,7 @@ namespace Mario.GameObjects.Decorators
 
 		public virtual void RemoveSelf()
 		{
-			GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = this.DecoratedMario;
+			GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario), this.DecoratedMario);
 		}
 
 		public override void NoInput()

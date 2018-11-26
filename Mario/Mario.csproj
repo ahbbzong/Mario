@@ -42,6 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collections\GameObjectList.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\UnderGroundCoin.cs" />
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />
     <Compile Include="StringUtil\SpriteString.cs" />

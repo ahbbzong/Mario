@@ -10,7 +10,7 @@ namespace Mario.Classes.BlocksClasses
     {
         protected ISprite ProjectileSprite { get; set; }
         private Vector2 ProjectileLocation;
-        public static IMario Mario { get { return (IMario)GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0]; } }
+        public static IMario Mario { get { return (IMario)GameObjectManager.Instance.GameObjectList.Peek(typeof(IMario)); } }
       
         public float XVelocity { get; set; }
         public GravityManagement gravityManagement { get; set; }

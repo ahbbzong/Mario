@@ -185,7 +185,7 @@ namespace Mario
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
                 Timer.CleanTimer();
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IMario)][0] = new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor));
+                GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario),new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor)));
                 atTheEnd = true;
 			}
             if (isOnPipe)

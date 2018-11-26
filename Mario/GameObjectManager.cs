@@ -18,6 +18,8 @@ using Mario.Display;
 using Mario.Sprite;
 using Microsoft.Xna.Framework.Media;
 using Mario.Sound;
+using Mario.Collections;
+using System.Collections;
 
 namespace Mario
 {
@@ -28,9 +30,9 @@ namespace Mario
 		public static GameObjectManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get; set; }
 		private readonly IDictionary<Type, IList<IGameObject>> gameObjectListsByType;
-		
-		public IDictionary<Type, IList<IGameObject>> GameObjectListsByType { get => gameObjectListsByType; }
-        public IMario Mario { get { return (IMario)GameObjectListsByType[typeof(IMario)][0]; } set { GameObjectListsByType[typeof(IMario)][0] = value; } }
+		private readonly GameObjectList gameObjectList;
+		public GameObjectList GameObjectList { get => gameObjectList; }
+        public IMario Mario { get { return (IMario)GameObjectList.Peek(typeof(IMario)); } set { GameObjectList.SetSingleton(typeof(IMario), value); } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
         public IList<Rectangle> FloorBoxPositions { get; }
@@ -83,7 +85,7 @@ namespace Mario
             
             foreach (IController controller in ControllerList)
             {
-                controller.Initialize((IMario)GameObjectListsByType[typeof(IMario)][0]);
+                controller.Initialize((IMario)GameObjectList.Peek(typeof(IMario)));
             }
             if(LifeCounter.Instance.Life==LifeUtil.minLife)
             gameOverDisplay = new GameOverDisplay();
@@ -100,35 +102,30 @@ namespace Mario
 			}
             if (!Game1.Instance.IsPause)
             {
-                for (int j = GameObjectListsByType.Count - 1; j >= 0; j--)
-                {
-                    Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
-                    for (int i = GameObjectListsByType[gameObjectType].Count - 1; i >= 0; i--)
-                    {
-                        if (!CameraMario.IsOffSideOfScreen(gameObjectListsByType[gameObjectType][i].Box))
-                        {
-                            gameObjectListsByType[gameObjectType][i].Update();
-                        }
-                    }
-                    if (CameraMario.IsOffTopOrBottomOfScreen(Mario.Box))
-                    {
-                        Mario.BeDead();
-                        LifeCounter.Instance.DecreaseLife();
-                        SetInitialValuesCamera();
-                        LoadContent();
-                        Timer.ResetTimer();
-                        Timer.StartTimer();
-                    }
-                }
+				IEnumerator gameObjEnumerator = GameObjectList.GetEnumerator();
+				while (gameObjEnumerator.MoveNext())
+				{
+					if (!CameraMario.IsOffSideOfScreen(((IGameObject)gameObjEnumerator.Current).Box))
+					{
+						((IGameObject)gameObjEnumerator.Current).Update();
+					}
+				}
+				if (CameraMario.IsOffTopOrBottomOfScreen(Mario.Box))
+				{
+					Mario.BeDead();
+					LifeCounter.Instance.DecreaseLife();
+					SetInitialValuesCamera();
+					LoadContent();
+					Timer.ResetTimer();
+					Timer.StartTimer();
+				}
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
             if (LifeCounter.Instance.LifeRemains()>0)
             {
                 lifeDisplay.Update();
- 
-            }
-          
+            }          
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
                 gameOverDisplay.Update();
@@ -139,15 +136,10 @@ namespace Mario
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            for (int j = 0; j < GameObjectListsByType.Count; j++)
-            {
-                Type gameObjectType = GameObjectListsByType.ElementAt(j).Key;
-                for(int i = 0; i < GameObjectListsByType[gameObjectType].Count; i++)
-                { 
-                    IGameObject gameObj = GameObjectListsByType[gameObjectType].ElementAt(i);
-                    gameObj.Draw(spriteBatch);
-				}
+			IEnumerator gameObjEnumerator = GameObjectList.GetEnumerator();
+			while (gameObjEnumerator.MoveNext())
+			{
+				((IGameObject)gameObjEnumerator.Current).Draw(spriteBatch);
 			}
             if (LifeCounter.Instance.LifeRemains() > 0)
             {

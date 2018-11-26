@@ -31,7 +31,7 @@ namespace Mario.MarioStates.MarioPowerupStates
             if (fire)
             {
                 Vector2 launchPosition = Mario.Position;
-                GameObjectManager.Instance.GameObjectListsByType[typeof(IProjectile)].Add(new Fireball(launchPosition));
+                GameObjectManager.Instance.GameObjectList.Add(new Fireball(launchPosition));
                 counter = 0;
                 fire = false;
             }

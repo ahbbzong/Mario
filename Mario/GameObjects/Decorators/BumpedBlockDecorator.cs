@@ -28,7 +28,7 @@ namespace Mario.GameObjects.Decorators
                 else if (!DecoratedBlock.ItemContained.Equals("None")||DecoratedBlock.BlockState is QuestionBlockState)
                 {
                     DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
-                    GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(DecoratedBlock.Position.X, DecoratedBlock.Position.Y)));
+                    GameObjectManager.Instance.GameObjectList.Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(DecoratedBlock.Position.X, DecoratedBlock.Position.Y)));
                 }
                 RemoveSelf();
 			}
@@ -36,8 +36,7 @@ namespace Mario.GameObjects.Decorators
 
 		private void RemoveSelf()
 		{
-			int index = GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)].IndexOf(this);
-			GameObjectManager.Instance.GameObjectListsByType[typeof(IBlock)][index] = DecoratedBlock;
+			GameObjectManager.Instance.GameObjectList.SetGameObject(this, DecoratedBlock);
 		}
         
     }

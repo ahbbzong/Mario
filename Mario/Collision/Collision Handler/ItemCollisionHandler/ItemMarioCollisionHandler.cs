@@ -9,7 +9,7 @@ namespace Mario.Collision.ItemCollisionHandler
         }
         public void HandleCollision(IItem item)
         {
-            GameObjectManager.Instance.GameObjectListsByType[typeof(IItem)].Remove(item);
+            GameObjectManager.Instance.GameObjectList.Remove(item);
         }
     }
 }
