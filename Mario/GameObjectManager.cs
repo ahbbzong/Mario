@@ -29,7 +29,6 @@ namespace Mario
 		private static GameObjectManager instance = new GameObjectManager();
 		public static GameObjectManager Instance { get=>instance; set=> instance = value; }
 		private static IList<IController> ControllerList { get; set; }
-		private readonly IDictionary<Type, IList<IGameObject>> gameObjectListsByType;
 		private readonly GameObjectList gameObjectList;
 		public GameObjectList GameObjectList { get => gameObjectList; }
         public IMario Mario { get { return (IMario)GameObjectList.Peek(typeof(IMario)); } set { GameObjectList.SetSingleton(typeof(IMario), value); } }
@@ -47,16 +46,7 @@ namespace Mario
 
         private GameObjectManager()
         {
-			gameObjectListsByType = new Dictionary<Type, IList<IGameObject>>
-			{
-				{typeof(IBackground), new List<IGameObject>() },
-				{typeof(IItem),new List<IGameObject>() },
-				{typeof(IPipe), new List<IGameObject>() },
-				{typeof(IBlock), new List<IGameObject>() },
-				{typeof(IProjectile), new List<IGameObject>() },
-				{typeof(IEnemy), new List<IGameObject>() },
-				{typeof(IMario),new List<IGameObject>() }
-			};
+			gameObjectList = new GameObjectList();
 			ControllerList = new List<IController>
 			{
 				new Keyboards()

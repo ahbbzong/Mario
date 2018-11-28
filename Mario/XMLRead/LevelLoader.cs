@@ -26,6 +26,17 @@ namespace Mario.XMLRead
 		private readonly IList<IGameObject> projectileList = new List<IGameObject>();
 		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
+		private static IList<Type> gameObjectSubTypes = new List<Type>
+		{
+			typeof(IBlock),
+			typeof(IItem),
+			typeof(IEnemy),
+			typeof(IBackground),
+			typeof(IPipe),
+			//typeof(IProjectile),
+			typeof(IMario)
+
+		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
 		static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
@@ -48,7 +59,7 @@ namespace Mario.XMLRead
 			{typeof(IBackground), LoadBackground },
 			{typeof(IPipe), LoadPipe },
 			{typeof(IMario), LoadPlayer },
-            {typeof(IProjectile), LoadProjectile }
+            //{typeof(IProjectile), LoadProjectile }
         };
          private LevelLoader()
         {
@@ -56,15 +67,16 @@ namespace Mario.XMLRead
         public void LoadFile(string file)
         {
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
-			foreach(Type gameObjectType in GameObjectManager.Instance.GameObjectListsByType.Keys)
+			foreach(Type gameObjectType in gameObjectSubTypes)
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(gameObjectType, LoadFunctionByType[gameObjectType]));
 			}
 			while(queuedChanges.Count > LevelLoaderUtil.zero)
 			{
 				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
-				GameObjectManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
+				GameObjectManager.Instance.GameObjectList.AddListByType(item.Key,item.Value(file));
 			}
+			GameObjectManager.Instance.GameObjectList.DisplayElementsToConsole();
         }
         public static IList<IGameObject> LoadBlock(string file)
         {
@@ -211,7 +223,7 @@ namespace Mario.XMLRead
             }
 			return backgroundList;
         }
-        public static IList<IGameObject> LoadProjectile(string file)
+      /*  public static IList<IGameObject> LoadProjectile(string file)
         {
             IList<ProjectileXML> myProjectileObject = new List<ProjectileXML>();
             using (XmlReader reader = XmlReader.Create(file))
@@ -224,7 +236,7 @@ namespace Mario.XMLRead
                 Instance.ProjectileList.Add(ProjectileFactory.Instance.GetGameObject(GetType(projectile.projectileType), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
             return Instance.ProjectileList;
-        }
+        }*/
         public static IList<IGameObject> LoadPlayer(string file)
         {
             IList<PlayerXML> myPlayerObject = new List<PlayerXML>();

@@ -15,21 +15,28 @@ namespace Mario.Collections
 	//needs to guarantee no aliasing between lists
 	public class GameObjectList : IEnumerable
 	{
-		private static IDictionary<Type, List<IGameObject>> gameObjectListsByType;
-
-		public GameObjectList()
-		{
-			gameObjectListsByType = new Dictionary<Type, List<IGameObject>>{
+		private static IDictionary<Type, List<IGameObject>> gameObjectListsByType = new Dictionary<Type, List<IGameObject>>{
 				{typeof(IBackground), new List<IGameObject>() },
 				{typeof(IItem),new List<IGameObject>() },
-				{typeof(IPipe), new List<IGameObject>() },
 				{typeof(IBlock), new List<IGameObject>() },
+				{typeof(IPipe), new List<IGameObject>() },
 				{typeof(IProjectile), new List<IGameObject>() },
 				{typeof(IEnemy), new List<IGameObject>() },
 				{typeof(IMario),new List<IGameObject>() }
 			};
-		}
 
+		public GameObjectList()
+		{
+			
+		}
+		public void DisplayElementsToConsole()
+		{
+			Debug.WriteLine("Entries in  list: " + gameObjectListsByType.Count);
+			foreach (KeyValuePair<Type, List<IGameObject>> pair in gameObjectListsByType)
+			{
+				Debug.WriteLine(pair.Key.ToString() + ", " + pair.Value.Count);
+			}
+		}
 		public void Add(IGameObject obj)
 		{
 			Type gameObjectInheritorType = typeof(IGameObject);
@@ -44,6 +51,10 @@ namespace Mario.Collections
 			gameObjectListsByType[gameObjectInheritorType].Add(obj);
 		}
 
+		public void AddListByType(Type T, IList<IGameObject> gameObjectList)
+		{
+			gameObjectListsByType[T].AddRange(gameObjectList);
+		}
 		public void Remove(IGameObject obj)
 		{
 			Type gameObjectInheritorType = typeof(IGameObject);
@@ -57,6 +68,11 @@ namespace Mario.Collections
 			gameObjectListsByType[gameObjectInheritorType].Remove(obj);
 		}
 
+		//requires specific IGameObject subinterface
+		public int Count(Type T)
+		{
+			return gameObjectListsByType[T].Count;
+		}
 		public IGameObject GetGameObject(IGameObject target)
 		{
 			foreach (KeyValuePair<Type, List<IGameObject>> typeListPair in gameObjectListsByType)
@@ -137,7 +153,10 @@ namespace Mario.Collections
 			}
 			return obj;
 		}
-
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 		public void SetSingleton(Type T, IGameObject obj)
 		{
 			foreach (KeyValuePair<Type, List<IGameObject>> typeListPair in gameObjectListsByType)
@@ -158,28 +177,31 @@ namespace Mario.Collections
 		}
 		public IEnumerator GetEnumerator()
 		{
-			return new GameObjectEnumeratorByType(typeof(IGameObject));
+			return new GameObjectEnumerator();
 		}
 
 		public IEnumerator GetEnumeratorByType(Type T)
 		{
-			if (!T.IsAssignableFrom(typeof(IGameObject)))
+			if (!typeof(IGameObject).IsAssignableFrom(T))
 			{
 				Debug.WriteLine("nonvalid enum type");
 			}
 			return new GameObjectEnumeratorByType(T);
 		}
 
-		private class GameObjectEnumerator : IEnumerator
+		public class GameObjectEnumerator : IEnumerator
 		{
 			int currentIndex;
-			IEnumerator gameObjectTypesEnumerator;
-			private GameObjectEnumerator()
+			IEnumerator<KeyValuePair<Type,List<IGameObject>>> gameObjectTypesEnumerator;
+			public GameObjectEnumerator()
 			{
-				gameObjectTypesEnumerator = gameObjectListsByType.Keys.GetEnumerator();
-				currentIndex = gameObjectListsByType[(Type)(gameObjectTypesEnumerator.Current)].Count;
+				gameObjectTypesEnumerator = gameObjectListsByType.GetEnumerator();
+				if (gameObjectTypesEnumerator.MoveNext())
+				{
+					currentIndex = gameObjectListsByType[gameObjectTypesEnumerator.Current.Key].Count;
+				}
 			}
-			public object Current => gameObjectListsByType[(Type)(gameObjectTypesEnumerator.Current)][currentIndex];
+			public object Current => gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)][currentIndex];
 			
 
 			public void Dispose()
@@ -196,7 +218,7 @@ namespace Mario.Collections
 					do
 					{
 						currentIndex--;
-					} while (currentIndex >= gameObjectListsByType[(Type)gameObjectTypesEnumerator.Current].Count);
+					} while (currentIndex >= gameObjectListsByType[gameObjectTypesEnumerator.Current.Key].Count);
 					if (currentIndex < 0)
 					{
 						hasNext = gameObjectTypesEnumerator.MoveNext();
@@ -205,7 +227,7 @@ namespace Mario.Collections
 							return false;
 						}
 						//what is the state of this on failure? Probably last count of last list, -1?
-						currentIndex = gameObjectListsByType[(Type)(gameObjectTypesEnumerator.Current)].Count;
+						currentIndex = gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)].Count;
 					}
 				}while (hasNext);
 				return true;
@@ -214,11 +236,11 @@ namespace Mario.Collections
 			public void Reset()
 			{
 				gameObjectTypesEnumerator.Reset();
-				currentIndex = gameObjectListsByType[(Type)gameObjectTypesEnumerator.Current].Count;
+				currentIndex = gameObjectListsByType[gameObjectTypesEnumerator.Current.Key].Count;
 			}
 
 		}
-		private class GameObjectEnumeratorByType : IEnumerator
+		public class GameObjectEnumeratorByType : IEnumerator
 		{
 			
 			private int currentIndex;
@@ -238,7 +260,7 @@ namespace Mario.Collections
 					{
 						return gameObjectListsByType[type][currentIndex];
 					}
-					catch (IndexOutOfRangeException)
+					catch (ArgumentOutOfRangeException)
 					{
 						throw new InvalidOperationException();
 					}
@@ -251,7 +273,7 @@ namespace Mario.Collections
 				{
 					currentIndex--;
 				} while (currentIndex >= gameObjectListsByType[type].Count);
-				return (currentIndex < 0);
+				return (currentIndex >= 0);
 			}
 
 			public void Reset()
