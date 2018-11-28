@@ -9,8 +9,10 @@ namespace Mario.Classes.BlocksClasses
     {
         private Vector2 BlockLocation;
         private String itemContained = "";
+        private bool toUnderground = false;
         public IBlockState BlockState { get; set; }
         public String ItemContained { get => itemContained; set => itemContained = value; }
+        public bool ToUnderground { get => toUnderground; set => toUnderground = value; }
         public virtual Rectangle Box
         {
             get
@@ -35,12 +37,13 @@ namespace Mario.Classes.BlocksClasses
         {
             //Need to override.
         }
-
-        public virtual void SetContainsItem(String item)
+        public virtual void SetToUnderground(String flag)
         {
-            ItemContained = String.Copy(item);
+            if (flag.Equals("True"))
+                ToUnderground = true;
+            else
+                ToUnderground = false;
         }
-
         public Vector2 Position { get => BlockLocation; set => BlockLocation = value; }
 	}
 }

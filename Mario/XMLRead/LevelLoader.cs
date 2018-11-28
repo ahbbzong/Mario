@@ -78,6 +78,25 @@ namespace Mario.XMLRead
 			}
 			GameObjectManager.Instance.GameObjectList.DisplayElementsToConsole();
         }
+        public static IList<IGameObject> LoadPipe(string file)
+        {
+            IList<PipeXML> myPipeObject = new List<PipeXML>();
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                myPipeObject = (IList<PipeXML>)pipeSerializer.Deserialize(reader);
+            }
+            IList<IGameObject> pipeList = new List<IGameObject>();
+            foreach (PipeXML pipe in myPipeObject)
+            {
+                if (GetType(pipe.BlockType).Equals(typeof(Pipe)))
+                {
+                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"), new Vector2(pipe.XLocation, pipe.YLocation)));
+                    ((IPipe)pipeList.Last<IGameObject>()).SetToUnderground(pipe.IsToUnderground);
+                }
+                    
+            }
+            return pipeList;
+        }
         public static IList<IGameObject> LoadBlock(string file)
         {
             IList<BlockXML> myBlockObject = new List<BlockXML>();
@@ -189,22 +208,6 @@ namespace Mario.XMLRead
 				itemList.Add(ItemFactory.Instance.GetGameObject(GetType(item.GameObjectType), new Vector2(item.XLocation, item.YLocation)));
             }
 			return itemList;
-        }
-
-        public static IList<IGameObject> LoadPipe(string file)
-        {
-            IList<PipeXML> myPipeObject = new List<PipeXML>();
-            using (XmlReader reader = XmlReader.Create(file))
-            {
-                myPipeObject = (IList<PipeXML>)pipeSerializer.Deserialize(reader);
-            }
-			IList<IGameObject> pipeList = new List<IGameObject>();
-            foreach (PipeXML pipe in myPipeObject)
-            {
-                if(GetType(pipe.BlockType).Equals(typeof(Pipe)))
-                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
-            }
-			return pipeList;
         }
         public static IList<IGameObject> LoadBackground(string file)
         {

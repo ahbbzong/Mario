@@ -235,9 +235,9 @@ namespace Mario.Collections
 
 			public void Reset()
 			{
-				gameObjectTypesEnumerator.Reset();
 				currentIndex = gameObjectListsByType[gameObjectTypesEnumerator.Current.Key].Count;
-			}
+                gameObjectTypesEnumerator.Reset();
+            }
 
 		}
 		public class GameObjectEnumeratorByType : IEnumerator

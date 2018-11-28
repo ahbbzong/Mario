@@ -7,7 +7,9 @@ namespace Game1
 	{
 		
         string ItemContained { get; set; }
-		void React();
+        bool ToUnderground { get; set; }
+        void SetToUnderground(string flag);
+        void React();
         Vector2 Position { get; set; }
 	
         IBlockState BlockState { get; set; }

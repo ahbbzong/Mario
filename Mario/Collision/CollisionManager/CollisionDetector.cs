@@ -254,6 +254,11 @@ namespace Mario.Collision.CollisionManager
 					CallMarioBlockHandler(pipe, collisionFound, intersection);
 
 				}
+                if (pipe.ToUnderground)
+                {
+                    pipeHandler = new PipeHandler(CollisionUtil.groundPipeIndex);
+                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
+                }
 			}
 
 

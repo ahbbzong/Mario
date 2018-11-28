@@ -72,7 +72,6 @@ namespace Mario
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
             LevelLoader.Instance.LoadFile("XMLFile1.xml");
-            
             foreach (IController controller in ControllerList)
             {
                 controller.Initialize((IMario)GameObjectList.Peek(typeof(IMario)));

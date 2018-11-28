@@ -16,9 +16,7 @@ namespace Mario.GameObjects.Decorators
         public Vector2 Position { get => DecoratedBlock.Position; set => DecoratedBlock.Position = value; }
 		public IBlockState BlockState { get => DecoratedBlock.BlockState; set => DecoratedBlock.BlockState = value; }
         public string ItemContained { get => DecoratedBlock.ItemContained; set => DecoratedBlock.ItemContained = value; }
-
-       
-
+        public bool ToUnderground { get; set; }
 
         public override void SetContainsItem(String item)
         {
@@ -27,5 +25,10 @@ namespace Mario.GameObjects.Decorators
 		{
 			DecoratedBlock.React();
 		}
-	}
+
+        public void SetToUnderground(string flag)
+        {
+            
+        }
+    }
 }
