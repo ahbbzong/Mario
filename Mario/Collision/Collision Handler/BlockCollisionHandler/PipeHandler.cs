@@ -17,15 +17,12 @@ namespace Mario.Collision
             {
                 mario.Position += Vector2.UnitX * CollisionUtil.undergroundOffset;
             }
-            if(result == Direction.Up && mario.IsCrouch&& index == CollisionUtil.undergroundPipeIndex)
+            else if (result == Direction.Up && mario.IsCrouch&& index == CollisionUtil.undergroundPipeIndex)
             {
                 mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                Timer.Time = TimerUtil.MaxTimer;
+                Timer.Time = Timer.TimeRecord;
             }
 
         }
-
-       
-        
     }
 }
