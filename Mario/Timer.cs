@@ -62,7 +62,7 @@ namespace Mario
             if (timeRunning)
             {
                 counter += gameTime.ElapsedGameTime.Milliseconds;
-                if (counter >= 10)
+                if (counter >= TimerUtil.Ten)
                 {
                     Time--;
                     counter = TimerUtil.Zero;
@@ -77,7 +77,7 @@ namespace Mario
         public static void ExtendTime()
         {
             if(Time<TimerUtil.MaxTimer)
-                Time += 30;
+                Time += TimerUtil.CoinExtentTime;
         }
     }
 }

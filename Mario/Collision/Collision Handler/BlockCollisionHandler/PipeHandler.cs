@@ -24,8 +24,5 @@ namespace Mario.Collision
             }
 
         }
-
-       
-        
     }
 }
