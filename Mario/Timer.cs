@@ -17,7 +17,7 @@ namespace Mario
         private static int counter = TimerUtil.Zero;
         private static bool timeRunning = false;
         private static readonly int maxTime = TimerUtil.MaxTimer;
-
+        public static int timeRecord = TimerUtil.Zero;
         public static void ResetTimer()
         {
             Time = maxTime;
@@ -42,6 +42,7 @@ namespace Mario
 
         public static void TimerCheckingTime(GameTime gameTime)
         {
+            timeRecord = Time;
                 if (timeRunning)
                 {
                     counter += gameTime.ElapsedGameTime.Milliseconds;
@@ -70,7 +71,7 @@ namespace Mario
                 if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
                 {
                     GameObjectManager.Instance.Mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                    Time = TimerUtil.MaxTimer;
+                    Time = timeRecord;
                 }
             }
         }

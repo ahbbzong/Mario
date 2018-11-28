@@ -883,38 +883,26 @@
   
   <ItemXML>
     <GameObjectType>UnderGroundCoin</GameObjectType>
-    <XLocation>17530</XLocation>
-    <YLocation>700</YLocation>
+    <XLocation>17760</XLocation>
+    <YLocation>500</YLocation>
   </ItemXML>
-  
+
   <ItemXML>
     <GameObjectType>UnderGroundCoin</GameObjectType>
     <XLocation>17560</XLocation>
-    <YLocation>700</YLocation>
-  </ItemXML>
-  <ItemXML>
-    <GameObjectType>UnderGroundCoin</GameObjectType>
-    <XLocation>17590</XLocation>
-    <YLocation>700</YLocation>
+    <YLocation>500</YLocation>
   </ItemXML>
 
-  <ItemXML>
-    <GameObjectType>UnderGroundCoin</GameObjectType>
-    <XLocation>17610</XLocation>
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <Length>30</Length>
+    <Height>2</Height>
+    <XLocation>17660</XLocation>
     <YLocation>700</YLocation>
-  </ItemXML>
-  <ItemXML>
-    <GameObjectType>UnderGroundCoin</GameObjectType>
-    <XLocation>17640</XLocation>
-    <YLocation>700</YLocation>
-  </ItemXML>
-
-  <ItemXML>
-    <GameObjectType>UnderGroundCoin</GameObjectType>
-    <XLocation>17670</XLocation>
-    <YLocation>700</YLocation>
-  </ItemXML>
-   
-
+  </BlockXML>
+  
+  
+ 
    
 </Map>
