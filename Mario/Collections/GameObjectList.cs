@@ -15,21 +15,25 @@ namespace Mario.Collections
 	//needs to guarantee no aliasing between lists
 	public class GameObjectList : IEnumerable
 	{
-		private static IDictionary<Type, List<IGameObject>> gameObjectListsByType = new Dictionary<Type, List<IGameObject>>{
-				{typeof(IBackground), new List<IGameObject>() },
-				{typeof(IItem),new List<IGameObject>() },
-				{typeof(IBlock), new List<IGameObject>() },
-				{typeof(IPipe), new List<IGameObject>() },
-				{typeof(IProjectile), new List<IGameObject>() },
-				{typeof(IEnemy), new List<IGameObject>() },
-				{typeof(IMario),new List<IGameObject>() }
-			};
+        private static IDictionary<Type, List<IGameObject>> gameObjectListsByType;
 
 		public GameObjectList()
 		{
-			
-		}
-		public void DisplayElementsToConsole()
+     
+        }
+        public void Initial()
+        {
+            gameObjectListsByType = new Dictionary<Type, List<IGameObject>>{
+                {typeof(IBackground), new List<IGameObject>() },
+                {typeof(IItem),new List<IGameObject>() },
+                {typeof(IBlock), new List<IGameObject>() },
+                {typeof(IPipe), new List<IGameObject>() },
+                {typeof(IProjectile), new List<IGameObject>() },
+                {typeof(IEnemy), new List<IGameObject>() },
+                {typeof(IMario),new List<IGameObject>() }
+            };
+        }
+        public void DisplayElementsToConsole()
 		{
 			Debug.WriteLine("Entries in  list: " + gameObjectListsByType.Count);
 			foreach (KeyValuePair<Type, List<IGameObject>> pair in gameObjectListsByType)

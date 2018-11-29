@@ -71,6 +71,7 @@ namespace Mario
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+            gameObjectList.Initial();
             LevelLoader.Instance.LoadFile("XMLFile1.xml");
             foreach (IController controller in ControllerList)
             {
@@ -81,8 +82,8 @@ namespace Mario
             lifeDisplay = new LifeDisplay();
             headUpDisplayBoard = new HeadsUpDisplayBoard();
         }
-   
-      
+
+
         public void Update()
         {
 			foreach(IController controller in ControllerList)
