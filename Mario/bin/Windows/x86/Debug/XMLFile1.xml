@@ -37,7 +37,7 @@
   <BlockXML>
     <BlockType>FloorBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <Length>60</Length>
+    <Length>90</Length>
     <Height>2</Height>
     <XLocation>5632</XLocation>
     <YLocation>850</YLocation>
@@ -196,7 +196,7 @@
     <YLocation>818</YLocation>
   </EnemyXML>
 
-  
+//Chunk1
 
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
@@ -770,13 +770,13 @@
     <XLocation>7200</XLocation>
     <YLocation>510</YLocation>
   </BackgroundXML>
-  
 
 
 
 
 
 //random added clouds and enemy
+  
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
     <XLocation>2420</XLocation>
@@ -842,8 +842,165 @@
     <XLocation>2800</XLocation>
     <YLocation>140</YLocation>
   </BackgroundXML>
-  
-  
+
+  //Repeat Level 1
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>Coin</ItemContains>
+    <XLocation>8600</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>HiddenBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8432</XLocation>
+    <YLocation>618</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>Starman</ItemContains>
+    <XLocation>8464</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>Starman</ItemContains>
+    <XLocation>8560</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8592</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>OneUpMushroom</ItemContains>
+    <XLocation>8524</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>Coin</ItemContains>
+    <XLocation>8656</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8816</XLocation>
+    <YLocation>668</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>Coin</ItemContains>
+    <XLocation>8848</XLocation>
+    <YLocation>668</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>HiddenBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8880</XLocation>
+    <YLocation>669</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8652</XLocation>
+    <YLocation>432</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8684</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8816</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8748</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8780</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8812</XLocation>
+    <YLocation>464</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>BrickBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>8844</XLocation>
+    <YLocation>432</YLocation>
+  </BlockXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>8748</XLocation>
+    <YLocation>432</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>8812</XLocation>
+    <YLocation>428</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Goomba</EnemyType>
+    <XLocation>7948</XLocation>
+    <YLocation>810</YLocation>
+  </EnemyXML>
+
+  <EnemyXML>
+    <EnemyType>Koopa</EnemyType>
+    <XLocation>8012</XLocation>
+    <YLocation>818</YLocation>
+  </EnemyXML>
+
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <IsToUnderground>True</IsToUnderground>
+    <XLocation>7820</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
+
+  <PipeXML>
+    <BlockType>Pipe</BlockType>
+    <IsToUnderground>True</IsToUnderground>
+    <XLocation>8076</XLocation>
+    <YLocation>800</YLocation>
+  </PipeXML>
   
 //Underground
   <BlockXML>
