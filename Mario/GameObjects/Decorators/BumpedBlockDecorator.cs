@@ -37,7 +37,9 @@ namespace Mario.GameObjects.Decorators
 		private void RemoveSelf()
 		{
 			GameObjectManager.Instance.GameObjectList.SetGameObject(this, DecoratedBlock);
-		}
-        
+            GameObjectManager.Instance.GameObjectList.Remove(DecoratedBlock);
+
+        }
+
     }
 }

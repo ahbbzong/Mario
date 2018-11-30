@@ -24,7 +24,7 @@ namespace Mario.GameObjects.Decorators
         public void React()
 		{
 			DecoratedBlock.React();
-		}
+        }
 
         public void SetToUnderground(string flag)
         {
