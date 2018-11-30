@@ -33,7 +33,7 @@ namespace Mario.XMLRead
 			typeof(IEnemy),
 			typeof(IBackground),
 			typeof(IPipe),
-			//typeof(IProjectile),
+			typeof(IProjectile),
 			typeof(IMario)
 
 		};
@@ -59,7 +59,7 @@ namespace Mario.XMLRead
 			{typeof(IEnemy), LoadEnemy },
 			{typeof(IBackground), LoadBackground },
 			{typeof(IMario), LoadPlayer },
-            //{typeof(IProjectile), LoadProjectile }
+            {typeof(IProjectile), LoadProjectile }
         };
          private LevelLoader()
         {
@@ -226,7 +226,7 @@ namespace Mario.XMLRead
             }
 			return backgroundList;
         }
-      /*  public static IList<IGameObject> LoadProjectile(string file)
+        public static IList<IGameObject> LoadProjectile(string file)
         {
             IList<ProjectileXML> myProjectileObject = new List<ProjectileXML>();
             using (XmlReader reader = XmlReader.Create(file))
@@ -239,7 +239,7 @@ namespace Mario.XMLRead
                 Instance.ProjectileList.Add(ProjectileFactory.Instance.GetGameObject(GetType(projectile.projectileType), new Vector2(projectile.XLocation, projectile.YLocation)));
             }
             return Instance.ProjectileList;
-        }*/
+        }
         public static IList<IGameObject> LoadPlayer(string file)
         {
             IList<PlayerXML> myPlayerObject = new List<PlayerXML>();

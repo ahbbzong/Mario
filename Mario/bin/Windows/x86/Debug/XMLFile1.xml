@@ -49,49 +49,49 @@
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
-    <XLocation>0</XLocation>
+    <XLocation>900</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
    <BlockXML>
     <BlockType>HiddenBlockState</BlockType>
      <ItemContains>None</ItemContains>
-    <XLocation>32</XLocation>
+    <XLocation>932</XLocation>
     <YLocation>618</YLocation>
   </BlockXML>
   
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
-    <XLocation>64</XLocation>
+    <XLocation>964</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Starman</ItemContains>
-    <XLocation>160</XLocation>
+    <XLocation>1060</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>192</XLocation>
+    <XLocation>1092</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>OneUpMushroom</ItemContains>
-    <XLocation>224</XLocation>
+    <XLocation>1124</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
   
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
-    <XLocation>256</XLocation>
+    <XLocation>1156</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
 
@@ -105,82 +105,82 @@
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>416</XLocation>
+    <XLocation>1316</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>QuestionBlockState</BlockType>
     <ItemContains>Coin</ItemContains>
-    <XLocation>448</XLocation>
+    <XLocation>1348</XLocation>
     <YLocation>668</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>HiddenBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>480</XLocation>
+    <XLocation>1380</XLocation>
     <YLocation>669</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>352</XLocation>
+    <XLocation>1152</XLocation>
     <YLocation>432</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>384</XLocation>
+    <XLocation>1184</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>416</XLocation>
+    <XLocation>1216</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>448</XLocation>
+    <XLocation>1248</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
 
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>480</XLocation>
+    <XLocation>1280</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>512</XLocation>
+    <XLocation>1312</XLocation>
     <YLocation>464</YLocation>
   </BlockXML>
   
   <BlockXML>
     <BlockType>BrickBlockState</BlockType>
     <ItemContains>None</ItemContains>
-    <XLocation>544</XLocation>
+    <XLocation>1344</XLocation>
     <YLocation>432</YLocation>
   </BlockXML>
 
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
-    <XLocation>448</XLocation>
+    <XLocation>1248</XLocation>
     <YLocation>432</YLocation>
   </EnemyXML>
 
   <EnemyXML>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>512</XLocation>
+    <XLocation>1312</XLocation>
     <YLocation>428</YLocation>
   </EnemyXML>
 
@@ -196,11 +196,7 @@
     <YLocation>818</YLocation>
   </EnemyXML>
 
-  <EnemyXML>
-    <EnemyType>Goomba</EnemyType>
-    <XLocation>650</XLocation>
-    <YLocation>810</YLocation>
-  </EnemyXML>
+  
 
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>

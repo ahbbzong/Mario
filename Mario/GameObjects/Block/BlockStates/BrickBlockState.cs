@@ -20,13 +20,14 @@ namespace Mario.BlockStates
         {
             Block.Position -= Vector2.UnitY * BlockUtil.BlockOffset;
             GameObjectManager.Instance.GameObjectList.SetGameObject(Block, new BumpedBlockDecorator(Block));
+
             if (!(GameObjectManager.Instance.Mario.MarioPowerupState is NormalMarioPowerupState))
             {
+                GameObjectManager.Instance.GameObjectList.Remove(Block);
                 GameObjectManager.Instance.GameObjectList.Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y)));
                 GameObjectManager.Instance.GameObjectList.Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleLeft), new Vector2(Block.Position.X, Block.Position.Y + BlockUtil.brickBlockParticleOffset)));
                 GameObjectManager.Instance.GameObjectList.Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + BlockUtil.brickBlockParticleOffset, Block.Position.Y)));
                 GameObjectManager.Instance.GameObjectList.Add(ItemFactory.Instance.GetGameObject(typeof(BrickParticleRight), new Vector2(Block.Position.X + BlockUtil.brickBlockParticleOffset, Block.Position.Y + BlockUtil.brickBlockParticleOffset)));
-                GameObjectManager.Instance.GameObjectList.Remove(Block);
                 ScoringSystem.Instance.AddPointsForBreakingBlock();
 				SoundManager.Instance.PlaySoundEffect("breakBlock");
             }

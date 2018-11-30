@@ -86,13 +86,14 @@ namespace Mario
 
         public void Update()
         {
+
 			foreach(IController controller in ControllerList)
 			{
 				controller.Update();
 			}
             if (!Game1.Instance.IsPause)
             {
-				IEnumerator gameObjEnumerator = GameObjectList.GetEnumerator();
+                IEnumerator gameObjEnumerator = GameObjectList.GetEnumerator();
 				while (gameObjEnumerator.MoveNext())
 				{
 					if (!CameraMario.IsOffSideOfScreen(((IGameObject)gameObjEnumerator.Current).Box))
