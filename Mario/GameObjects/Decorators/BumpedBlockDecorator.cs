@@ -23,21 +23,27 @@ namespace Mario.GameObjects.Decorators
 			else
 			{
                 if (!(GameObjectManager.Instance.Mario.MarioPowerupState is NormalMarioPowerupState) && DecoratedBlock.BlockState is BrickBlockState)
-                {
+                { 
+                    GameObjectManager.Instance.GameObjectList.Remove(this);
+
                 }
                 else if (!DecoratedBlock.ItemContained.Equals("None")||DecoratedBlock.BlockState is QuestionBlockState)
                 {
                     DecoratedBlock.BlockState = new UsedBlockState(DecoratedBlock);
                     GameObjectManager.Instance.GameObjectList.Add(BlockFactory.Instance.GetGameObject(typeof(UsedBlockState), new Vector2(DecoratedBlock.Position.X, DecoratedBlock.Position.Y)));
+                    RemoveSelf();
                 }
-                RemoveSelf();
-			}
-		}
+                else
+                {
+                    RemoveSelf();
+                }
+                
+            }
+        }
 
 		private void RemoveSelf()
 		{
 			GameObjectManager.Instance.GameObjectList.SetGameObject(this, DecoratedBlock);
-            GameObjectManager.Instance.GameObjectList.Remove(DecoratedBlock);
 
         }
 
