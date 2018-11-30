@@ -24,10 +24,10 @@ namespace Mario.Collections
         public void Initial()
         {
             gameObjectListsByType = new Dictionary<Type, List<IGameObject>>{
+                {typeof(IPipe), new List<IGameObject>() },
                 {typeof(IBackground), new List<IGameObject>() },
                 {typeof(IItem),new List<IGameObject>() },
                 {typeof(IBlock), new List<IGameObject>() },
-                {typeof(IPipe), new List<IGameObject>() },
                 {typeof(IProjectile), new List<IGameObject>() },
                 {typeof(IEnemy), new List<IGameObject>() },
                 {typeof(IMario),new List<IGameObject>() }

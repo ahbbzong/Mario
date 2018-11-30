@@ -65,12 +65,12 @@ namespace Mario
         {
 
             ItemFactory.Instance.LoadContent(Game1.Instance.Content);
-            BlockFactory.Instance.LoadContent(Game1.Instance.Content);
             EnemyFactory.Instance.LoadContent(Game1.Instance.Content);
             BackgroundFactory.Instance.LoadContent(Game1.Instance.Content);
             ProjectileFactory.Instance.LoadContent(Game1.Instance.Content);
             MarioFactory.Instance.LoadContent(Game1.Instance.Content);
             TextSpriteFactory.Instance.LoadAllTextures(Game1.Instance.Content);
+            BlockFactory.Instance.LoadContent(Game1.Instance.Content);
             gameObjectList.Initial();
             LevelLoader.Instance.LoadFile("XMLFile1.xml");
             foreach (IController controller in ControllerList)

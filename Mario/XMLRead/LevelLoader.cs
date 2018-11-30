@@ -39,10 +39,10 @@ namespace Mario.XMLRead
 		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
-		static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
+        static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
+        static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer enemySerializer = new XmlSerializer(typeof(List<EnemyXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer itemSerializer = new XmlSerializer(typeof(List<ItemXML>), new XmlRootAttribute("Map"));
-        static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer playerSerializer = new XmlSerializer(typeof(List<PlayerXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer backSerializer = new XmlSerializer(typeof(List<BackgroundXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer projectileSerializer = new XmlSerializer(typeof(List<ProjectileXML>), new XmlRootAttribute("Map"));
@@ -53,11 +53,11 @@ namespace Mario.XMLRead
 
 		private readonly Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
-			{typeof(IBlock),LoadBlock },
+            {typeof(IPipe), LoadPipe },
+            {typeof(IBlock),LoadBlock },
 			{typeof(IItem), LoadItem },
 			{typeof(IEnemy), LoadEnemy },
 			{typeof(IBackground), LoadBackground },
-			{typeof(IPipe), LoadPipe },
 			{typeof(IMario), LoadPlayer },
             //{typeof(IProjectile), LoadProjectile }
         };
