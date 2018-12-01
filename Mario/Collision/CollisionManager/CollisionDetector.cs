@@ -256,35 +256,11 @@ namespace Mario.Collision.CollisionManager
 				}
                 if (pipe.ToUnderground)
                 {
-                    pipeHandler = new PipeHandler(CollisionUtil.groundPipeIndex);
+                    pipeHandler = new PipeHandler();
                     pipeHandler.HandleCollision(pipe, Mario, collisionFound);
                 }
 			}
 
-
-/*
-			//TODO convert pipe to new method.
-			foreach (IBlock pipe in GameObjectListsByType[typeof(IPipe)])
-			{
-				collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
-				if (collisionFound != Direction.None && Mario.IsActive())
-				{
-
-					intersection = collisionDetecter.Intersection;
-					CallMarioBlockHandler(pipe, collisionFound, intersection);
-
-				}
-				if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe)==CollisionUtil.groundPipeIndex)
-                {
-                    pipeHandler = new PipeHandler(CollisionUtil.groundPipeIndex);
-                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
-                }
-                if (GameObjectListsByType[typeof(IPipe)].IndexOf(pipe) == CollisionUtil.undergroundPipeIndex)
-                {
-                    pipeHandler = new PipeHandler(CollisionUtil.undergroundPipeIndex);
-                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
-                }
-            }*/
 			float difference = (float)(Mario.Position.X - GameObjectManager.Instance.CameraMario.Location.X);
 			if (difference <= CollisionUtil.differenceFive && difference >= CollisionUtil.differenceZero)
 			{

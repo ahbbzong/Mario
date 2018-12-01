@@ -36,7 +36,6 @@ namespace Mario.Collision
         }
         private void AddNormalItem(IBlock block)
         {
-            Type IItemType = typeof(IItem);
             switch (block.ItemContained)
             {
                 case ItemString.Coin:
@@ -56,7 +55,6 @@ namespace Mario.Collision
         }
         private void AddBigItem(IBlock block)
         {
-            Type IItemType = typeof(IItem);
             switch (block.ItemContained)
             {
                 case ItemString.Coin:

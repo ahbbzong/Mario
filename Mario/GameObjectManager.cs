@@ -20,6 +20,7 @@ using Microsoft.Xna.Framework.Media;
 using Mario.Sound;
 using Mario.Collections;
 using System.Collections;
+using Mario.ItemClasses;
 
 namespace Mario
 {
@@ -40,7 +41,7 @@ namespace Mario
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
         public IList<ITextSprite> UITextSprites { get; }
-        public bool LifeDisplayTrigger = true;
+        public bool LifeDisplayTrigger { get; set; }
 
         public float EndOfLevelXPosition { get; set; }
         private int count = 0;
@@ -48,6 +49,7 @@ namespace Mario
 
         private GameObjectManager()
         {
+            LifeDisplayTrigger = true;
             gameObjectList = new GameObjectList();
             ControllerList = new List<IController>
             {

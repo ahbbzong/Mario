@@ -83,14 +83,9 @@ namespace Mario.Collections
 			{
 				if (typeListPair.Key.IsAssignableFrom(target.GetType()))
 				{
-					try
-					{
-						return (typeListPair.Value[typeListPair.Value.IndexOf(target)]);
-					}
-					catch (IndexOutOfRangeException)
-					{
-						throw new IndexOutOfRangeException();
-					}
+					
+						return typeListPair.Value[typeListPair.Value.IndexOf(target)];
+					
 				}
 			}
 			return null;
@@ -101,14 +96,9 @@ namespace Mario.Collections
 			{
 				if (typeListPair.Key.IsAssignableFrom(target.GetType()))
 				{
-					try
-					{
+					
 						typeListPair.Value[typeListPair.Value.IndexOf(target)] = value;
-					}
-					catch (IndexOutOfRangeException)
-					{
-						throw new IndexOutOfRangeException();
-					}
+				
 				}
 			}
 		}
@@ -119,14 +109,9 @@ namespace Mario.Collections
 			{
 				if (typeListPair.Key.IsAssignableFrom(target.GetType()))
 				{
-					try
-					{
+					
 						return typeListPair.Value.IndexOf(target)>0 ;
-					}
-					catch (IndexOutOfRangeException)
-					{
-						throw new IndexOutOfRangeException();
-					}
+					
 				}
 			}
 			return false;
@@ -144,15 +129,11 @@ namespace Mario.Collections
 			{
 				if (typeListPair.Key.IsAssignableFrom(T))
 				{
-					try
-					{
+					
 						obj = gameObjectListsByType[typeListPair.Key][0];
 						break;
-					}
-					catch (IndexOutOfRangeException)
-					{
-						throw new IndexOutOfRangeException();
-					}
+					
+					
 				}
 			}
 			return obj;
@@ -167,15 +148,10 @@ namespace Mario.Collections
 			{
 				if (typeListPair.Key.IsAssignableFrom(T))
 				{
-					try
-					{
+					
 						gameObjectListsByType[typeListPair.Key][0] = obj;
 						break;
-					}
-					catch (IndexOutOfRangeException)
-					{
-						throw new IndexOutOfRangeException();
-					}
+					
 				}
 			}
 		}
@@ -208,10 +184,7 @@ namespace Mario.Collections
 			public object Current => gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)][currentIndex];
 			
 
-			public void Dispose()
-			{
-				throw new NotImplementedException();
-			}
+			
 
 			public bool MoveNext()
 			{
