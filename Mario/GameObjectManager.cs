@@ -40,6 +40,7 @@ namespace Mario
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
         public IList<ITextSprite> UITextSprites { get;  }
+        public bool LifeDisplayTrigger = true;
 
         public float EndOfLevelXPosition { get; set; }
 
@@ -52,7 +53,6 @@ namespace Mario
 				new Keyboards()
 			};
             FloorBoxPositions = new List<Rectangle>();
-
             UITextSprites = new List<ITextSprite>();
         }
         public void SetInitialValuesCamera()
@@ -106,8 +106,8 @@ namespace Mario
 					Mario.BeDead();
 					LifeCounter.Instance.DecreaseLife();
 					SetInitialValuesCamera();
-					LoadContent();
-					Timer.ResetTimer();
+                    LoadContent();
+                    Timer.ResetTimer();
 					Timer.StartTimer();
 				}
                 CollisionDetector.Instance.Update();
@@ -116,7 +116,7 @@ namespace Mario
             if (LifeCounter.Instance.LifeRemains()>0)
             {
                 lifeDisplay.Update();
-            }          
+            }
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
                 gameOverDisplay.Update();
@@ -135,6 +135,7 @@ namespace Mario
             if (LifeCounter.Instance.LifeRemains() > 0)
             {
                 lifeDisplay.Draw(spriteBatch);
+
             }
             else if (LifeCounter.Instance.LifeRemains() == 0)
             {
@@ -143,7 +144,7 @@ namespace Mario
             headUpDisplayBoard.Draw(spriteBatch);
             FloatingScoreBar.Draw(spriteBatch);
         }
-        
+
 
     }
 }

@@ -19,11 +19,21 @@ namespace Mario.Display
         public LifeDisplay()
         {
             lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            lifeTextSprite.Text = " X ";
-            lifeTextSprite.Text += LifeCounter.Instance.LifeRemains().ToString();
+            if (GameObjectManager.Instance.LifeDisplayTrigger)
+            {
+                lifeTextSprite.Text = " X ";
+                lifeTextSprite.Text += LifeCounter.Instance.LifeRemains().ToString();
+
+            }
+            else
+            {
+                lifeTextSprite.Text = " L o a d i n g ";
+            }
+            
             counter = SpriteUtil.Zero;
             backgroundObject = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
             marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[typeof(NormalMarioPowerupState)][typeof(RightIdleMarioMovementState)]);
+
         }
         public void Update()
         {

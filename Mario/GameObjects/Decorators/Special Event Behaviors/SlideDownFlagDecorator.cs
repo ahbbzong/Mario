@@ -92,8 +92,10 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		{
             base.RemoveSelf();
             GameObjectManager.Instance.SetInitialValuesCamera();
+            GameObjectManager.Instance.LifeDisplayTrigger = false;
             GameObjectManager.Instance.LoadContent();
-           
+            GameObjectManager.Instance.LifeDisplayTrigger = true;
+
         }
 		
 	}
