@@ -184,7 +184,6 @@ namespace Mario
 			{
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
-                Timer.CleanTimer();
                 GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario),new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor)));
                 atTheEnd = true;
 			}

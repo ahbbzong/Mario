@@ -91,8 +91,9 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 		public override void RemoveSelf()
 		{
             base.RemoveSelf();
-            LifeCounter.Instance.Life = 3;
-            Game1.Instance.Reset();
+            GameObjectManager.Instance.SetInitialValuesCamera();
+            GameObjectManager.Instance.LoadContent();
+           
         }
 		
 	}
