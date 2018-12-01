@@ -221,7 +221,6 @@ namespace Mario
         {
            
                 MarioPowerupState.ThrowProjectile();
-				SoundManager.Instance.PlaySoundEffect("marioFireball");
         }
 
         

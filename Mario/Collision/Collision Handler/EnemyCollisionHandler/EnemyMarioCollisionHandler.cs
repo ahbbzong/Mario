@@ -20,6 +20,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (mario.IsStarMario()&&result!=Direction.None)
             {
                 enemy.Beflipped();
+                SoundManager.Instance.PlaySoundEffect(SoundString.flip);
                 ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
             }
 
