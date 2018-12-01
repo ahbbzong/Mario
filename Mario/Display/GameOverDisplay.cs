@@ -12,24 +12,22 @@ namespace Mario.Display
     {
         ITextSprite lifeTextSprite;
         IGameObject backgroundSprite;
+        private int count;
             public GameOverDisplay()
             {
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
-            //if ()
-            //{
-
-            //count the number of game count adn then if it is reaches the three, then 
-            // play the gameover song
-            SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+            count = TimerUtil.Zero;
 
             SoundManager.StopSong();
-        }
-        public void Update()
-            {
-            //implement to reach 100 count.
             }
+        public void Update()
+        {
+            count++;
+            if (count == TimerUtil.GameOverSoundTime)
+                SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+        }
             public void Draw(SpriteBatch spriteBatch)
             {
                 backgroundSprite.Draw(spriteBatch);
