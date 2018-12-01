@@ -8,7 +8,7 @@ namespace Mario.AbstractClass
 {
 	public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
-        private Vector2 EnemyLocation;
+        public Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
         public bool KoopaStompedCounted { get; set; }
         public Rectangle Box

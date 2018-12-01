@@ -83,10 +83,7 @@ namespace Mario.AbstractClass
         {
             return false;
         }
-        public virtual bool IsMiniboss()
-        {
-            return false;
-        }
+      
 
         public virtual bool IsLeftStomped()
         {

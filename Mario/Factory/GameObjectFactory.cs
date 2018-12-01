@@ -13,7 +13,7 @@ namespace Mario.Factory
 		protected Dictionary<Type,Func<Vector2,IGameObject>> InstantiationLedger { get => instantiationLedger; set => instantiationLedger = value; }
 		public IGameObject GetGameObject(Type type, Vector2 position)
 		{
-			return GetInstantiatorByTypeName(type)(position);
+            return GetInstantiatorByTypeName(type)(position);
 		}
 
 		public Func<Vector2, IGameObject> GetInstantiatorByTypeName(Type type)
