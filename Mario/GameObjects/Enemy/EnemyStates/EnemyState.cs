@@ -51,10 +51,6 @@ namespace Mario.AbstractClass
             EnemySprite.Draw(spriteBatch, location);
         }
 
-        public virtual bool IsGoombaStomped()
-        {
-            return false;
-        }
       
 
         public virtual void TurnLeft()
@@ -84,6 +80,10 @@ namespace Mario.AbstractClass
         }
 
         public virtual bool IsKoopa()
+        {
+            return false;
+        }
+        public virtual bool IsMiniboss()
         {
             return false;
         }

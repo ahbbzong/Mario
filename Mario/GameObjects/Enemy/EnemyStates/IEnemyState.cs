@@ -12,13 +12,12 @@ namespace Game1
         void TurnLeft();
         void TurnRight();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
-        bool IsGoombaStomped();
         bool IsKoopaStomped();
         bool IsFlipped();
         bool IsLeftStomped();
         bool IsRightStomped();
         bool IsGoomba();
         bool IsKoopa();
-    
+        bool IsMiniboss();
     }
 }

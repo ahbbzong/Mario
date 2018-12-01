@@ -22,12 +22,16 @@ namespace Mario.Collision.EnemyCollisionHandler
                 enemy.Beflipped();
                 ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
             }
+
+         
             if (result==Direction.Up)
             {
                 enemy.BeStomped();
+
 				SoundManager.Instance.PlaySoundEffect(SoundString.stomp);
 
             }
+            
             if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)
             {
                 enemy.TurnLeft();

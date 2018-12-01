@@ -17,13 +17,18 @@ namespace Mario.Display
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
-                SoundManager.StopSong();
-                SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+            //if ()
+            //{
 
+            //count the number of game count adn then if it is reaches the three, then 
+            // play the gameover song
+            SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+
+            SoundManager.StopSong();
         }
         public void Update()
             {
-
+            //implement to reach 100 count.
             }
             public void Draw(SpriteBatch spriteBatch)
             {

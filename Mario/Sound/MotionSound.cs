@@ -22,6 +22,8 @@ namespace Mario.Sound
         public static void StopSong(){
 			MediaPlayer.Stop();
         }
+
+
 		public static void loadcontent(ContentManager content)
 		{
 			soundEffectDictionary = new Dictionary<string, SoundEffect>
