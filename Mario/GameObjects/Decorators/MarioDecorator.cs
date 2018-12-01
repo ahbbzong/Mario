@@ -66,10 +66,7 @@ namespace Mario.GameObjects.Decorators
 			return DecoratedMario.IsActive();
 		}
 
-		public bool IsFalling()
-		{
-            return DecoratedMario.Fall;
-		}
+		
         
 
 		public void SetIsLand(bool Land)
@@ -137,9 +134,6 @@ namespace Mario.GameObjects.Decorators
             return DecoratedMario.IsAtEnd();
         }
 
-        public void MarioGoIntoPipe(bool isOnPipe)
-        {
-            
-        }
+      
     }
 }

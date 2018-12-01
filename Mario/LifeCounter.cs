@@ -26,6 +26,7 @@ namespace Mario
         }
         public void IncreaseLife()
         {
+            if(Life<3)
             Life++;
         }
         public void ResetLife()

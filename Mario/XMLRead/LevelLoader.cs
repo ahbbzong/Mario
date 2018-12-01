@@ -26,12 +26,23 @@ namespace Mario.XMLRead
 		private readonly IList<IGameObject> projectileList = new List<IGameObject>();
 		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
+		private static IList<Type> gameObjectSubTypes = new List<Type>
+		{
+			typeof(IBlock),
+			typeof(IItem),
+			typeof(IEnemy),
+			typeof(IBackground),
+			typeof(IPipe),
+			typeof(IProjectile),
+			typeof(IMario)
+
+		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
 
-		static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
+        static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
+        static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer enemySerializer = new XmlSerializer(typeof(List<EnemyXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer itemSerializer = new XmlSerializer(typeof(List<ItemXML>), new XmlRootAttribute("Map"));
-        static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer playerSerializer = new XmlSerializer(typeof(List<PlayerXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer backSerializer = new XmlSerializer(typeof(List<BackgroundXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer projectileSerializer = new XmlSerializer(typeof(List<ProjectileXML>), new XmlRootAttribute("Map"));
@@ -42,11 +53,11 @@ namespace Mario.XMLRead
 
 		private readonly Dictionary<Type, Func<string, IList<IGameObject>>> LoadFunctionByType = new Dictionary<Type, Func<string, IList<IGameObject>>>
 		{
-			{typeof(IBlock),LoadBlock },
+            {typeof(IPipe), LoadPipe },
+            {typeof(IBlock),LoadBlock },
 			{typeof(IItem), LoadItem },
 			{typeof(IEnemy), LoadEnemy },
 			{typeof(IBackground), LoadBackground },
-			{typeof(IPipe), LoadPipe },
 			{typeof(IMario), LoadPlayer },
             {typeof(IProjectile), LoadProjectile }
         };
@@ -56,15 +67,35 @@ namespace Mario.XMLRead
         public void LoadFile(string file)
         {
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
-			foreach(Type gameObjectType in GameObjectManager.Instance.GameObjectListsByType.Keys)
+			foreach(Type gameObjectType in gameObjectSubTypes)
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(gameObjectType, LoadFunctionByType[gameObjectType]));
 			}
 			while(queuedChanges.Count > LevelLoaderUtil.zero)
 			{
 				KeyValuePair<Type,Func<string,IList<IGameObject>>> item = queuedChanges.Dequeue();
-				GameObjectManager.Instance.GameObjectListsByType[item.Key] = item.Value(file);
+				GameObjectManager.Instance.GameObjectList.AddListByType(item.Key,item.Value(file));
 			}
+			GameObjectManager.Instance.GameObjectList.DisplayElementsToConsole();
+        }
+        public static IList<IGameObject> LoadPipe(string file)
+        {
+            IList<PipeXML> myPipeObject = new List<PipeXML>();
+            using (XmlReader reader = XmlReader.Create(file))
+            {
+                myPipeObject = (IList<PipeXML>)pipeSerializer.Deserialize(reader);
+            }
+            IList<IGameObject> pipeList = new List<IGameObject>();
+            foreach (PipeXML pipe in myPipeObject)
+            {
+                if (GetType(pipe.BlockType).Equals(typeof(Pipe)))
+                {
+                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"), new Vector2(pipe.XLocation, pipe.YLocation)));
+                    ((IPipe)pipeList.Last<IGameObject>()).SetToUnderground(pipe.IsToUnderground);
+                }
+                    
+            }
+            return pipeList;
         }
         public static IList<IGameObject> LoadBlock(string file)
         {
@@ -177,22 +208,6 @@ namespace Mario.XMLRead
 				itemList.Add(ItemFactory.Instance.GetGameObject(GetType(item.GameObjectType), new Vector2(item.XLocation, item.YLocation)));
             }
 			return itemList;
-        }
-
-        public static IList<IGameObject> LoadPipe(string file)
-        {
-            IList<PipeXML> myPipeObject = new List<PipeXML>();
-            using (XmlReader reader = XmlReader.Create(file))
-            {
-                myPipeObject = (IList<PipeXML>)pipeSerializer.Deserialize(reader);
-            }
-			IList<IGameObject> pipeList = new List<IGameObject>();
-            foreach (PipeXML pipe in myPipeObject)
-            {
-                if(GetType(pipe.BlockType).Equals(typeof(Pipe)))
-                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"),new Vector2(pipe.XLocation, pipe.YLocation)));
-            }
-			return pipeList;
         }
         public static IList<IGameObject> LoadBackground(string file)
         {

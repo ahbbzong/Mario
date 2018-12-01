@@ -10,7 +10,8 @@ namespace Mario.MarioCommand
         {        }
         public override void Execute()
         {
-            Mario.GoLeft();
+            if (!Game1.Instance.IsPause)
+                Mario.GoLeft();
         }
     }
 }

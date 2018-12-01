@@ -11,7 +11,8 @@ namespace Mario.MarioCommand
         }
         public override void Execute()
         {
-            Mario.GoUp();
+            if (!Game1.Instance.IsPause)
+                Mario.GoUp();
             
         }
     }

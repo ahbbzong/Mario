@@ -11,6 +11,7 @@ namespace Mario.MarioCommand
         }
         public override void Execute()
         {
+            if(!Game1.Instance.IsPause)
             Mario.GoDown();
         }
     }

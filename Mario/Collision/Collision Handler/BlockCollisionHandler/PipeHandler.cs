@@ -6,29 +6,21 @@ namespace Mario.Collision
 {
 	public class PipeHandler : IBlockCollisionHandler
     {
-        int index;
         public PipeHandler(int index)
         {
-            this.index = index;
         }
         public void HandleCollision(IBlock block, IMario mario,Direction result)
         {
-            if (result == Direction.Up&&mario.IsCrouch&&index==CollisionUtil.groundPipeIndex)
+            if (result == Direction.Up&& mario.IsCrouch&&mario.Position.X< GameUtil.UndergroundPosition)
             {
-                mario.MarioGoIntoPipe(true);
                 mario.Position += Vector2.UnitX * CollisionUtil.undergroundOffset;
-                mario.MarioGoIntoPipe(false);
             }
-            if(result == Direction.Up && mario.IsCrouch&& index == CollisionUtil.undergroundPipeIndex)
+            else if (result == Direction.Up && mario.IsCrouch && mario.Position.X > GameUtil.UndergroundPosition)
             {
-                mario.MarioGoIntoPipe(true);
                 mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                mario.MarioGoIntoPipe(false);
+                Timer.Time = Timer.TimeRecord;
             }
 
         }
-
-       
-        
     }
 }
