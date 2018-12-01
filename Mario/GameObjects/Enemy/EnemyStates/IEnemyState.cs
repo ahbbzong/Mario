@@ -18,6 +18,6 @@ namespace Game1
         bool IsRightStomped();
         bool IsGoomba();
         bool IsKoopa();
-        bool IsMiniboss();
+     
     }
 }

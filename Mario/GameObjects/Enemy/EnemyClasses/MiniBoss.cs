@@ -1,27 +1,33 @@
-﻿using System;
-using Mario.Factory;
+﻿using Mario.AbstractClass;
+using Mario.EnemyClasses;
+using Mario.EnemyStates.GoombaStates;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Game1;
-using Mario.AbstractClass;
 
 namespace Mario.GameObjects
 {
+
+
     public class MiniBoss : Enemy
     {
 
+        private int delay = 0;
         public MiniBoss(Vector2 location) : base(location)
         {
          
         }
 
-        public void ThrowGoomba()
+        private void ThrowGoomba()
         {
-          //  EnemyFactory.Instance.GetGameObject();
+            GameObjectManager.Instance.GameObjectList.Add(new Goomba(EnemyLocation));
+        }
+        public override void Update()
+        {
+            if (delay == 5)
+            {
+                ThrowGoomba();
+                delay = 0;
+            }
+            delay++;
         }
 
     }
