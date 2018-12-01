@@ -56,44 +56,46 @@ namespace Mario.Collision.CollisionManager
 
 			foreach (Rectangle floorBox in FloorBoxPosition)
 			{
-				IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IProjectile));
-				while (gameObjectEnumerator.MoveNext())
-				{
-					IProjectile projectile = (IProjectile)gameObjectEnumerator.Current;
-					collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
-					intersection = collisionDetecter.Intersection;
-					projectileCollisionHandler = new FireballBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
-					projectileCollisionHandler.HandleCollision(projectile);
-				}
-				gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IItem));
-				while (gameObjectEnumerator.MoveNext())
-				{
-					IItem item = (IItem)gameObjectEnumerator.Current;
-					collisionFound = collisionDetecter.Collision(item.Box, floorBox);
-					intersection = collisionDetecter.Intersection;
-					itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
-					itemHandler.HandleCollision(item);
-				}
-				gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IEnemy));
-				while (gameObjectEnumerator.MoveNext())
-				{
-					IEnemy enemy = (IEnemy)gameObjectEnumerator.Current;
-					if (!enemy.IsFlipped())
-					{
-						collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
-						intersection = collisionDetecter.Intersection;
-						enemyHandler = new EnemyBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
-						enemyHandler.HandleCollision(enemy);
-					}
-				}
-				if (mario.IsActive())
-				{
-					collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
-					intersection = collisionDetecter.Intersection;
-					blockHandler = new BlockHandler();
-					blockHandler.HandleCollision((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), Mario, collisionFound);
-					CallMarioBlockHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), collisionFound, intersection);
-				}
+                if(!CameraMario.IsOffTopOrBottomOfScreen(floorBox)){
+                    IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IProjectile));
+                    while (gameObjectEnumerator.MoveNext())
+                    {
+                        IProjectile projectile = (IProjectile)gameObjectEnumerator.Current;
+                        collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
+                        intersection = collisionDetecter.Intersection;
+                        projectileCollisionHandler = new FireballBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                        projectileCollisionHandler.HandleCollision(projectile);
+                    }
+                    gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IItem));
+                    while (gameObjectEnumerator.MoveNext())
+                    {
+                        IItem item = (IItem)gameObjectEnumerator.Current;
+                        collisionFound = collisionDetecter.Collision(item.Box, floorBox);
+                        intersection = collisionDetecter.Intersection;
+                        itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                        itemHandler.HandleCollision(item);
+                    }
+                    gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IEnemy));
+                    while (gameObjectEnumerator.MoveNext())
+                    {
+                        IEnemy enemy = (IEnemy)gameObjectEnumerator.Current;
+                        if (!enemy.IsFlipped())
+                        {
+                            collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
+                            intersection = collisionDetecter.Intersection;
+                            enemyHandler = new EnemyBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                            enemyHandler.HandleCollision(enemy);
+                        }
+                    }
+                    if (mario.IsActive())
+                    {
+                        collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
+                        intersection = collisionDetecter.Intersection;
+                        blockHandler = new BlockHandler();
+                        blockHandler.HandleCollision((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), Mario, collisionFound);
+                        CallMarioBlockHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), collisionFound, intersection);
+                    }
+                }
 			}
 
 			IEnumerator projectileEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IProjectile));
@@ -144,121 +146,144 @@ namespace Mario.Collision.CollisionManager
 			while (itemEnumerator.MoveNext())
 			{
 				IItem item = (IItem)itemEnumerator.Current;
-				collisionFound = collisionDetecter.Collision(Mario.Box, item.Box);
-				if (collisionFound != Direction.None && Mario.IsActive())
-				{
-					intersection = collisionDetecter.Intersection;
-					itemHandler = new ItemMarioCollisionHandler();
-					itemHandler.HandleCollision(item);
-					CallMarioItemHandler(item, collisionFound);
-				}
+                if (!CameraMario.IsOffTopOrBottomOfScreen(item.Box))
+                {
+                    collisionFound = collisionDetecter.Collision(Mario.Box, item.Box);
+                    if (collisionFound != Direction.None && Mario.IsActive())
+                    {
+                        intersection = collisionDetecter.Intersection;
+                        itemHandler = new ItemMarioCollisionHandler();
+                        itemHandler.HandleCollision(item);
+                        CallMarioItemHandler(item, collisionFound);
+                    }
+                    IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IBlock));
+                    while (gameObjectEnumerator.MoveNext())
+                    {
+                        IBlock block = (IBlock)gameObjectEnumerator.Current;
+                        if (!CameraMario.IsOffTopOrBottomOfScreen(block.Box))
+                        {
+                            if (!(block.BlockState is HiddenBlockState))
+                            {
+                                collisionFound = collisionDetecter.Collision(item.Box, block.Box);
+                                intersection = collisionDetecter.Intersection;
+                                itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
+                                itemHandler.HandleCollision(item);
+                            }
+                        }
+                    }
 
-				IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IBlock));
-				while (gameObjectEnumerator.MoveNext())
-				{
-					IBlock block = (IBlock)gameObjectEnumerator.Current;
-					if (!(block.BlockState is HiddenBlockState))
-					{
-						collisionFound = collisionDetecter.Collision(item.Box, block.Box);
-						intersection = collisionDetecter.Intersection;
-						itemHandler = new ItemBlockCollisionHandler(block, intersection, collisionFound);
-						itemHandler.HandleCollision(item);
-					}
-				}
-
-				gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IPipe));
-				while (gameObjectEnumerator.MoveNext())
-				{
-					IPipe pipe = (IPipe)gameObjectEnumerator.Current;
-					collisionFound = collisionDetecter.Collision(item.Box, pipe.Box);
-					intersection = collisionDetecter.Intersection;
-					itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
-					itemHandler.HandleCollision(item);
-				}
+                    gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IPipe));
+                    while (gameObjectEnumerator.MoveNext())
+                    {
+                        IPipe pipe = (IPipe)gameObjectEnumerator.Current;
+                       
+                            collisionFound = collisionDetecter.Collision(item.Box, pipe.Box);
+                            intersection = collisionDetecter.Intersection;
+                            itemHandler = new ItemBlockCollisionHandler(pipe, intersection, collisionFound);
+                            itemHandler.HandleCollision(item);
+                        
+                    }
+                }
 			}
 			IEnumerator blockEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IBlock));
 			while (blockEnumerator.MoveNext())
 			{
 				IBlock block = (IBlock)blockEnumerator.Current;
-				collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
-				if (Mario.IsActive())
-				{
-					intersection = collisionDetecter.Intersection;
-					blockHandler = new BlockHandler();
-					blockHandler.HandleCollision(block, Mario, collisionFound);
-					CallMarioBlockHandler(block, collisionFound, intersection);
-				}
+                if (!CameraMario.IsOffTopOrBottomOfScreen(block.Box))
+                {
+                    collisionFound = collisionDetecter.Collision(Mario.Box, block.Box);
+                    if (Mario.IsActive())
+                    {
+                        intersection = collisionDetecter.Intersection;
+                        blockHandler = new BlockHandler();
+                        blockHandler.HandleCollision(block, Mario, collisionFound);
+                        CallMarioBlockHandler(block, collisionFound, intersection);
+                    }
+                }
 			}
 
 			IEnumerator enemyEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IEnemy));
 			while (enemyEnumerator.MoveNext()) {
 				IEnemy enemy = (IEnemy)enemyEnumerator.Current;
-				if (!enemy.IsFlipped())
-				{
-					collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
-					if (Mario.IsActive() && !(enemy.EnemyState is StompedGoombaState))
-					{
-						enemyHandler = new EnemyMarioCollisionHandler(Mario, collisionFound);
-						intersection = collisionDetecter.Intersection;
-						enemyHandler.HandleCollision(enemy);
-						marioHandler = new MarioEnemyCollisionHandler(enemy, intersection);
-						marioHandler.HandleCollision(Mario, collisionFound);
+                if (!CameraMario.IsOffTopOrBottomOfScreen(enemy.Box))
+                {
+                    if (!enemy.IsFlipped())
+                    {
+                        collisionFound = collisionDetecter.Collision(Mario.Box, enemy.Box);
+                        if (Mario.IsActive() && !(enemy.EnemyState is StompedGoombaState))
+                        {
+                            enemyHandler = new EnemyMarioCollisionHandler(Mario, collisionFound);
+                            intersection = collisionDetecter.Intersection;
+                            enemyHandler.HandleCollision(enemy);
+                            marioHandler = new MarioEnemyCollisionHandler(enemy, intersection);
+                            marioHandler.HandleCollision(Mario, collisionFound);
 
-					}
-					IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IBlock));
-					while (gameObjectEnumerator.MoveNext())
-					{
-						IBlock block = (IBlock)gameObjectEnumerator.Current;
-						if (!(block.BlockState is HiddenBlockState))
-						{
-							collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
-							intersection = collisionDetecter.Intersection;
-							enemyHandler = new EnemyBlockCollisionHandler(block, intersection, collisionFound);
-							enemyHandler.HandleCollision(enemy);
-						}
-					}
+                        }
+                        IEnumerator gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IBlock));
+                        while (gameObjectEnumerator.MoveNext())
+                        {
+                            IBlock block = (IBlock)gameObjectEnumerator.Current;
+                            if (!CameraMario.IsOffTopOrBottomOfScreen(block.Box))
+                            {
+                                if (!(block.BlockState is HiddenBlockState))
+                                {
+                                    collisionFound = collisionDetecter.Collision(enemy.Box, block.Box);
+                                    intersection = collisionDetecter.Intersection;
+                                    enemyHandler = new EnemyBlockCollisionHandler(block, intersection, collisionFound);
+                                    enemyHandler.HandleCollision(enemy);
+                                }
+                            }
+                        }
 
-					gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IPipe));
-					while (gameObjectEnumerator.MoveNext())
-					{
-						IPipe pipe = (IPipe)gameObjectEnumerator.Current;
-						collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
-						intersection = collisionDetecter.Intersection;
-						enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
-						enemyHandler.HandleCollision(enemy);
-					}
+                        gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IPipe));
+                        while (gameObjectEnumerator.MoveNext())
+                        {
+                            IPipe pipe = (IPipe)gameObjectEnumerator.Current;
+                           
+                                collisionFound = collisionDetecter.Collision(enemy.Box, pipe.Box);
+                                intersection = collisionDetecter.Intersection;
+                                enemyHandler = new EnemyBlockCollisionHandler(pipe, intersection, collisionFound);
+                                enemyHandler.HandleCollision(enemy);
+                            
+                        }
 
-					gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IEnemy));
-					while (gameObjectEnumerator.MoveNext())
-					{
-						IEnemy goomba = (IEnemy)gameObjectEnumerator.Current;
-						if (enemy.IsKoopa() && goomba.IsGoomba())
-						{
-							collisionFound = collisionDetecter.Collision(enemy.Box, goomba.Box);
-							intersection = collisionDetecter.Intersection;
-							enemyHandler = new EnemyEnemyCollisionHandler(goomba, intersection, collisionFound);
-							enemyHandler.HandleCollision(enemy);
-						}
-					}
-				}
+                        gameObjectEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IEnemy));
+                        while (gameObjectEnumerator.MoveNext())
+                        {
+                            IEnemy goomba = (IEnemy)gameObjectEnumerator.Current;
+                            if (!CameraMario.IsOffTopOrBottomOfScreen(goomba.Box))
+                            {
+                                if (enemy.IsKoopa() && goomba.IsGoomba())
+                                {
+                                    collisionFound = collisionDetecter.Collision(enemy.Box, goomba.Box);
+                                    intersection = collisionDetecter.Intersection;
+                                    enemyHandler = new EnemyEnemyCollisionHandler(goomba, intersection, collisionFound);
+                                    enemyHandler.HandleCollision(enemy);
+                                }
+                            }
+                        }
+                    }
+                }
 			}
 			IEnumerator pipeEnumerator = GameObjectListsByType.GetEnumeratorByType(typeof(IPipe));
 			while (pipeEnumerator.MoveNext())
 			{
 				IPipe pipe = (IPipe)pipeEnumerator.Current;
-				collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
-				if (collisionFound != Direction.None && Mario.IsActive())
-				{
+               
+                    collisionFound = collisionDetecter.Collision(Mario.Box, pipe.Box);
+                    if (collisionFound != Direction.None && Mario.IsActive())
+                    {
 
-					intersection = collisionDetecter.Intersection;
-					CallMarioBlockHandler(pipe, collisionFound, intersection);
+                        intersection = collisionDetecter.Intersection;
+                        CallMarioBlockHandler(pipe, collisionFound, intersection);
 
-				}
-                if (pipe.ToUnderground)
-                {
-                    pipeHandler = new PipeHandler();
-                    pipeHandler.HandleCollision(pipe, Mario, collisionFound);
-                }
+                    }
+                    if (pipe.ToUnderground)
+                    {
+                        pipeHandler = new PipeHandler();
+                        pipeHandler.HandleCollision(pipe, Mario, collisionFound);
+                    }
+                
 			}
 
 			float difference = (float)(Mario.Position.X - GameObjectManager.Instance.CameraMario.Location.X);
