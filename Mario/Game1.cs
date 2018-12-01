@@ -47,7 +47,6 @@ namespace Mario
             SoundManager.loadcontent(Content);
             GameObjectManager.Instance.LoadContent();
             Timer.StartTimer();
-			SoundManager.Instance.PlayBGM("marioBGM");
         }
 
       
