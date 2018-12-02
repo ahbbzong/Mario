@@ -6,7 +6,7 @@ namespace Mario.Collision
 {
 	public class PipeHandler : IBlockCollisionHandler
     {
-        public PipeHandler(int index)
+        public PipeHandler()
         {
         }
         public void HandleCollision(IBlock block, IMario mario,Direction result)

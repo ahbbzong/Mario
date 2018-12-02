@@ -12,19 +12,22 @@ namespace Mario.Display
     {
         ITextSprite lifeTextSprite;
         IGameObject backgroundSprite;
+        private int count;
             public GameOverDisplay()
             {
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
-                SoundManager.StopSong();
-                SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+            count = TimerUtil.Zero;
 
-        }
-        public void Update()
-            {
-
+            SoundManager.StopSong();
             }
+        public void Update()
+        {
+            count++;
+            if (count == TimerUtil.GameOverSoundTime)
+                SoundManager.Instance.PlaySoundEffect(SoundString.gameOver);
+        }
             public void Draw(SpriteBatch spriteBatch)
             {
                 backgroundSprite.Draw(spriteBatch);

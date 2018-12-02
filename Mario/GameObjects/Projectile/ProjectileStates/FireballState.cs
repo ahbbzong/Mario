@@ -4,6 +4,7 @@ using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
 using Mario.ItemClasses;
+using Mario.Sound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -20,6 +21,7 @@ namespace Mario.Items
         public override void React()
         {
             Projectile.ProjectileState = new FireballDisappearState(Projectile);
+
         }
     }
 }

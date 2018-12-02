@@ -8,7 +8,7 @@ namespace Mario.AbstractClass
 {
 	public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
-        private Vector2 EnemyLocation;
+        public Vector2 EnemyLocation;
         public IEnemyState EnemyState { get; set; }
         public bool KoopaStompedCounted { get; set; }
         public Rectangle Box
@@ -67,8 +67,6 @@ namespace Mario.AbstractClass
         {
             EnemyState.TurnRight();
         }
-       
-
       
 		
 		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
@@ -120,5 +118,11 @@ namespace Mario.AbstractClass
         {
             //Override
         }
+
+        public void MiniBossStompReact()
+        {
+            EnemyState.MiniBossStompReact();
+        }
+
     }
 }

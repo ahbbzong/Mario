@@ -16,6 +16,7 @@ namespace Game1
         public const int MaxTimer = 300;
         public const int DisplayTimer = 100;
         public const int CoinExtentTime = 50;
+        public const int GameOverSoundTime = 110;
 
 
 

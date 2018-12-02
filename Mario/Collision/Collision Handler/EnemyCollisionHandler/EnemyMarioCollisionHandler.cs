@@ -20,14 +20,23 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (mario.IsStarMario()&&result!=Direction.None)
             {
                 enemy.Beflipped();
+                SoundManager.Instance.PlaySoundEffect(SoundString.flip);
                 ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
             }
+
+         
             if (result==Direction.Up)
             {
                 enemy.BeStomped();
+
 				SoundManager.Instance.PlaySoundEffect(SoundString.stomp);
 
+
+                enemy.MiniBossStompReact();
+                
+
             }
+            
             if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)
             {
                 enemy.TurnLeft();

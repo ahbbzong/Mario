@@ -24,11 +24,6 @@ namespace Mario
             timeRunning = false;
         }
 
-        public static void CleanTimer()
-        {
-            Time = TimerUtil.Zero;
-            timeRunning = false;
-        }
 
         public static void StartTimer()
         {

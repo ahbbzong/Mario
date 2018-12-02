@@ -1232,7 +1232,12 @@
     <XLocation>17530</XLocation>
     <YLocation>810</YLocation>
   </EnemyXML>
-  
+
+
+
+
+
+
   <ItemXML>
     <Chunk>6</Chunk>
     <GameObjectType>UnderGroundCoin</GameObjectType>
