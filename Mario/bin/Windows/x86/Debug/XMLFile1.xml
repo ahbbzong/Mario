@@ -278,9 +278,9 @@
   <EnemyXML>
     <Chunk>4</Chunk>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>1070</XLocation>
+    <XLocation>5390</XLocation>
     <YLocation>818</YLocation>
-  </EnemyXML>
+  </EnemyXML> 
 
   <EnemyXML>
     <Chunk>5</Chunk>
@@ -292,7 +292,7 @@
   <EnemyXML>
     <Chunk>5</Chunk>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>5810</XLocation>
+    <XLocation>5800</XLocation>
     <YLocation>818</YLocation>
   </EnemyXML>
   
