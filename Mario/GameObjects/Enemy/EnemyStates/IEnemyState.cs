@@ -7,7 +7,7 @@ namespace Game1
     {
         int GetWidth { get; }
         int GetHeight { get; }
-        void Beflipped();
+    void Beflipped();
         void BeStomped();
         void TurnLeft();
         void TurnRight();
@@ -18,6 +18,8 @@ namespace Game1
         bool IsRightStomped();
         bool IsGoomba();
         bool IsKoopa();
-     
+        void MiniBossStompReact();
+
+
     }
 }

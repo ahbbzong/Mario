@@ -31,6 +31,10 @@ namespace Mario.Collision.EnemyCollisionHandler
 
 				SoundManager.Instance.PlaySoundEffect(SoundString.stomp);
 
+
+                enemy.MiniBossStompReact();
+                
+
             }
             
             if (enemy.EnemyState is StompedKoopaState && result==Direction.Right)

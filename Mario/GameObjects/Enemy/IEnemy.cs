@@ -22,5 +22,6 @@ namespace Game1
         IEnemyState EnemyState { get; set; }
         void IsLandTrue();
         void IsLandFalse();
+        void MiniBossStompReact();
     }
 }

@@ -4,22 +4,22 @@ using Mario.GameObjects;
 
 namespace Mario.EnemyStates.GoombaStates
 {
-	public class StompedMinibossState : EnemyState
+	public class StompedMiniBossState : EnemyState
     {
-
-        private int MiniBossDamage = 1;
-        public StompedMinibossState(IEnemy enemy) :base(enemy)
+        public int MiniBossDamage = 0;
+        
+        public StompedMiniBossState(IEnemy enemy) :base(enemy)
         {
-            if (enemy is MiniBoss)
-            {
+        }
+
+        public override void MiniBossStompReact()
+        {
                 MiniBossDamage++;
                 if (MiniBossDamage == 3)
-                {
-                    enemy.BeStomped();
-                }
-            }
+                     Enemy.BeStomped();
+
         }
-       
+      
         public override void Update()
         {
             Enemy.gravityManagement.Update();

@@ -6,7 +6,7 @@ using System;
 
 namespace Mario.AbstractClass
 {
-	public abstract class EnemyState : IEnemyState
+    public abstract class EnemyState : IEnemyState
     {
         protected ISprite EnemySprite { get; set; }
         protected IEnemy Enemy { get; set; }
@@ -25,6 +25,8 @@ namespace Mario.AbstractClass
                 return EnemySprite.Height;
             }
         }
+
+
         protected EnemyState(IEnemy enemy)
         {
             Enemy = enemy;
@@ -97,6 +99,10 @@ namespace Mario.AbstractClass
         public virtual bool IsKoopaStomped()
         {
             return false;
+        }
+        public virtual void MiniBossStompReact()
+        {
+            
         }
     }
 }
