@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.BlocksClasses;
 using Mario.BlockStates;
+using Mario.CameraClasses;
 using Mario.Classes.BackgroundClasses;
 using Mario.EnemyClasses;
 using Mario.Enums;
@@ -38,6 +39,10 @@ namespace Mario.XMLRead
 
 		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
+        public static int firstChunkDisplay = RandomNumber();
+        public static int secondChunkDisplay = RandomNumber();
+        public static int thirdChunkDisplay = RandomNumber();
+
 
         static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
@@ -66,6 +71,7 @@ namespace Mario.XMLRead
         }
         public void LoadFile(string file)
         {
+            
 			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
 			foreach(Type gameObjectType in gameObjectSubTypes)
 			{
@@ -90,7 +96,9 @@ namespace Mario.XMLRead
             {
                 if (GetType(pipe.BlockType).Equals(typeof(Pipe)))
                 {
-                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"), new Vector2(pipe.XLocation, pipe.YLocation)));
+                    int findOffSet = FindNumberInList(pipe.Chunk);
+
+                    pipeList.Add(BlockFactory.Instance.GetGameObject(GetType("Pipe"), new Vector2(pipe.XLocation + findOffSet* CameraUtil.resolutionWidth, pipe.YLocation)));
                     ((IPipe)pipeList.Last<IGameObject>()).SetToUnderground(pipe.IsToUnderground);
                 }
                     
@@ -105,12 +113,14 @@ namespace Mario.XMLRead
                 myBlockObject = (IList<BlockXML>)blockSerializer.Deserialize(reader);
             }
 
-			IList < IGameObject > blockList = new List<IGameObject>();
+
+            IList< IGameObject > blockList = new List<IGameObject>();
             foreach (BlockXML block in myBlockObject)
             {
+                int findOffSet = FindNumberInList(block.Chunk);
                 if (!GetType(block.BlockType).Equals(typeof(FloorBlockState)) && !GetType(block.BlockType).Equals(typeof(UnbreakableBlockState)))
                 {
-                    blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
+                    blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation + findOffSet*CameraUtil.resolutionWidth, block.YLocation)));
                     ((IBlock)blockList.Last<IGameObject>()).ItemContained = block.ItemContains;
                 }
                 else if (GetType(block.BlockType).Equals(typeof(FloorBlockState)))
@@ -162,7 +172,7 @@ namespace Mario.XMLRead
 
                         while (count > differentBetween)
                         {
-                            int startX = block.XLocation;
+                            int startX = block.XLocation + findOffSet* (int)CameraUtil.resolutionWidth;
                             for (int i = LevelLoaderUtil.zero; i < count; i++)
                             {
                                 blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
@@ -188,7 +198,8 @@ namespace Mario.XMLRead
 			IList<IGameObject> enemyList = new List<IGameObject>();
             foreach (EnemyXML enemy in myEnemyObject)
             {
-				enemyList.Add(EnemyFactory.Instance.GetGameObject(GetType(enemy.EnemyType), new Vector2(enemy.XLocation, enemy.YLocation)));
+                int findOffSet = FindNumberInList(enemy.Chunk);
+                enemyList.Add(EnemyFactory.Instance.GetGameObject(GetType(enemy.EnemyType), new Vector2(enemy.XLocation+findOffSet*CameraUtil.resolutionWidth, enemy.YLocation)));
                 
             }
 			return enemyList;
@@ -203,9 +214,10 @@ namespace Mario.XMLRead
 
 			IList<IGameObject> itemList = new List<IGameObject>();
             foreach (ItemXML item in myItemObject)
-            {
-				
-				itemList.Add(ItemFactory.Instance.GetGameObject(GetType(item.GameObjectType), new Vector2(item.XLocation, item.YLocation)));
+            { 
+                int findOffSet = FindNumberInList(item.Chunk);
+
+                itemList.Add(ItemFactory.Instance.GetGameObject(GetType(item.GameObjectType), new Vector2(item.XLocation+findOffSet*CameraUtil.resolutionWidth, item.YLocation)));
             }
 			return itemList;
         }
@@ -219,10 +231,11 @@ namespace Mario.XMLRead
 			IList<IGameObject> backgroundList = new List<IGameObject>();
             foreach (BackgroundXML back in myBackgroundObject)
             {
-				if (back.BackgroundType.Equals("Flag")){
+                int findOffSet = FindNumberInList(back.Chunk);
+                if (back.BackgroundType.Equals("Flag")){
 					GameObjectManager.Instance.EndOfLevelXPosition = back.XLocation;
 				}
-				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation, back.YLocation)));
+				backgroundList.Add(BackgroundFactory.Instance.GetBackgroundObject(back.BackgroundType, new Vector2( back.XLocation+findOffSet*CameraUtil.resolutionWidth, back.YLocation)));
             }
 			return backgroundList;
         }
@@ -294,5 +307,33 @@ namespace Mario.XMLRead
 			}
 			return null;
 		}
-	}
+        //move to somewhere else later
+        public static int RandomNumber()
+        {
+            Random rnd = new Random();
+            return rnd.Next(2, 5);
+        }
+        public static int FindNumberInList(int chunk)
+        {
+            int returnTheNumber;
+            if (chunk == 5 || chunk == 1)
+            {
+                returnTheNumber = 0;
+            }
+            else if (chunk == firstChunkDisplay)
+            {
+                returnTheNumber = 1;
+            }
+            else if (chunk == secondChunkDisplay)
+            {
+                returnTheNumber = 2;
+            }
+            else
+            {
+                returnTheNumber = 3;
+            }
+            return returnTheNumber;
+        }
+
+    }
 }

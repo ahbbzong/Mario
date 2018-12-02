@@ -8,6 +8,7 @@ namespace Mario.XMLRead
 {
     public class PipeXML
     {
+        public int Chunk { get; set; }
         public string BlockType { get; set; }
         public String IsToUnderground { get; set; }
         public int XLocation { get; set; }
