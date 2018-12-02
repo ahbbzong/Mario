@@ -235,9 +235,9 @@
     <YLocation>810</YLocation>
   </EnemyXML> <EnemyXML>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>5390</XLocation>
+    <XLocation>5350</XLocation>
     <YLocation>818</YLocation>
-  </EnemyXML>
+  </EnemyXML> 
 
   <EnemyXML>
     <EnemyType>Goomba</EnemyType>
@@ -245,7 +245,7 @@
     <YLocation>810</YLocation>
   </EnemyXML> <EnemyXML>
     <EnemyType>Koopa</EnemyType>
-    <XLocation>5810</XLocation>
+    <XLocation>5800</XLocation>
     <YLocation>818</YLocation>
   </EnemyXML>
   
