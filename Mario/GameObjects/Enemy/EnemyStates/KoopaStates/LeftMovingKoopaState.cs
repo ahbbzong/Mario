@@ -32,8 +32,5 @@ namespace Mario.EnemyStates.GoombaStates
             Enemy.gravityManagement.Update();
             Enemy.Position -= Vector2.UnitX;
         }
-
-
-
     }
 }

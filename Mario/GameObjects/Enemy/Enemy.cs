@@ -67,8 +67,6 @@ namespace Mario.AbstractClass
         {
             EnemyState.TurnRight();
         }
-       
-
       
 		
 		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
@@ -120,5 +118,11 @@ namespace Mario.AbstractClass
         {
             //Override
         }
+
+        public void MiniBossStompReact()
+        {
+            EnemyState.MiniBossStompReact();
+        }
+
     }
 }
