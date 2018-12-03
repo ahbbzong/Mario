@@ -330,7 +330,7 @@ namespace Mario.XMLRead
         public static int FindNumberInList(int chunk)
         {
             int returnTheNumber;
-            if (chunk == 5 || chunk == 1)
+            if (chunk == 5 || chunk == 1||chunk==6)
             {
                 returnTheNumber = 0;
             }
