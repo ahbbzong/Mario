@@ -18,7 +18,6 @@ namespace Mario.Collision
             else if (result == Direction.Up && mario.IsCrouch && mario.Position.X > GameUtil.UndergroundPosition)
             {
                 mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                Timer.Time = Timer.TimeRecord;
             }
 
         }

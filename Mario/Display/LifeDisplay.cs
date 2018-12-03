@@ -33,7 +33,6 @@ namespace Mario.Display
             counter = SpriteUtil.Zero;
             backgroundObject = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
             marioSprite = SpriteFactory.Instance.CreateSprite(MarioFactory.Instance.GetSpriteDictionary[typeof(NormalMarioPowerupState)][typeof(RightIdleMarioMovementState)]);
-
         }
         public void Update()
         {
@@ -48,7 +47,7 @@ namespace Mario.Display
                 lifeTextSprite.Draw(spriteBatch);
                 marioSprite.Draw(spriteBatch, new Vector2(SpriteUtil.marioPositionX, SpriteUtil.marioPositionY));
             }
-           
+            
         }
     }
 }

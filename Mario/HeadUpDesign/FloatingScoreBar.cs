@@ -8,6 +8,7 @@ namespace Mario.HeadUpDesign
 {
 	static class FloatingScoreBar
     {
+       
         public static void CreateNewScoreAnimation(IGameObject gameObject, int scoreToDisplay)
         {
             Rectangle objectBox = gameObject.Box;

@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.Classes.BlocksClasses;
 using Mario.Enums;
+using Mario.HeadUpDesign;
 using Mario.ItemClasses;
 using Mario.XMLRead;
 using Microsoft.Xna.Framework;
@@ -42,6 +43,8 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public override void TakeDamage()
 		{
 			Mario.BeNormal();
-		}
+            Timer.ExtendTime(TimerUtil.Two);
+            FloatingTimeBar.CreateNewTimeAnimation(Mario, TimerUtil.Two * TimerUtil.ExtentTime);
+        }
     }
 }

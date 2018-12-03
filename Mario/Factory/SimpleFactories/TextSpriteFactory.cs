@@ -26,11 +26,17 @@ namespace Mario.Factory
         public void LoadAllTextures(ContentManager content)
         {
             normalFont = content.Load<SpriteFont>("TextSpriteForHUD");
+
         }
 
         public ITextSprite CreateNormalFontTextSpriteSprite()
         {
             return new TextSprite(normalFont);
         }
+        public ITextSprite CreateTimeFontTextSpriteSprite()
+        {
+            return new TextSprite(normalFont);
+        }
+
     }
 }

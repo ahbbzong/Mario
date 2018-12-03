@@ -18,9 +18,9 @@ namespace Mario.Display
                 lifeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
                 backgroundSprite = BackgroundFactory.Instance.GetBackgroundObject("BlackGround", new Vector2(SpriteUtil.Zero, SpriteUtil.Zero));
                 lifeTextSprite.Text = "Game Over";
-            count = TimerUtil.Zero;
-
-            SoundManager.StopSong();
+                count = TimerUtil.Zero;
+                SoundManager.StopSong();
+                Timer.StopTimer();
             }
         public void Update()
         {

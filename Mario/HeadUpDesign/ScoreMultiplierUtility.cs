@@ -1,4 +1,5 @@
-﻿using Mario.Interfaces.GameObjects;
+﻿using Game1;
+using Mario.Interfaces.GameObjects;
 using Mario.Utils;
 using System.Collections.Generic;
 
@@ -12,8 +13,8 @@ namespace Mario.HeadUpDesign
         
         public ScoreMultiplierUtility()
         {
-            this.stompedEnemiesInSequence = ScoreUtil.ZeroScore;
-            this.koopaKickedShells = new Dictionary<IGameObject, int>();
+            stompedEnemiesInSequence = ScoreUtil.ZeroScore;
+            koopaKickedShells = new Dictionary<IGameObject, int>();
         }
 
         public int DetermineDoubleStompSequence()
@@ -40,27 +41,35 @@ namespace Mario.HeadUpDesign
                         break;
                     case 2:
                         scoreToAdd = ScoringMultiplerUtil.Stomp3ComboScore;
+                        Timer.ExtendTime(TimerUtil.One);
                         break;
                     case 3:
                         scoreToAdd = ScoringMultiplerUtil.Stomp4ComboScore;
+                        Timer.ExtendTime(TimerUtil.One);
                         break;
                     case 4:
                         scoreToAdd = ScoringMultiplerUtil.Stomp5ComboScore;
+                        Timer.ExtendTime(TimerUtil.One);
                         break;
                     case 5:
                         scoreToAdd = ScoringMultiplerUtil.Stomp6ComboScore;
+                        Timer.ExtendTime(TimerUtil.Two);
                         break;
                     case 6:
                         scoreToAdd = ScoringMultiplerUtil.Stomp7ComboScore;
+                        Timer.ExtendTime(TimerUtil.Two);
                         break;
                     case 7:
                         scoreToAdd = ScoringMultiplerUtil.Stomp8ComboScore;
+                        Timer.ExtendTime(TimerUtil.Three);
                         break;
                     case 8:
                         scoreToAdd = ScoringMultiplerUtil.Stomp9ComboScore;
+                        Timer.ExtendTime(TimerUtil.Three);
                         break;
                     case 9:
                         LifeCounter.Instance.IncreaseLife();
+                        Timer.ExtendTime(TimerUtil.Three);
                         break;
                     default:
                         break;

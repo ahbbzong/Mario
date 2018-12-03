@@ -7,9 +7,7 @@ namespace Mario.HeadUpDesign
     {
         private int score = 0;
         public int Score { get { return score; } }
-        //fixing the combo parts
         private ScoreMultiplierUtility multilperForScore;
-        //private ITextSprite textSpriteDrawUpdate;
         private static readonly ScoringSystem instance = new ScoringSystem();
         public static ScoringSystem Instance { get { return instance; } }
         private ScoringSystem()

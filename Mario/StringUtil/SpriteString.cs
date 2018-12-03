@@ -66,7 +66,8 @@ namespace Game1
 
         public const string MarioFireball = "marioFireball";
 
-
+		public const string MiniBossActive = "bowser";
+		public const string MiniBossStomped = "StompedBowser";
 
 
     }

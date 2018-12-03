@@ -9,7 +9,7 @@ namespace Mario.GameObjects
 
     public class MiniBoss : Enemy
     {
-
+		private int health = 3;
         private int delay = 0;
         public MiniBoss(Vector2 location) : base(location)
         {
@@ -29,6 +29,5 @@ namespace Mario.GameObjects
             }
             delay++;
         }
-
     }
 }
