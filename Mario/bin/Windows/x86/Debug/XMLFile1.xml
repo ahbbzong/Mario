@@ -275,12 +275,6 @@
     <YLocation>810</YLocation>
   </EnemyXML>
   
-  <EnemyXML>
-    <Chunk>4</Chunk>
-    <EnemyType>Koopa</EnemyType>
-    <XLocation>5390</XLocation>
-    <YLocation>818</YLocation>
-  </EnemyXML> 
 
   <EnemyXML>
     <Chunk>5</Chunk>
@@ -1154,20 +1148,6 @@
   <EnemyXML>
     <Chunk>5</Chunk>
     <EnemyType>Goomba</EnemyType>
-    <XLocation>9148</XLocation>
-    <YLocation>432</YLocation>
-  </EnemyXML>
-
-  <EnemyXML>
-    <Chunk>5</Chunk>
-    <EnemyType>Koopa</EnemyType>
-    <XLocation>9212</XLocation>
-    <YLocation>428</YLocation>
-  </EnemyXML>
-
-  <EnemyXML>
-    <Chunk>5</Chunk>
-    <EnemyType>Goomba</EnemyType>
     <XLocation>8148</XLocation>
     <YLocation>810</YLocation>
   </EnemyXML>
@@ -1230,7 +1210,7 @@
     <Chunk>6</Chunk>
     <EnemyType>Koopa</EnemyType>
     <XLocation>17530</XLocation>
-    <YLocation>810</YLocation>
+    <YLocation>818</YLocation>
   </EnemyXML>
 
 
