@@ -161,7 +161,7 @@ namespace Mario.XMLRead
                             int startX = block.XLocation;
                             for (int i = LevelLoaderUtil.zero; i < count; i++)
                             {
-                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
+                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation + findOffSet * CameraUtil.resolutionWidth, block.YLocation)));
                                 block.XLocation = block.XLocation + LevelLoaderUtil.blockOffset;
                             }
                             block.YLocation = block.YLocation - LevelLoaderUtil.blockOffset;
@@ -176,10 +176,10 @@ namespace Mario.XMLRead
 
                         while (count > differentBetween)
                         {
-                            int startX = block.XLocation + findOffSet* (int)CameraUtil.resolutionWidth;
+                            int startX = block.XLocation;
                             for (int i = LevelLoaderUtil.zero; i < count; i++)
                             {
-                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation, block.YLocation)));
+                                blockList.Add(BlockFactory.Instance.GetGameObject(GetType(block.BlockType), new Vector2(block.XLocation + findOffSet * CameraUtil.resolutionWidth, block.YLocation)));
                                 block.XLocation = block.XLocation + LevelLoaderUtil.blockOffset;
                             }
                             block.YLocation = block.YLocation - LevelLoaderUtil.blockOffset;
