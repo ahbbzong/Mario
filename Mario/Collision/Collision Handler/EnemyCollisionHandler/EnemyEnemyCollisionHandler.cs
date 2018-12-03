@@ -32,6 +32,8 @@ namespace Mario.Collision.EnemyCollisionHandler
                 || enemyParam.EnemyState is RightStompedKoopaState && result==Direction.Left)
             {
                 enemy.Beflipped();
+                Timer.ExtendTime(TimerUtil.Two);
+                FloatingTimeBar.CreateNewTimeAnimation(enemyParam, TimerUtil.Three* TimerUtil.ExtentTime);
                 ScoringSystem.Instance.AddPointsForEnemyHitByShell(enemyParam);
             }
         }

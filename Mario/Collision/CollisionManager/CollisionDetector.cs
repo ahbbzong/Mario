@@ -309,7 +309,7 @@ namespace Mario.Collision.CollisionManager
 
 		public void CallMarioItemHandler(IItem item, Direction collisionFound)
 		{
-			IMarioCollisionHandler marioHandler;
+            IMarioCollisionHandler marioHandler;
 			if (item is FireFlower)
 			{
 
@@ -342,7 +342,8 @@ namespace Mario.Collision.CollisionManager
             else if (item is UnderGroundCoin)
             {
                 CoinSystem.Instance.AddCoin();
-                Timer.ExtendTime();
+                Timer.ExtendTime(TimerUtil.Three);
+                FloatingTimeBar.CreateNewTimeAnimation(item, TimerUtil.Three*TimerUtil.ExtentTime);
             }
             else
             {

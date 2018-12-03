@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.HeadUpDesign;
 
 namespace Mario.MarioStates.MarioPowerupStates
 {
@@ -17,7 +18,8 @@ namespace Mario.MarioStates.MarioPowerupStates
 		public override void TakeDamage()
 		{
 			Mario.BeNormal();
-            Timer.ExtendTime();
+            Timer.ExtendTime(TimerUtil.Two);
+            FloatingTimeBar.CreateNewTimeAnimation(Mario, TimerUtil.Two * TimerUtil.ExtentTime);
         }
     }
 }

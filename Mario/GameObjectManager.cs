@@ -41,8 +41,9 @@ namespace Mario
         private IDisplay lifeDisplay;
         private IDisplay gameOverDisplay;
         public IList<ITextSprite> UITextSprites { get; }
-        public bool LifeDisplayTrigger { get; set; }
+        public IList<ITextSprite> UIScoreSprite { get; }
 
+        public bool LifeDisplayTrigger { get; set; }
         public float EndOfLevelXPosition { get; set; }
         private int count = 0;
 
@@ -57,6 +58,8 @@ namespace Mario
             };
             FloorBoxPositions = new List<Rectangle>();
             UITextSprites = new List<ITextSprite>();
+            UIScoreSprite = new List<ITextSprite>();
+
         }
         public void SetInitialValuesCamera()
         {
@@ -132,6 +135,7 @@ namespace Mario
             }
             headUpDisplayBoard.Update();
             FloatingScoreBar.Update();
+            FloatingTimeBar.Update();
             ScoringSystem.Instance.SetMarioEnemyHitThisIterationToFalse();
             count++;
         }
@@ -153,6 +157,7 @@ namespace Mario
             }
             headUpDisplayBoard.Draw(spriteBatch);
             FloatingScoreBar.Draw(spriteBatch);
+            FloatingTimeBar.Draw(spriteBatch);
         }
 
 

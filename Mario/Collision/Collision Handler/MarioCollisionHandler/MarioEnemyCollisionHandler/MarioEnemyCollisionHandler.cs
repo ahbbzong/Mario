@@ -2,6 +2,7 @@
 using Mario.EnemyStates.GoombaStates;
 using Mario.Enums;
 using Mario.HeadUpDesign;
+using Mario.MarioStates.MarioPowerupStates;
 using Microsoft.Xna.Framework;
 
 
@@ -63,9 +64,10 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             }
             
         }
-		public static void  MarioTakeDamage(IMario mario)
+		public void  MarioTakeDamage(IMario mario)
         {
 			mario.TakeDamage();
+         
         }
     }
 }

@@ -53,9 +53,9 @@ namespace Mario
                 }
         }
       
-        public static void ExtendTime()
+        public static void ExtendTime(int multiplyTime)
         {
-            Time += TimerUtil.CoinExtentTime;
+            Time += TimerUtil.ExtentTime * multiplyTime;
             if (Time > TimerUtil.MaxTimer)
                 Time = TimerUtil.MaxTimer;
         }

@@ -229,6 +229,7 @@ namespace Mario
 		{
 			SoundManager.Instance.PlaySoundEffect("takeDamage");
 			MarioPowerupState.TakeDamage();
+           
         }
         public void Draw(SpriteBatch spriteBatch, Color c)
 		{
