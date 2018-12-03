@@ -9,7 +9,7 @@ namespace Mario.Utils
 	public static class MarioUtil
 	{
 		public const int FlagpoleBuffer = 10;
-		public const int HeightOfFloor = 820;
+		public const int HeightOfFloor = 796;
 		public const int WinConditionHoldingTime = 1000;
 	}
 }

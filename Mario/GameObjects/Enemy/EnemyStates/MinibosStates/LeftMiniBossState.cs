@@ -25,9 +25,9 @@ namespace Mario.EnemyStates.GoombaStates
                 Enemy.gravityManagement.Update();
             }
 
-            if (delay == 200)
+            if (delay == 100)
             {
-               // GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));
+               GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));
                 delay = 0;
             }
             delay++;

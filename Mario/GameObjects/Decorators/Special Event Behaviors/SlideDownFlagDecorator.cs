@@ -32,7 +32,6 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 
         public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase):base(mario)
 		{
-
 			this.locationOfBase = locationOfBase;
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
@@ -45,7 +44,8 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			switch (slidingState)
 			{
 				case SlidingStates.SLIDING_DOWN:
-					if (Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > DecoratorUtil.locationOffset)
+                    Timer.StopTimer();
+                    if (Math.Abs(DecoratedMario.Position.Y - locationOfBase.Y) > DecoratorUtil.locationOffset)
 					{
 						DecoratedMario.Position += Vector2.UnitY * DecoratorUtil.locationOffset;
 					}
@@ -70,7 +70,6 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 					if (holdingTime <= 0)
 					{
 						holdingTime--;
-
 					}
 					else
 					{
