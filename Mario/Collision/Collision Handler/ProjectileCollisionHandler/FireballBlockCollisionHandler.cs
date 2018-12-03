@@ -26,20 +26,23 @@ namespace Mario.Collision.FireballCollisionHandler
         }
         public void FireballAdjustment(IProjectile fireball)
         {
-            switch (result)
+            if (!(block is UnbreakableBlockState))
             {
-                case Direction.Up:
-                    fireball.Position -= Vector2.UnitY * intersection.Height;
-                    break;
-                case Direction.Down:
-                    fireball.Position += Vector2.UnitY * intersection.Height;
-                    break;
-                case Direction.Left:
-                    GameObjectManager.Instance.GameObjectList.Remove(fireball);
-                    break;
-                case Direction.Right:
-                    GameObjectManager.Instance.GameObjectList.Remove(fireball);
-                    break;
+                switch (result)
+                {
+                    case Direction.Up:
+                        fireball.Position -= Vector2.UnitY * intersection.Height;
+                        break;
+                    case Direction.Down:
+                        fireball.Position += Vector2.UnitY * intersection.Height;
+                        break;
+                    case Direction.Left:
+                        GameObjectManager.Instance.GameObjectList.Remove(fireball);
+                        break;
+                    case Direction.Right:
+                        GameObjectManager.Instance.GameObjectList.Remove(fireball);
+                        break;
+                }
             }
         }
         public void IsOnLand(IProjectile fireball)

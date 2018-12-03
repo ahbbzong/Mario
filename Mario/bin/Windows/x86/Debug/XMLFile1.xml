@@ -1079,6 +1079,13 @@
     <XLocation>6300</XLocation>
     <YLocation>700</YLocation>
   </BlockXML>
+  
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>6564</XLocation>
+    <YLocation>600</YLocation>
+  </BlockXML>
 
 
   <ItemXML>

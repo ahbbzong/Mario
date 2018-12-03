@@ -13,9 +13,9 @@ namespace Mario.GameObjects
         public MiniBoss(Vector2 location) : base(location)
         {
 
-            EnemyState = new LeftMovingMiniBossState(this);
+            EnemyState = new LeftMiniBossState(this);
         }
-
+        
         public override void Update()
         {
             EnemyState.Update();
@@ -25,6 +25,14 @@ namespace Mario.GameObjects
             Island = true;
             gravityManagement.ReverseYVelocity();
         }
+        public override void Beflipped()
+        {
+            health--;
+            if(health==0)
+            EnemyState.Beflipped();
+           
+        }
+       
 
     }
 }

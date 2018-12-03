@@ -116,7 +116,6 @@ namespace Mario.AbstractClass
         }
         public virtual void SetContainsItem(String item)
         {
-            //Override
         }
 
     }
