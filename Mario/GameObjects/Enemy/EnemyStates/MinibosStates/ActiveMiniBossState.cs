@@ -15,12 +15,7 @@ namespace Mario.GameObjects
 		{
 		}
 
-		
-
-		public override void MiniBossStompReact()
-		{
-          
-        }
+	
         public override void ThrowGoomba()
         {
             GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));

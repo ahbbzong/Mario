@@ -18,8 +18,6 @@ namespace Game1
         bool IsRightStomped();
         bool IsGoomba();
         bool IsKoopa();
-        void MiniBossStompReact();
-        void ThrowGoomba();
      
 
 

@@ -1064,8 +1064,22 @@
 <EnemyXML>
     <EnemyType>MiniBoss</EnemyType>
     <XLocation>6720</XLocation>
-    <YLocation>562</YLocation>
+    <YLocation>532</YLocation>
 </EnemyXML>
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>6432</XLocation>
+    <YLocation>650</YLocation>
+  </BlockXML>
+
+  <BlockXML>
+    <BlockType>QuestionBlockState</BlockType>
+    <ItemContains>None</ItemContains>
+    <XLocation>6300</XLocation>
+    <YLocation>700</YLocation>
+  </BlockXML>
+
 
   <ItemXML>
     <GameObjectType>UnderGroundCoin</GameObjectType>

@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.BlockStates;
 using Mario.Enums;
+using Mario.GameObjects;
 using Mario.GameObjects.Decorators;
 using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
@@ -52,6 +53,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             {
                 case Direction.Up:
                     enemy.Position -= Vector2.UnitY * intersection.Height;
+                    
                     EnemyBumpedBlockReact(enemy);
                     break;
                 case Direction.Down:

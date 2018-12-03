@@ -28,7 +28,6 @@ namespace Mario.Collision.EnemyCollisionHandler
             if (result==Direction.Up)
             {
                 enemy.BeStomped();
-                enemy.MiniBossStompReact();
                 SoundManager.Instance.PlaySoundEffect(SoundString.stomp);
 
             }

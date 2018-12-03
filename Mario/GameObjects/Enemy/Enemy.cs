@@ -119,10 +119,5 @@ namespace Mario.AbstractClass
             //Override
         }
 
-        public virtual void MiniBossStompReact()
-        {
-            //
-        }
-
     }
 }

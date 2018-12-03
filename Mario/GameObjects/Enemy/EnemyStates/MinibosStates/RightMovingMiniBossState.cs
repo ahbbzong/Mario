@@ -4,23 +4,15 @@ using Mario.EnemyClasses;
 using Microsoft.Xna.Framework;
 namespace Mario.EnemyStates.GoombaStates
 {
-	public class LeftMovingMiniBossState : EnemyState
+	public class RightMovingMiniBossState : EnemyState
     {
         int delay;
-        public LeftMovingMiniBossState(IEnemy enemy):base(enemy)
+        public RightMovingMiniBossState(IEnemy enemy):base(enemy)
         {
             delay = 0;
         }
-        public override void BeStomped()
-        {
-            Enemy.EnemyState = new StompedGoombaState(Enemy);
-        }
+
       
-        public override void TurnRight()
-        {
-            Enemy.EnemyState = new RightMovingMiniBossState(Enemy);
-        }
-         
         public override void Update()
         {
             EnemySprite.Update();
@@ -28,7 +20,6 @@ namespace Mario.EnemyStates.GoombaStates
             {
                 Enemy.gravityManagement.Update();
             }
-
             if (delay == 200)
             {
                 GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));
@@ -36,7 +27,6 @@ namespace Mario.EnemyStates.GoombaStates
             }
             delay++;
         }
-      
 
 
 
