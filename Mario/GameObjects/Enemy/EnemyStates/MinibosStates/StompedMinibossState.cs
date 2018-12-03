@@ -7,7 +7,7 @@ namespace Mario.EnemyStates.GoombaStates
 	public class StompedMiniBossState : EnemyState
     {
         public int MiniBossDamage = 0;
-        
+
         public StompedMiniBossState(IEnemy enemy) :base(enemy)
         {
         }

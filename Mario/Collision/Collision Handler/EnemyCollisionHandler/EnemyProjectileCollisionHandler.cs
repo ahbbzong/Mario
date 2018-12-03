@@ -18,6 +18,7 @@ namespace Mario.Collision.EnemyCollisionHandler
             else
             {
                 ScoringSystem.Instance.AddPointsForFireballKoopaHit(enemy);
+                enemy.MiniBossStompReact();
             }
         }
     }
