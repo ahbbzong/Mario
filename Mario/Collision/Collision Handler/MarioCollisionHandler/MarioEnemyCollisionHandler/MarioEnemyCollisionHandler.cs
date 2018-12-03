@@ -22,8 +22,8 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-                    mario.Position -= Vector2.UnitY* intersection.Height;
                     mario.Physics.ReverseYVelocity();
+                    mario.Position -= Vector2.UnitY* intersection.Height;
                     if (enemy.IsKoopa()&& enemy.KoopaStompedCounted==false)
                     {
                         ScoringSystem.Instance.AddPointsForInitiatingShell(enemy);
