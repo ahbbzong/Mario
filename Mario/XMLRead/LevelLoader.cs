@@ -39,10 +39,10 @@ namespace Mario.XMLRead
 
 		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
-        public static int firstChunkDisplay = RandomNumber();
-        public static int secondChunkDisplay = RandomNumber();
-        public static int thirdChunkDisplay = RandomNumber();
-
+        public static IList<int> NumberList = new List<int>();
+        public static int firstChunkDisplay;
+        public static int secondChunkDisplay;
+        public static int thirdChunkDisplay;
 
         static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("Map"));
         static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("Map"));
@@ -71,8 +71,12 @@ namespace Mario.XMLRead
         }
         public void LoadFile(string file)
         {
-            
-			Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
+            NumberList = RandomNumber();
+            firstChunkDisplay = NumberList.ElementAt(0);
+         secondChunkDisplay = NumberList.ElementAt(1);
+       thirdChunkDisplay = NumberList.ElementAt(2);
+
+        Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>> queuedChanges = new Queue<KeyValuePair<Type, Func<string, IList<IGameObject>>>>();
 			foreach(Type gameObjectType in gameObjectSubTypes)
 			{
 				queuedChanges.Enqueue(new KeyValuePair<Type, Func<string, IList<IGameObject>>>(gameObjectType, LoadFunctionByType[gameObjectType]));
@@ -307,11 +311,21 @@ namespace Mario.XMLRead
 			}
 			return null;
 		}
-        //move to somewhere else later
-        public static int RandomNumber()
+        //move to somewhere else late
+        public static List<int> RandomNumber()
         {
-            Random rnd = new Random();
-            return rnd.Next(2, 5);
+            Random rand = new Random();
+            List<int> listNumbers = new List<int>();
+            int number;
+            for (int i = 0; i < 3; i++)
+            {
+                do
+                {
+                    number = rand.Next(2,5);
+                } while (listNumbers.Contains(number));
+                listNumbers.Add(number);
+            }
+            return listNumbers;
         }
         public static int FindNumberInList(int chunk)
         {
