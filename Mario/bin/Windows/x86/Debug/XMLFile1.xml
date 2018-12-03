@@ -429,10 +429,10 @@
   </BackgroundXML>
 
   -<PipeXML>
-    <Chunk>2</Chunk>
+    <Chunk>5</Chunk>
     <BlockType>Pipe</BlockType>
     <IsToUnderground>False</IsToUnderground>
-    <XLocation>672</XLocation>
+    <XLocation>2112</XLocation>
     <YLocation>732</YLocation>
   </PipeXML>
 
