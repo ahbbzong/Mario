@@ -13,21 +13,32 @@ namespace Mario.GameObjects
         private int delay = 0;
         public MiniBoss(Vector2 location) : base(location)
         {
-         
+
+            EnemyState = new ActiveMiniBossState(this);
         }
 
         private void ThrowGoomba()
         {
-            GameObjectManager.Instance.GameObjectList.Add(new Goomba(EnemyLocation));
+            EnemyState.ThrowGoomba();
         }
         public override void Update()
         {
-            if (delay == 5)
+            if (delay == 400)
             {
                 ThrowGoomba();
                 delay = 0;
             }
             delay++;
         }
+
+        public override void MiniBossStompReact()
+        {
+            health--;
+            if (health == 0)
+            {
+                EnemyState = new StompedMiniBossState(this);
+            }
+        }
+
     }
 }

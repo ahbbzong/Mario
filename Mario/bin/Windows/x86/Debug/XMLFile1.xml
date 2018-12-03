@@ -1061,10 +1061,11 @@
     <YLocation>810</YLocation>
   </EnemyXML>
 
-
-
-
-
+<EnemyXML>
+    <EnemyType>MiniBoss</EnemyType>
+    <XLocation>6720</XLocation>
+    <YLocation>562</YLocation>
+</EnemyXML>
 
   <ItemXML>
     <GameObjectType>UnderGroundCoin</GameObjectType>

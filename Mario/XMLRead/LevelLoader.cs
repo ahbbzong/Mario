@@ -5,6 +5,7 @@ using Mario.Classes.BackgroundClasses;
 using Mario.EnemyClasses;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects;
 using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using Mario.ItemClasses;
@@ -256,21 +257,21 @@ namespace Mario.XMLRead
             return marioList;
         }
 		private static readonly IDictionary<string, Type> typeDictionary = new Dictionary<string, Type>
-			{
-				{typeof(IMario).Name, typeof(IMario) },
-				{typeof(IBlock).Name, typeof(IBlock) },
-				{typeof(IBackground).Name,typeof(IBackground) },
-				{typeof(IEnemy).Name, typeof(IEnemy) },
-				{typeof(FloorBlockState).Name, typeof(FloorBlockState) },
-				{typeof(HiddenBlockState).Name, typeof(HiddenBlockState) },
-				{typeof(Pipe).Name, typeof(Pipe) },
-				{typeof(QuestionBlockState).Name, typeof(QuestionBlockState) },
-				{typeof(UnbreakableBlockState).Name,typeof(UnbreakableBlockState) },
-				{typeof(BrickBlockState).Name, typeof(BrickBlockState) },
+            {
+                {typeof(IMario).Name, typeof(IMario) },
+                {typeof(IBlock).Name, typeof(IBlock) },
+                {typeof(IBackground).Name,typeof(IBackground) },
+                {typeof(IEnemy).Name, typeof(IEnemy) },
+                {typeof(FloorBlockState).Name, typeof(FloorBlockState) },
+                {typeof(HiddenBlockState).Name, typeof(HiddenBlockState) },
+                {typeof(Pipe).Name, typeof(Pipe) },
+                {typeof(QuestionBlockState).Name, typeof(QuestionBlockState) },
+                {typeof(UnbreakableBlockState).Name,typeof(UnbreakableBlockState) },
+                {typeof(BrickBlockState).Name, typeof(BrickBlockState) },
 
-				{typeof(Koopa).Name, typeof(Koopa) },
-				{typeof(Goomba).Name, typeof(Goomba) },
-
+                {typeof(Koopa).Name, typeof(Koopa) },
+                {typeof(Goomba).Name, typeof(Goomba) },
+                {typeof(MiniBoss).Name,   typeof(MiniBoss)},
 				{typeof(Coin).Name, typeof(Coin) },
 				{typeof(FireFlower).Name, typeof(FireFlower) },
 				{typeof(MagicMushroom).Name, typeof(MagicMushroom) },

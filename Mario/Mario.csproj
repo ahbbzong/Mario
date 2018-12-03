@@ -45,6 +45,7 @@
     <Compile Include="Collections\GameObjectList.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\MiniBoss.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\ActiveMiniBossState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\LeftMovingMiniBossState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\StompedMiniBossState.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\UnderGroundCoin.cs" />
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />

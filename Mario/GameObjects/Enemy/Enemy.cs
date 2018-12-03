@@ -119,9 +119,9 @@ namespace Mario.AbstractClass
             //Override
         }
 
-        public void MiniBossStompReact()
+        public virtual void MiniBossStompReact()
         {
-            EnemyState.MiniBossStompReact();
+            //
         }
 
     }

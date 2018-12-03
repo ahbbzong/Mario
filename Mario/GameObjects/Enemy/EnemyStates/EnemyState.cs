@@ -104,5 +104,9 @@ namespace Mario.AbstractClass
         {
             
         }
+
+        public virtual void ThrowGoomba()
+        {
+        }
     }
 }

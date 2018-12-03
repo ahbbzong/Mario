@@ -19,6 +19,8 @@ namespace Game1
         bool IsGoomba();
         bool IsKoopa();
         void MiniBossStompReact();
+        void ThrowGoomba();
+     
 
 
     }
