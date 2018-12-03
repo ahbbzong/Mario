@@ -46,7 +46,6 @@ namespace Mario
 			spriteBatch = new SpriteBatch(GraphicsDevice);
             SoundManager.loadcontent(Content);
             GameObjectManager.Instance.LoadContent();
-            Timer.StartTimer();
         }
 
       
@@ -61,14 +60,8 @@ namespace Mario
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GameObjectManager.Instance.Mario.Position.X > GameUtil.UndergroundPosition)
-            {
-                Timer.UndergroundTimer(gameTime);
-            }
-            else
-            {
+           
                 Timer.TimerCheckingTime(gameTime);
-            }
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
             GameObjectManager.Instance.CurrentGameTime = gameTime;

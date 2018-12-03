@@ -37,43 +37,27 @@ namespace Mario
 
         public static void TimerCheckingTime(GameTime gameTime)
         {
-            TimeRecord = Time;
                 if (timeRunning)
                 {
                     counter += gameTime.ElapsedGameTime.Milliseconds;
-                    if (counter >= TimerUtil.Thousand)
+                    if (counter >= TimerUtil.DecreaseRate)
                     {
                         Time--;
                         counter = TimerUtil.Zero;
                     }
                     if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
                     {
-                        GameObjectManager.Instance.Mario.BeDead();
+                        GameObjectManager.Instance.Mario.TakeDamage();
                         timeRunning = false;
                     }
                 }
         }
-        public static void UndergroundTimer(GameTime gameTime)
-        {
-            if (timeRunning)
-            {
-                counter += gameTime.ElapsedGameTime.Milliseconds;
-                if (counter >= TimerUtil.Ten)
-                {
-                    Time--;
-                    counter = TimerUtil.Zero;
-                }
-                if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
-                {
-                    GameObjectManager.Instance.Mario.Position -= new Vector2(CollisionUtil.marioOffesetX, CollisionUtil.marioOffsetY);
-                    Time = TimeRecord;
-                }
-            }
-        }
+      
         public static void ExtendTime()
         {
-            if(Time<TimerUtil.MaxTimer)
-                Time += TimerUtil.CoinExtentTime;
+            Time += TimerUtil.CoinExtentTime;
+            if (Time > TimerUtil.MaxTimer)
+                Time = TimerUtil.MaxTimer;
         }
     }
 }
