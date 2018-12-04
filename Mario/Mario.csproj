@@ -244,7 +244,6 @@
     <Compile Include="Sprite\TextSprites\TextSprite.cs" />
     <Compile Include="XMLRead\BackgroundXML.cs" />
     <Compile Include="XMLRead\BlockXML.cs" />
-    <Compile Include="XMLRead\ChunkXML.cs" />
     <Compile Include="XMLRead\EnemyXML.cs" />
     <Compile Include="GameObjectManager.cs" />
     <Compile Include="XMLRead\ItemXML.cs" />

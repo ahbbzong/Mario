@@ -8,14 +8,16 @@ namespace Mario.AbstractClass
 {
 	public abstract class Enemy : IEnemy,ICollidable, IMoveable
     {
-        public Vector2 EnemyLocation;
+
+		private Vector2 enemyLocation = Vector2.Zero;
+		public Vector2 EnemyLocation => enemyLocation;
         public IEnemyState EnemyState { get; set; }
         public bool KoopaStompedCounted { get; set; }
         public Rectangle Box
         {
             get
             {
-                return new Rectangle((int)EnemyLocation.X, (int)EnemyLocation.Y, EnemyState.GetWidth, EnemyState.GetHeight);
+                return new Rectangle((int)enemyLocation.X, (int)enemyLocation.Y, EnemyState.GetWidth, EnemyState.GetHeight);
             }
         }
 		
@@ -30,7 +32,7 @@ namespace Mario.AbstractClass
 
         protected Enemy(Vector2 location)
         {
-            EnemyLocation = location;
+            enemyLocation = location;
 			Island = false;
             KoopaStompedCounted = false;
             gravityManagement = new GravityManagement(this);
@@ -44,7 +46,7 @@ namespace Mario.AbstractClass
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            EnemyState.Draw(spriteBatch, EnemyLocation);
+            EnemyState.Draw(spriteBatch, enemyLocation);
         }
 
         public virtual void Beflipped()
@@ -69,7 +71,7 @@ namespace Mario.AbstractClass
         }
       
 		
-		public Vector2 Position { get => EnemyLocation; set => EnemyLocation = value; }
+		public Vector2 Position { get => enemyLocation; set => enemyLocation = value; }
         public Vector2 Force { get ; set ; }
 
         public virtual bool IsFlipped()
@@ -98,7 +100,7 @@ namespace Mario.AbstractClass
 
 		public virtual void Move()
 		{
-			EnemyLocation += velocity;
+			enemyLocation += velocity;
 		}
 
         public virtual bool IsLeftStomped()

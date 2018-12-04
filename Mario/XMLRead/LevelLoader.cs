@@ -40,10 +40,7 @@ namespace Mario.XMLRead
 
 		};
 		public static LevelLoader Instance { get => instance; set => instance = value; }
-        public static IList<int> NumberList = new List<int>();
-        public static int firstChunkDisplay;
-        public static int secondChunkDisplay;
-        public static int thirdChunkDisplay;
+        private static IList<int> NumberList = new List<int>();
 
         static readonly XmlSerializer pipeSerializer = new XmlSerializer(typeof(List<PipeXML>), new XmlRootAttribute("chunk"));
         static readonly XmlSerializer blockSerializer = new XmlSerializer(typeof(List<BlockXML>), new XmlRootAttribute("chunk"));
@@ -332,27 +329,6 @@ namespace Mario.XMLRead
                 listNumbers.Add(number);
             }
             return listNumbers;
-        }
-        public static int FindNumberInList(int chunk)
-        {
-            int returnTheNumber;
-            if (chunk == 5 || chunk == 1||chunk==6)
-            {
-                returnTheNumber = 0;
-            }
-            else if (chunk == firstChunkDisplay)
-            {
-                returnTheNumber = 1;
-            }
-            else if (chunk == secondChunkDisplay)
-            {
-                returnTheNumber = 2;
-            }
-            else
-            {
-                returnTheNumber = 3;
-            }
-            return returnTheNumber;
         }
 
     }
