@@ -21,6 +21,16 @@
       <XLocation>3136</XLocation>
       <YLocation>850</YLocation>
     </BlockXML>
+    
+    <BlockXML>
+
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>1</Length>
+      <Height>1</Height>
+      <XLocation>3712</XLocation>
+      <YLocation>818</YLocation>
+    </BlockXML>
 
     //floor #
     <BlockXML>
@@ -42,6 +52,16 @@
       <Height>2</Height>
       <XLocation>5632</XLocation>
       <YLocation>850</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>1</Length>
+      <Height>1</Height>
+      <XLocation>5632</XLocation>
+      <YLocation>818</YLocation>
     </BlockXML>
   </chunk>
 
@@ -845,16 +865,6 @@
 			</EnemyXML>
 	</chunk>
 	<chunk id="5" type="end">
-
-    <BlockXML>
-
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <Length>1</Length>
-      <Height>1</Height>
-      <XLocation>5632</XLocation>
-      <YLocation>818</YLocation>
-    </BlockXML>
 
     <BlockXML>
 
