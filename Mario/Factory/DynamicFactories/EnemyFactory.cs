@@ -62,7 +62,9 @@ namespace Mario.Factory
 
                 {typeof(MiniBoss), new Dictionary<Type, Tuple<Texture2D,int,int>>{
                         {typeof(StompedMiniBossState), new Tuple<Texture2D,int,int>(content.Load<Texture2D>(SpriteString.MiniBossStomped),1,2 )},
-                        {typeof(ActiveMiniBossState), new Tuple<Texture2D, int, int>( content.Load<Texture2D>(SpriteString.MiniBossActive),1,4 )}
+                        {typeof(LeftMiniBossState), new Tuple<Texture2D, int, int>(content.Load<Texture2D>(SpriteString.MiniBossActive),1,4 )}
+
+
                     }
                 }
             };

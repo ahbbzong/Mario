@@ -10,24 +10,29 @@ namespace Mario.GameObjects
     public class MiniBoss : Enemy
     {
 		private int health = 3;
-        private int delay = 0;
         public MiniBoss(Vector2 location) : base(location)
         {
-         
-        }
 
-        private void ThrowGoomba()
-        {
-            GameObjectManager.Instance.GameObjectList.Add(new Goomba(EnemyLocation));
+            EnemyState = new LeftMiniBossState(this);
         }
+        
         public override void Update()
         {
-            if (delay == 5)
-            {
-                ThrowGoomba();
-                delay = 0;
-            }
-            delay++;
+            EnemyState.Update();
         }
+        public override void IsLandTrue()
+        {
+            Island = true;
+            gravityManagement.ReverseYVelocity();
+        }
+        public override void Beflipped()
+        {
+            health--;
+            if(health==0)
+            EnemyState.Beflipped();
+           
+        }
+       
+
     }
 }

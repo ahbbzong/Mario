@@ -42,13 +42,20 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="bin\Windows\x86\Debug\XMLFile2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Compile Include="Collections\GameObjectList.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\MiniBoss.cs" />
-    <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\ActiveMiniBossState.cs" />
+    <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\LeftMiniBossState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\StompedMiniBossState.cs" />
     <Compile Include="GameObjects\Items\ItemClasses\UnderGroundCoin.cs" />
+    <Compile Include="HeadUpDesign\CoinSystem.cs" />
     <Compile Include="HeadUpDesign\FloatingTimeBar.cs" />
     <Compile Include="HeadUpDesign\FloatingScoreBar.cs" />
+    <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
+    <Compile Include="HeadUpDesign\ScoreMultiplierUtility.cs" />
+    <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="StringUtil\SpriteString.cs" />
     <Compile Include="StringUtil\SoundString.cs" />
     <Compile Include="StringUtil\ItemString.cs" />
@@ -99,10 +106,6 @@
     <Compile Include="GameObjects\Block\Block.cs" />
     <Compile Include="Utils\ProjectileUtil.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="HeadUpDesign\CoinSystem.cs" />
-    <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
-    <Compile Include="HeadUpDesign\ScoreMultiplierUtility.cs" />
-    <Compile Include="HeadUpDesign\ScoringSystem.cs" />
     <Compile Include="Sound\MotionSound.cs" />
     <Compile Include="LifeCounter.cs" />
     <Compile Include="Utils\ScoringMultiplerUtil.cs" />

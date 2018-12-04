@@ -22,8 +22,8 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             switch (result)
             {
                 case Direction.Up:
-                    mario.Position -= Vector2.UnitY* intersection.Height;
                     mario.Physics.ReverseYVelocity();
+                    mario.Position -= Vector2.UnitY* intersection.Height;
                     if (enemy.IsKoopa()&& enemy.KoopaStompedCounted==false)
                     {
                         ScoringSystem.Instance.AddPointsForInitiatingShell(enemy);
@@ -32,6 +32,10 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                     else if(enemy.IsGoomba())
                     {
                         ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
+                    }
+                    else
+                    {
+                        MarioTakeDamage(mario);
                     }
                     break;
                 case Direction.Down:
@@ -64,7 +68,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
             }
             
         }
-		public void  MarioTakeDamage(IMario mario)
+		public static void  MarioTakeDamage(IMario mario)
         {
 			mario.TakeDamage();
          

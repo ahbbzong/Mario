@@ -1,5 +1,6 @@
 ﻿using Game1;
 using Mario.AbstractClass;
+using Mario.EnemyClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,49 +15,13 @@ namespace Mario.GameObjects
 		{
 		}
 
-		public override void Beflipped()
-		{
-			base.Beflipped();
-		}
+	
+        public override void ThrowGoomba()
+        {
+            GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));
+        }
 
-		public override void BeStomped()
-		{
-			base.BeStomped();
-		}
 
-		public override bool IsFlipped()
-		{
-			return base.IsFlipped();
-		}
 
-		public override bool IsGoomba()
-		{
-			return base.IsGoomba();
-		}
-
-		public override bool IsKoopa()
-		{
-			return base.IsKoopa();
-		}
-
-		public override void MiniBossStompReact()
-		{
-			base.MiniBossStompReact();
-		}
-
-		public override void TurnLeft()
-		{
-			base.TurnLeft();
-		}
-
-		public override void TurnRight()
-		{
-			base.TurnRight();
-		}
-
-		public override void Update()
-		{
-			base.Update();
-		}
-	}
+    }
 }

@@ -8,7 +8,6 @@ namespace Mario.XMLRead
 {
     public class EnemyXML
     {
-        public int Chunk { get; set; }
         public string EnemyType { get; set; }
         public int XLocation { get; set; }
         public int YLocation { get; set; }

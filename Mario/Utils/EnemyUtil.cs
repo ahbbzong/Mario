@@ -16,6 +16,7 @@ namespace Mario.AbstractClass
     {
         public const int goombaDisappear = 15;
         public const int goombaAppear = 0;
+        public const int bossOffset = 9999;
         public static Vector2 Util { get => new Vector2(5, 0); }
 
     }

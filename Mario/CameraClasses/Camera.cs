@@ -20,6 +20,17 @@ namespace Mario.CameraClasses
             Location = new Vector2(Location.X + distance, Location.Y);
             Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, CameraUtil.zero));
         }
+        public void MoveUp(float distance)
+        {
+            Location = new Vector2(Location.X, Location.Y+ distance);
+            Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, CameraUtil.zero));
+           
+        }
+        public void MoveDown(float distance)
+        {
+            Location = new Vector2(Location.X, Location.Y - distance);
+            Transform = Matrix.CreateTranslation(new Vector3(-Location.X, -Location.Y, CameraUtil.zero));
+        }
         public bool IsOffSideOfScreen(Rectangle box)
         {
             return box.Right <= InnerBox.Left || box.Left >= InnerBox.Left + CameraUtil.resolutionWidth;

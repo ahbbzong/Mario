@@ -29,6 +29,11 @@ namespace Game1
         {
             YVelocity = -YVelocity / PhysicsUtil.reverseYVelocityDivider;
         }
+        public void OppositeYVelocity()
+        {
+            YVelocity = -YVelocity;
+
+        }
         public void ResetGravity()
         {
             YVelocity = PhysicsUtil.zero;

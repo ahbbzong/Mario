@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.GameObjects;
 using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using System;
@@ -138,7 +139,23 @@ namespace Mario.Collections
 			}
 			return obj;
 		}
-		public override string ToString()
+        public IGameObject GameObjectEnumeratorByKeyAndValue(Type key, Type value)
+        {
+            IGameObject obj = null;
+            for (int i = 0; i < gameObjectListsByType[key].Count; i++)
+            {
+                if (gameObjectListsByType[key][i] is MiniBoss)
+                {
+
+                    obj = gameObjectListsByType[key][i];
+                    break;
+
+
+                }
+            }
+            return obj;
+        }
+        public override string ToString()
 		{
 			return base.ToString();
 		}
@@ -223,13 +240,14 @@ namespace Mario.Collections
 			private int currentIndex;
 			private Type type;
 
-			public GameObjectEnumeratorByType( Type type)
+			public GameObjectEnumeratorByType(Type type)
 			{
 				this.type = type;
 				this.currentIndex = gameObjectListsByType[type].Count;
 			}
+          
 
-			public object Current
+            public object Current
 			{
 				get
 				{

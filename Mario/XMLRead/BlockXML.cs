@@ -8,7 +8,6 @@ namespace Mario.XMLRead
 {
     public class BlockXML
     {
-        public int Chunk { get; set; }
         public string BlockType{ get; set; }
         public int XLocation { get; set; }
         public int YLocation { get; set; }

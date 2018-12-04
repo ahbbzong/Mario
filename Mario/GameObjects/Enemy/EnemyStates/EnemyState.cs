@@ -53,8 +53,6 @@ namespace Mario.AbstractClass
             EnemySprite.Draw(spriteBatch, location);
         }
 
-      
-
         public virtual void TurnLeft()
         {
 
@@ -100,9 +98,8 @@ namespace Mario.AbstractClass
         {
             return false;
         }
-        public virtual void MiniBossStompReact()
-        {
-            
-        }
+    
+
+      
     }
 }

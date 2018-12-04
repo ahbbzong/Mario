@@ -17,7 +17,7 @@ namespace Mario.BlockStates
         public const int zero = 0;
         public const int starMarioTimerLimit = 5000;
         public const int locationOffset = 10;
-        public const int walkRightOffset = 950;
+        public const int walkRightOffset = 300;
         public const int Double = 2;
         public const int fallFlag = 1;
 
