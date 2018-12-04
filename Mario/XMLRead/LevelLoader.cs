@@ -108,6 +108,7 @@ namespace Mario.XMLRead
 			chunkNode = levelFile.SelectSingleNode("//chunk[@type='end']");
 			offset = AddChunkToLevel(chunkNode, offset);
 
+			//level ends here, but start readded as a kind of facade, to give the illusion of continuity
 			chunkNode = levelFile.SelectSingleNode("//chunk[@type='start']");
 			offset = AddChunkToLevel(chunkNode, offset);
 

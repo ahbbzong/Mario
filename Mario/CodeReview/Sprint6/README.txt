@@ -37,7 +37,7 @@ Collecting coins and chaining enemy kills (either by stomping or using a shell) 
 
 Challenge Bowser to Duel!
 At the end of every level, there is a Bowser enemy to defeat. If you defeat him , you will receive a time bonus. 
-Otherwise, you may pass onto the next level (passing by unharmed may be difficult, however).
+Otherwise, you may pass onto the next level (passing by unharmed may be difficult, however). Bowser's jumps make the ground shake 
 
 
 New Suppressions:

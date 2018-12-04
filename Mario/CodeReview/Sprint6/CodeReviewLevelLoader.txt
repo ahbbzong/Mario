@@ -1,4 +1,24 @@
-﻿Code Quality Review: LevelLoader
+﻿Code Review: LevelLoader
+
+Code Readability:
+
+What is Readable:
+- the LoadFile function is very understandable the order and method that the different chunks are loaded in.
+- I can generally understand how each function has one job and doesn't need to know specifics about outside systems
+
+What is NOT Readable:
+- There are some direct state/type comparisons that aren't clear what the precise meaning of is.
+- The code that handles visually filling out a floor block with smaller blocks is hard to trace.
+- There are several different paths for loading a block. Are all of these "blocks" really similar objects. If so, it is hard to tell why.
+- Is a pipe a block?
+- The name findOffset is a verb, and offset of what?
+- What is the reason for certain calculations in the random sequence  generator
+
+
+
+
+
+Code Quality:
 
 Author of the code review : Jacob Grove
 Date of the code review: 12-4-18
