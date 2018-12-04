@@ -148,8 +148,6 @@ namespace Mario.Collections
 
                         obj = gameObjectListsByType[typeListPair.Key][i];
                         break;
-
-
                 }
             }
             return obj;

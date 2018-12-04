@@ -23,7 +23,7 @@ namespace Mario.GameObjects.Decorators
 		public Vector2 Position { get => DecoratedMario.Position; set => DecoratedMario.Position = value; }
 		public ISprite MarioSprite { get => DecoratedMario.MarioSprite; set => DecoratedMario.MarioSprite = value; }
         public bool Island { get; set; }
-        public bool IsCrouch { get; set; }
+        public bool IsCrouch { get => DecoratedMario.IsCrouch; set => DecoratedMario.IsCrouch = value; }
         public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public Vector2 Force { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public int Lives { get => DecoratedMario.Lives; set => DecoratedMario.Lives = value; }
@@ -33,30 +33,30 @@ namespace Mario.GameObjects.Decorators
 
         public void BeFire()
 		{
-			DecoratedMario.BeFire();
+            DecoratedMario.MarioPowerupState.BeFire();
 		}
 
 		public void BeNormal()
 		{
-			DecoratedMario.BeNormal();
-		}
+            DecoratedMario.MarioPowerupState.BeFire();
+        }
 
-		public void BeStar()
+        public void BeStar()
 		{
-			DecoratedMario.BeStar();
-		}
+            DecoratedMario.MarioPowerupState.BeFire();
+        }
 
-		public void BeSuper()
+        public void BeSuper()
 		{
-			DecoratedMario.BeSuper();
-		}
+            DecoratedMario.MarioPowerupState.BeFire();
+        }
 
-		public void BeDead()
+        public void BeDead()
 		{
-			DecoratedMario.BeDead();
-		}
+            DecoratedMario.MarioPowerupState.BeFire();
+        }
 
-		public void GoDown()
+        public void GoDown()
 		{
 			DecoratedMario.GoDown();
 		}
@@ -65,17 +65,10 @@ namespace Mario.GameObjects.Decorators
 		{
 			return DecoratedMario.IsActive();
 		}
-
-		
-        
-
 		public void SetIsLand(bool Land)
 		{
 			DecoratedMario.SetIsLand(Land);
 		}
-
-		
-
 		public virtual bool IsStarMario()
 		{
 			return DecoratedMario.IsStarMario();

@@ -322,7 +322,11 @@ namespace Mario.Collision.CollisionManager
 
 				marioHandler = new MarioMagicMushroomCollisionHandler();
 			}
-			else
+            else if (item is OneUpMushroom)
+            {
+                marioHandler = new OneUpMushroomCollisionHandler();
+            }
+            else
 			{
 				marioHandler = null;
 			}

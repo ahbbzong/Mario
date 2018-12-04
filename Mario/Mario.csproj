@@ -46,6 +46,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Compile Include="Collections\GameObjectList.cs" />
+    <Compile Include="Collision\Collision Handler\MarioCollisionHandler\MarioItemCollisionHandler\OneUpMushroomCollisionHandler.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\MiniBoss.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\LeftMiniBossState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\StompedMiniBossState.cs" />
@@ -282,6 +283,7 @@
     <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
     <Content Include="CodeReview\Sprint5\README_Sprint5.txt" />
     <Content Include="CodeReview\Sprint5\CodeReviewHUD_cs.txt" />
+    <Content Include="CodeReview\Sprint6\CodeReviewLevelLoader.txt" />
     <Content Include="CodeReview\Sprint6\ReadabilityAndQualityReviewSp6_WenChe.txt" />
     <Content Include="CodeReview\Sprint6\README.txt" />
     <Content Include="Icon.ico" />
