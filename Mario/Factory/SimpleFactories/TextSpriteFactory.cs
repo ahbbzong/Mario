@@ -33,10 +33,7 @@ namespace Mario.Factory
         {
             return new TextSprite(normalFont);
         }
-        public ITextSprite CreateTimeFontTextSpriteSprite()
-        {
-            return new TextSprite(normalFont);
-        }
+     
 
     }
 }

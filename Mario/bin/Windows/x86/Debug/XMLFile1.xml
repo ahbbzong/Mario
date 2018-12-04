@@ -51,6 +51,7 @@
     <YLocation>850</YLocation>
   </BlockXML>
   
+  
 
   //done with floors
 
@@ -1177,8 +1178,8 @@
   
 //Underground
   <BlockXML>
-    <Chunk>6</Chunk>
     <BlockType>FloorBlockState</BlockType>
+    <Chunk>6</Chunk>
     <ItemContains>None</ItemContains>
     <Length>30</Length>
     <Height>2</Height>

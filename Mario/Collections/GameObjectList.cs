@@ -1,4 +1,5 @@
 ﻿using Game1;
+using Mario.GameObjects;
 using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using System;
@@ -138,7 +139,25 @@ namespace Mario.Collections
 			}
 			return obj;
 		}
-		public override string ToString()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
+        public IGameObject GameObjectEnumeratorByKeyAndValue(Type key, Type value)
+        {
+            IGameObject obj = null;
+            foreach (KeyValuePair<Type, List<IGameObject>> typeListPair in gameObjectListsByType)
+            {
+                for (int i= 0;i< gameObjectListsByType[typeListPair.Key].Count;i++)
+                if (typeListPair.Key.IsAssignableFrom(value)&& value.Equals(gameObjectListsByType[typeListPair.Key][i].GetType()))
+                {
+
+                        obj = gameObjectListsByType[typeListPair.Key][i];
+                        break;
+
+
+                }
+            }
+            return obj;
+        }
+        public override string ToString()
 		{
 			return base.ToString();
 		}
@@ -203,7 +222,6 @@ namespace Mario.Collections
 						{
 							return false;
 						}
-						//what is the state of this on failure? Probably last count of last list, -1?
 						currentIndex = gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)].Count;
 					}
 				}while (hasNext);
@@ -223,13 +241,14 @@ namespace Mario.Collections
 			private int currentIndex;
 			private readonly Type type;
 
-			public GameObjectEnumeratorByType( Type type)
+			public GameObjectEnumeratorByType(Type type)
 			{
 				this.type = type;
 				this.currentIndex = gameObjectListsByType[type].Count;
 			}
+          
 
-			public object Current
+            public object Current
 			{
 				get
 				{

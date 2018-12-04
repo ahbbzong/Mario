@@ -21,6 +21,7 @@ using Mario.Sound;
 using Mario.Collections;
 using System.Collections;
 using Mario.ItemClasses;
+using Mario.GameObjects;
 
 namespace Mario
 {
@@ -121,7 +122,7 @@ namespace Mario
                 CollisionDetector.Instance.Update();
                 CameraController.Update();
             }
-            if (LifeCounter.Instance.LifeRemains() > 0)
+            if (LifeCounter.Instance.LifeRemains() > LifeUtil.minLife)
             {
                 lifeDisplay.Update();
                 if (count == 100) { 
@@ -129,7 +130,7 @@ namespace Mario
                     Timer.StartTimer();
                     }
             }
-            else if (LifeCounter.Instance.LifeRemains() == 0)
+            else if (LifeCounter.Instance.LifeRemains() == LifeUtil.minLife)
             {
                 gameOverDisplay.Update();
             }
@@ -146,12 +147,12 @@ namespace Mario
             {
                 ((IGameObject)gameObjEnumerator.Current).Draw(spriteBatch);
             }
-            if (LifeCounter.Instance.LifeRemains() > 0)
+            if (LifeCounter.Instance.LifeRemains() > LifeUtil.minLife)
             {
                 lifeDisplay.Draw(spriteBatch);
 
             }
-            else if (LifeCounter.Instance.LifeRemains() == 0)
+            else if (LifeCounter.Instance.LifeRemains() == LifeUtil.minLife)
             {
                 gameOverDisplay.Draw(spriteBatch);
             }

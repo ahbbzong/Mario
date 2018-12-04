@@ -2,6 +2,7 @@
 using Mario.BlockStates;
 using Mario.Display;
 using Mario.HeadUpDesign;
+using Mario.MarioStates.MarioPowerupStates;
 using Mario.Sound;
 using Mario.Utils;
 using Microsoft.Xna.Framework;
@@ -32,7 +33,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 
         public SlideDownFlagDecorator(IMario mario, Vector2 locationOfBase):base(mario)
 		{
-			this.locationOfBase = locationOfBase;
+			this.locationOfBase = locationOfBase;            
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
             SoundManager.StopSong();

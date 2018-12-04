@@ -26,9 +26,9 @@ namespace Mario.HeadUpDesign
             foreach (ITextSprite TextBars in GameObjectManager.Instance.UIScoreSprite)
             {
                 int difference = TextBars.InitialY - (int)TextBars.Location.Y;
-                if (TextBars.IsFlying && difference < ScoreUtil.FlyingBar*2)
+                if (TextBars.IsFlying && difference < ScoreUtil.FlyingBar*HUDUtil.Double)
                 {
-                    TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y -3);
+                    TextBars.Location = new Vector2(TextBars.Location.X, TextBars.Location.Y -HUDUtil.floatRate);
                 }
                 else
                  {

@@ -33,6 +33,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioEnemyCollisionHandler
                     {
                         ScoringSystem.Instance.AddPointsForStompingEnemy(enemy);
                     }
+                   
                     break;
                 case Direction.Down:
                     mario.Position += Vector2.UnitY * intersection.Height;
