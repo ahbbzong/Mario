@@ -17,7 +17,6 @@ namespace Mario
         private static int counter = TimerUtil.Zero;
         private static bool timeRunning = false;
         private static readonly int maxTime = TimerUtil.MaxTimer;
-        public static int TimeRecord { get; set; } = TimerUtil.Zero;
         public static void ResetTimer()
         {
             Time = maxTime;

@@ -28,17 +28,7 @@ namespace Mario.XMLRead
 		private readonly IList<IGameObject> projectileList = new List<IGameObject>();
 		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
-		private static IList<Type> gameObjectSubTypes = new List<Type>
-		{
-			typeof(IBlock),
-			typeof(IItem),
-			typeof(IEnemy),
-			typeof(IBackground),
-			typeof(IPipe),
-			typeof(IProjectile),
-			typeof(IMario)
-
-		};
+		
 		public static LevelLoader Instance { get => instance; set => instance = value; }
         private static IList<int> NumberList = new List<int>();
 
@@ -315,7 +305,7 @@ namespace Mario.XMLRead
 			return null;
 		}
         //move to somewhere else late
-        public static List<int> RandomNumber()
+        public  List<int> RandomNumber()
         {
             Random rand = new Random();
             List<int> listNumbers = new List<int>();
