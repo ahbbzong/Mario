@@ -30,10 +30,6 @@ namespace Mario.Collision
                 AddBigItem(block);
         }
 
-        public void HandleCollision(IGameObject source, IGameObject target, Direction direction)
-        {
-            HandleCollision((IBlock)source, (IMario)target, direction);
-        }
         private void AddNormalItem(IBlock block)
         {
             switch (block.ItemContained)

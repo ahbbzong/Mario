@@ -11,9 +11,9 @@ namespace Mario.GameObjects.Decorators
 	{
 
         private int timer = DecoratorUtil.zero;
-		public StarMarioDecorator(IMario mario):base(mario){
-			SoundManager.Instance.PlayBGM("starMarioMusic");
-
+		public StarMarioDecorator(IMario mario):base(mario)
+        {
+			SoundManager.Instance.PlayBGM(SoundString.starMarioMusic);
         }
 
 
@@ -30,7 +30,7 @@ namespace Mario.GameObjects.Decorators
             {
 
                 GameObjectManager.Instance.Mario = DecoratedMario;
-				SoundManager.Instance.PlayBGM("marioBGM");
+				SoundManager.Instance.PlayBGM(SoundString.marioBGM);
 
             }
             base.Update();

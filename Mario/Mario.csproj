@@ -46,6 +46,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Compile Include="Collections\GameObjectList.cs" />
+    <Compile Include="Collision\Collision Handler\MarioCollisionHandler\MarioItemCollisionHandler\OneUpMushroomCollisionHandler.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\MiniBoss.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\LeftMiniBossState.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\StompedMiniBossState.cs" />

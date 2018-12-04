@@ -305,7 +305,8 @@ namespace Mario.XMLRead
 			return null;
 		}
         //move to somewhere else late
-        public  List<int> RandomNumber()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
+        public List<int> RandomNumber()
         {
             Random rand = new Random();
             List<int> listNumbers = new List<int>();
@@ -314,7 +315,7 @@ namespace Mario.XMLRead
             {
                 do
                 {
-                    number = rand.Next(2,5);
+                    number = rand.Next(2,8);
                 } while (listNumbers.Contains(number));
                 listNumbers.Add(number);
             }
