@@ -713,21 +713,21 @@
 				<BlockType>BrickBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<XLocation>288</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 			<BlockXML>
 				
 				<BlockType>BrickBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<XLocation>320</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 			<BlockXML>
 				
 				<BlockType>BrickBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<XLocation>352</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 
 			<BlockXML>
@@ -735,28 +735,28 @@
 				<BlockType>BrickBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<XLocation>480</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 			<BlockXML>
 				
 				<BlockType>QuestionBlockState</BlockType>
 				<ItemContains>Starman</ItemContains>
-				<XLocation>502</XLocation>
-				<YLocation>464</YLocation>
+				<XLocation>512</XLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 			<BlockXML>
 				
 				<BlockType>QuestionBlockState</BlockType>
 				<ItemContains>OneUpMushroom</ItemContains>
 				<XLocation>544</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 			<BlockXML>
 				
 				<BlockType>BrickBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<XLocation>576</XLocation>
-				<YLocation>464</YLocation>
+				<YLocation>494</YLocation>
 			</BlockXML>
 
 			<BlockXML>
@@ -846,6 +846,56 @@
 	</chunk>
 	<chunk id="5" type="end">
 
+    <BlockXML>
+
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>1</Length>
+      <Height>1</Height>
+      <XLocation>5632</XLocation>
+      <YLocation>818</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>5</Length>
+      <Height>4</Height>
+      <XLocation>830</XLocation>
+      <YLocation>682</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>5</Length>
+      <Height>4</Height>
+      <XLocation>798</XLocation>
+      <YLocation>682</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>5</Length>
+      <Height>4</Height>
+      <XLocation>698</XLocation>
+      <YLocation>582</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>5</Length>
+      <Height>4</Height>
+      <XLocation>598</XLocation>
+      <YLocation>482</YLocation>
+    </BlockXML>
+
     <EnemyXML>
       <EnemyType>MiniBoss</EnemyType>
       <XLocation>960</XLocation>
@@ -881,13 +931,7 @@
 
 
 
-			-<PipeXML>
-				
-				<BlockType>Pipe</BlockType>
-				<IsToUnderground>False</IsToUnderground>
-				<XLocation>2112</XLocation>
-				<YLocation>732</YLocation>
-			</PipeXML>
+			-
 			<BackgroundXML>
 				
 				<BackgroundType>MountainSmall</BackgroundType>
@@ -989,7 +1033,14 @@
 			
 	</chunk>
 	<chunk id="6" type="underground">
-		<content>
+    <PipeXML>
+
+      <BlockType>Pipe</BlockType>
+      <IsToUnderground>False</IsToUnderground>
+      <XLocation>2112</XLocation>
+      <YLocation>732</YLocation>
+    </PipeXML>
+    
 			<BlockXML>
        
 				<BlockType>FloorBlockState</BlockType>
@@ -1028,10 +1079,6 @@
 			</EnemyXML>
 
 
-
-
-
-
 			<ItemXML>
 				
 				<GameObjectType>UnderGroundCoin</GameObjectType>
@@ -1042,9 +1089,37 @@
 			<ItemXML>
 				
 				<GameObjectType>UnderGroundCoin</GameObjectType>
-				<XLocation>17560</XLocation>
+				<XLocation>17660</XLocation>
 				<YLocation>500</YLocation>
 			</ItemXML>
+
+    <ItemXML>
+
+      <GameObjectType>UnderGroundCoin</GameObjectType>
+      <XLocation>17560</XLocation>
+      <YLocation>500</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+
+      <GameObjectType>UnderGroundCoin</GameObjectType>
+      <XLocation>17460</XLocation>
+      <YLocation>500</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+
+      <GameObjectType>UnderGroundCoin</GameObjectType>
+      <XLocation>17360</XLocation>
+      <YLocation>500</YLocation>
+    </ItemXML>
+
+    <ItemXML>
+
+      <GameObjectType>UnderGroundCoin</GameObjectType>
+      <XLocation>17260</XLocation>
+      <YLocation>500</YLocation>
+    </ItemXML>
 
 			<BlockXML>
 				
@@ -1056,6 +1131,35 @@
 				<YLocation>700</YLocation>
 			</BlockXML>
 
-		</content>
+    <BlockXML>
+
+      <BlockType>BrickBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>30</Length>
+      <Height>2</Height>
+      <XLocation>17560</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>BrickBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>30</Length>
+      <Height>2</Height>
+      <XLocation>17460</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+
+    <BlockXML>
+
+      <BlockType>BrickBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>30</Length>
+      <Height>2</Height>
+      <XLocation>17360</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+
 	</chunk>
 </Map>

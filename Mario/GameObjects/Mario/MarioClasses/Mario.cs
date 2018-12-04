@@ -184,7 +184,11 @@ namespace Mario
 			{
 				hasCompletedLevel = true;
                 ScoringSystem.Instance.AddPointsForRestTime();
-                GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario),new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor)));
+                if (MarioPowerupState is NormalMarioPowerupState)
+                    GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario),new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor)));
+                else
+                    GameObjectManager.Instance.GameObjectList.SetSingleton(typeof(IMario), new SlideDownFlagDecorator(this, new Vector2(this.location.X, MarioUtil.HeightOfFloor-MarioUtil.MarioHeight)));
+
                 atTheEnd = true;
 			}
             if (isOnPipe)
