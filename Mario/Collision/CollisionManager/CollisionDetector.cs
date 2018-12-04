@@ -1,10 +1,7 @@
-﻿
-using Mario.Collision.FireballCollisionHandler;
+﻿using Mario.Collision.FireballCollisionHandler;
 using Mario.Collision.ItemCollisionHandler;
 using Mario.Enums;
-using Mario.Interfaces.GameObjects;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
 using Game1;
 using Mario.Collision.EnemyCollisionHandler;
@@ -19,7 +16,6 @@ using Mario.ItemClasses;
 using Mario.HeadUpDesign;
 using Mario.Collections;
 using System.Collections;
-using System.Diagnostics;
 
 namespace Mario.Collision.CollisionManager
 {
@@ -68,7 +64,7 @@ namespace Mario.Collision.CollisionManager
                         {
                             collisionFound = collisionDetecter.Collision(projectile.Box, floorBox);
                             intersection = collisionDetecter.Intersection;
-                            projectileCollisionHandler = new FireballBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                            projectileCollisionHandler = new FireballBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), Vector2.Zero), intersection, collisionFound);
                             projectileCollisionHandler.HandleCollision(projectile);
                         }
                     }
@@ -80,7 +76,7 @@ namespace Mario.Collision.CollisionManager
                         {
                             collisionFound = collisionDetecter.Collision(item.Box, floorBox);
                             intersection = collisionDetecter.Intersection;
-                            itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                            itemHandler = new ItemBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), Vector2.Zero), intersection, collisionFound);
                             itemHandler.HandleCollision(item);
                         }
                     }
@@ -94,7 +90,7 @@ namespace Mario.Collision.CollisionManager
                             {
                                 collisionFound = collisionDetecter.Collision(enemy.Box, floorBox);
                                 intersection = collisionDetecter.Intersection;
-                                enemyHandler = new EnemyBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), intersection, collisionFound);
+                                enemyHandler = new EnemyBlockCollisionHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), Vector2.Zero), intersection, collisionFound);
                                 enemyHandler.HandleCollision(enemy);
                             }
                         }
@@ -104,8 +100,8 @@ namespace Mario.Collision.CollisionManager
                         collisionFound = collisionDetecter.Collision(Mario.Box, floorBox);
                         intersection = collisionDetecter.Intersection;
                         blockHandler = new BlockHandler();
-                        blockHandler.HandleCollision((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), Mario, collisionFound);
-                        CallMarioBlockHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), new Vector2(0, 0)), collisionFound, intersection);
+                        blockHandler.HandleCollision((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), Vector2.Zero), Mario, collisionFound);
+                        CallMarioBlockHandler((IBlock)BlockFactory.Instance.GetGameObject(typeof(BrickBlockState), Vector2.Zero), collisionFound, intersection);
                     }
                 }
 			}
