@@ -1,14 +1,10 @@
 ﻿using Game1;
-using Mario.GameObjects;
 using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Mario.Collections
@@ -139,16 +135,18 @@ namespace Mario.Collections
 			}
 			return obj;
 		}
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
         public IGameObject GameObjectEnumeratorByKeyAndValue(Type key, Type value)
         {
             IGameObject obj = null;
-            for (int i = 0; i < gameObjectListsByType[key].Count; i++)
+            foreach (KeyValuePair<Type, List<IGameObject>> typeListPair in gameObjectListsByType)
             {
-                if (gameObjectListsByType[key][i] is MiniBoss)
+                for (int i= 0;i< gameObjectListsByType[typeListPair.Key].Count;i++)
+                if (typeListPair.Key.IsAssignableFrom(value)&& value.Equals(gameObjectListsByType[typeListPair.Key][i].GetType()))
                 {
 
-                    obj = gameObjectListsByType[key][i];
-                    break;
+                        obj = gameObjectListsByType[typeListPair.Key][i];
+                        break;
 
 
                 }
@@ -220,7 +218,6 @@ namespace Mario.Collections
 						{
 							return false;
 						}
-						//what is the state of this on failure? Probably last count of last list, -1?
 						currentIndex = gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)].Count;
 					}
 				}while (hasNext);
@@ -238,7 +235,7 @@ namespace Mario.Collections
 		{
 			
 			private int currentIndex;
-			private Type type;
+			private readonly Type type;
 
 			public GameObjectEnumeratorByType(Type type)
 			{

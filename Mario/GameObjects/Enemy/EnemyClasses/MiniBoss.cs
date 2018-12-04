@@ -9,7 +9,7 @@ namespace Mario.GameObjects
 
     public class MiniBoss : Enemy
     {
-		private int health = 3;
+		private int health = EnemyUtil.miniBossLife;
         public MiniBoss(Vector2 location) : base(location)
         {
 
@@ -28,7 +28,7 @@ namespace Mario.GameObjects
         public override void Beflipped()
         {
             health--;
-            if(health==0)
+            if(health==EnemyUtil.miniBossZeroLife)
             EnemyState.Beflipped();
            
         }
