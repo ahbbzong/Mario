@@ -280,6 +280,7 @@
     <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
     <Content Include="CodeReview\Sprint5\README_Sprint5.txt" />
     <Content Include="CodeReview\Sprint5\CodeReviewHUD_cs.txt" />
+    <Content Include="CodeReview\Sprint6\README.txt" />
     <Content Include="Icon.ico" />
     <Content Include="bin\Windows\x86\Debug\XMLFile1.xml">
       <SubType>Designer</SubType>
@@ -293,7 +294,6 @@
   <ItemGroup>
     <Folder Include="bin\Windows\x86\Release\" />
     <Folder Include="BurndownChart\" />
-    <Folder Include="CodeReview\Sprint6\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

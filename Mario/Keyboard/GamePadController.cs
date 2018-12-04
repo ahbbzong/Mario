@@ -47,7 +47,6 @@ namespace Mario
 			commandList.Add(Buttons.DPadDown, new MoveMarioDownCommand(mario));
 			commandList.Add(Buttons.DPadRight, new MoveRightMarioCommand(mario));
 			commandList.Add(Buttons.B, new SprintAndFireProjectileMarioCommand(mario));
-			
 		}
 	}
 }
