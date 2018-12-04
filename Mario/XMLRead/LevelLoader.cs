@@ -28,7 +28,7 @@ namespace Mario.XMLRead
 		private readonly IList<IGameObject> projectileList = new List<IGameObject>();
 		public IList<IGameObject> ProjectileList { get => projectileList;  }
 		private static LevelLoader instance = new LevelLoader();
-		
+	
 		public static LevelLoader Instance { get => instance; set => instance = value; }
         private static IList<int> NumberList = new List<int>();
 
@@ -108,6 +108,7 @@ namespace Mario.XMLRead
 			chunkNode = levelFile.SelectSingleNode("//chunk[@type='end']");
 			offset = AddChunkToLevel(chunkNode, offset);
 
+			//level ends here, but start readded as a kind of facade, to give the illusion of continuity
 			chunkNode = levelFile.SelectSingleNode("//chunk[@type='start']");
 			offset = AddChunkToLevel(chunkNode, offset);
 

@@ -24,6 +24,7 @@ namespace Mario.Collision
             if (!isDown || !isReactable) return;
             block.React();
             if (isHidden) return;
+		
             if (mario.MarioPowerupState is NormalMarioPowerupState)
                 AddNormalItem(block);
             else if (!(mario.MarioPowerupState is DeadMarioPowerupState) || mario.IsStarMario())

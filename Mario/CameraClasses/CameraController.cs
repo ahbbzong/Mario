@@ -1,5 +1,4 @@
 ﻿using Game1;
-using Mario.Collections;
 using Mario.GameObjects;
 using Microsoft.Xna.Framework;
 
@@ -19,7 +18,7 @@ namespace Mario.CameraClasses
         {
             count++;
 			Vector2 marioPosition = GameObjectManager.Instance.Mario.Position;
-            IEnemy miniBoss = (IEnemy)GameObjectManager.Instance.GameObjectList.GameObjectEnumeratorByKeyAndValue(typeof(IEnemy),typeof(MiniBoss));
+            IEnemy miniBoss = (IEnemy)GameObjectManager.Instance.GameObjectList.GameObjectEnumeratorInterfaceOfValue(typeof(MiniBoss));
             if (camera.IsOffSideOfScreen(GameObjectManager.Instance.Mario.Box))
             {
                 camera.ResetCameraLocation(GameObjectManager.Instance.Mario.Box);

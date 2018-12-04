@@ -57,12 +57,14 @@
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoreMultiplierUtility.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
+    <Compile Include="LevelCounter.cs" />
     <Compile Include="StringUtil\SpriteString.cs" />
     <Compile Include="StringUtil\SoundString.cs" />
     <Compile Include="StringUtil\ItemString.cs" />
     <Compile Include="Utils\DecoratorUtil.cs" />
     <Compile Include="Utils\HUDUtil.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />
+    <Compile Include="Utils\LevelUtil.cs" />
     <Compile Include="Utils\MarioUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
     <Compile Include="Utils\CameraUtil.cs" />
@@ -281,6 +283,8 @@
     <Content Include="CodeReview\Sprint4\QualityReviewSp4_WenChe.txt" />
     <Content Include="CodeReview\Sprint5\README_Sprint5.txt" />
     <Content Include="CodeReview\Sprint5\CodeReviewHUD_cs.txt" />
+    <Content Include="CodeReview\Sprint6\CodeReviewLevelLoader.txt" />
+    <Content Include="CodeReview\Sprint6\README.txt" />
     <Content Include="Icon.ico" />
     <Content Include="bin\Windows\x86\Debug\XMLFile1.xml">
       <SubType>Designer</SubType>
@@ -294,7 +298,6 @@
   <ItemGroup>
     <Folder Include="bin\Windows\x86\Release\" />
     <Folder Include="BurndownChart\" />
-    <Folder Include="CodeReview\Sprint6\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

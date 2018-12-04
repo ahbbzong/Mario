@@ -9,7 +9,7 @@ namespace Mario.Factory
     {
         private SpriteFont normalFont;
 
-        private static TextSpriteFactory instance = new TextSpriteFactory();
+        private static readonly TextSpriteFactory instance = new TextSpriteFactory();
 
         public static TextSpriteFactory Instance
         {

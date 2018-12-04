@@ -1,19 +1,16 @@
 ﻿using Game1;
-using Mario.GameObjects;
 using Mario.GameObjects.Block;
 using Mario.Interfaces.GameObjects;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Mario.Collections
 {
-	//needs to guarantee no aliasing between lists
+	//collection is structured to be dependent on features of IGameObject interface. Cannot be managed for a generic type of object
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1010:CollectionsShouldImplementGenericInterface")]
 	public class GameObjectList : IEnumerable
 	{
         private static IDictionary<Type, List<IGameObject>> gameObjectListsByType;
@@ -140,7 +137,7 @@ namespace Mario.Collections
 			return obj;
 		}
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
-        public IGameObject GameObjectEnumeratorByKeyAndValue(Type key, Type value)
+        public IGameObject GameObjectEnumeratorInterfaceOfValue(Type value)
         {
             IGameObject obj = null;
             foreach (KeyValuePair<Type, List<IGameObject>> typeListPair in gameObjectListsByType)
@@ -186,6 +183,8 @@ namespace Mario.Collections
 			return new GameObjectEnumeratorByType(T);
 		}
 
+		//see head of class document for why this document needs to be strongly typed
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1038:EnumeratorsShouldBeStronglyTyped")]
 		public class GameObjectEnumerator : IEnumerator
 		{
 			int currentIndex;
@@ -199,9 +198,6 @@ namespace Mario.Collections
 				}
 			}
 			public object Current => gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)][currentIndex];
-			
-
-			
 
 			public bool MoveNext()
 			{
@@ -233,11 +229,13 @@ namespace Mario.Collections
             }
 
 		}
+		//see head of document for reason why document must be strongly typed
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1038:EnumeratorsShouldBeStronglyTyped")]
 		public class GameObjectEnumeratorByType : IEnumerator
 		{
 			
 			private int currentIndex;
-			private Type type;
+			private readonly Type type;
 
 			public GameObjectEnumeratorByType(Type type)
 			{
