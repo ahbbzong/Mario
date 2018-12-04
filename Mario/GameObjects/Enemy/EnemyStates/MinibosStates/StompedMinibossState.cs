@@ -28,7 +28,7 @@ namespace Mario.EnemyStates.GoombaStates
             }
             else
             {
-                GameObjectManager.Instance.GameObjectList.Remove(Enemy);
+                Enemy.Position -= Vector2.UnitX* EnemyUtil.bossOffset;
             }
         }
     }

@@ -19,7 +19,7 @@ namespace Mario.CameraClasses
         {
             count++;
 			Vector2 marioPosition = GameObjectManager.Instance.Mario.Position;
-            Vector2 miniBossPosition = GameObjectManager.Instance.MiniBoss.EnemyLocation;
+            IEnemy miniBoss = (IEnemy)GameObjectManager.Instance.GameObjectList.GameObjectEnumeratorByKeyAndValue(typeof(IEnemy), typeof(MiniBoss));
             if (camera.IsOffSideOfScreen(GameObjectManager.Instance.Mario.Box))
             {
                 camera.ResetCameraLocation(GameObjectManager.Instance.Mario.Box);
@@ -28,7 +28,7 @@ namespace Mario.CameraClasses
             {
                 camera.MoveRight(CameraUtil.cameraFive);
             }
-            if ( miniBossPosition.X < camera.Location.X + CameraUtil.resolutionWidth)
+            if (miniBoss.Position.X < camera.Location.X + CameraUtil.resolutionWidth&& miniBoss.Position.X> camera.Location.X)
             {
                     if (count % 2 == 0)
                         camera.MoveUp(CameraUtil.cameraFive * 2);

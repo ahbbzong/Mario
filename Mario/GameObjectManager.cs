@@ -34,7 +34,6 @@ namespace Mario
         private readonly GameObjectList gameObjectList;
         public GameObjectList GameObjectList { get => gameObjectList; }
         public IMario Mario { get { return (IMario)GameObjectList.Peek(typeof(IMario)); } set { GameObjectList.SetSingleton(typeof(IMario), value); } }
-        public IEnemy MiniBoss { get { return (IEnemy)GameObjectList.GameObjectEnumeratorByKeyAndValue(typeof(IEnemy),typeof(MiniBoss)); } }
         public ICamera CameraMario { get; set; }
         public ICameraController CameraController { get; set; }
         public IList<Rectangle> FloorBoxPositions { get; }
