@@ -85,7 +85,7 @@
       <ItemContains>None</ItemContains>
       <Length>1</Length>
       <Height>1</Height>
-      <XLocation>5632</XLocation>
+      <XLocation>5760</XLocation>
       <YLocation>818</YLocation>
     </BlockXML>
   </chunk>
@@ -878,7 +878,7 @@
 			<BackgroundXML>
 				
 				<BackgroundType>BushSingle</BackgroundType>
-				<XLocation>1402</XLocation>
+				<XLocation>1300</XLocation>
 				<YLocation>818</YLocation>
 			</BackgroundXML>
 

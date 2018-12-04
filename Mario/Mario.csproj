@@ -56,12 +56,14 @@
     <Compile Include="HeadUpDesign\HeadUpDisplayBoard.cs" />
     <Compile Include="HeadUpDesign\ScoreMultiplierUtility.cs" />
     <Compile Include="HeadUpDesign\ScoringSystem.cs" />
+    <Compile Include="LevelCounter.cs" />
     <Compile Include="StringUtil\SpriteString.cs" />
     <Compile Include="StringUtil\SoundString.cs" />
     <Compile Include="StringUtil\ItemString.cs" />
     <Compile Include="Utils\DecoratorUtil.cs" />
     <Compile Include="Utils\HUDUtil.cs" />
     <Compile Include="Utils\LevelLoaderUtil.cs" />
+    <Compile Include="Utils\LevelUtil.cs" />
     <Compile Include="Utils\MarioUtil.cs" />
     <Compile Include="Utils\ScoreUtil.cs" />
     <Compile Include="Utils\CameraUtil.cs" />

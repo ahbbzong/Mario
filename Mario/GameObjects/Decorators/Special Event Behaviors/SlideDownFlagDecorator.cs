@@ -36,6 +36,7 @@ namespace Mario.GameObjects.Decorators.Special_Event_Behaviors
 			this.locationOfBase = locationOfBase;            
 			slidingState = SlidingStates.SLIDING_DOWN;
             ScoringSystem.Instance.AddPointsForFinalPole(mario.Box);
+            LevelCounter.Instance.LevelUp();
             SoundManager.StopSong();
             SoundManager.Instance.PlaySoundEffect("clearStage");
         }

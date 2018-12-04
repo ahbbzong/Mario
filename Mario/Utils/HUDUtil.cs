@@ -16,6 +16,7 @@ namespace Mario.HeadUpDesign
         public const int scoreLength = 6;
         public const int coinLength = 2;
         public const int timeLength = 3;
+        public const int levelLength = 4;
         public const int Double = 2;
         public const int floatRate = 3;
         public const int offset = 450;

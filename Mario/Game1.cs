@@ -88,6 +88,7 @@ namespace Mario
         {
             GameObjectManager.Instance.SetInitialValuesCamera();
             Timer.ResetTimer();
+            LevelCounter.Instance.ResetLevel();
             LoadContent();
             LifeCounter.Instance.ResetLife();
             ScoringSystem.Instance.ResetScore();
