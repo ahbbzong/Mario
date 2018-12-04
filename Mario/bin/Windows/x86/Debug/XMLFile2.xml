@@ -1,0 +1,1056 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Map>
+  //floor #1
+  <chunk type="floor">
+    <BlockXML>
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>96</Length>
+      <Height>2</Height>
+      <XLocation>0</XLocation>
+      <YLocation>850</YLocation>
+    </BlockXML>
+
+    //floor #
+    <BlockXML>
+
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>15</Length>
+      <Height>2</Height>
+      <XLocation>3136</XLocation>
+      <YLocation>850</YLocation>
+    </BlockXML>
+
+    //floor #
+    <BlockXML>
+
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>58</Length>
+      <Height>2</Height>
+      <XLocation>3712</XLocation>
+      <YLocation>850</YLocation>
+    </BlockXML>
+
+    //floor #
+    <BlockXML>
+
+      <BlockType>FloorBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <Length>110</Length>
+      <Height>2</Height>
+      <XLocation>5632</XLocation>
+      <YLocation>850</YLocation>
+    </BlockXML>
+  </chunk>
+
+  //done with floors
+  <chunk id="1" type="start">
+			<PlayerXML>
+				<PlayerName>Mario</PlayerName>
+				<XLocation>200</XLocation>
+				<YLocation>819</YLocation>
+			</PlayerXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>900</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>HiddenBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>932</XLocation>
+				<YLocation>618</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>Starman</ItemContains>
+				<XLocation>964</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Starman</ItemContains>
+				<XLocation>1060</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1092</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>OneUpMushroom</ItemContains>
+				<XLocation>1124</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>1156</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			-<PipeXML>
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>True</IsToUnderground>
+				<XLocation>320</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1316</XLocation>
+				<YLocation>668</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>1348</XLocation>
+				<YLocation>668</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>HiddenBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1380</XLocation>
+				<YLocation>669</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1152</XLocation>
+				<YLocation>432</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1184</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1216</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1248</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1280</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1312</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1344</XLocation>
+				<YLocation>432</YLocation>
+			</BlockXML>
+
+			<EnemyXML>
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>1248</XLocation>
+				<YLocation>432</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>1312</XLocation>
+				<YLocation>428</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>448</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>512</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+			
+			<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>576</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+
+			//start of level 1-1
+			<BackgroundXML>
+				
+				<BackgroundType>MountainBig</BackgroundType>
+				<XLocation>650</XLocation>
+				<YLocation>780</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushTriple</BackgroundType>
+				<XLocation>1200</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>200</XLocation>
+				<YLocation>40</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>600</XLocation>
+				<YLocation>40</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudTriple</BackgroundType>
+				<XLocation>900</XLocation>
+				<YLocation>240</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>1200</XLocation>
+				<YLocation>140</YLocation>
+			</BackgroundXML>
+	</chunk>
+	<chunk id="2" type="overworld">
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>710</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+			<BackgroundXML>
+				
+				<BackgroundType>MountainSmall</BackgroundType>
+				<XLocation>60</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>160</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>60</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>156</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>188</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>220</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Starman</ItemContains>
+				<XLocation>252</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>284</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>OneUpMushroom</ItemContains>
+				<XLocation>220</XLocation>
+				<YLocation>532</YLocation>
+			</BlockXML>
+
+			-<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<ItemContains>None</ItemContains>
+				<XLocation>284</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+
+			-<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>448</XLocation>
+				<YLocation>756</YLocation>
+			</PipeXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushTriple</BackgroundType>
+				<XLocation>512</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			-<BackgroundXML>
+				
+				<BackgroundType>MountainBig</BackgroundType>
+				<XLocation>736</XLocation>
+				<YLocation>780</YLocation>
+			</BackgroundXML>
+
+			-<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>1056</XLocation>
+				<YLocation>732</YLocation>
+			</PipeXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>1130</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>MountainSmall</BackgroundType>
+				<XLocation>1310</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>160</XLocation>
+				<YLocation>140</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudTriple</BackgroundType>
+				<XLocation>1020</XLocation>
+				<YLocation>240</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>1360</XLocation>
+				<YLocation>140</YLocation>
+			</BackgroundXML>
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>980</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+		<BackgroundXML>
+			
+			<BackgroundType>CloudSingle</BackgroundType>
+			<XLocation>160</XLocation>
+			<YLocation>140</YLocation>
+		</BackgroundXML>
+
+		<BackgroundXML>
+			
+			<BackgroundType>CloudTriple</BackgroundType>
+			<XLocation>1020</XLocation>
+			<YLocation>240</YLocation>
+		</BackgroundXML>
+
+		<BackgroundXML>
+			
+			<BackgroundType>CloudSingle</BackgroundType>
+			<XLocation>1360</XLocation>
+			<YLocation>140</YLocation>
+		</BackgroundXML>
+	</chunk>
+	<chunk id="3" type="overworld">
+
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>1390</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>1420</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+
+			//first part of floor level done. Second part
+			//floor start at 3136
+			//need to cut the floor later
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>266</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>458</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>490</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>522</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>560</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>592</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>624</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>656</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>688</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>720</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>752</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>784</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			//second floor part done. The third part
+			//start at 3712
+			//need to cut the floor also
+			<BackgroundXML>
+				
+				<BackgroundType>BushTriple</BackgroundType>
+				<XLocation>842</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>896</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>928</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>960</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Starman</ItemContains>
+				<XLocation>992</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>992</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			-<BackgroundXML>
+				
+				<BackgroundType>MountainBig</BackgroundType>
+				<XLocation>1056</XLocation>
+				<YLocation>780</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1184</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>OneUpMushroom</ItemContains>
+				<XLocation>1216</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>1376</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>540</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>1040</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+	</chunk>
+	<chunk id="4" type="overworld">
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>10</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>40</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>70</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>1070</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>0</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>0</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Coin</ItemContains>
+				<XLocation>64</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushTriple</BackgroundType>
+				<XLocation>42</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>MountainSmall</BackgroundType>
+				<XLocation>64</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>224</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>250</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>288</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>320</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>352</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>480</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>Starman</ItemContains>
+				<XLocation>502</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>OneUpMushroom</ItemContains>
+				<XLocation>544</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>576</XLocation>
+				<YLocation>464</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>512</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>544</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BlockXML>
+				
+				<BlockType>UnbreakableBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>4</Length>
+				<Height>4</Height>
+				<XLocation>640</XLocation>
+				<YLocation>818</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushTriple</BackgroundType>
+				<XLocation>768</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>UnbreakableBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>4</Length>
+				<Height>-4</Height>
+				<XLocation>832</XLocation>
+				<YLocation>818</YLocation>
+			</BlockXML>
+
+			-<BackgroundXML>
+				
+				<BackgroundType>MountainBig</BackgroundType>
+				<XLocation>960</XLocation>
+				<YLocation>780</YLocation>
+			</BackgroundXML>
+
+			<BlockXML>
+				
+				<BlockType>UnbreakableBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>5</Length>
+				<Height>4</Height>
+				<XLocation>1088</XLocation>
+				<YLocation>818</YLocation>
+			</BlockXML>
+
+			//end of floor part 3. Start part 4.
+			//x start at 5632
+			<BlockXML>
+				
+				<BlockType>UnbreakableBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>4</Length>
+				<Height>-4</Height>
+				<XLocation>1312</XLocation>
+				<YLocation>818</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>1402</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>100</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+	</chunk>
+	<chunk id="5" type="end">
+
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>30</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>40</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>330</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>150</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+
+
+
+			-<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>2112</XLocation>
+				<YLocation>732</YLocation>
+			</PipeXML>
+			<BackgroundXML>
+				
+				<BackgroundType>MountainSmall</BackgroundType>
+				<XLocation>32</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>128</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>288</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>320</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>QuestionBlockState</BlockType>
+				<ItemContains>OneUpMushroom</ItemContains>
+				<XLocation>352</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<XLocation>384</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>BushSingle</BackgroundType>
+				<XLocation>188</XLocation>
+				<YLocation>818</YLocation>
+			</BackgroundXML>
+
+			<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>False</IsToUnderground>
+				<XLocation>640</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+
+			-<BlockXML>
+				
+				<BlockType>UnbreakableBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>9</Length>
+				<Height>8</Height>
+				<XLocation>704</XLocation>
+				<YLocation>818</YLocation>
+			</BlockXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>Flag</BackgroundType>
+				<XLocation>1240</XLocation>
+				<YLocation>515</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>Castle</BackgroundType>
+				<XLocation>1440</XLocation>
+				<YLocation>510</YLocation>
+			</BackgroundXML>
+
+
+			<BackgroundXML>
+				
+				<BackgroundType>MountainBig</BackgroundType>
+				<XLocation>2590</XLocation>
+				<YLocation>780</YLocation>
+			</BackgroundXML>
+
+			<BackgroundXML>
+				
+				<BackgroundType>CloudSingle</BackgroundType>
+				<XLocation>2340</XLocation>
+				<YLocation>40</YLocation>
+			</BackgroundXML>
+
+			
+	</chunk>
+	<chunk id="6" type="underground">
+		<content>
+			<BlockXML>
+				
+				<BlockType>FloorBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>30</Length>
+				<Height>2</Height>
+				<XLocation>17000</XLocation>
+				<YLocation>850</YLocation>
+			</BlockXML>
+
+			<PipeXML>
+				
+				<BlockType>Pipe</BlockType>
+				<IsToUnderground>True</IsToUnderground>
+				<XLocation>18000</XLocation>
+				<YLocation>800</YLocation>
+			</PipeXML>
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>17650</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+			<EnemyXML>
+				
+				<EnemyType>Goomba</EnemyType>
+				<XLocation>17750</XLocation>
+				<YLocation>810</YLocation>
+			</EnemyXML>
+
+			<EnemyXML>
+				
+				<EnemyType>Koopa</EnemyType>
+				<XLocation>17530</XLocation>
+				<YLocation>818</YLocation>
+			</EnemyXML>
+
+
+
+
+
+
+			<ItemXML>
+				
+				<GameObjectType>UnderGroundCoin</GameObjectType>
+				<XLocation>17760</XLocation>
+				<YLocation>500</YLocation>
+			</ItemXML>
+
+			<ItemXML>
+				
+				<GameObjectType>UnderGroundCoin</GameObjectType>
+				<XLocation>17560</XLocation>
+				<YLocation>500</YLocation>
+			</ItemXML>
+
+			<BlockXML>
+				
+				<BlockType>BrickBlockState</BlockType>
+				<ItemContains>None</ItemContains>
+				<Length>30</Length>
+				<Height>2</Height>
+				<XLocation>17660</XLocation>
+				<YLocation>700</YLocation>
+			</BlockXML>
+
+		</content>
+	</chunk>
+</Map>
