@@ -40,7 +40,7 @@ namespace Mario.HeadUpDesign
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            int marioTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5);
+            int marioTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (HUDUtil.offset * HUDUtil.Double /HUDUtil.five);
             marioTitleTextSprite.Location = new Vector2(marioTitleTextX, HUDUtil.distance);
             marioTitleTextSprite.Draw(spriteBatch);
 
@@ -48,17 +48,17 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.Location = new Vector2(scoreTextX, HUDUtil.distanceOfSecRowText);
             scoreTextSprite.Draw(spriteBatch);
 
-            int coinTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText*6;
+            int coinTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (HUDUtil.offset * HUDUtil.Double / HUDUtil.five) + HUDUtil.distanceOfSecRowText*6;
             coinTextSprite.Location = new Vector2(coinTextX, HUDUtil.distanceOfSecRowText);
 
 
             ISprite CoinSprite = SpriteFactory.Instance.CreateSprite(ItemFactory.Instance.GetSpriteDictionary[typeof(Coin)]);
             coinTextSprite.Draw(spriteBatch);
-            Vector2 coinSpriteLocation = new Vector2(coinTextSprite.Location.X - 32, coinTextSprite.Location.Y);
+            Vector2 coinSpriteLocation = new Vector2(coinTextSprite.Location.X - HUDUtil.textOffset, coinTextSprite.Location.Y);
             CoinSprite.Draw(spriteBatch, coinSpriteLocation);
 
 
-            int worldTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText * 12;
+            int worldTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (HUDUtil.offset * HUDUtil.Double / HUDUtil.five) + HUDUtil.distanceOfSecRowText * HUDUtil.distance;
             worldTitleTextSprite.Location = new Vector2(worldTitleTextX, HUDUtil.distance);
             worldTitleTextSprite.Draw(spriteBatch);
 
@@ -66,7 +66,7 @@ namespace Mario.HeadUpDesign
             worldTextSprite.Location = new Vector2(worldTextX, HUDUtil.distanceOfSecRowText);
             worldTextSprite.Draw(spriteBatch);
 
-            int timeTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (450 * 2 / 5) + HUDUtil.distanceOfSecRowText * 18;
+            int timeTitleTextX = (int)GameObjectManager.Instance.CameraMario.Location.X + (HUDUtil.offset * HUDUtil.Double / HUDUtil.five) + HUDUtil.distanceOfSecRowText * HUDUtil.titleDistance;
             timeTitleTextSprite.Location = new Vector2(timeTitleTextX, HUDUtil.distance);
             timeTitleTextSprite.Draw(spriteBatch);
 

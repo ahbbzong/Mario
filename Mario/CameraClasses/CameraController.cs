@@ -8,7 +8,7 @@ namespace Mario.CameraClasses
 	internal class CameraController : ICameraController
     {
         private ICamera camera;
-        private int count = 0;
+        private int count = CameraUtil.zero;
 
         public CameraController(ICamera cameraInput)
         {
@@ -30,10 +30,10 @@ namespace Mario.CameraClasses
             }
             if (miniBoss.Position.X < camera.Location.X + CameraUtil.resolutionWidth&& miniBoss.Position.X> camera.Location.X)
             {
-                    if (count % 2 == 0)
-                        camera.MoveUp(CameraUtil.cameraFive * 2);
+                    if (count % CameraUtil.IsEven == CameraUtil.zero)
+                        camera.MoveUp(CameraUtil.cameraFive * CameraUtil.IsEven);
                     else
-                        camera.MoveDown(CameraUtil.cameraFive * 2);
+                        camera.MoveDown(CameraUtil.cameraFive * CameraUtil.IsEven);
             }
 
             camera.InnerBox = new Rectangle((int)camera.Location.X-CameraUtil.cameraTen, (int)marioPosition.Y, CameraUtil.cameraTen, CameraUtil.cameraFourHundred);

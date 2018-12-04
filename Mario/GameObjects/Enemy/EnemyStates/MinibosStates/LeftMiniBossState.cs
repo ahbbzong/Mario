@@ -9,7 +9,7 @@ namespace Mario.EnemyStates.GoombaStates
         int delay;
         public LeftMiniBossState(IEnemy enemy):base(enemy)
         {
-            delay = 0;
+            delay = EnemyUtil.DelayInitial;
         }
         public override void Beflipped()
         {
@@ -25,10 +25,10 @@ namespace Mario.EnemyStates.GoombaStates
                 Enemy.gravityManagement.Update();
             }
 
-            if (delay == 100)
+            if (delay == EnemyUtil.DelayRange)
             {
                GameObjectManager.Instance.GameObjectList.Add(new Goomba(Enemy.Position));
-                delay = 0;
+                delay = EnemyUtil.DelayInitial;
             }
             delay++;
         }

@@ -220,7 +220,6 @@ namespace Mario.Collections
 						{
 							return false;
 						}
-						//what is the state of this on failure? Probably last count of last list, -1?
 						currentIndex = gameObjectListsByType[(gameObjectTypesEnumerator.Current.Key)].Count;
 					}
 				}while (hasNext);
