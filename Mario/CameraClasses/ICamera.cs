@@ -10,6 +10,8 @@ namespace Game1
         void ResetCameraLocation(Rectangle box);
         void MoveRight(float move);
         bool IsOffSideOfScreen(Rectangle box);
+        void MoveUp(float move);
+        void MoveDown(float move);
 
         bool IsOffTopOrBottomOfScreen(Rectangle box);
        

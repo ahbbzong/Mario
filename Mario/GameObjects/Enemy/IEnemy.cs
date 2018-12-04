@@ -1,9 +1,12 @@
 ﻿using Mario.Interfaces.GameObjects;
+using Microsoft.Xna.Framework;
+
 namespace Game1
 {
 	public interface IEnemy: IGameObject, IPhysicsBody
     {
         bool KoopaStompedCounted { get; set; }
+        Vector2 EnemyLocation { get;  }
         void Beflipped();
         void BeStomped();
 
