@@ -31,7 +31,7 @@ namespace Mario.HeadUpDesign
             worldTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             worldTitleTextSprite.Text = "WORLD";
             worldTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
-            worldTextSprite.Text = "1-1";
+            worldTextSprite.Text = fixText("1 - " + LevelCounter.Instance.Level, HUDUtil.levelLength);
             timeTitleTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
             timeTitleTextSprite.Text = "TIME";
             timeTextSprite = TextSpriteFactory.Instance.CreateNormalFontTextSpriteSprite();
@@ -80,6 +80,7 @@ namespace Mario.HeadUpDesign
             scoreTextSprite.Text = fixText("" + ScoringSystem.Instance.Score,HUDUtil.scoreLength);
             coinTextSprite.Text = "*" + fixText("" + CoinSystem.Instance.Coins,HUDUtil.coinLength);
             timeTextSprite.Text = fixText("" + Timer.Time,HUDUtil.timeLength);
+            worldTextSprite.Text = fixText("1 - " + LevelCounter.Instance.Level, HUDUtil.levelLength);
         }
 
         private static String fixText(String str, int length)
