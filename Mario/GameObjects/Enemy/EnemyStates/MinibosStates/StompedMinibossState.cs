@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.AbstractClass;
 using Mario.GameObjects;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,6 +12,7 @@ namespace Mario.EnemyStates.GoombaStates
         int count = EnemyUtil.goombaAppear;
         public StompedMiniBossState(IEnemy enemy) :base(enemy)
         {
+           
         }
 
         public override void Update()

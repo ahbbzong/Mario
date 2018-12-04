@@ -1,6 +1,7 @@
 ﻿using Game1;
 using Mario.AbstractClass;
 using Mario.EnemyClasses;
+using Mario.HeadUpDesign;
 using Microsoft.Xna.Framework;
 namespace Mario.EnemyStates.GoombaStates
 {
@@ -14,7 +15,8 @@ namespace Mario.EnemyStates.GoombaStates
         public override void Beflipped()
         {
             Enemy.EnemyState = new StompedMiniBossState(Enemy);
-
+            Timer.ExtendTime(TimerUtil.Ten);
+            FloatingTimeBar.CreateNewTimeAnimation(Enemy, TimerUtil.Ten * TimerUtil.ExtentTime);
         }
 
         public override void Update()

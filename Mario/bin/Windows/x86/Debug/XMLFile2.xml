@@ -682,26 +682,7 @@
 				<XLocation>10</XLocation>
 				<YLocation>810</YLocation>
 			</EnemyXML>
-			<EnemyXML>
-				
-				<EnemyType>Goomba</EnemyType>
-				<XLocation>40</XLocation>
-				<YLocation>810</YLocation>
-			</EnemyXML>
-			<EnemyXML>
-				
-				<EnemyType>Goomba</EnemyType>
-				<XLocation>70</XLocation>
-				<YLocation>810</YLocation>
-			</EnemyXML>
-
-			<EnemyXML>
-				
-				<EnemyType>Goomba</EnemyType>
-				<XLocation>1070</XLocation>
-				<YLocation>810</YLocation>
-			</EnemyXML>
-
+		
 			<BlockXML>
 				
 				<BlockType>QuestionBlockState</BlockType>
@@ -895,43 +876,43 @@
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
         <ItemContains>None</ItemContains>
-        <XLocation>64</XLocation>
+        <XLocation>264</XLocation>
          <YLocation>618</YLocation>
       </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>96</XLocation>
+      <XLocation>296</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>128</XLocation>
+      <XLocation>328</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>160</XLocation>
+      <XLocation>360</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>192</XLocation>
+      <XLocation>392</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>224</XLocation>
+      <XLocation>424</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
     <BlockXML>
       <BlockType>QuestionBlockState</BlockType>
       <ItemContains>None</ItemContains>
-      <XLocation>256</XLocation>
+      <XLocation>456</XLocation>
       <YLocation>618</YLocation>
     </BlockXML>
 
@@ -939,7 +920,7 @@
 
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>32</XLocation>
+      <XLocation>432</XLocation>
       <YLocation>800</YLocation>
     </PipeXML>
     <PipeXML>
@@ -953,50 +934,30 @@
 
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>332</XLocation>
+      <XLocation>532</XLocation>
       <YLocation>750</YLocation>
     </PipeXML>
     <PipeXML>
 
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>432</XLocation>
+      <XLocation>1032</XLocation>
       <YLocation>740</YLocation>
     </PipeXML>
     
     <EnemyXML>
       <EnemyType>Goomba</EnemyType>
-      <XLocation>64</XLocation>
+      <XLocation>264</XLocation>
+      <YLocation>586</YLocation>
+    </EnemyXML>
+    <EnemyXML>
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>296</XLocation>
       <YLocation>586</YLocation>
     </EnemyXML>
     <EnemyXML>
       <EnemyType>Goomba</EnemyType>
-      <XLocation>96</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>128</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>160</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>192</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>224</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>256</XLocation>
+      <XLocation>392</XLocation>
       <YLocation>586</YLocation>
     </EnemyXML>
 
@@ -1101,115 +1062,152 @@
   </chunk>
   
   <chunk id="6" type="overworld">
+    <BackgroundXML>
 
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>64</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>96</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>128</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>160</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>192</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>224</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
-    <BlockXML>
-      <BlockType>QuestionBlockState</BlockType>
-      <ItemContains>None</ItemContains>
-      <XLocation>256</XLocation>
-      <YLocation>618</YLocation>
-    </BlockXML>
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>20</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
 
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>220</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>440</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>640</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>840</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>1040</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>20</XLocation>
+      <YLocation>220</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>220</XLocation>
+      <YLocation>220</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>420</XLocation>
+      <YLocation>420</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>620</XLocation>
+      <YLocation>330</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>820</XLocation>
+      <YLocation>430</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>1020</XLocation>
+      <YLocation>320</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>1220</XLocation>
+      <YLocation>500</YLocation>
+    </BackgroundXML>
+    
     <PipeXML>
-
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>32</XLocation>
+      <XLocation>432</XLocation>
       <YLocation>800</YLocation>
     </PipeXML>
+    
     <PipeXML>
-
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
       <XLocation>132</XLocation>
       <YLocation>800</YLocation>
     </PipeXML>
+    
     <PipeXML>
-
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>332</XLocation>
+      <XLocation>1032</XLocation>
       <YLocation>750</YLocation>
     </PipeXML>
+    
     <PipeXML>
-
       <BlockType>Pipe</BlockType>
       <IsToUnderground>False</IsToUnderground>
-      <XLocation>432</XLocation>
+      <XLocation>1230</XLocation>
       <YLocation>740</YLocation>
     </PipeXML>
-
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>64</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>96</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>128</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>160</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
-    <EnemyXML>
-      <EnemyType>Goomba</EnemyType>
-      <XLocation>192</XLocation>
-      <YLocation>586</YLocation>
-    </EnemyXML>
+    
+    
+    
     <EnemyXML>
       <EnemyType>Goomba</EnemyType>
       <XLocation>224</XLocation>
-      <YLocation>586</YLocation>
+      <YLocation>810</YLocation>
+    </EnemyXML>
+    
+    <EnemyXML>
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>256</XLocation>
+      <YLocation>810</YLocation>
     </EnemyXML>
     <EnemyXML>
       <EnemyType>Goomba</EnemyType>
-      <XLocation>256</XLocation>
-      <YLocation>586</YLocation>
+      <XLocation>900</XLocation>
+      <YLocation>810</YLocation>
     </EnemyXML>
 
+    <EnemyXML>
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>800</XLocation>
+      <YLocation>810</YLocation>
+    </EnemyXML>
+    
+  </chunk>
+  <chunk id="7" type="overworld">
     <BackgroundXML>
 
       <BackgroundType>BushTriple</BackgroundType>
@@ -1301,14 +1299,83 @@
       <YLocation>500</YLocation>
     </BackgroundXML>
 
-    <BackgroundXML>
+    <BlockXML>
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>500</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
 
-      <BackgroundType>CloudSingle</BackgroundType>
-      <XLocation>1220</XLocation>
-      <YLocation>818</YLocation>
-    </BackgroundXML>
-  </chunk>
-  <chunk id="7" type="overworld">
+    <BlockXML>
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>800</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+    <BlockXML>
+      <BlockType>BrickBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>832</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+    <BlockXML>
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>864</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+    <BlockXML>
+      <BlockType>BrickBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>896</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+    <BlockXML>
+      <BlockType>QuestionBlockState</BlockType>
+      <ItemContains>None</ItemContains>
+      <XLocation>928</XLocation>
+      <YLocation>700</YLocation>
+    </BlockXML>
+
+    <PipeXML>
+
+      <BlockType>Pipe</BlockType>
+      <IsToUnderground>False</IsToUnderground>
+      <XLocation>1000</XLocation>
+      <YLocation>800</YLocation>
+    </PipeXML>
+    <PipeXML>
+
+      <BlockType>Pipe</BlockType>
+      <IsToUnderground>False</IsToUnderground>
+      <XLocation>1200</XLocation>
+      <YLocation>732</YLocation>
+    </PipeXML>
+
+    <EnemyXML>
+
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>330</XLocation>
+      <YLocation>810</YLocation>
+    </EnemyXML>
+
+    <EnemyXML>
+
+      <EnemyType>Goomba</EnemyType>
+      <XLocation>530</XLocation>
+      <YLocation>810</YLocation>
+    </EnemyXML>
+
+
+    <EnemyXML>
+
+      <EnemyType>Koopa</EnemyType>
+      <XLocation>1100</XLocation>
+      <YLocation>810</YLocation>
+    </EnemyXML>
+
+
+
 
   </chunk>
   
@@ -1359,19 +1426,6 @@
       <XLocation>960</XLocation>
       <YLocation>532</YLocation>
     </EnemyXML>
-			<EnemyXML>
-				
-				<EnemyType>Goomba</EnemyType>
-				<XLocation>30</XLocation>
-				<YLocation>810</YLocation>
-			</EnemyXML>
-
-			<EnemyXML>
-				
-				<EnemyType>Koopa</EnemyType>
-				<XLocation>40</XLocation>
-				<YLocation>818</YLocation>
-			</EnemyXML>
 
 			<EnemyXML>
 				
@@ -1401,9 +1455,17 @@
 				
 				<BlockType>Pipe</BlockType>
 				<IsToUnderground>False</IsToUnderground>
-				<XLocation>128</XLocation>
+				<XLocation>728</XLocation>
 				<YLocation>800</YLocation>
 			</PipeXML>
+
+      <BlockXML>
+
+        <BlockType>BrickBlockState</BlockType>
+        <ItemContains>None</ItemContains>
+        <XLocation>88</XLocation>
+        <YLocation>700</YLocation>
+      </BlockXML>
 
 			<BlockXML>
 				
@@ -1441,23 +1503,7 @@
 				<YLocation>818</YLocation>
 			</BackgroundXML>
 
-			<PipeXML>
-				
-				<BlockType>Pipe</BlockType>
-				<IsToUnderground>False</IsToUnderground>
-				<XLocation>640</XLocation>
-				<YLocation>800</YLocation>
-			</PipeXML>
-
-			-<BlockXML>
-				
-				<BlockType>UnbreakableBlockState</BlockType>
-				<ItemContains>None</ItemContains>
-				<Length>9</Length>
-				<Height>8</Height>
-				<XLocation>704</XLocation>
-				<YLocation>818</YLocation>
-			</BlockXML>
+			
 
 			<BackgroundXML>
 				
@@ -1487,7 +1533,117 @@
 				<XLocation>2340</XLocation>
 				<YLocation>40</YLocation>
 			</BackgroundXML>
+       <BackgroundXML>
 
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>20</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>220</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>440</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>640</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>840</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>BushTriple</BackgroundType>
+      <XLocation>1040</XLocation>
+      <YLocation>818</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>20</XLocation>
+      <YLocation>220</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>220</XLocation>
+      <YLocation>220</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>420</XLocation>
+      <YLocation>420</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>620</XLocation>
+      <YLocation>330</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>820</XLocation>
+      <YLocation>430</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>1020</XLocation>
+      <YLocation>320</YLocation>
+    </BackgroundXML>
+
+    <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>1220</XLocation>
+      <YLocation>500</YLocation>
+    </BackgroundXML>
+
+      <BackgroundXML>
+
+        <BackgroundType>CloudSingle</BackgroundType>
+        <XLocation>1220</XLocation>
+        <YLocation>500</YLocation>
+      </BackgroundXML>
+
+      <BackgroundXML>
+
+        <BackgroundType>CloudSingle</BackgroundType>
+        <XLocation>1220</XLocation>
+        <YLocation>500</YLocation>
+      </BackgroundXML>
+      
+       <BackgroundXML>
+
+      <BackgroundType>CloudSingle</BackgroundType>
+      <XLocation>1220</XLocation>
+      <YLocation>500</YLocation>
+    </BackgroundXML>
 			
 	</chunk>
 	<chunk id="9" type="underground">
