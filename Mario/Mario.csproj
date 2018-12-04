@@ -42,6 +42,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="bin\Windows\x86\Debug\XMLFile2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Compile Include="Collections\GameObjectList.cs" />
     <Compile Include="GameObjects\Enemy\EnemyClasses\MiniBoss.cs" />
     <Compile Include="GameObjects\Enemy\EnemyStates\MinibosStates\StompedMiniBossState.cs" />
@@ -239,6 +242,7 @@
     <Compile Include="Sprite\TextSprites\TextSprite.cs" />
     <Compile Include="XMLRead\BackgroundXML.cs" />
     <Compile Include="XMLRead\BlockXML.cs" />
+    <Compile Include="XMLRead\ChunkXML.cs" />
     <Compile Include="XMLRead\EnemyXML.cs" />
     <Compile Include="GameObjectManager.cs" />
     <Compile Include="XMLRead\ItemXML.cs" />
