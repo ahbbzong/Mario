@@ -221,7 +221,7 @@ namespace Mario.Collections
 		{
 			
 			private int currentIndex;
-			private Type type;
+			private readonly Type type;
 
 			public GameObjectEnumeratorByType( Type type)
 			{
