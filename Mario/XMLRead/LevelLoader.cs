@@ -123,6 +123,9 @@ namespace Mario.XMLRead
 
 			chunkNode = levelFile.SelectSingleNode("//chunk[@type='start']");
 			offset = AddChunkToLevel(chunkNode, offset);
+
+			chunkNode = levelFile.SelectSingleNode("//chunk[@type='underground']");
+			AddChunkToLevel(chunkNode, LevelLoaderUtil.zero);
 		}
 		public static IList<IGameObject> LoadPipe(XmlNode chunkNode, int findOffSet)
         {

@@ -846,6 +846,11 @@
 	</chunk>
 	<chunk id="5" type="end">
 
+    <EnemyXML>
+      <EnemyType>MiniBoss</EnemyType>
+      <XLocation>960</XLocation>
+      <YLocation>532</YLocation>
+    </EnemyXML>
 			<EnemyXML>
 				
 				<EnemyType>Goomba</EnemyType>
@@ -986,7 +991,7 @@
 	<chunk id="6" type="underground">
 		<content>
 			<BlockXML>
-				
+       
 				<BlockType>FloorBlockState</BlockType>
 				<ItemContains>None</ItemContains>
 				<Length>30</Length>
