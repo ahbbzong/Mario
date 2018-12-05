@@ -19,6 +19,7 @@ namespace Mario.MarioStates.MarioPowerupStates
 		{
 			Mario.BeNormal();
             Timer.ExtendTime(TimerUtil.Two);
+            Timer.SetTimeRunning(true);
             FloatingTimeBar.CreateNewTimeAnimation(Mario, TimerUtil.Two * TimerUtil.ExtentTime);
         }
     }

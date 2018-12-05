@@ -3,6 +3,7 @@ using Mario.AbstractClass;
 using Mario.BlockStates;
 using Mario.Enums;
 using Mario.Factory;
+using Mario.GameObjects.Projectile;
 using Mario.ItemClasses;
 using Mario.Sound;
 using Microsoft.Xna.Framework;
@@ -12,11 +13,10 @@ namespace Mario.Items
 {
     public class FireballState : ProjectileState
     {
-        int count;
+        int count = ProjectileUtil.zero;
 
         public FireballState(IProjectile fireball) : base(fireball)
         {
-            count = 0;
             ProjectileSprite = SpriteFactory.Instance.CreateSprite(ProjectileFactory.Instance.GetSpriteDictionary[fireball.GetType()]);
         }
         public override void React()
@@ -26,7 +26,7 @@ namespace Mario.Items
         public override void Update()
         {
             count++;
-            if (count == 200)
+            if (count == ProjectileUtil.limited)
             {
                 GameObjectManager.Instance.GameObjectList.Remove(Projectile);
             }

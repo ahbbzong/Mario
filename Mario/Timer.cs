@@ -33,7 +33,13 @@ namespace Mario
         {
             timeRunning = false;
         }
-
+        public static void SetTimeRunning(bool flag)
+        {
+            if (flag)
+                timeRunning = true;
+            else
+                timeRunning = false;
+        }
         public static void TimerCheckingTime(GameTime gameTime)
         {
                 if (timeRunning)
@@ -46,8 +52,9 @@ namespace Mario
                     }
                     if (Time == TimerUtil.Zero && (!GameObjectManager.Instance.Mario.IsAtEnd()))
                     {
+                        ResetTimer();
                         GameObjectManager.Instance.Mario.TakeDamage();
-                        timeRunning = false;
+                        
                     }
                 }
         }
