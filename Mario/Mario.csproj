@@ -289,9 +289,6 @@
     <Content Include="CodeReview\Sprint6\CodeReview_JiWoongKim1.txt" />
     <Content Include="CodeReview\Sprint6\README.txt" />
     <Content Include="Icon.ico" />
-    <Content Include="bin\Windows\x86\Debug\XMLFile1.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
