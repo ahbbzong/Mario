@@ -306,6 +306,7 @@ namespace Mario.XMLRead
 			return null;
 		}
         //move to somewhere else late
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
         public List<int> RandomNumber()
         {
