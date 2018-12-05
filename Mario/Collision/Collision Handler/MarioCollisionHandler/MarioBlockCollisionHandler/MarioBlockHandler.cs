@@ -46,7 +46,7 @@ namespace Mario.Collision.MarioCollisionHandler.MarioBlockCollisionHandler
         }
         public void MarioLandHandling(IMario mario)
         {
-            if (mario.MarioMovementState.IsJumping())
+            if (mario.IsJump())
             {
                 if (mario.Physics.XVelocityResponse() >= CollisionUtil.marioMinVelocity)
                 {

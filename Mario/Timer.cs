@@ -54,9 +54,8 @@ namespace Mario
                     {
                         ResetTimer();
                         GameObjectManager.Instance.Mario.TakeDamage();
-                        
-                    }
                 }
+            }
         }
       
         public static void ExtendTime(int multiplyTime)

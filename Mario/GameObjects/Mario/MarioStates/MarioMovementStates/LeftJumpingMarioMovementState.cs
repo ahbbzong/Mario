@@ -26,9 +26,6 @@ namespace Mario.MarioStates.MarioMovementStates
             //No need to right
         }
 
-		public override bool IsJumping()
-		{
-			return true;
-		}
+		
 	}
 }

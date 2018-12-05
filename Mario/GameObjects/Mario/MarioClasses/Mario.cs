@@ -244,7 +244,18 @@ namespace Mario
         {
             Fall = fallState;
         }
-     
-       
+
+        public bool IsJump()
+        {
+            if (MarioMovementState is LeftJumpingMarioMovementState||
+                MarioMovementState is RightJumpingMarioMovementState)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

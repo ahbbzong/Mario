@@ -29,10 +29,7 @@ namespace Mario.MarioStates.MarioMovementStates
         {
             return true;
         }
-        public virtual bool IsJumping()
-        {
-            return false;
-        }
+     
         public virtual void GoLeft()
         {
             mario.Physics.MoveLeft();

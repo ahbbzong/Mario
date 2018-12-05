@@ -12,6 +12,7 @@ namespace Game1
         bool IsStarMario();
         bool IsActive();
         bool IsAtEnd();
+        bool IsJump();
         void ThrowProjectile();
         MarioMovementState MarioMovementState { get; set; }
         MarioPowerupState MarioPowerupState { get; set; }

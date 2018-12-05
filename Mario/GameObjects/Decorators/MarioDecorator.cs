@@ -127,6 +127,9 @@ namespace Mario.GameObjects.Decorators
             return DecoratedMario.IsAtEnd();
         }
 
-      
+        public bool IsJump()
+        {
+            return DecoratedMario.IsJump();
+        }
     }
 }
