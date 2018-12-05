@@ -12,7 +12,7 @@ D - Move Right
 Z - Jump
 X - Run/Fire
 
-esc - Quit Game
+esc,Q - Quit Game
 T - Pause Game
 R - Reset Game
 
